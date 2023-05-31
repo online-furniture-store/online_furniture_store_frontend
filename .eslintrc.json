@@ -1,0 +1,33 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "react-app",
+        "react-app/jest",
+        "airbnb"
+    ],
+    "overrides": [
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },   
+    "rules": {
+        "react/jsx-props-no-spreading": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-indent": "off",
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "jsx-a11y/label-has-associated-control": ["error", { "assert": "either" } ],
+        "default-param-last": "off",
+        "indent": "off",
+        "no-tabs": "off",
+        "react/require-default-props": "off",
+        "import/prefer-default-export": "off",
+        "react/no-array-index-key": "off"
+    }
+}
