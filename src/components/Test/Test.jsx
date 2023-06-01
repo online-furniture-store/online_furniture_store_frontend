@@ -1,9 +1,20 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { getOddPosts } from '../../services/actions/commonActions';
 
 function Test() {
-	const test = useSelector((store) => store.commonReducer.test);
+	const { cartCounter, posts, oddPosts } = useSelector((store) => store.commonReducer);
+	const dispatch = useDispatch();
+	console.log('oddPosts', oddPosts);
 
-	return <h1>{test}</h1>;
+	return (
+		<>
+			<h1>{cartCounter}</h1>
+			<button type="button" onClick={() => dispatch(getOddPosts())}>button</button>
+			{posts && posts.map(({ title, id }) => (
+				<h1 key={id}>{title}</h1>
+			))}
+		</>
+	);
 }
 
 export default Test;
