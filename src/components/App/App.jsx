@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import AppStyles from './App.module.css';
+import styles from './App.module.css';
 import Test from '../Test/Test';
 import { testAction, getPosts } from '../../services/actions/commonActions';
 
@@ -13,7 +13,7 @@ function App() {
 	}, [dispatch]);
 
 	return (
-		<div className={AppStyles.App}>
+		<div className={styles.App}>
 			<Test />
 		</div>
 	);
