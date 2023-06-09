@@ -1,0 +1,23 @@
+.circle{
+    background-color: #E80A0A;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    color: white;
+    position: absolute;
+    top:-5px;
+    right: -7px;
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 12px;
+    line-height:14.52px;
+    padding-top: 3px;
+    box-sizing: border-box;
+
+}
+
+.heart{
+    position: relative;
+    width: 40px;
+    height: 40px;
+}

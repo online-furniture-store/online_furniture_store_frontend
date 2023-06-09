@@ -11,11 +11,15 @@ export default function Counter() {
     const increaseNumber = () => {
         const secondValue = value + 1;
         setValue(secondValue);
+        // eslint-disable-next-line no-unused-expressions
+        secondValue < 9 ? setValue(secondValue) : setValue(value);
     };
 
     const decreaseNumber = () => {
         const secondValue = value - 1;
         setValue(secondValue);
+        // eslint-disable-next-line no-unused-expressions
+        secondValue > -1 ? setValue(secondValue) : setValue(value);
     };
 
     return (
