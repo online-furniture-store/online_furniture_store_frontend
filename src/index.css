@@ -1,6 +1,5 @@
-@import url(../src/vendor/fonts.css);
+@import url(./vendor/fonts.css);
 @import url(./vendor/normalize.css);
-
 
 body {
   margin: 0;
@@ -12,4 +11,14 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+:root {
+	--main-white: #FFFFFF;
+	--main-black: #000000;
+	--text-black: #202020;
+	--cream: #E3DBD2;
+	--system-red: #E80A0A;
+	--system-green: #4FAD50;
+	--element-gray: #999999;
 }
