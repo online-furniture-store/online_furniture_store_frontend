@@ -2,9 +2,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getOddPosts } from '../../services/actions/commonActions';
 
 function Test() {
-	const { cartCounter, posts, oddPosts } = useSelector((store) => store.commonReducer);
+	const { cartCounter, posts } = useSelector((store) => store.commonReducer);
 	const dispatch = useDispatch();
-	console.log('oddPosts', oddPosts);
 
 	return (
 		<>
