@@ -2,23 +2,24 @@
 @import url(./vendor/normalize.css);
 
 body {
-  margin: 0;
-  font-family: 'Helvetica', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	font-family: 'Helvetica', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 :root {
-	--main-white: #FFFFFF;
+	--main-white: #ffffff;
 	--main-black: #000000;
 	--text-black: #202020;
-	--cream: #E3DBD2;
-	--system-red: #E80A0A;
-	--system-green: #4FAD50;
+	--cream: #e3dbd2;
+	--system-red: #e80a0a;
+	--system-green: #4fad50;
 	--element-gray: #999999;
+	--element-dark-gray: #444444;
+	--element-light: #dedede;
 }

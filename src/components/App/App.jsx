@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import AppStyles from './App.module.css';
+import styles from './App.module.css';
 import { testAction, getPosts } from '../../services/actions/commonActions';
 import FastDeliveryCard from '../FastDeliveryCard/FastDeliveryCard';
 
@@ -13,7 +13,8 @@ function App() {
 	}, [dispatch]);
 
 	return (
-		<div className={AppStyles.App}>
+
+		<div className={styles.App}>
 			{/* demo */}
 			<FastDeliveryCard
 				img=" "
