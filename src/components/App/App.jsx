@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import AppStyles from './App.module.css';
-import Test from '../Test/Test';
 import { testAction, getPosts } from '../../services/actions/commonActions';
+import FastDeliveryCard from '../FastDeliveryCard/FastDeliveryCard';
 
 function App() {
 	const dispatch = useDispatch();
@@ -14,7 +14,13 @@ function App() {
 
 	return (
 		<div className={AppStyles.App}>
-			<Test />
+			{/* demo */}
+			<FastDeliveryCard
+				img=" "
+				isFastDelivery="true"
+				title="Сталлаж Single office"
+				price="25 990"
+			/>
 		</div>
 	);
 }
