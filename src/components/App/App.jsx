@@ -2,7 +2,8 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import styles from './App.module.css';
 import { testAction, getPosts } from '../../services/actions/commonActions';
-import FastDeliveryCard from '../FastDeliveryCard/FastDeliveryCard';
+// import FastDeliveryCard from '../FastDeliveryCard/FastDeliveryCard';
+import Test from '../Test/Test';
 
 function App() {
 	const dispatch = useDispatch();
@@ -13,15 +14,15 @@ function App() {
 	}, [dispatch]);
 
 	return (
-
 		<div className={styles.App}>
 			{/* demo */}
-			<FastDeliveryCard
+			{/* <FastDeliveryCard
 				img=" "
 				isFastDelivery="true"
 				title="Сталлаж Single office"
 				price="25 990"
-			/>
+			/> */}
+			<Test />
 		</div>
 	);
 }
