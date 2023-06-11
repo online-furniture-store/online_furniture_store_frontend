@@ -1,0 +1,48 @@
+.inputContainer {
+  display: flex;
+  position: relative;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.input {
+  width: 315px;
+  height: 37px;
+  background: var(--text-black);
+  color: var(--main-white);
+  border: 1px solid var(--element-light);
+  border-radius: 20px;
+  padding: 8px 34px 8px 14px;
+  box-sizing: border-box;
+}
+
+.input:focus {
+  border: 1.5px solid var(--main-white);
+}
+
+.item {
+  width: 21px;
+  height: 21px;
+  position: absolute;
+  top: 8px;
+  left: 283px;
+  background-image: url(../../../assets//img/go-right.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 2px;
+}
+
+::-webkit-input-placeholder {
+  color: var(--main-white);
+}
+::-moz-placeholder {
+  color: var(--main-white);
+}
+:-moz-placeholder {
+  color: var(--main-white);
+}
+:-ms-input-placeholder {
+  color: var(--main-white);
+}
