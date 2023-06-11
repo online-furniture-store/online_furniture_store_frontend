@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styles from './AddToCartButton.module.css';
-import checkMark from '../../../assets/img/check-mark.png';
+import checkMark from '../../../assets/img/check-mark.svg';
 
 function AddToCartButton() {
 	const [isAdded, setIsAdded] = useState(false);
