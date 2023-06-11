@@ -20,6 +20,8 @@
     "rules": {
         "react/jsx-props-no-spreading": "off",
         "react/react-in-jsx-scope": "off",
+        "linebreak-style": 0,
+        "operator-linebreak": "off",
         "jsx-a11y/control-has-associated-label": "off",
         "react/jsx-indent": "off",
         "object-curly-newline": "off",
