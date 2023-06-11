@@ -1,18 +1,53 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { getOddPosts } from '../../services/actions/commonActions';
+import { useEffect, useState } from 'react';
+import DiscountCard from '../UI/DiscountCard/DiscountCard';
+import image from '../../assets/img/3.png';
 
 function Test() {
-	const { cartCounter, posts } = useSelector((store) => store.commonReducer);
-	const dispatch = useDispatch();
+	const [isLike, setIsLike] = useState(false);
+	const [isSale, setSale] = useState(true);
+	const onLikeClick = () => {
+		setIsLike(!isLike);
+	};
+
+	// useEffect ниже для будущей проверки с запроса,
+	// если из базы данных придут результаты, что товар в распродаже,
+	// значит нужно поставить иконку, если нет, то не нужно
+	// const a вместо нашего запроса из базы данных
+
+	useEffect(() => {
+		const a = true;
+		if (a === true) {
+			setSale(true);
+		} else {
+			setSale(false);
+		}
+	});
+
+	const data = {
+		title: 'Диван Cozy Office Gray',
+		newPrice: 42990,
+		oldPrice: 49990,
+		img: { image },
+		existense: 71,
+		weight: 20,
+		load: 100,
+		material: 'Экокожа',
+	};
 
 	return (
-		<>
-			<h1>{cartCounter}</h1>
-			<button type="button" onClick={() => dispatch(getOddPosts())}>button</button>
-			{posts && posts.map(({ title, id }) => (
-				<h1 key={id}>{title}</h1>
-			))}
-		</>
+		<DiscountCard
+			likeActive={isLike}
+			onLikeClick={onLikeClick}
+			img={image}
+			title={data.title}
+			newPrice={data.newPrice}
+			oldPrice={data.oldPrice}
+			isSale={isSale}
+			existense={data.existense}
+			weight={data.weight}
+			load={data.load}
+			material={data.material}
+		/>
 	);
 }
 
