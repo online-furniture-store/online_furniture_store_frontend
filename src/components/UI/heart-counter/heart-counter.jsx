@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styles from './heart-counter.module.css';
 import heart from '../../../assets/img/heart.svg';
 
@@ -11,3 +12,7 @@ function HeartCounter({ amount }) {
 }
 
 export default HeartCounter;
+
+HeartCounter.propTypes = {
+	amount: PropTypes.number.isRequired,
+};

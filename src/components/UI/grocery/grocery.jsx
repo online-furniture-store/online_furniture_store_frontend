@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styles from './grocery.module.css';
 import grosery from '../../../assets/img/grocery.svg';
 
@@ -11,3 +12,7 @@ function Grosery({ amount }) {
 }
 
 export default Grosery;
+
+Grosery.propTypes = {
+	amount: PropTypes.number.isRequired,
+};

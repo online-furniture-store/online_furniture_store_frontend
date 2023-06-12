@@ -1,10 +1,13 @@
+import PropTypes from 'prop-types';
 import styles from './counter.module.css';
 import minusActive from '../../../assets/img/minus.svg';
 import minusDisabled from '../../../assets/img/minus-disabled.svg';
 import plus from '../../../assets/img/plus.svg';
 import plusDisabled from '../../../assets/img/plus-disabled.svg';
 
-function Counter({ increaseFunction, decreaseFunction, count, amount }) {
+function Counter({
+ increaseFunction, decreaseFunction, count, amount,
+}) {
 	return (
 		<div className={styles.counter}>
 			<button onClick={decreaseFunction} className={styles.button} type="button">
@@ -27,3 +30,10 @@ function Counter({ increaseFunction, decreaseFunction, count, amount }) {
 }
 
 export default Counter;
+
+Counter.propTypes = {
+	increaseFunction: PropTypes.func.isRequired,
+	decreaseFunction: PropTypes.func.isRequired,
+	count: PropTypes.number.isRequired,
+	amount: PropTypes.number.isRequired,
+};
