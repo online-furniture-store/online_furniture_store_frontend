@@ -4,7 +4,7 @@ import styles from './Like.module.css';
 function Like({ onClick, active }) {
 	return (
 		<button
-		className={active ? `${styles.like} ${styles.active}` : styles.like}
+			className={active ? `${styles.like} ${styles.active}` : styles.like}
 			onClick={onClick}
 			type="button"
 		/>
