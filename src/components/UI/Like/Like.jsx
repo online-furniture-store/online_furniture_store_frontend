@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
-import LikeStyles from './Like.module.css';
+import styles from './Like.module.css';
 
 function Like({ onClick, active }) {
 	return (
 		<button
-			className={active ? `${LikeStyles.like} ${LikeStyles.active}` : LikeStyles.like}
+		className={active ? `${styles.like} ${styles.active}` : styles.like}
 			onClick={onClick}
 			type="button"
 		/>

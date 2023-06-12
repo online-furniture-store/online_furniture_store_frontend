@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
-import CheckboxStyles from './Checkbox.module.css';
+import styles from './Checkbox.module.css';
 
 function Checkbox({ checked, onChange, disabled, label }) {
 	return (
-		<div className={CheckboxStyles.checkbox}>
+		<div className={styles.checkbox}>
 			<input
 				type="checkbox"
 				id="checkbox-id"
