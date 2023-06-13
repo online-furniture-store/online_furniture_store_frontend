@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styles from './LearnMoreButton.module.css';
 
 function LearnMoreButton({ onClick }) {
@@ -11,7 +12,7 @@ function LearnMoreButton({ onClick }) {
     </button>
   );
 }
-// не забыть кнопку прозрачной сделать
+
 LearnMoreButton.propTypes = {
   onClick: PropTypes.func.isRequired,
 };

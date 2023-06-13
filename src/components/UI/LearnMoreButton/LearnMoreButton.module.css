@@ -6,7 +6,7 @@
   width: 179px;
   height: 43px;
   color: var(--main-black);
-  background: var(--main-white);
+  background: transparent;
   border: 1px solid var(--main-black);
   border-radius: 20px;
   padding: 9px 37px 11px 37px;
