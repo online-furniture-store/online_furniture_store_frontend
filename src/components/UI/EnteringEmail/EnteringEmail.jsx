@@ -1,11 +1,7 @@
-import { useState } from 'react';
+import PropTypes from 'prop-types';
 import styles from './EnteringEmail.module.css';
 
-function EnteringEmail() {
-  const [email, setEmail] = useState();
-  const handleChange = (evt) => {
-    setEmail(evt.target.value);
-  };
+function EnteringEmail({ onChange, value, placeholder }) {
   return (
     <div className={styles.inputContainer}>
       <input
@@ -13,13 +9,19 @@ function EnteringEmail() {
         id="email"
         type="email"
         autoComplete="email"
-        value={email || ''}
-        onChange={handleChange}
-        placeholder="Email"
+        value={value || ''}
+        onChange={onChange}
+        placeholder={placeholder}
       />
       <div className={styles.item} />
     </div>
   );
 }
+
+EnteringEmail.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string,
+  placeholder: PropTypes.string,
+};
 
 export default EnteringEmail;
