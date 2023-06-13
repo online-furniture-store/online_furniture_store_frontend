@@ -11,7 +11,7 @@ function LearnMoreButton({ onClick }) {
     </button>
   );
 }
-
+// не забыть кнопку прозрачной сделать
 LearnMoreButton.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
