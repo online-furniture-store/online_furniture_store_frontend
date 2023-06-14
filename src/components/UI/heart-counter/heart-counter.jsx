@@ -6,7 +6,8 @@ function HeartCounter({ amount }) {
 	return (
 		<div className={styles.heart}>
 			<img src={heart} alt={heart} />
-			<div className={styles.circle}>{amount}</div>
+			{amount !== 0
+			&& <div className={styles.circle}>{amount}</div> }
 		</div>
 	);
 }
