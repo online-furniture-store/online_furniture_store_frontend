@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styles from './CheckoutButton.module.css';
 
 function CheckoutButton({ onClick }) {

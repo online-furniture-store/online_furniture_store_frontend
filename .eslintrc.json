@@ -22,6 +22,7 @@
         "react/react-in-jsx-scope": "off",
         "linebreak-style": 0,
         "operator-linebreak": "off",
+        "implicit-arrow-linebreak": "off",
         "jsx-a11y/control-has-associated-label": "off",
         "react/jsx-indent": "off",
         "object-curly-newline": "off",
