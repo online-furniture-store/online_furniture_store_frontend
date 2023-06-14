@@ -7,7 +7,7 @@ import vk from '../../../../assets/img/vk.svg';
 import EnteringEmail from '../../../UI/EnteringEmail/EnteringEmail';
 
 function Footer() {
-    const [email, setEmail] = useState(' ');
+    const [email, setEmail] = useState('');
     const onChange = (e) => {
         if (e.nativeEvent.inputType !== 'deleteContentBackward') {
             setEmail(email + e.nativeEvent.data);
@@ -120,7 +120,7 @@ return (
         </div>
         <div className={styles.column}>
             <h3 className={styles.caption}>Подписаться на рассылку</h3>
-            <EnteringEmail placeholder="Email" onChange={onChange} value={email} />
+            <EnteringEmail placeholder="Email" onChange={(e) => onChange(e)} value={email} />
             <p>2023, © Online Furniture Store</p>
         </div>
     </section>
