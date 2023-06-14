@@ -2,17 +2,18 @@ import PropTypes from 'prop-types';
 import styles from './grocery.module.css';
 import grosery from '../../../assets/img/grocery.svg';
 
-function Grosery({ amount }) {
+function Grocery({ amount }) {
 	return (
 		<div className={styles.grocery}>
 			<img src={grosery} alt="grosery" />
-			<div className={styles.circle}>{amount}</div>
+			{amount !== 0
+			&& <div className={styles.circle}>{amount}</div>}
 		</div>
 	);
 }
 
-export default Grosery;
+export default Grocery;
 
-Grosery.propTypes = {
+Grocery.propTypes = {
 	amount: PropTypes.number.isRequired,
 };
