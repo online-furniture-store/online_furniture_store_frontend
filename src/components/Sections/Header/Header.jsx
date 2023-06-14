@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 
 import styles from './Header.module.css';
-import user from '../../assets/img/person.svg';
-import SearchField from '../UI/SearchField/SearchField';
-import HeartCounter from '../UI/heart-counter/heart-counter';
-import Grosery from '../UI/grocery/grocery';
+import user from '../../../assets/img/person.svg';
+import SearchField from '../../UI/SearchField/SearchField';
+import HeartCounter from '../../UI/heart-counter/heart-counter';
+import Grocery from '../../UI/grocery/grocery';
 
 function Header() {
 	const location = useLocation();
@@ -68,7 +68,7 @@ function Header() {
 							<HeartCounter />
 						</NavLink>
 						<NavLink className={styles.nav__item} to="/cart">
-							<Grosery />
+							<Grocery />
 						</NavLink>
 					</nav>
 				</div>
