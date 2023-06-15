@@ -7,7 +7,7 @@ function HomePage() {
 	return (
 		<main className={styles.container}>
 			<Intro />
-	    <Categories />
+			<Categories />
 			<PopularProducts />
 		</main>
 	);
