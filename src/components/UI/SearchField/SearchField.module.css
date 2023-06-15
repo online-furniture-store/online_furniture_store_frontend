@@ -2,7 +2,6 @@
   display: flex;
   position: relative;
   color: #000000;
-  cursor: pointer;
 }
 
 .input {
@@ -17,6 +16,7 @@
   padding: 8px 8px 8px 59px;
   color: #000000;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 .input:focus {
@@ -44,4 +44,5 @@ input[type='search']::-webkit-search-cancel-button {
   left: 14px;
   background-image: url(../../../assets//img/loupeSearch.svg);
   background-repeat: no-repeat;
+  cursor: pointer;
 }
