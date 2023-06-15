@@ -1,20 +1,17 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './Footer.module.css';
-import telegram from '../../../../assets/img/telegram.svg';
-import whatsUp from '../../../../assets/img/what_up.svg';
-import vk from '../../../../assets/img/vk.svg';
-import EnteringEmail from '../../../UI/EnteringEmail/EnteringEmail';
+import telegram from '../../../assets/img/telegram.svg';
+import whatsUp from '../../../assets/img/what_up.svg';
+import vk from '../../../assets/img/vk.svg';
+import EnteringEmail from '../../UI/EnteringEmail/EnteringEmail';
 
 function Footer() {
     const [email, setEmail] = useState('');
-    const onChange = (e) => {
-        if (e.nativeEvent.inputType !== 'deleteContentBackward') {
-            setEmail(email + e.nativeEvent.data);
-        } else {
-            setEmail(email.slice(0, -1));
-        }
-};
+    const handleEmailInput = (e) => {
+        setEmail(e.target.value);
+    };
+
 return (
     <section className={styles.footer}>
         <div className={styles.column}>
@@ -120,7 +117,7 @@ return (
         </div>
         <div className={styles.column}>
             <h3 className={styles.caption}>Подписаться на рассылку</h3>
-            <EnteringEmail placeholder="Email" onChange={(e) => onChange(e)} value={email} />
+            <EnteringEmail placeholder="Email" onChange={(e) => handleEmailInput(e)} value={email} />
             <p>2023, © Online Furniture Store</p>
         </div>
     </section>
