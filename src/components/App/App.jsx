@@ -2,7 +2,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { HomePage, AboutPage } from '../../pages';
 import styles from './App.module.css';
 import Header from '../Sections/Header/Header';
-import Footer from '../Sections/Footer/Footer';
 
 function App() {
 	return (
@@ -23,7 +22,6 @@ function App() {
 						<Route path="/sale" />
 					</Routes>
 				</main>
-				<Footer />
 			</BrowserRouter>
 
 		</div>
