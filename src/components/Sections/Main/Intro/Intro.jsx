@@ -9,42 +9,42 @@ import placeholder from '../../../../assets/img/placeholder.png';
 
 const slideImg = [
 	{
-        id: '1',
+		id: '1',
 		img: 'https://swiperjs.com/demos/images/nature-1.jpg',
 		title: 'Новая коллекция "Cozy office"',
 	},
 	{
-        id: '2',
+		id: '2',
 		img: 'https://swiperjs.com/demos/images/nature-2.jpg',
 		title: 'Новая коллекция "Shmozy office"',
 	},
 	{
-        id: '3',
+		id: '3',
 		img: 'https://swiperjs.com/demos/images/nature-3.jpg',
 		title: 'Новая коллекция "Lozy office"',
 	},
 	{
-        id: '4',
+		id: '4',
 		img: 'https://swiperjs.com/demos/images/nature-4.jpg',
 		title: 'Новая коллекция "Zozy office"',
 	},
 	{
-        id: '5',
+		id: '5',
 		img: 'https://swiperjs.com/demos/images/nature-5.jpg',
 		title: 'Новая коллекция "Pozy office"',
 	},
 	{
-        id: '6',
+		id: '6',
 		img: 'https://swiperjs.com/demos/images/nature-6.jpg',
 		title: 'Новая коллекция "Ozy office"',
 	},
 	{
-        id: '7',
+		id: '7',
 		img: 'https://swiperjs.com/demos/images/nature-7.jpg',
 		title: 'Новая коллекция "Dozy office"',
 	},
 	{
-        id: '8',
+		id: '8',
 		img: 'https://swiperjs.com/demos/images/nature-8.jpg',
 		title: 'Новая коллекция "Gozy office"',
 	},
