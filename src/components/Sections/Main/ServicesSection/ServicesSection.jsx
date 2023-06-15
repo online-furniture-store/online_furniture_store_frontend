@@ -23,7 +23,11 @@ function ServicesSections() {
 			<div className={styles.container__services}>
 				<div className={styles.services}>
 					<div className={styles.services__box}>
-						<img className={styles.services__image} src={truckGray} alt="Truck" />
+						<img
+							className={styles.services__image}
+							src={truckGray}
+							alt="Truck"
+						/>
 						<p className={styles.services__about}>Доставка и подъём мебели</p>
 						<LearnMoreButton
 							buttonText={textButton.textLearn}
@@ -32,7 +36,9 @@ function ServicesSections() {
 					</div>
 					<div className={styles.services__box}>
 						<img className={styles.services__image} src={drill} alt="Drill" />
-						<p className={styles.services__about}>Оперативная сборка в вашем офисе</p>
+						<p className={styles.services__about}>
+							Оперативная сборка в вашем офисе
+						</p>
 						<LearnMoreButton
 							buttonText={textButton.textBooking}
 							onClick={changeText}
@@ -40,7 +46,9 @@ function ServicesSections() {
 					</div>
 					<div className={styles.services__box}>
 						<img className={styles.services__image} src={crane} alt="Crane" />
-						<p className={styles.services__about}>Вывоз старой мебели в день доставки</p>
+						<p className={styles.services__about}>
+							Вывоз старой мебели в день доставки
+						</p>
 						<LearnMoreButton
 							buttonText={textButton.textBooking}
 							onClick={changeText}
