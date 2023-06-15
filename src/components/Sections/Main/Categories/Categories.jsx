@@ -15,13 +15,13 @@ function Categories() {
 					<CategoriesLinkCard title="Столы" img={tables} />
 				</NavLink>
 				<NavLink className={styles.link} to="/arm-chairs">
-					<CategoriesLinkCard title="Стулья" cardRound="true" img={armchairs} />
+					<CategoriesLinkCard title="Стулья" cardRound img={armchairs} />
 				</NavLink>
 				<NavLink className={styles.link} to="/wardrobes">
 					<CategoriesLinkCard title="Шкафы и хранение" img={wardrobes} />
 				</NavLink>
 				<NavLink className={styles.link} to="/sofas">
-					<CategoriesLinkCard title="Диваны" cardRound="true" img={sofas} />
+					<CategoriesLinkCard title="Диваны" cardRound img={sofas} />
 				</NavLink>
 			</nav>
 		</section>
