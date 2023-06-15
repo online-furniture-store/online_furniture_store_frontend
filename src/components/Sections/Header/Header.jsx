@@ -56,19 +56,18 @@ function Header() {
 					<ul className={styles.contacts}>
 						<select className={styles.cities}>
 							<option className={styles.city}>Москва</option>
-							<option className={styles.city}>Санкт-Петербург</option>
 						</select>
-						<p className={styles.phone}>+7 (495) 555-55-55</p>
+						<p className={styles.phone}>+7 (495) 555–55–55</p>
 					</ul>
 					<nav className={styles.nav}>
 						<NavLink className={styles.nav__item} to="/user">
-							<img src={user} alt="иконка кабинет пользователя" />
+							<img className={styles.userIcon} src={user} alt="иконка кабинет пользователя" />
 						</NavLink>
 						<NavLink className={styles.nav__item} to="/chosen">
-							<HeartCounter />
+							<HeartCounter amount={0} />
 						</NavLink>
 						<NavLink className={styles.nav__item} to="/cart">
-							<Grocery />
+							<Grocery amount={0} />
 						</NavLink>
 					</nav>
 				</div>
