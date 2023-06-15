@@ -30,6 +30,12 @@
 	font-weight: 400;
 	font-size: 20px;
 	line-height: 23px;
+	opacity: 1;
+	transition: all 0.3s linear;
+}
+
+.callback:hover {
+	opacity: 0.8;
 }
 
 .main {
@@ -157,6 +163,11 @@
 
 .nav__item {
 	cursor: pointer;
+	transition: all 0.3s linear;
+}
+
+.nav__item:hover {
+	opacity: 0.6;
 }
 
 .categories {
