@@ -4,19 +4,19 @@ import PopularProductCard from '../../../PopularProductCard/PopularProductCard';
 
 const firstArray = [
   {
-    id: '1',
+    id: '31',
     img: 'https://swiperjs.com/demos/images/nature-1.jpg',
     title: 'Шкаф Oak secret ',
     price: '59 990 ₽',
   },
   {
-    id: '2',
+    id: '32',
     img: 'https://swiperjs.com/demos/images/nature-2.jpg',
     title: 'Кресло Cozy',
     price: '69 990 ₽',
   },
   {
-    id: '3',
+    id: '33',
     img: 'https://swiperjs.com/demos/images/nature-3.jpg',
     title: 'Стол Cozy office Oak',
     price: '18 990 ₽',
@@ -25,19 +25,19 @@ const firstArray = [
 
 const secondArray = [
   {
-    id: '4',
+    id: '34',
     img: 'https://swiperjs.com/demos/images/nature-4.jpg',
     title: 'Шкаф Сonvenience',
     price: '24 990 ₽',
   },
   {
-    id: '5',
+    id: '35',
     img: 'https://swiperjs.com/demos/images/nature-5.jpg',
     title: 'Кресло Milky',
     price: '39 990 ₽',
   },
   {
-    id: '6',
+    id: '36',
     img: 'https://swiperjs.com/demos/images/nature-6.jpg',
     title: 'Диван office Black',
     price: '69 990 ₽',
@@ -55,10 +55,9 @@ function PopularProducts() {
           <div className={styles.leftColumn}>
             {
               firstArray.map((item, index) => (
-                <div className={styles[`box${index}`]}>
+                <div className={styles[`box${index}`]} key={item.id}>
                   <PopularProductCard
                     img={item.img}
-                    key={item.id}
                     productName={item.title}
                     productPrice={item.price}
                   />
@@ -69,10 +68,9 @@ function PopularProducts() {
           <div className={styles.rightColumn}>
             {
               secondArray.map((item, index) => (
-                <div className={styles[`box${index}`]}>
+                <div className={styles[`box${index}`]} key={item.id}>
                   <PopularProductCard
                     img={item.img}
-                    key={item.id}
                     productName={item.title}
                     productPrice={item.price}
                   />
