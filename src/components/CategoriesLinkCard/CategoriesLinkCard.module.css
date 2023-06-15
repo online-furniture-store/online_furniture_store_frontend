@@ -2,12 +2,15 @@
 	width: 295px;
 	height: 220px;
 	position: relative;
+	border-radius: 10px;
+	overflow: hidden;
 }
 
 .card_round {
 	width: 295px;
 	height: 220px;
 	border-radius: 100px;
+	overflow: hidden;
 }
 
 .title {
