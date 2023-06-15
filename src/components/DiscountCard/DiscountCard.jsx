@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import styles from './Discount.module.css';
-import placeholder from '../../../assets/img/placeholder.png';
-import Like from '../Like/Like';
-import AddToCartButton from '../AddToCartButton/AddToCartButton';
+import placeholder from '../../assets/img/placeholder.png';
+import Like from '../UI/Like/Like';
+import AddToCartButton from '../UI/AddToCartButton/AddToCartButton';
 
 function DiscountCard({
 	onLikeClick,

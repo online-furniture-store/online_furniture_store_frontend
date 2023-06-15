@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import DiscountCard from '../UI/DiscountCard/DiscountCard';
+import DiscountCard from '../DiscountCard/DiscountCard';
 
 function Test() {
 	const [isLike, setIsLike] = useState(false);
