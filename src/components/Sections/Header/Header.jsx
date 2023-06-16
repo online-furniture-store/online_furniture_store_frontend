@@ -24,12 +24,22 @@ function Header() {
 		<header className={styles.header}>
 			<div className={styles.taken}>
 				<div className={styles.taken__container}>
-					<p className={styles.callback}>Обратный звонок</p>
+					<button type="button" className={styles.callback}>
+						Обратный звонок
+					</button>
 				</div>
 			</div>
 			<div className={styles.main}>
 				<div className={styles.main__container}>
-					<p className={styles.logo}>OFS</p>
+					{location.pathname === '/' ? (
+						<a href="#main" className={styles.homeLink}>
+							<p className={styles.logo}>OFS</p>
+						</a>
+					) : (
+						<NavLink className={styles.homeLink} to="/">
+							<p className={styles.logo}>OFS</p>
+						</NavLink>
+					)}
 					<ul className={styles.menu}>
 						<li>
 							<button
@@ -65,7 +75,11 @@ function Header() {
 					</ul>
 					<nav className={styles.nav}>
 						<NavLink className={styles.nav__item} to="/user">
-							<img className={styles.userIcon} src={user} alt="иконка кабинет пользователя" />
+							<img
+								className={styles.userIcon}
+								src={user}
+								alt="иконка кабинет пользователя"
+							/>
 						</NavLink>
 						<NavLink className={styles.nav__item} to="/chosen">
 							<HeartCounter amount={0} />
@@ -85,8 +99,8 @@ function Header() {
 							to="/arm-chairs"
 							className={
 								location.pathname === '/' ||
-									location.pathname === '/about' ||
-									location.pathname === '/arm-chairs'
+								location.pathname === '/about' ||
+								location.pathname === '/arm-chairs'
 									? styles.categories__item_active
 									: styles.categories__item
 							}

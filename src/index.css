@@ -13,6 +13,7 @@ code {
 }
 
 :root {
+	scroll-behavior: smooth;
 	--main-white: #ffffff;
 	--main-black: #000000;
 	--text-black: #202020;

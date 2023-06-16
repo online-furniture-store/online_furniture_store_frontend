@@ -8,7 +8,7 @@ function App() {
 		<div className={styles.App}>
 			<BrowserRouter>
 				<Header />
-				<main>
+				<main id="main">
 					<Routes>
 						<Route path="/" element={<HomePage />} />
 						<Route path="/about" element={<AboutPage />} />
