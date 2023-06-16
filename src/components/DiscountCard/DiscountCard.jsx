@@ -16,54 +16,56 @@ function DiscountCard({
 	weight,
 	load,
 	material,
+	onAddClick,
+	addActive,
 }) {
 	return (
 		<article className={styles.card}>
-			<div className={styles.card__image}>
+			<div className={styles.image}>
 				<img
 					src={img}
 					onError={(e) => {
 						e.currentTarget.src = placeholder;
 					}}
 					alt={`изображение товара: ${title}`}
-					className={styles.card__picture}
+					className={styles.image__picture}
 				/>
-				<div className={styles.card__sweets}>
-					<div className={isSale ? styles.card__sale : styles.card__nonActive} />
-					<div className={styles.card__likes}>
+				<div className={styles.sweets}>
+					<div className={isSale ? styles.sale : styles.nonActive} />
+					<div className={styles.likes}>
 						<Like onClick={onLikeClick} active={likeActive} />
 					</div>
 				</div>
 			</div>
 
-			<h2 className={styles.card__title}>{title}</h2>
-			<div className={styles.card__description}>
-				<div className={styles.card__aboutPrice}>
-					<p className={styles.card__new}>
+			<h2 className={styles.title}>{title}</h2>
+			<div className={styles.description}>
+				<div className={styles.aboutPrice}>
+					<p className={styles.aboutPrice__new}>
 						{newPrice}
 						<span>&nbsp;&#8381;</span>
 					</p>
-					<p className={styles.card__old}>
+					<p className={styles.aboutPrice__old}>
 						{oldPrice}
 						<span>&nbsp;&#8381;</span>
 					</p>
 				</div>
-				<p className={styles.card__existence}>{`в наличии: ${existense} шт`}</p>
+				<p className={styles.existence}>{`в наличии: ${existense} шт`}</p>
 			</div>
-			<div className={styles.card__aboutCard}>
-				<div className={styles.card__aboutProperty}>
-					<p className={styles.card__property}>Вес</p>
-					<p className={styles.card__property}>{`${weight} кг`}</p>
+			<div className={styles.aboutCard}>
+				<div className={styles.aboutProperty}>
+					<p className={styles.property}>Вес</p>
+					<p className={styles.property}>{`${weight} кг`}</p>
 				</div>
-				<div className={styles.card__aboutProperty}>
-					<p className={styles.card__property}>Максимальная нагрузка</p>
-					<p className={styles.card__property}>{`${load} кг`}</p>
+				<div className={styles.aboutProperty}>
+					<p className={styles.property}>Максимальная нагрузка</p>
+					<p className={styles.property}>{`${load} кг`}</p>
 				</div>
-				<div className={styles.card__aboutProperty}>
-					<p className={styles.card__property}>Материал обивки</p>
-					<p className={styles.card__property}>{material}</p>
+				<div className={styles.aboutProperty}>
+					<p className={styles.property}>Материал обивки</p>
+					<p className={styles.property}>{material}</p>
 				</div>
-				<AddToCartButton />
+				<AddToCartButton onClick={onAddClick} isSuccess={addActive} />
 			</div>
 		</article>
 	);
@@ -81,6 +83,8 @@ DiscountCard.propTypes = {
 	weight: PropTypes.number.isRequired,
 	load: PropTypes.number.isRequired,
 	material: PropTypes.string.isRequired,
+	onAddClick: PropTypes.func.isRequired,
+	addActive: PropTypes.bool.isRequired,
 };
 
 export default DiscountCard;
