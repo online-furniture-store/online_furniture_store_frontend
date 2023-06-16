@@ -3,9 +3,9 @@ import { NavLink, useLocation } from 'react-router-dom';
 
 import styles from './Header.module.css';
 import user from '../../assets/img/person.svg';
-import SearchField from '../UI/SearchField/SearchField';
-import HeartCounter from '../UI/heart-counter/heart-counter';
-import Grosery from '../UI/grocery/grocery';
+import SearchField from '../../UI/SearchField/SearchField';
+import HeartCounter from '../../UI/heart-counter/heart-counter';
+import Grosery from '../../UI/grocery/grocery';
 
 function Header() {
 	const location = useLocation();
