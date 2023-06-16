@@ -32,6 +32,9 @@
 	line-height: 23px;
 	opacity: 1;
 	transition: all 0.3s linear;
+	background-color: transparent;
+	border: none;
+	color: var(--main-white);
 }
 
 .callback:hover {
@@ -51,6 +54,17 @@
 	justify-content: center;
 	/* gap: 30px; */
 	width: 1400px;
+}
+
+.homeLink {
+	text-decoration: none;
+	cursor: pointer;
+	opacity: 1;
+	transition: all 0.3s linear;
+}
+
+.homeLink:hover {
+	opacity: 0.6;
 }
 
 .logo {

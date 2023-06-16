@@ -2,13 +2,14 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { HomePage, AboutPage } from '../../pages';
 import styles from './App.module.css';
 import Header from '../Sections/Header/Header';
+import Footer from '../Sections/Footer/Footer';
 
 function App() {
 	return (
 		<div className={styles.App}>
 			<BrowserRouter>
 				<Header />
-				<main>
+				<main id="main">
 					<Routes>
 						<Route path="/" element={<HomePage />} />
 						<Route path="/about" element={<AboutPage />} />
@@ -22,7 +23,7 @@ function App() {
 						<Route path="/sale" />
 					</Routes>
 				</main>
-				{/* <Footer /> */}
+				<Footer />
 			</BrowserRouter>
 		</div>
 	);

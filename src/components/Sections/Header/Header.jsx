@@ -11,21 +11,35 @@ function Header() {
 	const location = useLocation();
 	const [contentShown, setContentShown] = useState(false);
 	const [linkStateActive, setLinkStateActive] = useState(false);
+	const [searchValue, setSearchValue] = useState();
 	const handleShowContent = () => {
 		setContentShown(!contentShown);
 		setLinkStateActive(!linkStateActive);
+	};
+	const handleChange = (evt) => {
+		setSearchValue(evt.target.value);
 	};
 
 	return (
 		<header className={styles.header}>
 			<div className={styles.taken}>
 				<div className={styles.taken__container}>
-					<p className={styles.callback}>Обратный звонок</p>
+					<button type="button" className={styles.callback}>
+						Обратный звонок
+					</button>
 				</div>
 			</div>
 			<div className={styles.main}>
 				<div className={styles.main__container}>
-					<p className={styles.logo}>OFS</p>
+					{location.pathname === '/' ? (
+						<a href="#main" className={styles.homeLink}>
+							<p className={styles.logo}>OFS</p>
+						</a>
+					) : (
+						<NavLink className={styles.homeLink} to="/">
+							<p className={styles.logo}>OFS</p>
+						</NavLink>
+					)}
 					<ul className={styles.menu}>
 						<li>
 							<button
@@ -52,7 +66,7 @@ function Header() {
 							</NavLink>
 						</li>
 					</ul>
-					<SearchField />
+					<SearchField onChange={handleChange} value={searchValue} />
 					<ul className={styles.contacts}>
 						<select className={styles.cities}>
 							<option className={styles.city}>Москва</option>
@@ -61,7 +75,11 @@ function Header() {
 					</ul>
 					<nav className={styles.nav}>
 						<NavLink className={styles.nav__item} to="/user">
-							<img className={styles.userIcon} src={user} alt="иконка кабинет пользователя" />
+							<img
+								className={styles.userIcon}
+								src={user}
+								alt="иконка кабинет пользователя"
+							/>
 						</NavLink>
 						<NavLink className={styles.nav__item} to="/chosen">
 							<HeartCounter amount={0} />

@@ -20,17 +20,19 @@
 
 .input:focus {
   border: 1.5px solid var(--main-white);
+  outline: none;
 }
 
 .item {
-  width: 21px;
-  height: 21px;
+  width: 16px;
+  height: 16px;
   position: absolute;
   top: 8px;
   left: 283px;
-  background-image: url(../../../assets//img/right.svg);
+  background-image: url(../../../assets//img/rightWhite.svg);
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 16px 16px;
+  background-position: center;
   padding: 2px;
 }
 
