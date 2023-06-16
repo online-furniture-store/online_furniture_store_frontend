@@ -22,8 +22,8 @@ function App() {
 						<Route path="/sale" />
 					</Routes>
 				</main>
-				{/* <Footer /> */}
 			</BrowserRouter>
+
 		</div>
 	);
 }
