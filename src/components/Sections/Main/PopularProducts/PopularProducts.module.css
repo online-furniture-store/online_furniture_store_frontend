@@ -1,7 +1,7 @@
 .section {
   display: flex;
   flex-direction: column;
-  width: 100vw;
+  width: 100%;
   padding-bottom: 108px;
   margin: 0 auto;
 }

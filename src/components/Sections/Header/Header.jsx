@@ -11,9 +11,13 @@ function Header() {
 	const location = useLocation();
 	const [contentShown, setContentShown] = useState(false);
 	const [linkStateActive, setLinkStateActive] = useState(false);
+	const [searchValue, setSearchValue] = useState();
 	const handleShowContent = () => {
 		setContentShown(!contentShown);
 		setLinkStateActive(!linkStateActive);
+	};
+	const handleChange = (evt) => {
+		setSearchValue(evt.target.value);
 	};
 
 	return (
@@ -52,7 +56,7 @@ function Header() {
 							</NavLink>
 						</li>
 					</ul>
-					<SearchField />
+					<SearchField onChange={handleChange} value={searchValue} />
 					<ul className={styles.contacts}>
 						<select className={styles.cities}>
 							<option className={styles.city}>Москва</option>
@@ -81,8 +85,8 @@ function Header() {
 							to="/arm-chairs"
 							className={
 								location.pathname === '/' ||
-								location.pathname === '/about' ||
-								location.pathname === '/arm-chairs'
+									location.pathname === '/about' ||
+									location.pathname === '/arm-chairs'
 									? styles.categories__item_active
 									: styles.categories__item
 							}
