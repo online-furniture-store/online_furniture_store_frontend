@@ -16,7 +16,7 @@ return (
     <section className={styles.footer}>
         <div className={styles.column}>
             <h3 className={styles.caption}>Свяжитесь с нами</h3>
-            <ul>
+            <ul className={styles.ul}>
                 <li className={styles.link}>
                     <a
                         href="tel:+7 (495) 555–55–55"
@@ -57,7 +57,7 @@ return (
                         Адрес
                     </a>
                 </li>
-                <li className={styles.link}>
+                <li>
                     <a
                         href="https://web.telegram.org/k/"
                         className={styles.image}
@@ -87,28 +87,28 @@ return (
         </div>
         <div className={styles.column}>
             <h3 className={styles.caption}>Информация для покупателей</h3>
-            <ul>
-                <li>
+            <ul className={styles.ul}>
+                <li className={styles.link}>
                     <NavLink to="/" className={styles.link}>
                         Доставка и самовывоз
                     </NavLink>
                 </li>
-                <li>
+                <li className={styles.link}>
                     <NavLink to="/" className={styles.link}>
                         Как заказать
                     </NavLink>
                 </li>
-                <li>
+                <li className={styles.link}>
                     <NavLink to="/" className={styles.link}>
                         Как оплатить
                     </NavLink>
                 </li>
-                <li>
+                <li className={styles.link}>
                     <NavLink to="/" className={styles.link}>
                         Гарантия и возврат
                     </NavLink>
                 </li>
-                <li>
+                <li className={styles.link}>
                     <NavLink to="/" className={styles.link}>
                         Политика конфиденциальности
                     </NavLink>
@@ -117,8 +117,8 @@ return (
         </div>
         <div className={styles.column}>
             <h3 className={styles.caption}>Подписаться на рассылку</h3>
-            <EnteringEmail placeholder="Email" onChange={(e) => handleEmailInput(e)} value={email} />
-            <p>2023, © Online Furniture Store</p>
+            <EnteringEmail placeholder="Email" onChange={handleEmailInput} value={email} />
+            <p className={styles.name}>2023, © Online Furniture Store</p>
         </div>
     </section>
 );
