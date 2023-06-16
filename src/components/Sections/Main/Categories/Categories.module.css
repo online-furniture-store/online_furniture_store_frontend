@@ -1,0 +1,21 @@
+.categories {
+	display: flex;
+	justify-content: center;
+	padding-bottom: 108px;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+}
+
+.link {
+	text-decoration: none;
+	cursor: pointer;
+	transition: all 0.3s linear;
+}
+
+.link:hover {
+	opacity: 0.6;
+}

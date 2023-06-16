@@ -1,20 +1,17 @@
 import PropTypes from 'prop-types';
 import styles from './LearnMoreButton.module.css';
 
-function LearnMoreButton({ onClick }) {
-  return (
-    <button
-      className={styles.button}
-      type="button"
-      onClick={onClick}
-    >
-      <span>Подробнее</span>
-    </button>
-  );
+function LearnMoreButton({ onClick, buttonText }) {
+	return (
+		<button className={styles.button} type="button" onClick={onClick}>
+			<span>{buttonText}</span>
+		</button>
+	);
 }
 
 LearnMoreButton.propTypes = {
-  onClick: PropTypes.func.isRequired,
+	onClick: PropTypes.func.isRequired,
+	buttonText: PropTypes.string.isRequired,
 };
 
 export default LearnMoreButton;

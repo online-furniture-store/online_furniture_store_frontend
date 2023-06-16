@@ -2,18 +2,22 @@ import React, { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 
 import styles from './Header.module.css';
-import user from '../../assets/img/person.svg';
+import user from '../../../assets/img/person.svg';
 import SearchField from '../../UI/SearchField/SearchField';
 import HeartCounter from '../../UI/heart-counter/heart-counter';
-import Grosery from '../../UI/grocery/grocery';
+import Grocery from '../../UI/grocery/grocery';
 
 function Header() {
 	const location = useLocation();
 	const [contentShown, setContentShown] = useState(false);
 	const [linkStateActive, setLinkStateActive] = useState(false);
+	const [searchValue, setSearchValue] = useState();
 	const handleShowContent = () => {
 		setContentShown(!contentShown);
 		setLinkStateActive(!linkStateActive);
+	};
+	const handleChange = (evt) => {
+		setSearchValue(evt.target.value);
 	};
 
 	return (
@@ -52,23 +56,22 @@ function Header() {
 							</NavLink>
 						</li>
 					</ul>
-					<SearchField />
+					<SearchField onChange={handleChange} value={searchValue} />
 					<ul className={styles.contacts}>
 						<select className={styles.cities}>
 							<option className={styles.city}>Москва</option>
-							<option className={styles.city}>Санкт-Петербург</option>
 						</select>
-						<p className={styles.phone}>+7 (495) 555-55-55</p>
+						<p className={styles.phone}>+7 (495) 555–55–55</p>
 					</ul>
 					<nav className={styles.nav}>
 						<NavLink className={styles.nav__item} to="/user">
-							<img src={user} alt="иконка кабинет пользователя" />
+							<img className={styles.userIcon} src={user} alt="иконка кабинет пользователя" />
 						</NavLink>
 						<NavLink className={styles.nav__item} to="/chosen">
-							<HeartCounter />
+							<HeartCounter amount={0} />
 						</NavLink>
 						<NavLink className={styles.nav__item} to="/cart">
-							<Grosery />
+							<Grocery amount={0} />
 						</NavLink>
 					</nav>
 				</div>
@@ -82,8 +85,8 @@ function Header() {
 							to="/arm-chairs"
 							className={
 								location.pathname === '/' ||
-								location.pathname === '/about' ||
-								location.pathname === '/arm-chairs'
+									location.pathname === '/about' ||
+									location.pathname === '/arm-chairs'
 									? styles.categories__item_active
 									: styles.categories__item
 							}
