@@ -1,33 +1,58 @@
 .card {
-	width: 440px;
+	width: 400px;
 	height: 402px;
-	margin: 0 auto;
 	background-color: #fff;
+	position: relative;
+	overflow: hidden;
+	/* padding: 0 20px 0 20px; */
+	box-sizing: border-box;
 	transition: 0.5s linear;
 	text-align: start;
 }
 
 .card:hover {
-	height: 695px;
+	overflow: visible;
 	transition: 0.5s linear;
-	padding: 20px 20px 40px;
-	border-radius: 10px;
-	box-sizing: border-box;
-	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
-.card__picture {
+.card::before {
+	content: '';
+	position: absolute;
+	width: 440px;
+	min-height: 670px;
+	top: 0;
+	left: -20px;
+	z-index: 100;
+	visibility: hidden;
+	opacity: 0;
+	/* padding: 0 20px 0 20px; */
+	box-sizing: border-box;
+	box-shadow: 0px 311px 124px rgba(0, 0, 0, 0.01),
+		0px 175px 105px rgba(0, 0, 0, 0.05), 0px 78px 78px rgba(0, 0, 0, 0.09),
+		0px 19px 43px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+	transition: 0.5s linear;
+	pointer-events: none;
+}
+
+.card:hover::before {
+	visibility: visible;
+	opacity: 1;
+	transition: 0.5s linear;
+}
+
+.image__picture {
 	width: 100%;
 	height: 312px;
 	border-radius: 10px;
 	margin-bottom: 24px;
 }
 
-.card__image {
+.image {
 	position: relative;
 }
 
-.card__sweets {
+.sweets {
 	display: flex;
 	width: 76px;
 	justify-content: space-between;
@@ -36,8 +61,8 @@
 	right: 20px;
 }
 
-.card__sale {
-	background-image: url(../../../assets/img/percent.svg);
+.sale {
+	background-image: url(../../assets/img/percent.svg);
 	width: 34px;
 	height: 34px;
 	background-repeat: no-repeat;
@@ -46,12 +71,12 @@
 	opacity: 1;
 }
 
-.card__nonActive {
+.nonActive {
 	visibility: hidden;
 	opacity: 0;
 }
 
-.card__likes {
+.likes {
 	width: 34px;
 	height: 34px;
 	display: flex;
@@ -59,7 +84,7 @@
 	align-items: center;
 }
 
-.card__title {
+.title {
 	font-style: normal;
 	font-weight: 400;
 	font-size: 20px;
@@ -68,17 +93,17 @@
 	color: #000000;
 }
 
-.card__description {
+.description {
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: 28px;
 }
 
-.card__aboutPrice {
+.aboutPrice {
 	display: flex;
 }
 
-.card__new {
+.aboutPrice__new {
 	font-style: normal;
 	font-weight: 700;
 	font-size: 20px;
@@ -87,7 +112,7 @@
 	margin: 0 12px 0 0;
 }
 
-.card__old {
+.aboutPrice__old {
 	font-style: normal;
 	font-weight: 400;
 	font-size: 20px;
@@ -97,7 +122,7 @@
 	margin: 0;
 }
 
-.card__existence {
+.existence {
 	font-style: normal;
 	font-weight: 400;
 	font-size: 18px;
@@ -109,38 +134,51 @@
 	transition: 0.5s linear;
 }
 
-.card:hover .card__existence {
+.card:hover .existence {
 	opacity: 1;
 	visibility: visible;
-	transition: 0.5s 0.5s linear;
+	transition: 0.5s linear;
 }
 
-.card__aboutCard {
+.aboutCard {
 	opacity: 0;
 	visibility: hidden;
 	transition: 0.1s linear;
+	background-color: #fff;
+	padding: 0 20px 40px 20px;
+	box-sizing: border-box;
+	width: 440px;
+	position: relative;
+	left: -20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
-.card:hover .card__aboutCard {
+.card:hover .aboutCard {
 	opacity: 1;
 	visibility: visible;
-	transition: 0.5s 0.5s linear;
+	transition: 0.1s linear;
 }
 
-.card__aboutProperty {
+.aboutProperty {
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: 20px;
+	width: 100%;
 }
 
-.card__aboutProperty:last-of-type {
+.aboutProperty:last-of-type {
 	margin-bottom: 32px;
 }
 
-.card__property {
+.property {
 	font-style: normal;
 	font-weight: 400;
 	font-size: 20px;
 	line-height: 23px;
 	margin: 0;
 }
+
+/* карточка relative, before absolute z-index100, before hover visible
+карточка главная короткая видна, в before полная карточка при наведение её видно  */
