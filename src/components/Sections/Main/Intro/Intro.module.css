@@ -13,23 +13,23 @@
 .pagination {
 	margin-top: 32px;
 	text-align: center;
+}
 
-	:global(.swiper-pagination-bullet) {
-		width: 12px;
-		height: 7px;
-		background-color: #fff;
-		border: 1px solid #000;
-		border-radius: 10px;
-	}
+:global(.swiper-pagination-bullet) {
+	width: 12px;
+	height: 7px;
+	background-color: #fff;
+	border: 1px solid #000;
+	border-radius: 10px;
+}
 
-	:global(.swiper-pagination-bullet-active) {
-		transition: width 0.3s linear;
-		width: 50px;
-		height: 7px;
-		background: #000000;
-		border: 1px solid #202020;
-		border-radius: 10px;
-	}
+:global(.swiper-pagination-bullet-active) {
+	transition: width 0.3s linear;
+	width: 50px;
+	height: 7px;
+	background: #000000;
+	border: 1px solid #202020;
+	border-radius: 10px;
 }
 
 .slide {

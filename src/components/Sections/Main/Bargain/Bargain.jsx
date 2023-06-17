@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import DiscountCard from '../../../DiscountCard/DiscountCard';
 import Title from '../../../UI/Title/Title';
 import styles from './Bargain.module.css';
@@ -50,6 +50,25 @@ function Bargain() {
 	const [isLike, setIsLike] = useState(false);
 	const [isAdded, setIsAdded] = useState(false);
 
+	const ref = useRef();
+
+	useEffect(() => {
+		const el = ref.current;
+		if (el) {
+			const onWheel = (e) => {
+				e.preventDefault();
+				el.scrollTo({
+					left: el.scrollLeft + e.deltaY * 10,
+					behavior: 'smooth',
+				});
+			};
+
+			el.addEventListener('wheel', onWheel);
+
+			return () => el.removeEventListener('wheel', onWheel);
+		}
+	}, []);
+
 	const onAddClick = () => {
 		setIsAdded(true);
 	};
@@ -75,7 +94,7 @@ function Bargain() {
 				<Title titleText={title} />
 			</div>
 			<div className={styles.bargain}>
-				<ul className={styles.container}>
+				<ul ref={ref} className={styles.container}>
 					{slideImg.map((item) => (
 						<li key={item.id} className={styles.container__description}>
 							<DiscountCard

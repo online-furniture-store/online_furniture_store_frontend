@@ -4,12 +4,14 @@
 	display: flex;
 	max-width: 1440px;
 	gap: 20px;
+	min-height: 773px;
+	margin-bottom: -165px;
+	overflow-x: scroll;
+	overflow-y: hidden;
+	scrollbar-width: none;
 	list-style: none;
 }
 .wrapper {
-	overflow-x: scroll;
-	min-height: 773px;
-	scrollbar-width: none;
 	max-width: 1440px;
 	background-color: transparent;
 	padding: 0 0 108px 100px;
@@ -17,7 +19,7 @@
 	margin: 0 auto -165px;
 }
 
-.wrapper::-webkit-scrollbar {
+.container::-webkit-scrollbar {
 	display: none;
 }
 
