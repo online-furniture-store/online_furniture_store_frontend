@@ -1,54 +1,56 @@
 .card {
 	width: 400px;
-	height: 402px;
-	background-color: #fff;
+	height: 100%;
+	background-color: transparent;
 	position: relative;
 	overflow: hidden;
 	box-sizing: border-box;
-	transition: 0.5s linear;
+	transition: 0.2s linear;
 	text-align: start;
 	z-index: 1;
 }
 
 .card:hover {
 	overflow: visible;
-	transition: 0.5s linear;
+	transition: 0.2s linear;
 }
 
-.card::before {
-	content: '';
+.inner {
+	min-height: 645px;
+	box-sizing: border-box;
+	background-color: #fff;
+	box-sizing: border-box;
+}
+
+.inner::before {
 	position: absolute;
-	width: 440px;
-	min-height: 670px;
-	top: 0;
 	left: -20px;
-	z-index: 100;
+	top: 0;
+	z-index: -1;
+	width: 100%;
+	height: 645px;
+	padding: 0 20px 0 20px;
 	visibility: hidden;
 	opacity: 0;
-	box-sizing: border-box;
+	content: '';
+	border-radius: 10px;
+	transition: 0.2s linear;
+}
+
+.inner:hover::before {
+	visibility: visible;
+	opacity: 1;
+	transition: 0.2s linear;
 	box-shadow: 0px 311px 124px rgba(0, 0, 0, 0.01),
 		0px 175px 105px rgba(0, 0, 0, 0.05), 0px 78px 78px rgba(0, 0, 0, 0.09),
 		0px 19px 43px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
-	border-radius: 10px;
-	transition: 0.5s linear;
-	pointer-events: none;
-}
-
-.card:hover::before {
-	visibility: visible;
-	opacity: 1;
-	transition: 0.5s linear;
 }
 
 .image__picture {
-	width: 100%;
+	width: 400px;
 	height: 312px;
 	border-radius: 10px;
 	margin-bottom: 24px;
-}
-
-.image {
-	position: relative;
 }
 
 .sweets {
@@ -130,20 +132,19 @@
 	color: #989898;
 	opacity: 0;
 	visibility: hidden;
-	transition: 0.5s linear;
+	transition: 0.2s linear;
 }
 
 .card:hover .existence {
 	opacity: 1;
 	visibility: visible;
-	transition: 0.5s linear;
-
+	transition: 0.2s linear;
 }
 
 .aboutCard {
 	opacity: 0;
 	visibility: hidden;
-	transition: 0.1s linear;
+	transition: 0.2s linear;
 	background-color: #fff;
 	padding: 0 20px 40px 20px;
 	box-sizing: border-box;
@@ -153,13 +154,15 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	overflow: hidden;
 	border-radius: 10px;
 }
 
 .card:hover .aboutCard {
 	opacity: 1;
 	visibility: visible;
-	transition: 0.1s linear;
+	transition: 0.2s linear;
+	overflow: visible;
 }
 
 .aboutProperty {
@@ -167,6 +170,8 @@
 	justify-content: space-between;
 	margin-bottom: 20px;
 	width: 100%;
+	background-color: #fff;
+	box-shadow: none;
 }
 
 .aboutProperty:last-of-type {
