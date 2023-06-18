@@ -1,0 +1,22 @@
+.section {
+  max-width: 1440px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0 100px 108px;
+  
+}
+
+.container {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 56px 0 0;
+}
+
+.card {
+  margin-right: 20px;
+}
+
+.card:last-child {
+  margin: 0;
+}
