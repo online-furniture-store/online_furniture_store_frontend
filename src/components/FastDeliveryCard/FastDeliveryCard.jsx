@@ -1,18 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './FastDeliveryCard.module.css';
 import placeholderImg from '../../assets/img/placeholder.png';
 import Like from '../UI/Like/Like';
 import truck from '../../assets/img/truckWithGreenBg.svg';
 
-function FastDeliveryCard({
-	img,
-	title,
-	price,
-	likeActive,
-	onLikeClick,
-	isFastDelivery,
-}) {
+function FastDeliveryCard({ img, title, price, isFastDelivery }) {
+	const [isLike, setIsLike] = useState(false);
+	const handleToggleLike = () => {
+		setIsLike(!isLike);
+	};
 	return (
 		<article className={styles.card}>
 			<img
@@ -25,7 +22,7 @@ function FastDeliveryCard({
 			/>
 			<div className={styles.iconsArea}>
 				<div className={styles.likeWrapper}>
-					<Like active={likeActive} onClick={onLikeClick} />
+					<Like active={isLike} onClick={handleToggleLike} />
 				</div>
 				<img
 					className={
@@ -50,8 +47,6 @@ FastDeliveryCard.propTypes = {
 	img: PropTypes.string.isRequired,
 	title: PropTypes.string.isRequired,
 	price: PropTypes.number.isRequired,
-	likeActive: PropTypes.bool.isRequired,
-	onLikeClick: PropTypes.func.isRequired,
 	isFastDelivery: PropTypes.bool.isRequired,
 };
 
