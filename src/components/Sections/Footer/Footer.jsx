@@ -13,7 +13,7 @@ function Footer() {
     };
 
     return (
-        <section className={styles.footer}>
+        <footer className={styles.footer}>
             <div className={styles.container}>
                 <div className={styles.column}>
                     <h3 className={styles.caption}>Свяжитесь с нами</h3>
@@ -122,7 +122,7 @@ function Footer() {
                     <p className={styles.name}>2023, © Online Furniture Store</p>
                 </div>
             </div>
-        </section>
+        </footer>
     );
 }
 

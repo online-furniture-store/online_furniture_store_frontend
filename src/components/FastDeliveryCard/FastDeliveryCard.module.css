@@ -5,7 +5,7 @@
 	height: 375px;
 	object-fit: cover;
 	position: relative;
-	align-items: start;
+	align-items: flex-start;
 }
 
 .image {

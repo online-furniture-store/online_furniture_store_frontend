@@ -1,4 +1,3 @@
-import styles from './HomePage.module.css';
 import Intro from '../../components/Sections/Main/Intro/Intro';
 import PopularProducts from '../../components/Sections/Main/PopularProducts/PopularProducts';
 import Categories from '../../components/Sections/Main/Categories/Categories';
@@ -8,14 +7,14 @@ import FastDelivery from '../../components/Sections/Main/FastDelivery/FastDelive
 
 function HomePage() {
 	return (
-		<main className={styles.container}>
+		<>
 			<Intro />
 			<Categories />
 			<Bargain />
-      <PopularProducts />
+			<PopularProducts />
 			<Services />
 			<FastDelivery />
-		</main>
+		</>
 	);
 }
 
