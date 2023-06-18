@@ -4,7 +4,7 @@
 	display: flex;
 	max-width: 1440px;
 	gap: 20px;
-	min-height: 773px;
+	min-height: 737px;
 	margin-bottom: -165px;
 	overflow-x: scroll;
 	overflow-y: hidden;
@@ -27,4 +27,11 @@
 	margin-bottom: 56px;
 	position: sticky;
 	left: 0;
+}
+
+.description {
+	box-sizing: border-box;
+	position: relative;
+	width: 400px;
+	height: 402px;
 }

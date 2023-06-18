@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import DiscountCard from '../../../DiscountCard/DiscountCard';
 import Title from '../../../UI/Title/Title';
 import styles from './Bargain.module.css';
@@ -47,9 +47,6 @@ function Bargain() {
 		},
 	];
 
-	const [isLike, setIsLike] = useState(false);
-	const [isAdded, setIsAdded] = useState(false);
-
 	const ref = useRef();
 
 	useEffect(() => {
@@ -69,12 +66,6 @@ function Bargain() {
 		}
 	}, []);
 
-	const onAddClick = () => {
-		setIsAdded(true);
-	};
-	const onLikeClick = () => {
-		setIsLike(!isLike);
-	};
 	const data = {
 		title: 'Диван Cozy Office Gray',
 		newPrice: 42990,
@@ -96,10 +87,8 @@ function Bargain() {
 			<div className={styles.bargain}>
 				<ul ref={ref} className={styles.container}>
 					{slideImg.map((item) => (
-						<li key={item.id} className={styles.container__description}>
+						<li key={item.id} className={styles.description}>
 							<DiscountCard
-								likeActive={isLike}
-								onLikeClick={onLikeClick}
 								img={item.img}
 								title={item.title}
 								newPrice={data.newPrice}
@@ -109,8 +98,6 @@ function Bargain() {
 								weight={data.weight}
 								load={data.load}
 								material={data.material}
-								addActive={isAdded}
-								onAddClick={onAddClick}
 							/>
 						</li>
 					))}
