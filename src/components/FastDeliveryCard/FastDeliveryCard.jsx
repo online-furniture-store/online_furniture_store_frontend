@@ -22,7 +22,7 @@ function FastDeliveryCard({ img, title, price, isFastDelivery }) {
 			/>
 			<div className={styles.iconsArea}>
 				<div className={styles.likeWrapper}>
-					<Like active={isLike} onClick={handleToggleLike} />
+					<Like active={isLike} onClick={handleToggleLike} ariaLabel="like" />
 				</div>
 				<img
 					className={
