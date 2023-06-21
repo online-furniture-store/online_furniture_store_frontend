@@ -6,6 +6,7 @@
 	object-fit: cover;
 	position: relative;
 	align-items: flex-start;
+	
 }
 
 .image {
@@ -28,6 +29,10 @@
 	font-weight: 400;
 	font-size: 20px;
 	line-height: 23px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow-x: hidden;
+	width: 295px;
 }
 
 .price {

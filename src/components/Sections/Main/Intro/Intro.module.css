@@ -7,6 +7,7 @@
 .slider {
 	width: 100%;
 	height: 100%;
+	transform: translateZ(-1px);
 }
 
 .pagination {
@@ -65,13 +66,15 @@
 	z-index: 100;
 	position: absolute;
 	top: 50%;
-	transform: translateY(-50%);
+	transform: translateY(-50%) translateZ(0.001px);
+	
 }
 
 .prev:hover,
 .next:hover {
 	cursor: pointer;
 	opacity: 0.6;
+	
 }
 
 .prev:active,

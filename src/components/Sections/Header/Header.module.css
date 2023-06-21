@@ -156,6 +156,7 @@
 }
 
 .cities {
+	
 	border: none;
 	outline: none;
 	cursor: pointer;
@@ -166,6 +167,10 @@
 	line-height: 23px;
 	color: var(--element-gray);
 	background: transparent;
+	appearance:none;
+	-webkit-appearance: none;
+	
+
 }
 
 .city {
