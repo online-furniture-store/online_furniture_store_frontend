@@ -1,5 +1,9 @@
-.App {
+.app {
   display: flex;
   flex-direction: column;
   position: relative;
+}
+
+.app__main {
+  margin-top: 139px;
 }
