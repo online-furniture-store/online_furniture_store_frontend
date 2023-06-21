@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation } from 'swiper';
 import { Link } from 'react-router-dom';
+import { introSlider } from '../../../../utils/introSlider';
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
 import styles from './Intro.module.css';
@@ -56,22 +56,13 @@ function Intro() {
 	return (
 		<section className={styles.container}>
 			<Swiper
-				modules={[Navigation, Pagination]}
-				slidesPerView={1}
-				allowTouchMove={false}
+				{...introSlider}
 				pagination={{
 					el: `.${styles.pagination}`,
 					clickable: true,
 				}}
 				onBeforeInit={(swiper) => {
 					swiperRef.current = swiper;
-				}}
-				coverflowEffect={{
-					rotate: 50,
-					stretch: 0,
-					depth: 100,
-					modifier: 1,
-					slideShadows: false,
 				}}
 				className={styles.slider}
 			>
@@ -83,14 +74,14 @@ function Intro() {
 								Подробнее
 							</Link>
 						</div>
-						<img
-							className={styles.img}
-							src={img}
-							alt=""
-							onError={(e) => {
-								e.currentTarget.src = placeholder;
-							}}
-						/>
+							<img
+								className={styles.img}
+								src={img}
+								alt={title}
+								onError={(e) => {
+									e.currentTarget.src = placeholder;
+								}}
+							/>
 					</SwiperSlide>
 				))}
 				<button
