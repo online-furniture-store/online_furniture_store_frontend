@@ -68,6 +68,7 @@
 
 .homeLink:hover {
 	opacity: 0.6;
+	outline: none;
 }
 
 .logo {
@@ -132,6 +133,7 @@
 
 .menu__item:hover {
 	color: var(--main-black);
+	outline: none;
 }
 
 .menu__item:hover .menu__text {
@@ -163,6 +165,7 @@
 	font-size: 20px;
 	line-height: 23px;
 	color: var(--element-gray);
+	background: transparent;
 }
 
 .city {
@@ -184,6 +187,7 @@
 
 .nav__item:hover {
 	opacity: 0.6;
+	outline: none;
 }
 
 .categories {
@@ -255,6 +259,7 @@
 
 .categories__item:hover {
 	opacity: 0.6;
+	outline: none;
 }
 
 .categories__item:last-of-type {
