@@ -2,7 +2,7 @@
 	margin-top: 139px;
 	padding-bottom: 108px;
 	max-height: 698px;
-	width: 100vw;
+	width: 100%;
 }
 
 .slider {
@@ -13,23 +13,23 @@
 .pagination {
 	margin-top: 32px;
 	text-align: center;
+}
 
-	:global(.swiper-pagination-bullet) {
-		width: 12px;
-		height: 7px;
-		background-color: #fff;
-		border: 1px solid #000;
-		border-radius: 10px;
-	}
+:global(.swiper-pagination-bullet) {
+	width: 12px;
+	height: 7px;
+	background-color: #fff;
+	border: 1px solid #000;
+	border-radius: 10px;
+}
 
-	:global(.swiper-pagination-bullet-active) {
-		transition: width 0.3s linear;
-		width: 50px;
-		height: 7px;
-		background: #000000;
-		border: 1px solid #202020;
-		border-radius: 10px;
-	}
+:global(.swiper-pagination-bullet-active) {
+	transition: width 0.3s linear;
+	width: 50px;
+	height: 7px;
+	background: #000000;
+	border: 1px solid #202020;
+	border-radius: 10px;
 }
 
 .slide {
@@ -66,22 +66,25 @@
 	z-index: 100;
 	position: absolute;
 	top: 50%;
+	transform: translateY(-50%);
 }
 
 .prev:hover,
 .next:hover {
-    cursor: pointer;
+	cursor: pointer;
 	opacity: 0.6;
 }
 
 .prev:active,
 .next:active {
-	transform: translateY(1px);
+	margin-top: 1px;
 }
 
 .description {
+	min-width: 1240px;
 	position: absolute;
-	left: 100px;
+	left: 50%;
+	transform: translateX(-50%);
 	top: 52px;
 	display: flex;
 	flex-direction: column;
@@ -99,8 +102,8 @@
 }
 
 .link {
-    display: flex;
-    align-items: flex-end;
+	display: flex;
+	align-items: flex-end;
 	text-decoration: none;
 	font-style: normal;
 	font-weight: 400;
@@ -110,13 +113,13 @@
 }
 
 .link:hover {
-    opacity: 0.7;
+	opacity: 0.7;
 }
 
 .link::after {
 	content: '';
-    display: block;
+	display: block;
 	background: url('../../../../assets//img/rightWhite.svg') no-repeat center;
-    width: 23px;
-    height: 21px;
+	width: 23px;
+	height: 21px;
 }
