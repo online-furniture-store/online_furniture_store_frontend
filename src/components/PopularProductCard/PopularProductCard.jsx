@@ -22,7 +22,7 @@ function PopularProductCard({ img, productName, productPrice }) {
       <span className={styles.productName}>{productName}</span>
       <span className={styles.productPrice}>{productPrice}</span>
       <div className={styles.like}>
-        <Like onClick={handleClick} active={isLike} />
+        <Like onClick={handleClick} active={isLike} ariaLabel="like" />
       </div>
     </div>
   );

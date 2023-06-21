@@ -39,7 +39,7 @@ function DiscountCard({
 					<div className={styles.sweets}>
 						<div className={isSale ? styles.sale : styles.nonActive} />
 						<div className={styles.likes}>
-							<Like onClick={onLikeClick} active={isLike} />
+							<Like onClick={onLikeClick} active={isLike} ariaLabel="like" />
 						</div>
 					</div>
 				</div>
