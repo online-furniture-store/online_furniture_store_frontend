@@ -6,10 +6,10 @@ import Footer from '../Sections/Footer/Footer';
 
 function App() {
 	return (
-		<div className={styles.App}>
+		<div className={styles.app}>
 			<BrowserRouter>
 				<Header />
-				<main id="main">
+				<main id="main" className={styles.app__main}>
 					<Routes>
 						<Route path="/" element={<HomePage />} />
 						<Route path="/about" element={<AboutPage />} />
