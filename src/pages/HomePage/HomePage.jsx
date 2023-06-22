@@ -1,3 +1,6 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchProducts } from '../../store/products/products-slice';
 import Intro from '../../components/Sections/Main/Intro/Intro';
 import PopularProducts from '../../components/Sections/Main/PopularProducts/PopularProducts';
 import Categories from '../../components/Sections/Main/Categories/Categories';
@@ -6,6 +9,15 @@ import Bargain from '../../components/Sections/Main/Bargain/Bargain';
 import FastDelivery from '../../components/Sections/Main/FastDelivery/FastDelivery';
 
 function HomePage() {
+	const dispatch = useDispatch();
+	useEffect(() => {
+		dispatch(fetchProducts());
+	}, [dispatch]);
+
+	const { allProducts } = useSelector((state) => state.products);
+
+	console.log(allProducts);
+
 	return (
 		<>
 			<Intro />
