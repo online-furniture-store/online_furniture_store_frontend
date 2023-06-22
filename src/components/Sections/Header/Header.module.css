@@ -156,7 +156,6 @@
 }
 
 .cities {
-	
 	border: none;
 	outline: none;
 	cursor: pointer;
@@ -169,8 +168,10 @@
 	background: transparent;
 	appearance:none;
 	-webkit-appearance: none;
-	
-
+	background-image: url('../../../assets/img/caret.svg');
+	background-repeat: no-repeat;
+	background-position: 75px 30px;
+	width: 90px;
 }
 
 .city {
@@ -293,5 +294,25 @@
 
 	.categories__container {
 		width: 100%;
+	}
+}
+
+@media screen and (max-width: 1439px) {
+	.main__container  {
+		gap: 20px;
+	}
+
+	.nav {
+		gap: 20px;
+	}
+}
+
+@media screen and (max-width: 1360px) {
+	.main__container  {
+		gap: 10px;
+	}
+
+	.nav {
+		gap: 10px;
 	}
 }
