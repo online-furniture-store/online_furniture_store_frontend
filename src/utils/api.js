@@ -19,6 +19,14 @@ export class Api {
 			},
 		}).then(this.#onResponse);
 	}
+
+	getPopularProducts() {
+		return fetch(`${this.#baseurl}/products/popular`, {
+			headers: {
+				...this.#headers,
+			},
+		}).then(this.#onResponse);
+	}
 }
 
 const api = new Api({

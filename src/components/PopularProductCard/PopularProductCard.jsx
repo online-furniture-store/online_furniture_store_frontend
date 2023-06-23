@@ -4,8 +4,8 @@ import styles from './PopularProductCard.module.css';
 import Like from '../UI/Like/Like';
 import placeholder from '../../assets/img/placeholder.png';
 
-function PopularProductCard({ img, productName, productPrice }) {
-  const [isLike, setIsLike] = useState(false);
+function PopularProductCard({ img, productName, productPrice, productFavorited }) {
+  const [isLike, setIsLike] = useState(productFavorited);
   const handleClick = () => {
     setIsLike(!isLike);
   };
@@ -20,7 +20,7 @@ function PopularProductCard({ img, productName, productPrice }) {
         }}
       />
       <span className={styles.productName}>{productName}</span>
-      <span className={styles.productPrice}>{productPrice}</span>
+      <span className={styles.productPrice}>{`${productPrice} ₽`}</span>
       <div className={styles.like}>
         <Like onClick={handleClick} active={isLike} ariaLabel="like" />
       </div>
@@ -31,7 +31,8 @@ function PopularProductCard({ img, productName, productPrice }) {
 PopularProductCard.propTypes = {
   img: PropTypes.string,
   productName: PropTypes.string,
-  productPrice: PropTypes.string,
+  productPrice: PropTypes.number,
+  productFavorited: PropTypes.bool,
 };
 
 export default PopularProductCard;
