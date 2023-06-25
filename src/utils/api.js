@@ -27,6 +27,14 @@ export class Api {
 			},
 		}).then(this.#onResponse);
 	}
+
+	getCollections() {
+		return fetch(`${this.#baseurl}/collections/`, {
+			headers: {
+				...this.#headers,
+			},
+		}).then(this.#onResponse);
+	}
 }
 
 const api = new Api({

@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { useSelector } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Link } from 'react-router-dom';
 import { introSlider } from '../../../../utils/introSlider';
@@ -7,50 +8,9 @@ import 'swiper/swiper.min.css';
 import styles from './Intro.module.css';
 import placeholder from '../../../../assets/img/placeholder.png';
 
-const slideImg = [
-	{
-		id: '1',
-		img: 'https://swiperjs.com/demos/images/nature-1.jpg',
-		title: 'Новая коллекция "Cozy office"',
-	},
-	{
-		id: '2',
-		img: 'https://swiperjs.com/demos/images/nature-2.jpg',
-		title: 'Новая коллекция "Shmozy office"',
-	},
-	{
-		id: '3',
-		img: 'https://swiperjs.com/demos/images/nature-3.jpg',
-		title: 'Новая коллекция "Lozy office"',
-	},
-	{
-		id: '4',
-		img: 'https://swiperjs.com/demos/images/nature-4.jpg',
-		title: 'Новая коллекция "Zozy office"',
-	},
-	{
-		id: '5',
-		img: 'https://swiperjs.com/demos/images/nature-5.jpg',
-		title: 'Новая коллекция "Pozy office"',
-	},
-	{
-		id: '6',
-		img: 'https://swiperjs.com/demos/images/nature-6.jpg',
-		title: 'Новая коллекция "Ozy office"',
-	},
-	{
-		id: '7',
-		img: 'https://swiperjs.com/demos/images/nature-7.jpg',
-		title: 'Новая коллекция "Dozy office"',
-	},
-	{
-		id: '8',
-		img: 'https://swiperjs.com/demos/images/nature-8.jpg',
-		title: 'Новая коллекция "Gozy office"',
-	},
-];
-
 function Intro() {
+	const { collections } = useSelector((state) => state.products);
+
 	const swiperRef = useRef();
 
 	return (
@@ -66,22 +26,29 @@ function Intro() {
 				}}
 				className={styles.slider}
 			>
-				{slideImg.map(({ id, img, title }) => (
+				{collections.map(({ id, name, image }) => (
 					<SwiperSlide key={id} className={styles.slide}>
 						<div className={styles.description}>
-							<h2 className={styles.title}>{title}</h2>
-							<Link className={styles.link} to="/">
-								Подробнее
-							</Link>
+							{!image.includes('noimage_detail.png') && (
+								<>
+									<h2 className={styles.title}>
+										Новая коллекция&NewLine;
+										{name}
+									</h2>
+									<Link className={styles.link} to="/">
+										Подробнее
+									</Link>
+								</>
+							)}
 						</div>
-							<img
-								className={styles.img}
-								src={img}
-								alt={title}
-								onError={(e) => {
-									e.currentTarget.src = placeholder;
-								}}
-							/>
+						<img
+							className={styles.img}
+							src={image}
+							alt={name}
+							onError={(e) => {
+								e.currentTarget.src = placeholder;
+							}}
+						/>
 					</SwiperSlide>
 				))}
 				<button
