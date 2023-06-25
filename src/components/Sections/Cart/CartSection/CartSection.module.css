@@ -1,0 +1,30 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	max-width: 1240px;
+	margin: 93px auto 108px;
+}
+
+.quantity {
+	margin: 23px 0 16px;
+	color: #000;
+	font-size: 20px;
+}
+
+.weight {
+	color: #999;
+	font-size: 20px;
+}
+
+.productList {
+	all: unset;
+	margin-top: 22px;
+	display: flex;
+	flex-direction: column;
+	gap: 34px;
+}
+
+.product {
+	all: unset;
+}
+
