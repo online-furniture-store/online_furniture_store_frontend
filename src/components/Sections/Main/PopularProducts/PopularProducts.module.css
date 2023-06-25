@@ -18,11 +18,21 @@
   box-sizing: border-box;
 }
 
+.containerLocationCart {
+  gap: 47px;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   width: 100%;
   gap: 20px;
+}
+
+.gridLocationCart {
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 242px;
+  width: 100%;
 }
 
 .leftColumn {

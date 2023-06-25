@@ -1,4 +1,6 @@
 .productCard {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
   position: relative;
@@ -10,30 +12,40 @@
   object-fit: cover;
 }
 
-.productName {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 23px;
-  color: var(--main-black);
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   position: absolute;
   top: 20px;
   left: 20px;
 }
 
+.productInfoLocationCart {
+  margin-top: 16px;
+  position: static;
+}
+
+.productName,
 .productPrice {
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 20px;
   line-height: 23px;
   color: var(--main-black);
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
+}
+
+.productPrice {
+  font-weight: 700;
 }
 
 .like {
   position: absolute;
   top: 20px;
   right: 20px;
+}
+
+.likeLocationCart {
+  top: 13px;
+  right: 13px;
 }
