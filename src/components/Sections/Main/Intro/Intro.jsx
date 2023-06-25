@@ -29,17 +29,13 @@ function Intro() {
 				{collections.map(({ id, name, image }) => (
 					<SwiperSlide key={id} className={styles.slide}>
 						<div className={styles.description}>
-							{!image.includes('noimage_detail.png') && (
-								<>
-									<h2 className={styles.title}>
-										Новая коллекция&NewLine;
-										{name}
-									</h2>
-									<Link className={styles.link} to="/">
-										Подробнее
-									</Link>
-								</>
-							)}
+							<h2 className={styles.title}>
+								Новая коллекция&emsp;
+								{name}
+							</h2>
+							<Link className={styles.link} to="/">
+								Подробнее
+							</Link>
 						</div>
 						<img
 							className={styles.img}
