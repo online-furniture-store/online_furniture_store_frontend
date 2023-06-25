@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import styles from './PopularProducts.module.css';
-import Title from '../../../UI/Title/Title';
-import PopularProductCard from '../../../PopularProductCard/PopularProductCard';
+import Title from '../../UI/Title/Title';
+import PopularProductCard from '../../PopularProductCard/PopularProductCard';
 
 function PopularProducts() {
   const { popularProducts } = useSelector((state) => state.products);
@@ -18,12 +18,13 @@ function PopularProducts() {
             <div className={`${styles.grid} ${styles.gridLocationCart}`}>
               {
                 popularProducts.map((item) => (
-                    <PopularProductCard
-                      img={item.image}
-                      productName={item.name}
-                      productPrice={item.total_price}
-                      productFavorited={item.is_favorited}
-                    />
+                  <PopularProductCard
+                    key={item.id}
+                    img={item.image}
+                    productName={item.name}
+                    productPrice={item.total_price}
+                    productFavorited={item.is_favorited}
+                  />
                 ))
               }
             </div>

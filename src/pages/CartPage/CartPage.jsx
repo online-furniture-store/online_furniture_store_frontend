@@ -1,5 +1,5 @@
 import CartSection from '../../components/Sections/Cart/CartSection/CartSection';
-import PopularProducts from '../../components/Sections/Main/PopularProducts/PopularProducts';
+import PopularProducts from '../../components/Sections/PopularProducts/PopularProducts';
 
 function CartPage() {
 	return (
