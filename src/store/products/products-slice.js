@@ -7,6 +7,7 @@ const initialState = {
 	error: null,
 	popularProducts: [],
 	discountProducts: [],
+	fastDeliveryProducts: [],
 };
 
 export const sliceName = 'products';
@@ -38,8 +39,7 @@ export const fetchPopularProducts = createAsyncThunk(
 const productSlice = createSlice({
 	name: sliceName,
 	initialState,
-	reducers: {
-	},
+	reducers: {},
 	extraReducers: (builder) => {
 		builder
 			.addCase(fetchProducts.pending, (state) => {
@@ -49,6 +49,9 @@ const productSlice = createSlice({
 			.addCase(fetchProducts.fulfilled, (state, action) => {
 				state.allProducts = action.payload;
 				state.discountProducts = action.payload.filter((item) => item.discount);
+				state.fastDeliveryProducts = action.payload.filter(
+					(item) => item.fast_delivery,
+				);
 				state.loading = false;
 			})
 			.addCase(fetchProducts.rejected, (state, action) => {
@@ -69,7 +72,5 @@ const productSlice = createSlice({
 			});
 	},
 });
-
-console.log(productSlice);
 
 export default productSlice.reducer;

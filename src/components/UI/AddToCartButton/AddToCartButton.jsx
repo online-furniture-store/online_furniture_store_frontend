@@ -10,7 +10,7 @@ function AddToCartButton({ onClick, isSuccess }) {
 			onClick={onClick}
 		>
 			{isSuccess && <img className={styles.img} src={checkMark} alt="Галочка" />}
-			<span>{isSuccess ? 'Товар в корзине' : 'Добавить в корзину'}</span>
+			<span>{isSuccess ? 'Товар\u00A0в\u00A0корзине' : 'Добавить\u00A0в\u00A0корзину'}</span>
 		</button>
 	);
 }

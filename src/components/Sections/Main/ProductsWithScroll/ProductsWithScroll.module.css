@@ -4,18 +4,34 @@
 	display: flex;
 	max-width: 1440px;
 	gap: 20px;
-	min-height: 737px;
-	margin-bottom: -165px;
 	overflow-x: scroll;
 	overflow-y: hidden;
 	scrollbar-width: none;
 	list-style: none;
 }
+
+.containerFastDelivery {
+	min-height: 0;
+	margin-bottom: 0;
+}
+
+.containerDiscount {
+	min-height: 737px;
+	margin-bottom: -165px;
+}
+
 .wrapper {
 	max-width: 1440px;
 	background-color: transparent;
 	padding: 0 0 108px 100px;
 	box-sizing: border-box;
+}
+
+.wrapperFastDelivery {
+	margin: 0 auto;
+}
+
+.wrapperDiscount {
 	margin: 0 auto -165px;
 }
 
@@ -32,6 +48,8 @@
 .description {
 	box-sizing: border-box;
 	position: relative;
-	width: 400px;
-	height: 402px;
+	max-width: 400px;
+	/* height: 402px; */
 }
+
+
