@@ -64,7 +64,7 @@ function DiscountCard({
 						<p className={styles.property}>{`${weight} кг`}</p>
 					</div>
 					<div className={styles.aboutProperty}>
-						<p className={styles.property}>Максимальная нагрузка</p>
+						<p className={styles.property}>Макс. нагрузка</p>
 						<p className={styles.property}>{`${load} кг`}</p>
 					</div>
 					<div className={styles.aboutProperty}>

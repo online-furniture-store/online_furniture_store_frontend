@@ -1,51 +1,12 @@
 import { useRef, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import DiscountCard from '../../../DiscountCard/DiscountCard';
 import Title from '../../../UI/Title/Title';
 import styles from './Bargain.module.css';
 
 function Bargain() {
-	const slideImg = [
-		{
-			id: '1',
-			img: 'https://swiperjs.com/demos/images/nature-1.jpg',
-			title: 'Новая коллекция "Cozy office"',
-		},
-		{
-			id: '2',
-			img: 'https://swiperjs.com/demos/images/nature-2.jpg',
-			title: 'Новая коллекция "Shmozy office"',
-		},
-		{
-			id: '3',
-			img: 'https://swiperjs.com/demos/images/nature-3.jpg',
-			title: 'Новая коллекция "Lozy office"',
-		},
-		{
-			id: '4',
-			img: 'https://swiperjs.com/demos/images/nature-4.jpg',
-			title: 'Новая коллекция "Zozy office"',
-		},
-		{
-			id: '5',
-			img: 'https://swiperjs.com/demos/images/nature-5.jpg',
-			title: 'Новая коллекция "Pozy office"',
-		},
-		{
-			id: '6',
-			img: 'https://swiperjs.com/demos/images/nature-6.jpg',
-			title: 'Новая коллекция "Ozy office"',
-		},
-		{
-			id: '7',
-			img: 'https://swiperjs.com/demos/images/nature-7.jpg',
-			title: 'Новая коллекция "Dozy office"',
-		},
-		{
-			id: '8',
-			img: 'https://swiperjs.com/demos/images/nature-8.jpg',
-			title: 'Новая коллекция "Gozy office"',
-		},
-	];
+	const { discountProducts } = useSelector((state) => state.products);
+	// console.log(discountProducts);
 
 	const ref = useRef();
 
@@ -67,14 +28,8 @@ function Bargain() {
 	}, []);
 
 	const data = {
-		title: 'Диван Cozy Office Gray',
-		newPrice: 42990,
-		oldPrice: 49990,
-		img: '',
 		existense: 71,
-		weight: 20,
 		load: 100,
-		material: 'Экокожа',
 	};
 
 	const title = 'Выгодная покупка';
@@ -86,18 +41,18 @@ function Bargain() {
 			</div>
 			<div className={styles.bargain}>
 				<ul ref={ref} className={styles.container}>
-					{slideImg.map((item) => (
+					{discountProducts.map((item) => (
 						<li key={item.id} className={styles.description}>
 							<DiscountCard
-								img={item.img}
-								title={item.title}
-								newPrice={data.newPrice}
-								oldPrice={data.oldPrice}
-								isSale
+								img={item.image}
+								title={item.name}
+								newPrice={item.total_price}
+								oldPrice={item.price}
 								existense={data.existense}
-								weight={data.weight}
+								weight={item.weight}
 								load={data.load}
-								material={data.material}
+								material={item.material[0].name}
+								isSale
 							/>
 						</li>
 					))}

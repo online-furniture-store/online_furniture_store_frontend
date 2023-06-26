@@ -6,6 +6,7 @@ const initialState = {
 	loading: false,
 	error: null,
 	popularProducts: [],
+	discountProducts: [],
 };
 
 export const sliceName = 'products';
@@ -37,7 +38,8 @@ export const fetchPopularProducts = createAsyncThunk(
 const productSlice = createSlice({
 	name: sliceName,
 	initialState,
-	reducers: {},
+	reducers: {
+	},
 	extraReducers: (builder) => {
 		builder
 			.addCase(fetchProducts.pending, (state) => {
@@ -46,6 +48,7 @@ const productSlice = createSlice({
 			})
 			.addCase(fetchProducts.fulfilled, (state, action) => {
 				state.allProducts = action.payload;
+				state.discountProducts = action.payload.filter((item) => item.discount);
 				state.loading = false;
 			})
 			.addCase(fetchProducts.rejected, (state, action) => {
@@ -53,18 +56,20 @@ const productSlice = createSlice({
 				state.loading = false;
 			})
 			.addCase(fetchPopularProducts.pending, (state) => {
-					state.loading = true;
-					state.error = null;
-				})
+				state.loading = true;
+				state.error = null;
+			})
 			.addCase(fetchPopularProducts.fulfilled, (state, action) => {
 				state.popularProducts = action.payload;
-			state.loading = false;
-		})
+				state.loading = false;
+			})
 			.addCase(fetchPopularProducts.rejected, (state, action) => {
-			state.error = action.payload;
-			state.loading = false;
-		});
+				state.error = action.payload;
+				state.loading = false;
+			});
 	},
 });
+
+console.log(productSlice);
 
 export default productSlice.reducer;
