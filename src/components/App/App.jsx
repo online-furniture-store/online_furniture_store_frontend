@@ -3,6 +3,7 @@ import { HomePage, AboutPage } from '../../pages';
 import styles from './App.module.css';
 import Header from '../Sections/Header/Header';
 import Footer from '../Sections/Footer/Footer';
+import CartPage from '../../pages/CartPage/CartPage';
 
 function App() {
 	return (
@@ -15,7 +16,7 @@ function App() {
 						<Route path="/about" element={<AboutPage />} />
 						<Route path="/user" />
 						<Route path="/chosen" />
-						<Route path="/cart" />
+						<Route path="/cart" element={<CartPage />} />
 						<Route path="/arm-chairs" />
 						<Route path="/tables" />
 						<Route path="/wardrobes" />
