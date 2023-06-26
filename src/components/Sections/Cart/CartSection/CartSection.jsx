@@ -1,11 +1,10 @@
+import { useNavigate } from 'react-router-dom';
 import styles from './CartSection.module.css';
 import Title from '../../../UI/Title/Title';
 import Checkbox from '../../../UI/Checkbox/Checkbox';
 import CartCard from '../../../CartCard/CartCard';
-// import Counter from '../../../UI/counter/counter';
-// import Like from '../../../UI/Like/Like';
-// import Delete from '../../../UI/Delete/Delete';
-// import placeholder from '../../../../assets/img/placeholder.png';
+import emptyCart from '../../../../assets/img/emptyCart.png';
+
 const cards = [
 	{
 		id: '1',
@@ -82,9 +81,11 @@ const cards = [
 ];
 
 function CartSection() {
+	const navigate = useNavigate();
+
 	const handleSelectAll = () => {};
 
-	return (
+	return cards.length ? (
 		<section className={styles.container}>
 			<Title titleText="Корзина" />
 			<p className={styles.quantity}>
@@ -113,6 +114,23 @@ function CartSection() {
 					),
 				)}
 			</ul>
+		</section>
+	) : (
+		<section className={`${styles.container} ${styles.emptyCartContainer}`}>
+			<Title titleText="Корзина" />
+			<p className={styles.emptyText}>В вашей корзине пока нет товаров</p>
+			<button
+				className={styles.toShopingButton}
+				onClick={() => navigate('/')}
+				type="button"
+			>
+				Перейти к покупкам
+			</button>
+			<img
+				className={styles.emptyCartImg}
+				src={emptyCart}
+				alt="пустая корзина"
+			/>
 		</section>
 	);
 }
