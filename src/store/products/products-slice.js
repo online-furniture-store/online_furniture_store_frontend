@@ -6,8 +6,12 @@ const initialState = {
 	loading: false,
 	error: null,
 	popularProducts: [],
+
 	discountProducts: [],
 	fastDeliveryProducts: [],
+
+	collections: [],
+
 };
 
 export const sliceName = 'products';
@@ -29,6 +33,18 @@ export const fetchPopularProducts = createAsyncThunk(
 	async (_, { fulfillWithValue, rejectWithValue }) => {
 		try {
 			const data = await api.getPopularProducts();
+			return fulfillWithValue([...data]);
+		} catch (err) {
+			return rejectWithValue(err);
+		}
+	},
+);
+
+export const fetchCollections = createAsyncThunk(
+	`${sliceName}/fetchCollections`,
+	async (_, { fulfillWithValue, rejectWithValue }) => {
+		try {
+			const data = await api.getCollections();
 			return fulfillWithValue([...data]);
 		} catch (err) {
 			return rejectWithValue(err);
@@ -58,6 +74,7 @@ const productSlice = createSlice({
 				state.error = action.payload;
 				state.loading = false;
 			})
+
 			.addCase(fetchPopularProducts.pending, (state) => {
 				state.loading = true;
 				state.error = null;
@@ -69,6 +86,21 @@ const productSlice = createSlice({
 			.addCase(fetchPopularProducts.rejected, (state, action) => {
 				state.error = action.payload;
 				state.loading = false;
+
+			})
+
+			.addCase(fetchCollections.pending, (state) => {
+				state.loading = true;
+				state.error = null;
+			})
+			.addCase(fetchCollections.fulfilled, (state, action) => {
+				state.collections = action.payload;
+				state.loading = false;
+			})
+			.addCase(fetchCollections.rejected, (state, action) => {
+				state.error = action.payload;
+				state.loading = false;
+
 			});
 	},
 });

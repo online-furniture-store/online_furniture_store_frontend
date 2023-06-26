@@ -1,6 +1,8 @@
 .checkbox label {
 	display: flex;
-	gap: 5px;
+	gap: 8px;
+	font-size: 20px;
+	color: #000;
 }
 
 .checkbox input[type='checkbox'] {

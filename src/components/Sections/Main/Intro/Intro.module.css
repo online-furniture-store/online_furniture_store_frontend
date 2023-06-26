@@ -27,7 +27,7 @@
 	transition: width 0.3s linear;
 	width: 50px;
 	height: 7px;
-	background: #000000;
+	background: #000;
 	border: 1px solid #202020;
 	border-radius: 10px;
 }
@@ -61,7 +61,7 @@
 	height: 67px;
 	border: none;
 	outline: none;
-	border-radius: 5px;
+	border-radius: 50%;
 	opacity: 0.7;
 	z-index: 100;
 	position: absolute;
@@ -95,7 +95,7 @@
 
 .title {
 	margin: 0;
-	max-width: 368px;
+	max-width: 450px;
 	font-style: normal;
 	font-weight: 700;
 	font-size: 40px;
