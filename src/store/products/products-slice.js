@@ -6,12 +6,9 @@ const initialState = {
 	loading: false,
 	error: null,
 	popularProducts: [],
-
 	discountProducts: [],
 	fastDeliveryProducts: [],
-
 	collections: [],
-
 };
 
 export const sliceName = 'products';
@@ -86,7 +83,6 @@ const productSlice = createSlice({
 			.addCase(fetchPopularProducts.rejected, (state, action) => {
 				state.error = action.payload;
 				state.loading = false;
-
 			})
 
 			.addCase(fetchCollections.pending, (state) => {
@@ -100,7 +96,6 @@ const productSlice = createSlice({
 			.addCase(fetchCollections.rejected, (state, action) => {
 				state.error = action.payload;
 				state.loading = false;
-
 			});
 	},
 });

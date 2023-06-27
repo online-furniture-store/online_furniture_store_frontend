@@ -9,7 +9,6 @@ function ProductsWithScroll({ fastDelivery }) {
 	const { discountProducts, fastDeliveryProducts } = useSelector(
 		(state) => state.products,
 	);
-	// console.log(fastDeliveryProducts);
 
 	const ref = useRef();
 
@@ -19,7 +18,7 @@ function ProductsWithScroll({ fastDelivery }) {
 			const onWheel = (e) => {
 				e.preventDefault();
 				el.scrollTo({
-					left: el.scrollLeft + e.deltaY * 10,
+					left: el.scrollLeft + e.deltaY * 5,
 					behavior: 'smooth',
 				});
 			};
