@@ -12,8 +12,8 @@ function DiscountCard({
 	img,
 	existense,
 	weight,
-	load,
-	material,
+	brand,
+	country,
 	fastDelivery,
 }) {
 	const [isLike, setIsLike] = useState(false);
@@ -70,26 +70,26 @@ function DiscountCard({
 							: styles.descriptionDiscountCard
 					}
 				>
-					<div
-						className={
-							fastDelivery ? styles.aboutPriceFastDelivery : styles.aboutPrice
-						}
-					>
-						<p
-							className={
-								fastDelivery
-									? `${styles.aboutPrice__new} ${styles.aboutPrice__newDelivery}`
-									: `${styles.aboutPrice__new} ${styles.aboutPrice__newDiscount}`
-							}
-						>
-							{newPrice}
-							<span>&nbsp;&#8381;</span>
-						</p>
-						<p className={styles.aboutPrice__old}>
-							{oldPrice}
-							<span>&nbsp;&#8381;</span>
-						</p>
-					</div>
+					{fastDelivery ? (
+						<div className={styles.aboutPriceFastDelivery}>
+							<p className={styles.aboutPrice__fastDelivery}>
+								{oldPrice}
+								<span>&nbsp;&#8381;</span>
+							</p>
+						</div>
+					) : (
+						<div className={styles.aboutPrice}>
+							<p className={styles.aboutPrice__new}>
+								{newPrice}
+								<span>&nbsp;&#8381;</span>
+							</p>
+							<p className={styles.aboutPrice__old}>
+								{oldPrice}
+								<span>&nbsp;&#8381;</span>
+							</p>
+						</div>
+					)}
+
 					<p className={styles.existence}>{`в наличии: ${existense} шт`}</p>
 				</div>
 				<div
@@ -104,13 +104,13 @@ function DiscountCard({
 						<p className={styles.property}>{`${weight} кг`}</p>
 					</div>
 					<div className={styles.aboutProperty}>
-						<p className={styles.property}>Макс. нагрузка</p>
-						<p className={styles.property}>{`${load} кг`}</p>
+						<p className={styles.property}>Бренд</p>
+						<p className={styles.property}>{brand}</p>
 					</div>
 					<div className={styles.aboutProperty}>
-						<p className={styles.property}>{'Материал\u00A0обивки'}</p>
-						<p className={`${styles.property} ${styles.propertySize}`}>
-							{material}
+						<p className={styles.property}>Страна</p>
+						<p className={styles.property}>
+							{country}
 						</p>
 					</div>
 					<AddToCartButton onClick={onAddClick} isSuccess={isAdded} />
@@ -122,13 +122,13 @@ function DiscountCard({
 
 DiscountCard.propTypes = {
 	title: PropTypes.string.isRequired,
-	newPrice: PropTypes.number.isRequired,
-	oldPrice: PropTypes.number.isRequired,
+	newPrice: PropTypes.string.isRequired,
+	oldPrice: PropTypes.string.isRequired,
 	img: PropTypes.string,
 	existense: PropTypes.number.isRequired,
 	weight: PropTypes.number.isRequired,
-	load: PropTypes.number.isRequired,
-	material: PropTypes.string.isRequired,
+	brand: PropTypes.string.isRequired,
+	country: PropTypes.string.isRequired,
 	fastDelivery: PropTypes.bool,
 };
 

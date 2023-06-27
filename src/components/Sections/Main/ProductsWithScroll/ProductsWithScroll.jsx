@@ -31,7 +31,6 @@ function ProductsWithScroll({ fastDelivery }) {
 
 	const data = {
 		existense: 71,
-		load: 100,
 	};
 
 	return (
@@ -64,12 +63,12 @@ function ProductsWithScroll({ fastDelivery }) {
 								<DiscountCard
 									img={item.image}
 									title={item.name}
-									newPrice={item.total_price}
-									oldPrice={item.price}
+									newPrice={item.total_price.toLocaleString()}
+									oldPrice={item.price.toLocaleString()}
 									existense={data.existense}
 									weight={item.weight}
-									load={data.load}
-									material={item.material[0].name}
+									brand={item.brand}
+									country={item.country}
 									isSale
 									fastDelivery={fastDelivery}
 								/>
