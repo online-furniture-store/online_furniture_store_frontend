@@ -6,7 +6,12 @@ const initialState = {
 	loading: false,
 	error: null,
 	popularProducts: [],
+
+	discountProducts: [],
+	fastDeliveryProducts: [],
+
 	collections: [],
+
 };
 
 export const sliceName = 'products';
@@ -59,6 +64,10 @@ const productSlice = createSlice({
 			})
 			.addCase(fetchProducts.fulfilled, (state, action) => {
 				state.allProducts = action.payload;
+				state.discountProducts = action.payload.filter((item) => item.discount);
+				state.fastDeliveryProducts = action.payload.filter(
+					(item) => item.fast_delivery,
+				);
 				state.loading = false;
 			})
 			.addCase(fetchProducts.rejected, (state, action) => {
@@ -77,6 +86,7 @@ const productSlice = createSlice({
 			.addCase(fetchPopularProducts.rejected, (state, action) => {
 				state.error = action.payload;
 				state.loading = false;
+
 			})
 
 			.addCase(fetchCollections.pending, (state) => {
@@ -90,6 +100,7 @@ const productSlice = createSlice({
 			.addCase(fetchCollections.rejected, (state, action) => {
 				state.error = action.payload;
 				state.loading = false;
+
 			});
 	},
 });

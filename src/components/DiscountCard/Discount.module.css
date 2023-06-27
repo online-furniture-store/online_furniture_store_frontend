@@ -1,6 +1,5 @@
 .card {
-	width: 400px;
-	height: 100%;
+	height: 402px;
 	background-color: transparent;
 	position: relative;
 	overflow: hidden;
@@ -10,16 +9,29 @@
 	z-index: 1;
 }
 
+.discountCard {
+	width: 400px;
+}
+
+.fastDeliveryCard {
+	width: 295px;
+}
+
 .card:hover {
+	height: 695px;
 	overflow: visible;
 	transition: 0.2s linear;
 }
 
 .inner {
-	min-height: 645px;
+	/* min-height: 645px; */
 	box-sizing: border-box;
 	background-color: #fff;
 	box-sizing: border-box;
+}
+
+.inner:hover {
+	height: 645px;
 }
 
 .inner::before {
@@ -47,9 +59,17 @@
 }
 
 .image {
+	margin-bottom: 24px;
+}
+
+.imageDiscountCard {
 	width: 400px;
 	height: 312px;
-	margin-bottom: 24px;
+}
+
+.imageFastDelivery {
+	width: 295px;
+	height: 294px;
 }
 
 .image__picture {
@@ -68,19 +88,20 @@
 	right: 20px;
 }
 
-.sale {
-	background-image: url(../../assets/img/percent.svg);
+.percentAndTruck {
 	width: 34px;
 	height: 34px;
 	background-repeat: no-repeat;
-	margin-right: 8px;
-	visibility: visible;
-	opacity: 1;
+	padding: 7px;
+	box-sizing: content-box;
 }
 
-.nonActive {
-	visibility: hidden;
-	opacity: 0;
+.discountPercent {
+	background-image: url(../../assets/img/percent.svg);
+}
+
+.truckDelivery {
+	background-image: url(../../assets/img/truckWithGreenBg.svg);
 }
 
 .likes {
@@ -89,6 +110,8 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, 0.3);
 }
 
 .title {
@@ -98,16 +121,30 @@
 	line-height: 23px;
 	margin: 0 0 20px;
 	color: #000000;
+	height: 23px;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 
-.description {
+.descriptionDiscountCard {
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: 28px;
 }
 
+.descriptionFastDeliveryCard {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 24px;
+}
+
 .aboutPrice {
 	display: flex;
+}
+
+.aboutPriceFastDelivery {
+	display: inherit;
+	margin-bottom: 16px;
 }
 
 .aboutPrice__new {
@@ -116,6 +153,13 @@
 	font-size: 20px;
 	line-height: 23px;
 	color: var(--system-red);
+}
+
+.aboutPrice__newDelivery {
+	margin: 0 20px 0 0;
+}
+
+.aboutPrice__newDiscount {
 	margin: 0 12px 0 0;
 }
 
@@ -148,7 +192,7 @@
 }
 
 .aboutCard {
-	opacity: 0;
+	/* opacity: 0; */
 	visibility: hidden;
 	transition: 0.2s linear;
 	background-color: #fff;
@@ -160,7 +204,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	overflow: hidden;
+	/* overflow: hidden; */
 	border-radius: 10px;
 }
 
@@ -168,7 +212,14 @@
 	opacity: 1;
 	visibility: visible;
 	transition: 0.2s linear;
-	overflow: visible;
+}
+
+.aboutCardDiscount {
+	width: 440px;
+}
+
+.aboutCardFastDelivery {
+	width: 335px;
 }
 
 .aboutProperty {
@@ -190,4 +241,11 @@
 	font-size: 20px;
 	line-height: 23px;
 	margin: 0;
+}
+
+.propertySize {
+	max-width: 84px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 27px;
 }

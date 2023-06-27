@@ -3,14 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
 	fetchProducts,
 	fetchPopularProducts,
+
 	fetchCollections,
+
 } from '../../store/products/products-slice';
 import Intro from '../../components/Sections/Main/Intro/Intro';
 import PopularProducts from '../../components/Sections/PopularProducts/PopularProducts';
 import Categories from '../../components/Sections/Main/Categories/Categories';
 import Services from '../../components/Sections/Main/Services/Services';
-import Bargain from '../../components/Sections/Main/Bargain/Bargain';
-import FastDelivery from '../../components/Sections/Main/FastDelivery/FastDelivery';
+import ProductsWithScroll from '../../components/Sections/Main/ProductsWithScroll/ProductsWithScroll';
 
 function HomePage() {
 	const dispatch = useDispatch();
@@ -28,10 +29,10 @@ function HomePage() {
 		<>
 			<Intro />
 			<Categories />
-			<Bargain />
+			<ProductsWithScroll />
 			<PopularProducts />
 			<Services />
-			<FastDelivery />
+			<ProductsWithScroll fastDelivery />
 		</>
 	);
 }
