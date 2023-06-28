@@ -22,6 +22,11 @@
 	visibility: visible;
 }
 
+.card:hover .sweets {
+	top: 40px;
+	right: 40px;
+}
+
 .discountCard {
 	width: 400px;
 	height: 402px;
@@ -68,6 +73,7 @@
 	position: absolute;
 	top: 20px;
 	right: 20px;
+	transition: all  ease-in-out 0.5s;
 }
 
 .percentAndTruck {
