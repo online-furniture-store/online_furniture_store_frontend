@@ -1,0 +1,201 @@
+.card {
+	position: relative;
+	overflow: hidden;
+	box-sizing: border-box;
+	background: #fff;
+	margin: 0 10px;
+	transition: all  ease-in-out 0.5s;
+}
+
+.card:hover {
+	border-radius: 10px;
+	padding: 20px 20px 32px 20px;
+	box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1),
+	0px 19px 43px 0px rgba(0, 0, 0, 0.1), 0px 78px 78px 0px rgba(0, 0, 0, 0.09),
+	0px 175px 105px 0px rgba(0, 0, 0, 0.05),
+	0px 311px 124px 0px rgba(0, 0, 0, 0.01),
+	0px 486px 136px 0px rgba(0, 0, 0, 0);
+  margin: 0 -10px;
+	z-index: 1;
+}
+
+.card:hover .inStock {
+	visibility: visible;
+}
+
+.discountCard {
+	width: 400px;
+	height: 402px;
+}
+
+.discountCard:hover {
+	width: 440px;
+	height: 669px;
+}
+
+.fastDeliveryCard {
+	width: 295px;
+	height: 376px;
+}
+
+.fastDeliveryCard:hover {
+	width: 335px;
+	height: 678px;
+}
+
+.imageDiscountCard {
+	width: 400px;
+	height: 312px;
+	margin-bottom: 32px;
+}
+
+.imageFastDelivery {
+	width: 295px;
+	height: 294px;
+	margin-bottom: 24px;
+}
+
+.image__picture {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 10px;
+}
+
+.sweets {
+	display: flex;
+	width: 76px;
+	justify-content: space-between;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+}
+
+.percentAndTruck {
+	width: 34px;
+	height: 34px;
+	background-repeat: no-repeat;
+	padding: 7px;
+	box-sizing: content-box;
+}
+
+.discountPercent {
+	background-image: url(../../assets/img/percent.svg);
+}
+
+.truckDelivery {
+	background-image: url(../../assets/img/truckWithGreenBg.svg);
+}
+
+.likes {
+	width: 34px;
+	height: 34px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, 0.3);
+}
+
+.title {
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 23px;
+	margin: 0 0 16px;
+	color: var(--main-black);
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.description {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 24px;
+}
+
+.descriptionFastDelivery {
+	flex-direction: column;
+	gap: 16px;
+}
+
+.descriptionDiscountCard {
+	flex-direction: row;
+}
+
+.price {
+	display: flex;
+}
+
+.price__new {
+	font-style: normal;
+	font-weight: 700;
+	font-size: 20px;
+	margin: 0 12px 0 0;
+}
+
+.price__new_fastDelivery {
+	color: #000;
+}
+
+.price__new_discountCard {
+	color: var(--system-red);
+}
+
+.card:hover .price__new_fastDelivery {
+	color: var(--system-red);
+}
+
+.price__old {
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	text-decoration-line: line-through;
+	color: #9c9c9c;
+	margin: 0;
+}
+
+.price__old_fastDelivery {
+	display: none;
+}
+
+.price__old_discountCard {
+	display: block;	
+}
+
+.card:hover .price__old_fastDelivery {
+	display: block;	
+}
+
+.inStock {
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 21px;
+	margin: 0;
+	color: #989898;
+	visibility: hidden;
+	transition: visibility ease-in-out 0.5s;
+
+}
+
+.aboutProperty {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 16px;
+	width: 100%;
+	background-color: #fff;
+	box-shadow: none;
+}
+
+.aboutProperty:last-of-type {
+	margin-bottom: 28px;
+}
+
+.property {
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 23px;
+	margin: 0;
+}
