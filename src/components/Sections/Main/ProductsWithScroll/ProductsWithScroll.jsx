@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import DiscountCard from '../../../DiscountCard/DiscountCard';
+import ProductCard from '../../../ProductCard/ProductCard';
 import Title from '../../../UI/Title/Title';
 import styles from './ProductsWithScroll.module.css';
 
@@ -30,7 +30,7 @@ function ProductsWithScroll({ fastDelivery }) {
 	}, []);
 
 	const data = {
-		existense: 71,
+		inStock: 71,
 	};
 
 	return (
@@ -60,16 +60,15 @@ function ProductsWithScroll({ fastDelivery }) {
 					{(fastDelivery ? fastDeliveryProducts : discountProducts).map(
 						(item) => (
 							<li key={item.id} className={styles.description}>
-								<DiscountCard
+								<ProductCard
 									img={item.image}
 									title={item.name}
 									newPrice={item.total_price.toLocaleString()}
 									oldPrice={item.price.toLocaleString()}
-									existense={data.existense}
+									inStock={data.inStock}
 									weight={item.weight}
 									brand={item.brand}
 									country={item.country}
-									isSale
 									fastDelivery={fastDelivery}
 								/>
 							</li>
