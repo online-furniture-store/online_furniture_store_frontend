@@ -3,18 +3,18 @@
 	overflow: hidden;
 	box-sizing: border-box;
 	background: #fff;
-	transition: all  ease-in-out 0.5s;
+	transition: all ease-in-out 0.5s;
 }
 
 .card:hover {
 	border-radius: 10px;
 	padding: 20px 20px 32px 20px;
 	box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1),
-	0px 19px 43px 0px rgba(0, 0, 0, 0.1), 0px 78px 78px 0px rgba(0, 0, 0, 0.09),
-	0px 175px 105px 0px rgba(0, 0, 0, 0.05),
-	0px 311px 124px 0px rgba(0, 0, 0, 0.01),
-	0px 486px 136px 0px rgba(0, 0, 0, 0);
-  margin: -20px -20px 0 -20px;
+		0px 19px 43px 0px rgba(0, 0, 0, 0.1), 0px 78px 78px 0px rgba(0, 0, 0, 0.09),
+		0px 175px 105px 0px rgba(0, 0, 0, 0.05),
+		0px 311px 124px 0px rgba(0, 0, 0, 0.01),
+		0px 486px 136px 0px rgba(0, 0, 0, 0);
+	margin: -20px -20px 0 -20px;
 	z-index: 1;
 }
 
@@ -39,7 +39,7 @@
 
 .fastDeliveryCard {
 	width: 295px;
-	height: 376px;
+	height: 378px;
 }
 
 .fastDeliveryCard:hover {
@@ -73,7 +73,7 @@
 	position: absolute;
 	top: 20px;
 	right: 20px;
-	transition: all  ease-in-out 0.5s;
+	transition: all ease-in-out 0.5s;
 }
 
 .percentAndTruck {
@@ -121,55 +121,42 @@
 
 .descriptionFastDelivery {
 	flex-direction: column;
-	gap: 16px;
+	/* gap: 16px; */
 }
 
 .descriptionDiscountCard {
 	flex-direction: row;
 }
 
+.price__new_fastDelivery {
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 23px;
+	color: var(--main-black);
+	margin: 0 0 16px;
+}
+
 .price {
 	display: flex;
 }
 
-.price__new {
+.price__new_discountCard {
 	font-style: normal;
 	font-weight: 700;
 	font-size: 20px;
+	line-height: 23px;
+	color: var(--system-red);
 	margin: 0 12px 0 0;
 }
 
-.price__new_fastDelivery {
-	color: #000;
-}
-
-.price__new_discountCard {
-	color: var(--system-red);
-}
-
-.card:hover .price__new_fastDelivery {
-	color: var(--system-red);
-}
-
-.price__old {
+.price__old_discountCard {
 	font-style: normal;
 	font-weight: 400;
 	font-size: 20px;
+	line-height: 23px;
 	text-decoration-line: line-through;
 	color: #9c9c9c;
 	margin: 0;
-}
-
-.price__old_fastDelivery {
-	display: none;
-}
-
-.price__old_discountCard {
-	display: block;	
-}
-
-.card:hover .price__old_fastDelivery {
-	display: block;	
 }
 
 .inStock {
@@ -181,7 +168,6 @@
 	color: #989898;
 	visibility: hidden;
 	transition: visibility ease-in-out 0.5s;
-
 }
 
 .aboutProperty {

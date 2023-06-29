@@ -70,24 +70,26 @@ function ProductCard({
 						: `${styles.description} ${styles.descriptionDiscountCard}`
 				}
 			>
-				<div className={styles.price}>
-					<p className={
-					fastDelivery
-						? `${styles.price__new} ${styles.price__new_fastDelivery}`
-						: `${styles.price__new} ${styles.price__new_discountCard}`
-				}>
-						{newPrice}
-						<span>&nbsp;&#8381;</span>
-					</p>
-					<p className={
-					fastDelivery
-						? `${styles.price__old} ${styles.price__old_fastDelivery}`
-						: `${styles.price__old} ${styles.price__old_discountCard}`
-				}>
-						{newPrice !== oldPrice && oldPrice}
-						{newPrice !== oldPrice && <span>&nbsp;&#8381;</span>}
-					</p>
-				</div>
+				{fastDelivery ? (
+					<div className={styles.price__FastDelivery}>
+						<p className={styles.price__new_fastDelivery}>
+							{oldPrice}
+							<span>&nbsp;&#8381;</span>
+						</p>
+					</div>
+				) : (
+					<div className={styles.price}>
+						<p className={styles.price__new_discountCard}>
+							{newPrice}
+							<span>&nbsp;&#8381;</span>
+						</p>
+						<p className={styles.price__old_discountCard}>
+							{oldPrice}
+							<span>&nbsp;&#8381;</span>
+						</p>
+					</div>
+				)}
+
 				<p className={styles.inStock}>{`в наличии: ${inStock} шт`}</p>
 			</div>
 
