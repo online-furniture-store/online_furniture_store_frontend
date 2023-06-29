@@ -1,0 +1,57 @@
+.container {
+	max-width: 469px;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 21px;
+	margin: 100px;
+}
+
+.naming {
+	color: var(--element-grey);
+	font-size: 16px;
+	margin: 0 0 4px;
+}
+
+.input {
+	max-width: 100%;
+	height: 53px;
+	background: transparent;
+	color: var(--main-black);
+	border-radius: 10px;
+	padding: 16px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between;
+}
+
+.input__default {
+	border: 1px solid var(--element-gray);
+}
+
+.input:focus {
+	border: 1.5px solid var(--text-black);
+	outline: none;
+}
+
+.input:hover {
+	border: 1.8px solid var(--element-gray);
+}
+
+.input__error {
+	border: 1px solid var(--system-red);
+}
+
+.input[type='search']:focus::-webkit-search-cancel-button {
+	-webkit-appearance: none;
+	width: 16px;
+	height: 16px;
+	background-image: url(../../../assets/img/closeCross.svg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	margin-right: -2px;
+	cursor: pointer;
+}
