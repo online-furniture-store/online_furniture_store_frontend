@@ -1,6 +1,7 @@
 {
 	"name": "onlinestore",
 	"version": "0.1.0",
+	"homepage": "https://online-furniture-store.github.io/online_furniture_store_frontend",
 	"private": true,
 	"dependencies": {
 		"@reduxjs/toolkit": "^1.9.5",
@@ -25,7 +26,9 @@
 		"eject": "react-scripts eject",
 		"lint": "eslint .",
 		"lint:fix": "eslint --fix .",
-		"prettier": "prettier --write src/"
+		"prettier": "prettier --write src/",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build"
 	},
 	"eslintConfig": {
 		"extends": [
@@ -49,6 +52,7 @@
 		"eslint": "^8.41.0",
 		"eslint-config-airbnb": "^19.0.4",
 		"eslint-config-prettier": "^8.8.0",
+		"gh-pages": "^5.0.0",
 		"prettier": "^2.8.8"
 	}
 }
