@@ -4,7 +4,6 @@ import PopularProducts from '../../components/Sections/PopularProducts/PopularPr
 function CartPage() {
 	return (
 		<>
-
 			<CartSection />
 			<PopularProducts />
 		</>
