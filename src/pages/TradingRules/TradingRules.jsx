@@ -1,4 +1,4 @@
-import classes from './TradingRules.module.css';
+import styles from './TradingRules.module.css';
 import DocumentationPage from '../../components/Documentation/Documentation';
 import Title from '../../components/UI/Title/Title';
 
@@ -6,7 +6,7 @@ function TradingRules() {
   return (
     <DocumentationPage>
       <Title titleText="Правила продажи товаров" />
-      <div className={classes.content}>
+      <div className={styles.content}>
         <ol>
           <li>
             Условия покупки и продажи товара

@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
-import classes from './Documentation.module.css';
+import styles from './Documentation.module.css';
 
 function DocumentationPage({ children }) {
   return (
-    <div className={classes.documentation}>
+    <div className={styles.documentation}>
       {children}
     </div>
   );

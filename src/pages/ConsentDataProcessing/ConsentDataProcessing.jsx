@@ -1,4 +1,4 @@
-import classes from './ConsentDataProcessing.module.css';
+import styles from './ConsentDataProcessing.module.css';
 import DocumentationPage from '../../components/Documentation/Documentation';
 import Title from '../../components/UI/Title/Title';
 
@@ -6,8 +6,8 @@ function ConsentDataProcessing() {
   return (
     <DocumentationPage>
       <Title titleText="Согласие на обработку персональных данных" />
-      <div className={classes.content}>
-        <p className={classes.text}>
+      <div className={styles.content}>
+        <p className={styles.text}>
           Для покупки товара в интернет-магазине мебели OFS необходимо
           дать согласие на обработку персональных данных.
           <br />
@@ -16,7 +16,7 @@ function ConsentDataProcessing() {
           с Федеральным законом от 27 июля 2006 года №
           <nobr> 152-ФЗ</nobr>
           „О персональных данных“.
-          <ul className={classes.list}>
+          <ul className={styles.list}>
             Персональные данные, которые я предоставляю, включают в себя:
             <li>
               фамилию, имя, отчество;
