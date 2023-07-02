@@ -24,20 +24,8 @@
   margin: 8px auto 56px;
 }
 
-.button {
-  width: 400px;
-  height: 55px;
-  font-size: 20px;
+.buttonContainer {
+  width: 100%;
+  max-width: 400px;
   margin-bottom: 426px;
-  background-color: var(--text-black);
-  color: var(--main-white);
-  border-radius: 6px;
-  box-sizing: border-box;
-  padding: 14px 99px;
-  cursor: pointer;
-}
-
-.button:hover {
-  border: 1px solid var(--main-black);
-  background: var(--element-dark-gray);
 }
