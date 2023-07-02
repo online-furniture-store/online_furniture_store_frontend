@@ -1,34 +1,34 @@
 import React, { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 
-import styles from './Header.module.css';
 import user from '../../../assets/img/person.svg';
 import SearchField from '../../UI/SearchField/SearchField';
-import HeartCounter from '../../UI/heart-counter/heart-counter';
 import Grocery from '../../UI/grocery/grocery';
+import HeartCounter from '../../UI/heart-counter/heart-counter';
+import styles from './Header.module.css';
 
 function Header() {
 	const location = useLocation();
 	const [contentShown, setContentShown] = useState(false);
 	const [linkStateActive, setLinkStateActive] = useState(false);
 	const [searchValue, setSearchValue] = useState();
+  const [searchInputShown, setSearchInputShow] = useState(false);
+
 	const handleShowContent = () => {
 		setContentShown(!contentShown);
 		setLinkStateActive(!linkStateActive);
 	};
+
 	const handleChange = (evt) => {
 		setSearchValue(evt.target.value);
 	};
 
+  const handleSearchInputShow = () => {
+    setSearchInputShow((prev) => !prev);
+  };
+
 	return (
 		<header className={styles.header}>
-			<div className={styles.taken}>
-				<div className={styles.taken__container}>
-					<button type="button" className={styles.callback}>
-						Обратный звонок
-					</button>
-				</div>
-			</div>
 			<div className={styles.main}>
 				<div className={styles.main__container}>
 					{location.pathname === '/' ? (
@@ -65,15 +65,33 @@ function Header() {
 								<p className={styles.menu__text}>O компании</p>
 							</NavLink>
 						</li>
+            <li>
+              <NavLink to="#" className={styles.menu__item}>
+                <button type="button" className={styles.menu__text}>
+                  Обратный звонок
+                </button>
+              </NavLink>
+            </li>
 					</ul>
-					<SearchField onChange={handleChange} value={searchValue} />
-					<ul className={styles.contacts}>
+					<div className={searchInputShown ? styles.contacts_inactive : styles.contacts}>
+            <a href="tel: +74955555555" className={styles.phone}>+7 (495) 555–55–55</a>
 						<select className={styles.cities}>
 							<option className={styles.city}>Москва</option>
 						</select>
-						<p className={styles.phone}>+7 (495) 555–55–55</p>
-					</ul>
+					</div>
+          <SearchField
+              onChange={handleChange}
+              value={searchValue}
+              isVisible={searchInputShown}
+          />
 					<nav className={styles.nav}>
+            <button
+              className={
+                searchInputShown ? styles.searchIcon_inactive : styles.searchIcon
+              }
+              type="button"
+              onClick={handleSearchInputShow}
+            />
 						<NavLink className={styles.nav__item} to="/user">
 							<img
 								className={styles.userIcon}
