@@ -1,4 +1,4 @@
-import classes from './DataProcessingPolicy.module.css';
+import styles from './DataProcessingPolicy.module.css';
 import DocumentationPage from '../../components/Documentation/Documentation';
 import Title from '../../components/UI/Title/Title';
 
@@ -6,12 +6,12 @@ function DataProcessingPolicy() {
   return (
     <DocumentationPage>
       <Title titleText="Политика обработки персональных данных" />
-      <div className={classes.content}>
+      <div className={styles.content}>
         <div>
-          <span className={classes.title}>
+          <span className={styles.title}>
             Сбор и обработка персональных данных
           </span>
-          <p className={classes.text}>
+          <p className={styles.text}>
             Мы собираем и обрабатываем персональные данные, необходимые
             для оформления и доставки заказа в Магазине: имя, адрес
             электронной почты, номер телефона, адрес доставки. Мы также
@@ -21,10 +21,10 @@ function DataProcessingPolicy() {
           </p>
         </div>
         <div>
-          <span className={classes.title}>
+          <span className={styles.title}>
             Хранение персональных данных
           </span>
-          <p className={classes.text}>
+          <p className={styles.text}>
             Мы храним персональные данные, которые Вы нам предоставляете,
             в нашей базе данных. Наши базы данных защищены различными
             системами безопасности. Мы храним персональные данные долгий срок,
@@ -32,19 +32,19 @@ function DataProcessingPolicy() {
           </p>
         </div>
         <div>
-          <span className={classes.title}>
+          <span className={styles.title}>
             Передача персональных данных третьим лицам
           </span>
-          <p className={classes.text}>
+          <p className={styles.text}>
             Мы не передаем Ваши персональные данные третьим лицам без вашего согласия,
             кроме тех случаев, когда это требуется законодательством.
           </p>
         </div>
         <div>
-          <span className={classes.title}>
+          <span className={styles.title}>
             Использование файлов cookie
           </span>
-          <p className={classes.text}>
+          <p className={styles.text}>
             Мы можем использовать файлы cookie для улучшения качества обслуживания
             в нашем Магазине. Файлы cookie позволяют нам определить, какая
             информация наиболее интересна для наших потребителей, и какую
@@ -52,10 +52,10 @@ function DataProcessingPolicy() {
           </p>
         </div>
         <div>
-          <span className={classes.title}>
+          <span className={styles.title}>
             Контроль и защита персональных данных
           </span>
-          <p className={classes.text}>
+          <p className={styles.text}>
             Мы предпринимаем все меры, чтобы гарантировать защиту и
             конфиденциальность Ваших персональных данных.
             Мы используем специальные системы и технологии для защиты
@@ -63,10 +63,10 @@ function DataProcessingPolicy() {
           </p>
         </div>
         <div>
-          <span className={classes.title}>
+          <span className={styles.title}>
             Обращение с запросами на обработку персональных данных
           </span>
-          <p className={classes.text}>
+          <p className={styles.text}>
             Если у Вас есть какие-либо вопросы относительно нашей Политики
             обработки персональных данных или если Вы хотите оставить заявку
             на обработку ваших персональных данных, Вы можете связаться с
@@ -74,20 +74,20 @@ function DataProcessingPolicy() {
           </p>
         </div>
         <div>
-          <span className={classes.title}>
+          <span className={styles.title}>
             Изменения в Политике обработки персональных данных
           </span>
-          <p className={classes.text}>
+          <p className={styles.text}>
             Мы оставляем за собой право вносить любые изменения в нашу Политику
             обработки персональных данных в любое время. Обновленная версия
             будет доступна на сайте Магазина.
           </p>
         </div>
         <div>
-          <span className={classes.title}>
+          <span className={styles.title}>
             Заключение
           </span>
-          <p className={classes.text}>
+          <p className={styles.text}>
             Мы ценим Ваше доверие и гарантируем, что мы будем тщательно защищать
             Ваши персональные данные в соответствии с установленными нормами и правилами.
           </p>
