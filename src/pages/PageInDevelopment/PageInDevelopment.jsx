@@ -15,7 +15,7 @@ function PageInDevelopment() {
       <div className={styles.buttonContainer}>
         <BlackButton
           buttonText="Вернуться назад"
-          buttonLarge="buttonLarge"
+          buttonLarge
           onClick={() => navigate(-1)}
         />
       </div>

@@ -18,7 +18,7 @@ function BlackButton({ onClick, buttonText, buttonLarge }) {
 BlackButton.propTypes = {
   onClick: PropTypes.func.isRequired,
   buttonText: PropTypes.string.isRequired,
-  buttonLarge: PropTypes.string,
+  buttonLarge: PropTypes.bool,
 };
 
 export default BlackButton;
