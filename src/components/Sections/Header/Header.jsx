@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/jsx-no-useless-fragment */
 import React, { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
@@ -17,9 +19,13 @@ function Header() {
 	const [searchValue, setSearchValue] = useState();
 	const [searchInputShown, setSearchInputShow] = useState(false);
 
-	const handleShowContent = () => {
+	const handleShowMenu = () => {
 		setContentShown(!contentShown);
 		setLinkStateActive(!linkStateActive);
+	};
+
+	const handleHideMenu = () => {
+		setContentShown(false);
 	};
 
 	const handleChange = (evt) => {
@@ -30,18 +36,24 @@ function Header() {
 		setSearchInputShow((prev) => !prev);
 	};
 
+	const handleHideSearchInput = () => {
+		if (searchInputShown) {
+			setSearchInputShow(false);
+		}
+	};
+
 	return (
 		<>
 			{location.pathname === '/' ? (
 				<header className={styles.header}>
-					<div className={styles.main}>
+					<div className={styles.main} onClick={handleHideSearchInput}>
 						<div className={styles.main__container}>
 							<Logo />
 							<ul className={styles.menu}>
 								<li>
 									<button
 										type="button"
-										onClick={handleShowContent}
+										onClick={handleShowMenu}
 										className={
 											linkStateActive
 												? styles.menu__item_active
@@ -114,6 +126,7 @@ function Header() {
 						</div>
 					</div>
 					<div
+						onClick={handleHideMenu}
 						className={
 							contentShown ? styles.categories_visible : styles.categories
 						}

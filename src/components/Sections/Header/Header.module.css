@@ -165,8 +165,8 @@ li {
 
 .categories {
   position: absolute;
-  top: 139px;
-  left: 0px;
+  top: 77px;
+  left: 174px;
   display: flex;
   overflow: hidden;
   justify-content: center;
@@ -174,23 +174,24 @@ li {
   background: transparent;
   opacity: 0;
   height: 0;
-  transition: height 0.1s linear, opacity 0.1s linear;
 }
 
 .categories_visible {
   position: absolute;
-  top: 139px;
-  left: 0px;
+  top: 77px;
+  left: 174px;
   overflow: auto;
   justify-content: center;
   width: 100%;
   background: transparent;
   opacity: 1;
   height: 267px;
-  transition: height 0.4s linear, opacity 0.9s linear;
+  height: 90vh;
+  transition: height 0.2s linear, opacity 0.4s linear;
 }
 
 .categories__container {
+  margin: 0 auto;
   width: 1440px;
 }
 
