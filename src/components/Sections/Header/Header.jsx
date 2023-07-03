@@ -1,6 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable react/jsx-no-useless-fragment */
 import React, { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 
@@ -43,7 +40,7 @@ function Header() {
 	};
 
 	return (
-		<>
+		<div>
 			{location.pathname === '/' ? (
 				<header className={styles.header}>
 					<div className={styles.main} onClick={handleHideSearchInput}>
@@ -215,7 +212,7 @@ function Header() {
 					</div>
 				</header>
 			)}
-		</>
+		</div>
 	);
 }
 
