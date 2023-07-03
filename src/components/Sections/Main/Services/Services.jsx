@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import styles from './Services.module.css';
 import Title from '../../../UI/Title/Title';
 import LearnMoreButton from '../../../UI/LearnMoreButton/LearnMoreButton';
@@ -6,12 +7,10 @@ import drill from '../../../../assets/img/drillBrown.svg';
 import crane from '../../../../assets/img/craneBrown.svg';
 
 function Services() {
-	const textButton = {
-		textLearn: 'Подробнее',
-		textBooking: 'Заказать',
+	const navigate = useNavigate();
+	const changeText = () => {
+		navigate('/under-construction');
 	};
-
-	const changeText = () => {};
 
 	return (
 		<section className={styles.container}>
@@ -22,26 +21,17 @@ function Services() {
 				<div className={styles.box}>
 					<img className={styles.image} src={truck} alt="Truck" />
 					<p className={styles.about}>Доставка и подъём мебели</p>
-					<LearnMoreButton
-						buttonText={textButton.textLearn}
-						onClick={changeText}
-					/>
+					<LearnMoreButton buttonText="Подробнее" onClick={changeText} />
 				</div>
 				<div className={styles.box}>
 					<img className={styles.image} src={drill} alt="Drill" />
 					<p className={styles.about}>Оперативная сборка в вашем офисе</p>
-					<LearnMoreButton
-						buttonText={textButton.textBooking}
-						onClick={changeText}
-					/>
+					<LearnMoreButton buttonText="Подробнее" onClick={changeText} />
 				</div>
 				<div className={styles.box}>
 					<img className={styles.image} src={crane} alt="Crane" />
 					<p className={styles.about}>Вывоз старой мебели в день доставки</p>
-					<LearnMoreButton
-						buttonText={textButton.textBooking}
-						onClick={changeText}
-					/>
+					<LearnMoreButton buttonText="Подробнее" onClick={changeText} />
 				</div>
 			</div>
 		</section>

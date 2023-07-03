@@ -4,6 +4,8 @@ import styles from './App.module.css';
 import Header from '../Sections/Header/Header';
 import Footer from '../Sections/Footer/Footer';
 import CartPage from '../../pages/CartPage/CartPage';
+import TradingRules from '../../pages/TradingRules/TradingRules';
+import PageInDevelopment from '../../pages/PageInDevelopment/PageInDevelopment';
 
 function App() {
 	return (
@@ -22,6 +24,8 @@ function App() {
 						<Route path="/wardrobes" />
 						<Route path="/sofas" />
 						<Route path="/sale" />
+						<Route path="/rules-sale" element={<TradingRules />} />
+						<Route path="/under-construction" element={<PageInDevelopment />} />
 					</Routes>
 				</main>
 				<Footer />
