@@ -1,0 +1,17 @@
+.title {
+	font-size: 25px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	color: var(--main-black);
+	margin: 0 0 20px;
+}
+
+.pay {
+	display: flex;
+  flex-direction: column;
+	gap: 12px;
+	list-style: none;
+	padding-left: 0;
+}
+
