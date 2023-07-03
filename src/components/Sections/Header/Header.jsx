@@ -191,7 +191,7 @@ function Header() {
 				</header>
 			) : (
 				<header className={styles.header}>
-					<div className={styles.main}>
+					<div className={styles.main} onClick={handleHideSearchInput}>
 						<div className={styles.main__container}>
 							<Logo />
 							<div className={styles.wrapper}>
