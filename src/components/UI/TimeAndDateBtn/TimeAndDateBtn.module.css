@@ -1,7 +1,7 @@
 .container {
 	display: inline-block;
 }
-.radioInput[type='radio'] {
+.radioInput {
 	display: none;
 }
 .radioLabel {
@@ -13,7 +13,6 @@
 	font-style: normal;
 	line-height: normal;
 	user-select: none;
-	
 	border-radius: 10px;
 	border: 1px solid var(--element-gray);
 	background: #fff;
@@ -46,7 +45,7 @@
 }
 
 /* Checked */
-.radioInput[type='radio']:checked + .radioLabel {
+.radioInput:checked + .radioLabel {
 	border: 1px solid var(--text-black);
 }
 

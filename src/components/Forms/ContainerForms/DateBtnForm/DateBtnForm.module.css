@@ -1,0 +1,24 @@
+.title {
+	font-size: 25px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	color: var(--main-black);
+	margin: 0 0 20px;
+}
+
+.date {
+	display: flex;
+	gap: 16px;
+	margin: 0 0 24px;
+	list-style: none;
+	padding-left: 0;
+}
+
+.time {
+	display: flex;
+	gap: 16px;
+	list-style: none;
+	padding-left: 0;
+	margin: 0;
+}
