@@ -6,10 +6,12 @@ import Pickup from '../Pickup/Pickup';
 
 function WayToReceive() {
   const [checked, setChecked] = useState(true);
+  const [courier, setCourier] = useState(true);
   const isCourier = document.querySelector('input[value="Курьер"]:checked');
   const isPickup = document.querySelector('input[value="Самовывоз"]:checked');
   const changeCheckbox = () => {
     setChecked(!checked);
+    setCourier(false);
   };
 
   return (
@@ -19,6 +21,7 @@ function WayToReceive() {
         <RadioCircleButton text="Самовывоз" name="way" value="Самовывоз" onChange={changeCheckbox} checked={!checked} />
       </div>
       <RadioCircleButton text="Курьер" name="way" value="Курьер" onChange={changeCheckbox} checked={checked} />
+      {courier && <Courier />}
       {isCourier && <Courier />}
       {isPickup && <Pickup />}
 

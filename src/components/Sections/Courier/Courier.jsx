@@ -47,7 +47,7 @@ function Courier() {
       <div className={styles.comment}>
         <TextField onChange={handleCommentInput} value={comment} label="Комментарий к доставке" />
       </div>
-      <Checkbox checked={checked} onChange={changeCheckbox} label="Наличие лифта" />
+      <Checkbox onChange={changeCheckbox} label="Наличие лифта" checked={checked} />
     </section>
   );
 }
