@@ -49,7 +49,7 @@ function Header() {
 						<div className={styles.main__container}>
 							<Logo />
 							<ul className={styles.menu}>
-								<li>
+								<li className={styles.menu__element}>
 									<button
 										type="button"
 										onClick={handleShowMenu}
@@ -70,12 +70,12 @@ function Header() {
 										</p>
 									</button>
 								</li>
-								<li>
+								<li className={styles.menu__element}>
 									<NavLink to="/about" className={styles.menu__item}>
 										<p className={styles.menu__text}>O компании</p>
 									</NavLink>
 								</li>
-								<li>
+								<li className={styles.menu__element}>
 									<NavLink to="#" className={styles.menu__item}>
 										<button type="button" className={styles.menu__text}>
 											Обратный звонок
