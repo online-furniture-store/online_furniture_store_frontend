@@ -6,6 +6,8 @@ import Footer from '../Sections/Footer/Footer';
 import CartPage from '../../pages/CartPage/CartPage';
 import TradingRules from '../../pages/TradingRules/TradingRules';
 import PageInDevelopment from '../../pages/PageInDevelopment/PageInDevelopment';
+import ConsentDataProcessing from '../../pages/ConsentDataProcessing/ConsentDataProcessing';
+import DataProcessingPolicy from '../../pages/DataProcessingPolicy/DataProcessingPolicy';
 
 function App() {
 	return (
@@ -26,6 +28,8 @@ function App() {
 						<Route path="/sale" />
 						<Route path="/rules-sale" element={<TradingRules />} />
 						<Route path="/under-construction" element={<PageInDevelopment />} />
+						<Route path="/rules-consent" element={<ConsentDataProcessing />} />
+						<Route path="/rules-data" element={<DataProcessingPolicy />} />
 					</Routes>
 				</main>
 				<Footer />

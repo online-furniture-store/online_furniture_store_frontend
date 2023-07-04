@@ -110,7 +110,7 @@ function Footer() {
                             </NavLink>
                         </li>
                         <li className={styles.link}>
-                            <NavLink to="/rules-sale" target="_blanck" className={styles.link}>
+                            <NavLink to="/rules-data" target="_blanck" className={styles.link}>
                                 Политика конфиденциальности
                             </NavLink>
                         </li>
