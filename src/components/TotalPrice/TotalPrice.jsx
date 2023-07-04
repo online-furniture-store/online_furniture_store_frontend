@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { Link, useLocation } from 'react-router-dom';
-import AddToCartButton from '../UI/AddToCartButton/AddToCartButton';
+import BlackButton from '../UI/BlackButton/BlackButton';
 import styles from './TotalPrice.module.css';
 
 function TotalPrice({ discount, count, weight, totalPrice, days, lastPrice }) {
@@ -23,10 +23,7 @@ function TotalPrice({ discount, count, weight, totalPrice, days, lastPrice }) {
 				</div>
 			)}
 			<p className={styles.productsCount}>
-				товары (
-          {count}
-          )
-        <span className={styles.dot}>&#8226;</span>
+				товары ({count})<span className={styles.dot}>&#8226;</span>
 				{`${weight} кг`}
 			</p>
 			<div className={styles.totalContainer}>
@@ -36,7 +33,7 @@ function TotalPrice({ discount, count, weight, totalPrice, days, lastPrice }) {
 					<span>&nbsp;&#8381;</span>
 				</p>
 			</div>
-			<AddToCartButton />
+			<BlackButton onClick={() => {}} buttonText="Оформить заказ" />
 
 			{location.pathname === '/cart' ? (
 				<>

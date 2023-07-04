@@ -22,6 +22,5 @@
 }
 
 .button:hover {
-  border: 1px solid var(--main-black);
   background: var(--element-dark-gray);
 }
