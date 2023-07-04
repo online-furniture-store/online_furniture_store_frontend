@@ -33,7 +33,7 @@ function Intro() {
 								Новая коллекция&emsp;
 								{name}
 							</h2>
-							<Link className={styles.link} to="/">
+							<Link className={styles.link} to="/under-construction">
 								Подробнее
 							</Link>
 						</div>
