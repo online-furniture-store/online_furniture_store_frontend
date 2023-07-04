@@ -26,10 +26,6 @@
   box-sizing: border-box;
 }
 
-li {
-  margin: auto 0;
-}
-
 .main {
   min-height: 97px;
   display: flex;
@@ -73,6 +69,7 @@ li {
 }
 
 .menu__text {
+  margin: auto 0;
   padding: 9px 0;
   background-color: transparent;
   border: none;
