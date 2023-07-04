@@ -3,7 +3,6 @@ import PopularProducts from '../../components/Sections/PopularProducts/PopularPr
 import Categories from '../../components/Sections/Main/Categories/Categories';
 import Services from '../../components/Sections/Main/Services/Services';
 import ProductsWithScroll from '../../components/Sections/Main/ProductsWithScroll/ProductsWithScroll';
-import Courier from '../../components/Sections/Courier/Courier';
 
 function HomePage() {
 	return (
@@ -14,7 +13,6 @@ function HomePage() {
 			<PopularProducts />
 			<Services />
 			<ProductsWithScroll fastDelivery />
-			<Courier />
 		</>
 	);
 }
