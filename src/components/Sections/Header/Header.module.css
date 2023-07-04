@@ -53,6 +53,12 @@
   gap: 20px;
 }
 
+.menu__element {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+
 .menu__item {
   cursor: pointer;
   font-family: 'Helvetica';
@@ -69,7 +75,6 @@
 }
 
 .menu__text {
-  margin: auto 0;
   padding: 9px 0;
   background-color: transparent;
   border: none;
