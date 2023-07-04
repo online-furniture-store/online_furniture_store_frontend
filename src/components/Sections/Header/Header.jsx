@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink, useLocation } from 'react-router-dom';
 
 import user from '../../../assets/img/person.svg';
@@ -15,6 +16,7 @@ function Header() {
 	const [linkStateActive, setLinkStateActive] = useState(false);
 	const [searchValue, setSearchValue] = useState();
 	const [searchInputShown, setSearchInputShow] = useState(false);
+	const { cart } = useSelector((state) => state.cart);
 
 	const handleShowMenu = () => {
 		setContentShown(!contentShown);
@@ -117,7 +119,7 @@ function Header() {
 									<HeartCounter amount={0} />
 								</NavLink>
 								<NavLink className={styles.nav__item} to="/cart">
-									<Grocery amount={0} />
+									<Grocery amount={cart.total_quantity} />
 								</NavLink>
 							</nav>
 						</div>

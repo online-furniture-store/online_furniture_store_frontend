@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import armchairs from '../../../../assets/img/categoriesArmchairs.png';
 import sofas from '../../../../assets/img/categoriesSofas.png';
 import tables from '../../../../assets/img/categoriesTables.png';
-import wardrobes from '../../../../assets/img/categoriesWardrobes.jpg';
+import wardrobes from '../../../../assets/img/categoriesWardrobes.png';
 import CategoriesLinkCard from '../../../CategoriesLinkCard/CategoriesLinkCard';
 import styles from './Categories.module.css';
 
