@@ -1,21 +1,21 @@
 import { useEffect } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import {
-	fetchProducts,
-	fetchPopularProducts,
-	fetchCollections,
-} from '../../store/products/products-slice';
-import { getCart } from '../../store/cart/cart-slice';
-import { HomePage, AboutPage } from '../../pages';
-import styles from './App.module.css';
-import Header from '../Sections/Header/Header';
-import Footer from '../Sections/Footer/Footer';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { AboutPage, HomePage } from '../../pages';
 import CartPage from '../../pages/CartPage/CartPage';
-import TradingRules from '../../pages/TradingRules/TradingRules';
-import PageInDevelopment from '../../pages/PageInDevelopment/PageInDevelopment';
 import ConsentDataProcessing from '../../pages/ConsentDataProcessing/ConsentDataProcessing';
 import DataProcessingPolicy from '../../pages/DataProcessingPolicy/DataProcessingPolicy';
+import PageInDevelopment from '../../pages/PageInDevelopment/PageInDevelopment';
+import TradingRules from '../../pages/TradingRules/TradingRules';
+import { getCart } from '../../store/cart/cart-slice';
+import {
+	fetchCollections,
+	fetchPopularProducts,
+	fetchProducts,
+} from '../../store/products/products-slice';
+import Footer from '../Sections/Footer/Footer';
+import Header from '../Sections/Header/Header';
+import styles from './App.module.css';
 
 function App() {
 	const dispatch = useDispatch();
@@ -34,14 +34,14 @@ function App() {
 					<Routes>
 						<Route path="/" element={<HomePage />} />
 						<Route path="/about" element={<AboutPage />} />
-						<Route path="/user" />
-						<Route path="/chosen" />
+						<Route path="/user" element={<PageInDevelopment />} />
+						<Route path="/chosen" element={<PageInDevelopment />} />
 						<Route path="/cart" element={<CartPage />} />
-						<Route path="/arm-chairs" />
-						<Route path="/tables" />
-						<Route path="/wardrobes" />
-						<Route path="/sofas" />
-						<Route path="/sale" />
+						<Route path="/arm-chairs" element={<PageInDevelopment />} />
+						<Route path="/tables" element={<PageInDevelopment />} />
+						<Route path="/wardrobes" element={<PageInDevelopment />} />
+						<Route path="/sofas" element={<PageInDevelopment />} />
+						<Route path="/sale" element={<PageInDevelopment />} />
 						<Route path="/rules-sale" element={<TradingRules />} />
 						<Route path="/under-construction" element={<PageInDevelopment />} />
 						<Route path="/rules-consent" element={<ConsentDataProcessing />} />
