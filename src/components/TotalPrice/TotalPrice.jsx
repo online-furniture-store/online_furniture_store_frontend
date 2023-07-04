@@ -23,10 +23,7 @@ function TotalPrice({ discount, count, weight, totalPrice, days, lastPrice }) {
 				</div>
 			)}
 			<p className={styles.productsCount}>
-				товары (
-					{count}
-					)
-				<span className={styles.dot}>&#8226;</span>
+				товары ({count})<span className={styles.dot}>&#8226;</span>
 				{`${weight} кг`}
 			</p>
 			<div className={styles.totalContainer}>
