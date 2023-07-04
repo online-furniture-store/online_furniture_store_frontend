@@ -119,7 +119,7 @@ function Header() {
 									<HeartCounter amount={0} />
 								</NavLink>
 								<NavLink className={styles.nav__item} to="/cart">
-									<Grocery amount={cart.total_quantity} />
+									<Grocery amount={cart.total_quantity || 0} />
 								</NavLink>
 							</nav>
 						</div>
