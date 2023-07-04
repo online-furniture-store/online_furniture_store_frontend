@@ -1,34 +1,39 @@
 import PropTypes from 'prop-types';
 import styles from './NameInput.module.css';
 
-function NameInput({ onChange, value, isValid, label }) {
+function NameInput({ inputId, onChange, onBlur, value, label, helperText, error }) {
+	console.log(error);
 	return (
 		<div className={styles.container}>
+			<label className={styles.naming} htmlFor={inputId}>
+				{label}
+			</label>
 			<input
 				className={
-					isValid
-						? `${styles.input} ${styles.input__default}`
-						: `${styles.input} ${styles.input__error}`
+					error
+						? `${styles.input} ${styles.input__error}`
+						: `${styles.input} ${styles.input__default}`
 				}
-				id="name-id"
-				type="search"
-				value={value || ''}
+				id={inputId}
+				value={value}
 				onChange={onChange}
 				placeholder=""
 				required
+				onBlur={onBlur}
 			/>
-			<label className={styles.naming} htmlFor="name-id">
-				{label}
-			</label>
+			{error && <span className={styles.errorText}>{helperText}</span>}
 		</div>
 	);
 }
 
 NameInput.propTypes = {
-	onChange: PropTypes.func.isRequired,
+	onChange: PropTypes.func,
 	value: PropTypes.string,
 	label: PropTypes.string,
-	isValid: PropTypes.bool,
+	inputId: PropTypes.string,
+	onBlur: PropTypes.func,
+	helperText: PropTypes.string,
+	error: PropTypes.bool,
 };
 
 export default NameInput;
