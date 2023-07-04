@@ -52,3 +52,7 @@
 	max-width: 400px;
 	max-height: 402px;
 }
+
+.description:hover {
+	max-height: 737px;
+}
