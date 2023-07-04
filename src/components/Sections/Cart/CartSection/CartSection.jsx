@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import styles from './CartSection.module.css';
 import TotalPrice from '../../../TotalPrice/TotalPrice';
 import Title from '../../../UI/Title/Title';
+import BlackButton from '../../../UI/BlackButton/BlackButton';
 import CartCard from '../../../CartCard/CartCard';
 import emptyCart from '../../../../assets/img/emptyCart.png';
 
@@ -62,15 +63,14 @@ function CartSection() {
 		</section>
 	) : (
 		<section className={`${styles.container} ${styles.emptyCartContainer}`}>
-			<Title titleText="Корзина" />
-			<p className={styles.emptyText}>В вашей корзине пока нет товаров</p>
-			<button
-				className={styles.toShopingButton}
-				onClick={() => navigate('/')}
-				type="button"
-			>
-				Перейти к покупкам
-			</button>
+			<div className={styles.emptyCartDescription}>
+				<Title titleText="Корзина" />
+				<p className={styles.emptyText}>В вашей корзине пока нет товаров</p>
+				<BlackButton
+					onClick={() => navigate('/')}
+					buttonText="Перейти к покупкам"
+				/>
+			</div>
 			<img
 				className={styles.emptyCartImg}
 				src={emptyCart}

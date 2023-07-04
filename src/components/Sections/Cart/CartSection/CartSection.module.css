@@ -10,6 +10,15 @@
 	text-align: center;
 }
 
+.emptyCartDescription {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	align-self: center;
+	justify-content: center;
+	max-width: 525px;
+}
+
 .emptyText {
 	margin: 8px 0 56px;
 	color: #000;
@@ -22,30 +31,6 @@
 	height: 100%;
 	object-fit: cover;
 	object-position: center;
-}
-
-.toShopingButton {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	align-self: center;
-	font-size: 20px;
-	width: 525px;
-	height: 55px;
-	color: var(--main-white);
-	background: var(--text-black);
-	border: none;
-	border-radius: 6px;
-	padding: 14px 99px;
-	cursor: pointer;
-}
-
-.toShopingButton:hover {
-	background: var(--element-dark-gray);
-}
-
-.toShopingButton:active {
-	transform: translateY(1px);
 }
 
 .quantity {

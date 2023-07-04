@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { Link, useLocation } from 'react-router-dom';
-import AddToCartButton from '../UI/AddToCartButton/AddToCartButton';
+import BlackButton from '../UI/BlackButton/BlackButton';
 import styles from './TotalPrice.module.css';
 
 function TotalPrice({ discount, count, weight, totalPrice, days, lastPrice }) {
@@ -36,7 +36,7 @@ function TotalPrice({ discount, count, weight, totalPrice, days, lastPrice }) {
 					<span>&nbsp;&#8381;</span>
 				</p>
 			</div>
-			<AddToCartButton onClick={() => {}} />
+			<BlackButton onClick={() => {}} buttonText="Оформить заказ" />
 
 			{location.pathname === '/cart' ? (
 				<>
