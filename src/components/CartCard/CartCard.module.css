@@ -3,6 +3,10 @@
 	gap: 8px;
 }
 
+.cardContainerDisabled {
+	opacity: 0.7;
+}
+
 .card {
 	display: flex;
 	min-width: 100%;

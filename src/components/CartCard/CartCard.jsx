@@ -31,7 +31,7 @@ function CartCard({
 	};
 
 	return (
-		<div className={styles.cardContainer}>
+		<div className={inStock ? styles.cardContainer : styles.cardContainerDisabled}>
 			<article className={styles.card}>
 				<div className={styles.cardContent}>
 					<img
