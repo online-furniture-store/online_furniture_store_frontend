@@ -34,20 +34,20 @@ function Courier() {
 		setChecked(!checked);
 	};
 	const {
-    control,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm({
-    mode: 'onChange',
+		control,
+		handleSubmit,
+		reset,
+		formState: { errors },
+	} = useForm({
+		mode: 'onChange',
 		defaultValues: {
-      address: '',
-    },
-  });
+			address: '',
+		},
+	});
 
-  const onSubmit = () => {
-    reset();
-  };
+	const onSubmit = () => {
+		reset();
+	};
 
 	return (
 		<section className={styles.address}>
@@ -76,7 +76,7 @@ function Courier() {
 							inputId="address"
 							label="Населенный пункт, улица, дом"
 							helperText={errors.address?.message?.toString()}
-              error={!!errors.address?.message}
+							error={!!errors.address?.message}
 						/>
 					)}
 				/>
@@ -91,7 +91,11 @@ function Courier() {
 						value={entrance}
 						place="Подъезд"
 					/>
-					<AddressNumber onChange={handleFloorInput} value={floor} place="Этаж" />
+					<AddressNumber
+						onChange={handleFloorInput}
+						value={floor}
+						place="Этаж"
+					/>
 				</div>
 				<div className={styles.comment}>
 					<TextField
