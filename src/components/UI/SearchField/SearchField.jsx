@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import styles from './SearchField.module.css';
 
-function SearchField({ onChange, value }) {
+function SearchField({ onChange, value, isVisible }) {
 	return (
-		<form className={styles.search}>
+		<form className={isVisible ? styles.search : styles.search_inactive}>
 			<label
 				htmlFor="searchField"
 				className={styles.label}
@@ -24,6 +24,7 @@ function SearchField({ onChange, value }) {
 SearchField.propTypes = {
 	onChange: PropTypes.func.isRequired,
 	value: PropTypes.string,
+  isVisible: PropTypes.bool,
 };
 
 export default SearchField;

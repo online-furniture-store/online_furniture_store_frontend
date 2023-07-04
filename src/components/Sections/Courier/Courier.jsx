@@ -65,7 +65,7 @@ function Courier() {
 						pattern: {
 							value:
 								/[0-9]{6},\s[а-яА-ЯёЁa-zA-Z-,.\s\d]+,\s[а-яА-ЯёЁa-zA-Z-,.\s\d]+,\s[а-яА-ЯёЁa-zA-Z-,.\s\d]+(,\s[а-яА-ЯёЁa-zA-Z-,.\s\d])?/gi,
-							message: 'Неверный адрес',
+							message: 'Неверный git адрес',
 						},
 					}}
 					render={({ field: { onBlur, onChange, value } }) => (
