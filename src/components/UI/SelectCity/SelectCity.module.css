@@ -1,0 +1,21 @@
+.cities {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: 'Helvetica';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  color: var(--text-black);
+  background: transparent;
+  background-image: url('../../../assets/img/caret.svg');
+  background-repeat: no-repeat;
+  background-position: 75px 30px;
+  width: 100px;
+}
+
+.city {
+  cursor: pointer;
+  padding: 0;
+}
