@@ -36,7 +36,7 @@ function RecipientForm() {
               required: 'Поле обязательное',
               minLength: {
                 value: 2,
-                message: 'Длинна должна быть больше 1 символа',
+                message: 'Длина должна быть больше 1 символа',
               },
               pattern: {
                 value: /^(?=.{1,29}$)[а-яА-ЯёЁa-zA-Z\s-]*$/gi,
@@ -63,7 +63,7 @@ function RecipientForm() {
               required: 'Поле обязательное',
               minLength: {
                 value: 2,
-                message: 'Длинна должна быть больше 1 символа',
+                message: 'Длина должна быть больше 1 символа',
               },
               pattern: {
                 value: /^(?=.{1,29}$)[а-яА-ЯёЁa-zA-Z\s-]*$/gi,
