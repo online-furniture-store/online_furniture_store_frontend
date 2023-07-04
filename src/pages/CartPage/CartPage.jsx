@@ -6,6 +6,7 @@ function CartPage() {
 		<>
 			<CartSection />
 			<PopularProducts />
+
 		</>
 	);
 }
