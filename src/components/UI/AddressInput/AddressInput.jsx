@@ -6,7 +6,7 @@ function Address({ onChange, value, error, label }) {
 		<div className={styles.container}>
 			<input
 				className={
-					error
+					!error
 						? `${styles.input} ${styles.input__default}`
 						: `${styles.input} ${styles.input__error}`
 				}
