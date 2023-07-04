@@ -8,6 +8,7 @@ function RecipientForm() {
     control,
     handleSubmit,
     reset,
+    resetField,
     formState: { errors },
   } = useForm({
     mode: 'onChange',
@@ -53,6 +54,7 @@ function RecipientForm() {
                 label="Имя"
                 helperText={errors.firstName?.message?.toString()}
                 error={!!errors.firstName?.message}
+                onClick={() => resetField('firstName')}
               />
             )}
             name="firstName"
@@ -80,6 +82,7 @@ function RecipientForm() {
                 label="Фамилия"
                 helperText={errors.surname?.message?.toString()}
                 error={!!errors.surname?.message}
+                onClick={() => resetField('surname')}
               />
             )}
             name="surname"
@@ -106,6 +109,7 @@ function RecipientForm() {
                 label="Телефон"
                 helperText={errors.telephone?.message?.toString()}
                 error={!!errors.telephone?.message}
+                onClick={() => resetField('telephone')}
               />
             )}
             name="telephone"
@@ -128,6 +132,7 @@ function RecipientForm() {
                 label="Электронная почта"
                 helperText={errors.email?.message?.toString()}
                 error={!!errors.email?.message}
+                onClick={() => resetField('email')}
               />
             )}
             name="email"
