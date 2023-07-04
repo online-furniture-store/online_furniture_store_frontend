@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import styles from './Address.module.css';
 
-function Address({ onChange, value, isValid, label }) {
+function Address({ onChange, value, error, label }) {
 	return (
 		<div className={styles.container}>
 			<input
 				className={
-					isValid
+					error
 						? `${styles.input} ${styles.input__default}`
 						: `${styles.input} ${styles.input__error}`
 				}
@@ -28,7 +28,7 @@ function Address({ onChange, value, isValid, label }) {
 Address.propTypes = {
 	onChange: PropTypes.func.isRequired,
 	value: PropTypes.string,
-	isValid: PropTypes.bool,
+	error: PropTypes.bool,
 	label: PropTypes.string,
 	// errorText: PropTypes.string,
 };
