@@ -90,27 +90,27 @@ function Footer() {
                     <h3 className={styles.caption}>Информация для покупателей</h3>
                     <ul className={styles.ul}>
                         <li className={styles.link}>
-                            <NavLink to="/" className={styles.link}>
+                            <NavLink to="/rules-sale" target="_blanck" className={styles.link}>
                                 Доставка и самовывоз
                             </NavLink>
                         </li>
                         <li className={styles.link}>
-                            <NavLink to="/" className={styles.link}>
+                            <NavLink to="/rules-sale" target="_blanck" className={styles.link}>
                                 Как заказать
                             </NavLink>
                         </li>
                         <li className={styles.link}>
-                            <NavLink to="/" className={styles.link}>
+                            <NavLink to="/rules-sale" target="_blanck" className={styles.link}>
                                 Как оплатить
                             </NavLink>
                         </li>
                         <li className={styles.link}>
-                            <NavLink to="/" className={styles.link}>
+                            <NavLink to="/rules-sale" target="_blanck" className={styles.link}>
                                 Гарантия и возврат
                             </NavLink>
                         </li>
                         <li className={styles.link}>
-                            <NavLink to="/" className={styles.link}>
+                            <NavLink to="/rules-sale" target="_blanck" className={styles.link}>
                                 Политика конфиденциальности
                             </NavLink>
                         </li>
