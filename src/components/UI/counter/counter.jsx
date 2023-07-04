@@ -6,23 +6,37 @@ import plus from '../../../assets/img/plus.svg';
 import plusDisabled from '../../../assets/img/plus-disabled.svg';
 
 function Counter({
- increaseFunction, decreaseFunction, count, amount,
+	increaseFunction,
+	decreaseFunction,
+	count,
+	disabledIncrease,
+	disabledDecrease,
 }) {
 	return (
 		<div className={styles.counter}>
-			<button onClick={decreaseFunction} className={styles.button} type="button">
-				{count > 0 ? (
-					<img src={minusActive} alt="minus-active" />
-				) : (
+			<button
+				onClick={decreaseFunction}
+				className={styles.button}
+				type="button"
+				disabled={disabledDecrease}
+			>
+				{disabledDecrease ? (
 					<img src={minusDisabled} alt="minus-disabled" />
+					) : (
+					<img src={minusActive} alt="minus-active" />
 				)}
 			</button>
 			<p className={styles.text}>{count}</p>
-			<button onClick={increaseFunction} className={styles.button} type="button">
-				{count < amount ? (
-					<img src={plus} alt="plus-active" />
-				) : (
+			<button
+				onClick={increaseFunction}
+				className={styles.button}
+				type="button"
+				disabled={disabledIncrease}
+			>
+				{disabledIncrease ? (
 					<img src={plusDisabled} alt="plus-disabled" />
+					) : (
+					<img src={plus} alt="plus-active" />
 				)}
 			</button>
 		</div>
@@ -35,5 +49,6 @@ Counter.propTypes = {
 	increaseFunction: PropTypes.func.isRequired,
 	decreaseFunction: PropTypes.func.isRequired,
 	count: PropTypes.number.isRequired,
-	amount: PropTypes.number.isRequired,
+	disabledIncrease: PropTypes.bool.isRequired,
+	disabledDecrease: PropTypes.bool.isRequired,
 };

@@ -36,7 +36,7 @@ function TotalPrice({ discount, count, weight, totalPrice, days, lastPrice }) {
 					<span>&nbsp;&#8381;</span>
 				</p>
 			</div>
-			<AddToCartButton />
+			<AddToCartButton onClick={() => {}} />
 
 			{location.pathname === '/cart' ? (
 				<>

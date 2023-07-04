@@ -59,12 +59,17 @@
 	font-size: 20px;
 }
 
+.products {
+	margin-top: 22px;
+	display: flex;
+}
+
 .productList {
 	all: unset;
-	margin-top: 22px;
 	display: flex;
 	flex-direction: column;
 	gap: 34px;
+	max-width: 894px;
 }
 
 .product {
