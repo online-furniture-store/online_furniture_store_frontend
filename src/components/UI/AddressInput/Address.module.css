@@ -59,6 +59,9 @@
  cursor: pointer;
 }
 
+.input__error + .naming {
+	color: var(--system-red);
+}
 /* Для буддущей обработке ошибок, примерный код */
 
 /* .error {

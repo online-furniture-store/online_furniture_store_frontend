@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styles from './Address.module.css';
 
-function Address({ onChange, value, isValid }) {
+function Address({ onChange, value, isValid, label }) {
 	return (
 		<div className={styles.container}>
 			<input
@@ -18,7 +18,7 @@ function Address({ onChange, value, isValid }) {
 				required
 			/>
 			<label className={styles.naming} htmlFor="address">
-				Населенный пункт, улица, дом
+				{label}
 			</label>
 			{/* <span className={styles.error}>{errorText}</span> */}
 		</div>
@@ -29,6 +29,7 @@ Address.propTypes = {
 	onChange: PropTypes.func.isRequired,
 	value: PropTypes.string,
 	isValid: PropTypes.bool,
+	label: PropTypes.string,
 	// errorText: PropTypes.string,
 };
 
