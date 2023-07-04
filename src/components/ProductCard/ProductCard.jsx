@@ -1,11 +1,14 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import styles from './ProductCard.module.css';
 import placeholder from '../../assets/img/placeholder.png';
 import Like from '../UI/Like/Like';
 import AddToCartButton from '../UI/AddToCartButton/AddToCartButton';
+import { addToCart } from '../../store/cart/cart-slice';
 
 function ProductCard({
+	id,
 	title,
 	newPrice,
 	oldPrice,
@@ -15,14 +18,15 @@ function ProductCard({
 	brand,
 	country,
 	fastDelivery,
+	added,
 }) {
+	const dispatch = useDispatch();
 	const [isLike, setIsLike] = useState(false);
-	const [isAdded, setIsAdded] = useState(false);
 	const onLikeClick = () => {
 		setIsLike(!isLike);
 	};
 	const onAddClick = () => {
-		setIsAdded(true);
+		dispatch(addToCart({ product: id, quantity: 1 }));
 	};
 	return (
 		<article
@@ -90,7 +94,7 @@ function ProductCard({
 					</div>
 				)}
 
-				<p className={styles.inStock}>{`в наличии: ${inStock} шт`}</p>
+				<p className={styles.inStock}>{inStock ? `в наличии: ${inStock} шт` : 'нет в наличии'}</p>
 			</div>
 
 			<div className={styles.aboutProperty}>
@@ -105,13 +109,14 @@ function ProductCard({
 				<p className={styles.property}>Страна</p>
 				<p className={styles.property}>{country}</p>
 			</div>
-			<AddToCartButton onClick={onAddClick} isSuccess={isAdded} />
+			<AddToCartButton onClick={onAddClick} isSuccess={added} />
 		</article>
 	);
 }
 
 ProductCard.propTypes = {
 	title: PropTypes.string.isRequired,
+	id: PropTypes.number,
 	newPrice: PropTypes.string.isRequired,
 	oldPrice: PropTypes.string.isRequired,
 	img: PropTypes.string,
@@ -120,6 +125,7 @@ ProductCard.propTypes = {
 	brand: PropTypes.string.isRequired,
 	country: PropTypes.string.isRequired,
 	fastDelivery: PropTypes.bool,
+	added: PropTypes.bool,
 };
 
 export default ProductCard;

@@ -1,131 +1,78 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import styles from './CartSection.module.css';
+import TotalPrice from '../../../TotalPrice/TotalPrice';
 import Title from '../../../UI/Title/Title';
-import Checkbox from '../../../UI/Checkbox/Checkbox';
+import BlackButton from '../../../UI/BlackButton/BlackButton';
 import CartCard from '../../../CartCard/CartCard';
 import emptyCart from '../../../../assets/img/emptyCart.png';
 
-const cards = [
-	{
-		id: '1',
-		img: 'https://swiperjs.com/demos/images/nature-1.jpg',
-		title: 'Диван Chess office',
-		article: 12345678,
-		inStock: 71,
-		discountPrice: 42990,
-		price: 49990,
-	},
-	{
-		id: '2',
-		img: 'https://swiperjs.com/demos/images/nature-2.jpg',
-		title: 'Диван Chess office',
-		article: 12345678,
-		inStock: 71,
-		discountPrice: 42990,
-		price: 49990,
-	},
-	{
-		id: '3',
-		img: 'https://swiperjs.com/demos/images/nature-3.jpg',
-		title: 'Диван Chess office',
-		article: 12345678,
-		inStock: 71,
-		discountPrice: 42990,
-		price: 49990,
-	},
-	{
-		id: '4',
-		img: 'https://swiperjs.com/demos/images/nature-4.jpg',
-		title: 'Диван Chess office',
-		article: 12345678,
-		inStock: 71,
-		discountPrice: 42990,
-		price: 49990,
-	},
-	{
-		id: '5',
-		img: 'https://swiperjs.com/demos/images/nature-5.jpg',
-		title: 'Диван Chess office',
-		article: 12345678,
-		inStock: 71,
-		discountPrice: 42990,
-		price: 49990,
-	},
-	{
-		id: '6',
-		img: 'https://swiperjs.com/demos/images/nature-6.jpg',
-		title: 'Диван Chess office',
-		article: 12345678,
-		inStock: 71,
-		discountPrice: 42990,
-		price: 49990,
-	},
-	{
-		id: '7',
-		img: 'https://swiperjs.com/demos/images/nature-7.jpg',
-		title: 'Диван Chess office',
-		article: 12345678,
-		inStock: 71,
-		discountPrice: 42990,
-		price: 49990,
-	},
-	{
-		id: '8',
-		img: 'https://swiperjs.com/demos/images/nature-8.jpg',
-		title: 'Диван Chess office',
-		article: 12345678,
-		inStock: 71,
-		discountPrice: 42990,
-		price: 49990,
-	},
-];
-
 function CartSection() {
+	const { cart } = useSelector((state) => state.cart);
+
 	const navigate = useNavigate();
+	useEffect(() => {
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+	}, []);
 
-	const handleSelectAll = () => {};
+	const generateProductText = (quantity) => {
+		if (quantity > 1 && quantity <= 4) return '\u00A0товара\u00A0';
+		if (quantity > 4) return '\u00A0товаров\u00A0';
+		return '\u00A0товар\u00A0';
+	};
 
-	return cards.length ? (
+	return cart.total_quantity ? (
 		<section className={styles.container}>
 			<Title titleText="Корзина" />
 			<p className={styles.quantity}>
-				{1}
-				&nbsp;товар&nbsp;
+				{cart.total_quantity}
+				{generateProductText(cart.total_quantity)}
 				<span className={styles.weight}>
 					&#8226;&nbsp;Вес&nbsp;&#8212;&nbsp;
-					{75}
+					{cart.total_weight}
 					кг
 				</span>
 			</p>
-			<Checkbox checked onChange={handleSelectAll} label="Выбрать все" />
-			<ul className={styles.productList}>
-				{cards.map(
-					({ id, img, title, article, inStock, discountPrice, price }) => (
-						<li className={styles.product} key={id}>
+			<div className={styles.products}>
+				<ul className={styles.productList}>
+					{cart.products?.map(({ product, quantity }) => (
+						<li className={styles.product} key={product.id}>
 							<CartCard
-								title={title}
-								article={article}
-								inStock={inStock}
-								discountPrice={discountPrice}
-								price={price}
-								img={img}
+								id={product.id}
+								title={product.name}
+								article={product.article}
+								inStock={product.available_quantity}
+								discountPrice={product.total_price}
+								price={product.price}
+								img={product.image}
+								quantity={quantity}
 							/>
 						</li>
-					),
-				)}
-			</ul>
+					))}
+				</ul>
+				<TotalPrice
+					discount={cart.total_price - cart.total_discount_price}
+					count={cart.total_quantity || 0}
+					weight={cart.total_weight}
+					totalPrice={cart.total_discount_price}
+					days={7}
+					lastPrice={cart.total_price}
+					buttonText="Оформить&nbsp;заказ"
+					onClick={() => {}}
+				/>
+			</div>
 		</section>
 	) : (
 		<section className={`${styles.container} ${styles.emptyCartContainer}`}>
-			<Title titleText="Корзина" />
-			<p className={styles.emptyText}>В вашей корзине пока нет товаров</p>
-			<button
-				className={styles.toShopingButton}
-				onClick={() => navigate('/')}
-				type="button"
-			>
-				Перейти к покупкам
-			</button>
+			<div className={styles.emptyCartDescription}>
+				<Title titleText="Корзина" />
+				<p className={styles.emptyText}>В вашей корзине пока нет товаров</p>
+				<BlackButton
+					onClick={() => navigate('/')}
+					buttonText="Перейти к покупкам"
+				/>
+			</div>
 			<img
 				className={styles.emptyCartImg}
 				src={emptyCart}

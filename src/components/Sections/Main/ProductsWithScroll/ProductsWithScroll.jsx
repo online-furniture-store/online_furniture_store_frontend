@@ -10,6 +10,8 @@ function ProductsWithScroll({ fastDelivery }) {
 		(state) => state.products,
 	);
 
+	const { cart } = useSelector((state) => state.cart);
+
 	const ref = useRef();
 
 	useEffect(() => {
@@ -28,10 +30,6 @@ function ProductsWithScroll({ fastDelivery }) {
 			return () => el.removeEventListener('wheel', onWheel);
 		}
 	}, []);
-
-	const data = {
-		inStock: 71,
-	};
 
 	return (
 		<section
@@ -61,15 +59,17 @@ function ProductsWithScroll({ fastDelivery }) {
 						(item) => (
 							<li key={item.id} className={styles.description}>
 								<ProductCard
+									id={item.id}
 									img={item.image}
 									title={item.name}
 									newPrice={item.total_price.toLocaleString()}
 									oldPrice={item.price.toLocaleString()}
-									inStock={data.inStock}
+									inStock={item.available_quantity}
 									weight={item.weight}
 									brand={item.brand}
 									country={item.country}
 									fastDelivery={fastDelivery}
+									added={cart.products.some(({ product }) => product.id === item.id)}
 								/>
 							</li>
 						),

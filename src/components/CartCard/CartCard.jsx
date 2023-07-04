@@ -1,21 +1,37 @@
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+import { addToCart, deleteFromCart } from '../../store/cart/cart-slice';
 import styles from './CartCard.module.css';
-import Checkbox from '../UI/Checkbox/Checkbox';
 import Counter from '../UI/counter/counter';
 import Like from '../UI/Like/Like';
 import Delete from '../UI/Delete/Delete';
 import placeholder from '../../assets/img/placeholder.png';
 
-function CartCard({ title, article, inStock, img, discountPrice, price }) {
+function CartCard({
+	id,
+	title,
+	article,
+	inStock,
+	img,
+	discountPrice,
+	price,
+	quantity,
+}) {
+	const dispatch = useDispatch();
 	const onLikeClick = () => {};
-	const handleSelect = () => {};
-	const increaseCounter = () => {};
-	const decreaseCounter = () => {};
-	const onDeleteClick = () => {};
+
+	const increaseCounter = () => {
+		dispatch(addToCart({ product: id, quantity: quantity + 1 }));
+	};
+	const decreaseCounter = () => {
+		dispatch(addToCart({ product: id, quantity: quantity - 1 }));
+	};
+	const onDeleteClick = () => {
+		dispatch(deleteFromCart(id));
+	};
 
 	return (
-		<div className={styles.cardContainer}>
-			<Checkbox checked onChange={handleSelect} />
+		<div className={inStock ? styles.cardContainer : styles.cardContainerDisabled}>
 			<article className={styles.card}>
 				<div className={styles.cardContent}>
 					<img
@@ -40,19 +56,27 @@ function CartCard({ title, article, inStock, img, discountPrice, price }) {
 							</p>
 						</div>
 						<div className={styles.counter}>
-							<p className={styles.discountPrice}>
-								{discountPrice}
-								&nbsp;&#8381;&nbsp;
-								<span className={styles.price}>
+							{price !== discountPrice ? (
+								<p className={styles.discountPrice}>
+									{discountPrice}
+									&nbsp;&#8381;&nbsp;
+									<span className={styles.price}>
+										{price}
+										&nbsp;&#8381;
+									</span>
+								</p>
+							) : (
+								<p className={styles.priceWithoutDiscount}>
 									{price}
 									&nbsp;&#8381;
-								</span>
-							</p>
+								</p>
+							)}
 							<Counter
 								increaseFunction={increaseCounter}
 								decreaseFunction={decreaseCounter}
-								count={1}
-								amount={inStock}
+								count={quantity}
+								disabledDecrease={quantity <= 1}
+								disabledIncrease={quantity >= inStock}
 							/>
 						</div>
 					</div>
@@ -67,11 +91,13 @@ function CartCard({ title, article, inStock, img, discountPrice, price }) {
 }
 
 CartCard.propTypes = {
+	id: PropTypes.number.isRequired,
 	title: PropTypes.string.isRequired,
 	article: PropTypes.number.isRequired,
 	inStock: PropTypes.number.isRequired,
 	discountPrice: PropTypes.number.isRequired,
 	price: PropTypes.number.isRequired,
+	quantity: PropTypes.number.isRequired,
 	img: PropTypes.string,
 };
 
