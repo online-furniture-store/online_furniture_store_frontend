@@ -1,5 +1,5 @@
 .container {
-	max-width: 607px;
+	max-width: 156px;
 	display: flex;
 	flex-direction: column-reverse;
 	position: relative;
@@ -14,22 +14,19 @@
 	font-size: 16px;
 	margin: 0 0 4px;
 }
-
 .input {
 	max-width: 100%;
-	height: 56px;
+	height: 53px;
 	background: transparent;
 	color: var(--main-black);
 	border-radius: 10px;
-	padding: 16px;
+	padding: 20px 9px;
 	box-sizing: border-box;
 	display: flex;
 	justify-content: space-between;
+  border: 1px solid var(--element-gray);
 }
 
-.input__default {
-	border: 1px solid var(--element-gray);
-}
 
 .input:focus {
 	border: 1.5px solid var(--text-black);	
@@ -40,15 +37,13 @@
 	color: var(--main-black);
 }
 
-.input:hover {
-	border: 1.8px solid var(--element-gray);
+.naming {
+	color: var(--element-grey);
+	font-size: 16px;
+	margin: 0 0 4px;
 }
 
-.input__error {
-	border: 1px solid var(--system-red);
-} 
-
- .input[type='search']:focus::-webkit-search-cancel-button {
+.input[type='search']:focus::-webkit-search-cancel-button {
 	-webkit-appearance: none;
 	width: 16px;
 	height: 16px;
@@ -58,15 +53,3 @@
 	margin-right: -2px;
  cursor: pointer;
 }
-
-.input__error + .naming {
-	color: var(--system-red);
-}
-/* Для буддущей обработке ошибок, примерный код */
-
-/* .error {
-	display: none;
-	color: var(--system-red);
-	font-size: 16px;
-	margin: 4px 0 0;
-} */

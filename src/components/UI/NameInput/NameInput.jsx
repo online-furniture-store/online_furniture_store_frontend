@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import styles from './NameInput.module.css';
 
-function NameInput({ inputId, onChange, onBlur, value, label, helperText, error }) {
-	console.log(error);
+function NameInput({ inputId, onChange, onBlur, value, label, helperText, error, onClick }) {
 	return (
 		<div className={styles.container}>
 			<label className={styles.naming} htmlFor={inputId}>
@@ -22,6 +21,7 @@ function NameInput({ inputId, onChange, onBlur, value, label, helperText, error 
 				onBlur={onBlur}
 			/>
 			{error && <span className={styles.errorText}>{helperText}</span>}
+			{value && <div type="button" onClick={onClick} className={styles.crossBtn} />}
 		</div>
 	);
 }
@@ -34,6 +34,7 @@ NameInput.propTypes = {
 	onBlur: PropTypes.func,
 	helperText: PropTypes.string,
 	error: PropTypes.bool,
+	onClick: PropTypes.func,
 };
 
 export default NameInput;
