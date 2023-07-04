@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import { Link, useLocation } from 'react-router-dom';
-import BlackButton from '../UI/BlackButton/BlackButton';
 import styles from './TotalPrice.module.css';
+import BlackButton from '../UI/BlackButton/BlackButton';
 
-function TotalPrice({ discount, count, weight, totalPrice, days, lastPrice }) {
+function TotalPrice({ discount, count, weight, totalPrice, days, lastPrice, buttonText, onClick }) {
 	const location = useLocation();
 	return (
 		<div className={styles.container}>
@@ -33,7 +33,7 @@ function TotalPrice({ discount, count, weight, totalPrice, days, lastPrice }) {
 					<span>&nbsp;&#8381;</span>
 				</p>
 			</div>
-			<BlackButton onClick={() => {}} buttonText="Оформить заказ" />
+			<BlackButton onClick={onClick} buttonText={buttonText} buttonLarge />
 
 			{location.pathname === '/cart' ? (
 				<>
@@ -68,6 +68,8 @@ TotalPrice.propTypes = {
 	weight: PropTypes.number.isRequired,
 	totalPrice: PropTypes.number,
 	days: PropTypes.number.isRequired,
+	buttonText: PropTypes.string.isRequired,
+	onClick: PropTypes.func.isRequired,
 };
 
 export default TotalPrice;

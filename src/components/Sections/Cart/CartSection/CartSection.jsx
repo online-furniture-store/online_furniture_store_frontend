@@ -58,6 +58,8 @@ function CartSection() {
 					totalPrice={cart.total_discount_price}
 					days={7}
 					lastPrice={cart.total_price}
+					buttonText="Оформить&nbsp;заказ"
+					onClick={() => {}}
 				/>
 			</div>
 		</section>
