@@ -1,23 +1,24 @@
 import { useNavigate } from 'react-router-dom';
-import classes from './PageInDevelopment.module.css';
+import styles from './PageInDevelopment.module.css';
 import Title from '../../components/UI/Title/Title';
+import BlackButton from '../../components/UI/BlackButton/BlackButton';
 
 function PageInDevelopment() {
   const navigate = useNavigate();
   return (
-    <div className={classes.content}>
-      <div className={classes.img} />
+    <div className={styles.content}>
+      <div className={styles.img} />
       <Title titleText="Страница в разработке" />
-      <span className={classes.text}>
+      <span className={styles.text}>
         Совсем скоро она появится здесь
       </span>
-      <button
-        type="button"
-        className={classes.button}
-        onClick={() => navigate(-1)}
-      >
-        Вернуться назад
-      </button>
+      <div className={styles.buttonContainer}>
+        <BlackButton
+          buttonText="Вернуться назад"
+          buttonLarge
+          onClick={() => navigate(-1)}
+        />
+      </div>
     </div>
   );
 }

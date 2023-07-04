@@ -4,21 +4,22 @@ import styles from './NameInput.module.css';
 function NameInput({ onChange, value, isValid, label }) {
 	return (
 		<div className={styles.container}>
-			<label className={styles.naming} htmlFor="name-id">
-				{label}
-			</label>
 			<input
 				className={
 					isValid
 						? `${styles.input} ${styles.input__default}`
 						: `${styles.input} ${styles.input__error}`
 				}
-				id="firstName"
+				id="name-id"
 				type="search"
 				value={value || ''}
 				onChange={onChange}
 				placeholder=""
+				required
 			/>
+			<label className={styles.naming} htmlFor="name-id">
+				{label}
+			</label>
 		</div>
 	);
 }

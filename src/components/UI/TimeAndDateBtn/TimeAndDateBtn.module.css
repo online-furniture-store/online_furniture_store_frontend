@@ -1,0 +1,54 @@
+.container {
+	display: inline-block;
+}
+.radioInput {
+	display: none;
+}
+.radioLabel {
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+	cursor: pointer;
+	color: var(--text-black, #000);
+	font-style: normal;
+	line-height: normal;
+	user-select: none;
+	border-radius: 10px;
+	border: 1px solid var(--element-gray);
+	background: #fff;
+}
+
+.dateLabel {
+  width: 114px;
+	height: 92px;
+	padding: 16px 19px 16px 14px;
+}
+
+.timeLabel {
+  width: 143px;
+  height: 53px;
+  padding: 16px 15px 12px 15px; 
+}
+
+.date {
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.dateTime {
+  display: none;
+}
+
+.day {
+	font-size: 18px;
+	font-weight: 400;
+}
+
+/* Checked */
+.radioInput:checked + .radioLabel {
+	border: 1px solid var(--text-black);
+}
+
+.radioLabel:hover {
+	color: #666;
+}

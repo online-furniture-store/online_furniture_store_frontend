@@ -1,13 +1,12 @@
 .container {
 	max-width: 469px;
 	display: flex;
-	flex-direction: column;
+	flex-direction: column-reverse;
 	position: relative;
 	font-style: normal;
 	font-weight: 400;
 	font-size: 18px;
 	line-height: 21px;
-	margin: 100px;
 }
 
 .naming {
@@ -37,12 +36,20 @@
 	outline: none;
 }
 
+.input:focus + .naming {
+	color: var(--main-black);
+}
+
 .input:hover {
 	border: 1.8px solid var(--element-gray);
 }
 
 .input__error {
 	border: 1px solid var(--system-red);
+}
+
+.input__error + .naming {
+	color: var(--system-red);
 }
 
 .input[type='search']:focus::-webkit-search-cancel-button {
