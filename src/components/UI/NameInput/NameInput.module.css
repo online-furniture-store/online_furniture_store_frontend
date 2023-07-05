@@ -1,18 +1,20 @@
 .container {
 	max-width: 469px;
 	display: flex;
-	flex-direction: column-reverse;
+	flex-direction: column;
 	position: relative;
 	font-style: normal;
 	font-weight: 400;
 	font-size: 18px;
 	line-height: 21px;
+	position: relative;
 }
 
 .naming {
 	color: var(--element-grey);
 	font-size: 16px;
 	margin: 0 0 4px;
+	position: relative;
 }
 
 .input {
@@ -52,13 +54,30 @@
 	color: var(--system-red);
 }
 
-.input[type='search']:focus::-webkit-search-cancel-button {
-	-webkit-appearance: none;
+.naming::after {
+	content: ' *';
+	color: var(--system-red);
+}
+
+.errorText {
+	color: var(--system-red);
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	position: absolute;
+	left: 0;
+	bottom: -20px;
+}
+
+.crossBtn {
 	width: 16px;
 	height: 16px;
+	position: absolute;
+	top: 43px;
+	right: 16px;
 	background-image: url(../../../assets/img/closeCross.svg);
+	background-position: center;
 	background-repeat: no-repeat;
-	background-size: contain;
-	margin-right: -2px;
+	background-size: cover;
 	cursor: pointer;
 }
