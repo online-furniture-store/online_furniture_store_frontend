@@ -1,36 +1,42 @@
 import PropTypes from 'prop-types';
 import styles from './Address.module.css';
 
-function Address({ onChange, value, error, label }) {
+function Address({ inputId, onChange, onBlur, value, label, helperText, error, onClick }) {
 	return (
 		<div className={styles.container}>
+
 			<input
 				className={
 					error
-						? `${styles.input} ${styles.input__default}`
-						: `${styles.input} ${styles.input__error}`
+						? `${styles.input} ${styles.input__error}`
+						: `${styles.input} ${styles.input__default}`
 				}
-				id="address"
-				type="search"
-				value={value || ''}
+				id={inputId}
+				value={value}
 				onChange={onChange}
 				placeholder=""
 				required
+				onBlur={onBlur}
 			/>
 			<label className={styles.naming} htmlFor="address">
 				{label}
 			</label>
-			{/* <span className={styles.error}>{errorText}</span> */}
+			{error && <span className={styles.errorText}>{helperText}</span>}
+			{value && <div type="button" onClick={onClick} className={styles.crossBtn} />}
 		</div>
+
 	);
 }
 
 Address.propTypes = {
-	onChange: PropTypes.func.isRequired,
+	onChange: PropTypes.func,
 	value: PropTypes.string,
-	error: PropTypes.bool,
 	label: PropTypes.string,
-	// errorText: PropTypes.string,
+	inputId: PropTypes.string,
+	onBlur: PropTypes.func,
+	helperText: PropTypes.string,
+	error: PropTypes.bool,
+	onClick: PropTypes.func,
 };
 
 export default Address;
