@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
+import { useLocation, NavLink } from 'react-router-dom';
 import styles from './PopularProducts.module.css';
 import Title from '../../UI/Title/Title';
 import PopularProductCard from '../../PopularProductCard/PopularProductCard';
@@ -12,7 +12,7 @@ function PopularProducts() {
       className={styles.section}
     >
       <div className={location.pathname === '/cart' ? `${styles.container} ${styles.containerLocationCart}` : styles.container}>
-        <Title titleText="Популярные товары" />
+        <NavLink className={styles.link} to="/under-construction"><Title titleText="Популярные товары" /></NavLink>
         {
           location.pathname === '/cart' ? (
             <div className={`${styles.grid} ${styles.gridLocationCart}`}>
