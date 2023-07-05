@@ -59,6 +59,7 @@ function Courier() {
 							helperText={errors.address?.message?.toString()}
 							error={!!errors.address?.message}
 							onClick={onSubmit}
+
 						/>
 					)}
 				/>
@@ -121,6 +122,12 @@ function Courier() {
 								error={!!errors.floor?.message}
 							/>
 						)}
+					/>
+
+					<AddressNumber
+						onChange={handleFloorInput}
+						value={floor}
+						place="Этаж"
 					/>
 				</div>
 				<div className={styles.comment}>

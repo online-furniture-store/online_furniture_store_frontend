@@ -7,6 +7,7 @@ import ConsentDataProcessing from '../../pages/ConsentDataProcessing/ConsentData
 import DataProcessingPolicy from '../../pages/DataProcessingPolicy/DataProcessingPolicy';
 import PageInDevelopment from '../../pages/PageInDevelopment/PageInDevelopment';
 import TradingRules from '../../pages/TradingRules/TradingRules';
+import OrderingForm from '../Forms/OrderingForm/OrderingForm';
 import { getCart } from '../../store/cart/cart-slice';
 import {
 	fetchCollections,
@@ -46,6 +47,7 @@ function App() {
 						<Route path="/under-construction" element={<PageInDevelopment />} />
 						<Route path="/rules-consent" element={<ConsentDataProcessing />} />
 						<Route path="/rules-data" element={<DataProcessingPolicy />} />
+						<Route path="/order-form" element={<OrderingForm />} />
 					</Routes>
 				</main>
 				<Footer />

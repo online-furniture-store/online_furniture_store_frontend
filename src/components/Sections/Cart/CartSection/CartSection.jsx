@@ -59,7 +59,7 @@ function CartSection() {
 					days={7}
 					lastPrice={cart.total_price}
 					buttonText="Оформить&nbsp;заказ"
-					onClick={() => {}}
+					onClick={() => { navigate('/order-form'); }}
 				/>
 			</div>
 		</section>
