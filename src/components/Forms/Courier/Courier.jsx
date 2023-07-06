@@ -4,7 +4,6 @@ import styles from './Courier.module.css';
 import AddressNumber from '../../UI/AddressNumber/AddressNumber';
 import TextField from '../../UI/TextField/TextField';
 import Checkbox from '../../UI/Checkbox/Checkbox';
-// import NameInput from '../../UI/NameInput/NameInput';
 import Address from '../../UI/AddressInput/AddressInput';
 
 function Courier() {
