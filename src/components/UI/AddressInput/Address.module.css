@@ -32,7 +32,7 @@
 }
 
 .input:focus {
-	border: 1.5px solid var(--text-black);	
+	border: 1.5px solid var(--text-black);
 	outline: none;
 }
 
@@ -43,12 +43,16 @@
 .input:hover {
 	border: 1.8px solid var(--element-gray);
 }
+.naming::after {
+	content: ' *';
+	color: var(--system-red);
+}
 
 .input__error {
 	border: 1px solid var(--system-red);
-} 
+}
 
- .input[type='search']:focus::-webkit-search-cancel-button {
+.input[type='search']:focus::-webkit-search-cancel-button {
 	-webkit-appearance: none;
 	width: 16px;
 	height: 16px;
@@ -56,17 +60,32 @@
 	background-repeat: no-repeat;
 	background-size: contain;
 	margin-right: -2px;
- cursor: pointer;
+	cursor: pointer;
 }
 
-.input__error + .naming {
+.input__error+.naming {
 	color: var(--system-red);
 }
-/* Для буддущей обработке ошибок, примерный код */
 
-/* .error {
-	display: none;
+.errorText {
 	color: var(--system-red);
-	font-size: 16px;
-	margin: 4px 0 0;
-} */
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	position: absolute;
+	left: 0;
+	bottom: -20px;
+}
+
+.crossBtn {
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	top: 46px;
+	right: 16px;
+	background-image: url(../../../assets/img/closeCross.svg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	cursor: pointer;
+}
