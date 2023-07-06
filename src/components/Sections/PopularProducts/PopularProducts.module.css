@@ -36,6 +36,15 @@
   width: 100%;
 }
 
+.link {
+  all: unset;
+}
+
+.link:hover {
+  cursor: pointer;
+}
+
+
 .leftColumn {
   display: grid;
   grid-template-areas:
