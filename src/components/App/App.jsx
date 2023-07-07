@@ -13,6 +13,7 @@ import {
 	fetchPopularProducts,
 	fetchProducts,
 } from '../../store/products/products-slice';
+import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import OrderingForm from '../Forms/OrderingForm/OrderingForm';
 import Footer from '../Sections/Footer/Footer';
 import Header from '../Sections/Header/Header';
@@ -32,6 +33,7 @@ function App() {
 			<BrowserRouter>
 				<Header />
 				<main id="main" className={styles.app__main}>
+					<Breadcrumbs />
 					<Routes>
 						<Route path="/" element={<HomePage />} />
 						<Route path="/about" element={<AboutPage />} />
