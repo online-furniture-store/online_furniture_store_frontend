@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { useForm, Controller } from 'react-hook-form';
-import styles from './Courier.module.css';
+import { Controller, useForm } from 'react-hook-form';
 import AddressNumber from '../../UI/AddressNumber/AddressNumber';
-import TextField from '../../UI/TextField/TextField';
 import Checkbox from '../../UI/Checkbox/Checkbox';
+import TextField from '../../UI/TextField/TextField';
+import styles from './Courier.module.css';
 // import NameInput from '../../UI/NameInput/NameInput';
 import Address from '../../UI/AddressInput/AddressInput';
 

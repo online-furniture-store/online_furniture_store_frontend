@@ -1,7 +1,7 @@
-import { useForm, Controller } from 'react-hook-form';
-import styles from './RecipientForm.module.css';
-import ContainerForms from '../ContainerForms/ContainerForms';
+import { Controller, useForm } from 'react-hook-form';
 import NameInput from '../../UI/NameInput/NameInput';
+import ContainerForms from '../ContainerForms/ContainerForms';
+import styles from './RecipientForm.module.css';
 
 function RecipientForm() {
 	const {

@@ -7,13 +7,13 @@ import ConsentDataProcessing from '../../pages/ConsentDataProcessing/ConsentData
 import DataProcessingPolicy from '../../pages/DataProcessingPolicy/DataProcessingPolicy';
 import PageInDevelopment from '../../pages/PageInDevelopment/PageInDevelopment';
 import TradingRules from '../../pages/TradingRules/TradingRules';
-import OrderingForm from '../Forms/OrderingForm/OrderingForm';
 import { getCart } from '../../store/cart/cart-slice';
 import {
 	fetchCollections,
 	fetchPopularProducts,
 	fetchProducts,
 } from '../../store/products/products-slice';
+import OrderingForm from '../Forms/OrderingForm/OrderingForm';
 import Footer from '../Sections/Footer/Footer';
 import Header from '../Sections/Header/Header';
 import styles from './App.module.css';
