@@ -7,6 +7,8 @@
 	font-weight: 400;
 	font-size: 18px;
 	line-height: 21px;
+	align-self: flex-start;
+	
 }
 
 .naming {
@@ -25,6 +27,7 @@
 	display: flex;
 	justify-content: space-between;
   border: 1px solid var(--element-gray);
+	/* margin-bottom: 17px; */
 }
 
 
@@ -52,4 +55,21 @@
 	background-size: contain;
 	margin-right: -2px;
  cursor: pointer;
+}
+.errorText {
+	color: var(--system-red);
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	/* position: absolute;
+	left: 0; */
+	/* bottom: -20px; */
+}
+
+.input__error {
+	border: 1px solid var(--system-red);
+}
+
+.input__error+.naming {
+	color: var(--system-red);
 }
