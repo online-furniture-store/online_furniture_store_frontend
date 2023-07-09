@@ -1,9 +1,13 @@
-import { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { productDiscountSlider } from '../../../../utils/productDiscountSlider';
+import { productDeliverySlider } from '../../../../utils/productDeliverySlider';
 import ProductCard from '../../../ProductCard/ProductCard';
 import Title from '../../../UI/Title/Title';
 import styles from './ProductsWithScroll.module.css';
+import 'swiper/swiper-bundle.min.css';
+import 'swiper/swiper.min.css';
 
 function ProductsWithScroll({ fastDelivery }) {
 	const { discountProducts, fastDeliveryProducts } = useSelector(
@@ -12,24 +16,9 @@ function ProductsWithScroll({ fastDelivery }) {
 
 	const { cart } = useSelector((state) => state.cart);
 
-	const ref = useRef();
-
-	useEffect(() => {
-		const el = ref.current;
-		if (el) {
-			const onWheel = (e) => {
-				e.preventDefault();
-				el.scrollTo({
-					left: el.scrollLeft + e.deltaY * 5,
-					behavior: 'smooth',
-				});
-			};
-
-			el.addEventListener('wheel', onWheel);
-
-			return () => el.removeEventListener('wheel', onWheel);
-		}
-	}, []);
+	const swiperOptions = () => {
+		return fastDelivery ? productDeliverySlider : productDiscountSlider;
+	};
 
 	return (
 		<section
@@ -46,36 +35,36 @@ function ProductsWithScroll({ fastDelivery }) {
 					}
 				/>
 			</div>
-			<div className={styles.bargain}>
-				<ul
-					ref={ref}
-					className={
-						fastDelivery
-							? `${styles.container} ${styles.containerFastDelivery}`
-							: `${styles.container} ${styles.containerDiscount}`
-					}
-				>
-					{(fastDelivery ? fastDeliveryProducts : discountProducts).map(
-						(item) => (
-							<li key={item.id} className={styles.description}>
-								<ProductCard
-									id={item.id}
-									img={item.image}
-									title={item.name}
-									newPrice={item.total_price.toLocaleString()}
-									oldPrice={item.price.toLocaleString()}
-									inStock={item.available_quantity}
-									weight={item.weight}
-									brand={item.brand}
-									country={item.country}
-									fastDelivery={fastDelivery}
-									added={cart.products.some(({ product }) => product.id === item.id)}
-								/>
-							</li>
-						),
-					)}
-				</ul>
-			</div>
+			<Swiper
+				{...swiperOptions()}
+				className={
+					fastDelivery
+						? `${styles.container} ${styles.containerFastDelivery}`
+						: `${styles.container} ${styles.containerDiscount}`
+				}
+			>
+				{(fastDelivery ? fastDeliveryProducts : discountProducts).map(
+					(item) => (
+						<SwiperSlide key={item.id} className={styles.description}>
+							<ProductCard
+								id={item.id}
+								img={item.image}
+								title={item.name}
+								newPrice={item.total_price.toLocaleString()}
+								oldPrice={item.price.toLocaleString()}
+								inStock={item.available_quantity}
+								weight={item.weight}
+								brand={item.brand}
+								country={item.country}
+								fastDelivery={fastDelivery}
+								added={cart.products.some(
+									({ product }) => product.id === item.id,
+								)}
+							/>
+						</SwiperSlide>
+					),
+				)}
+			</Swiper>
 		</section>
 	);
 }
