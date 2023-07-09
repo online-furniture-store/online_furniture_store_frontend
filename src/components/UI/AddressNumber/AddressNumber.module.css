@@ -7,6 +7,8 @@
 	font-weight: 400;
 	font-size: 18px;
 	line-height: 21px;
+	align-self: flex-start;
+	
 }
 
 .naming {
@@ -25,6 +27,7 @@
 	display: flex;
 	justify-content: space-between;
   border: 1px solid var(--element-gray);
+	/* margin-bottom: 17px; */
 }
 
 
@@ -41,4 +44,15 @@
 	color: var(--element-grey);
 	font-size: 16px;
 	margin: 0 0 4px;
+}
+
+.input[type='search']:focus::-webkit-search-cancel-button {
+	-webkit-appearance: none;
+	width: 16px;
+	height: 16px;
+	background-image: url(../../../assets/img/closeCross.svg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	margin-right: -2px;
+ cursor: pointer;
 }

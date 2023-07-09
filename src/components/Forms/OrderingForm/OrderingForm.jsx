@@ -5,9 +5,9 @@ import styles from './OrderingForm.module.css';
 import RecipientForm from '../RecipientForm/RecipientForm';
 import DateBtnForm from '../ContainerForms/DateBtnForm/DateBtnForm';
 import CashForms from '../ContainerForms/CashForm/CashForm';
-import Courier from '../../Sections/Courier/Courier';
+import Courier from '../Courier/Courier';
 import ContainerForms from '../ContainerForms/ContainerForms';
-import Pickup from '../../Sections/Pickup/Pickup';
+import Pickup from '../Pickup/Pickup';
 import TotalPrice from '../../TotalPrice/TotalPrice';
 import RadioCircleButton from '../../UI/RadioCircleButton/RadioCircleButton';
 
