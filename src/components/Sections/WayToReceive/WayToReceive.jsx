@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import styles from './WayToReceive.module.css';
 import RadioCircleButton from '../../UI/RadioCircleButton/RadioCircleButton';
-import Courier from '../Courier/Courier';
-import Pickup from '../Pickup/Pickup';
+import Courier from '../../Forms/Courier/Courier';
+import Pickup from '../../Forms/Pickup/Pickup';
 
 function WayToReceive() {
   const [checked, setChecked] = useState(true);

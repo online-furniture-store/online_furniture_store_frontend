@@ -56,3 +56,17 @@
 	margin-right: -2px;
  cursor: pointer;
 }
+.errorText {
+	color: var(--system-red);
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+}
+
+.input__error {
+	border: 1px solid var(--system-red);
+}
+
+.input__error+.naming {
+	color: var(--system-red);
+}
