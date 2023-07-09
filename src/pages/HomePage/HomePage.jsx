@@ -13,6 +13,7 @@ function HomePage() {
 			<PopularProducts />
 			<Services />
 			<ProductsWithScroll fastDelivery />
+
 		</>
 	);
 }
