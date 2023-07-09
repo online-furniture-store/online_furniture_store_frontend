@@ -27,7 +27,6 @@
 	display: flex;
 	justify-content: space-between;
   border: 1px solid var(--element-gray);
-	/* margin-bottom: 17px; */
 }
 
 
@@ -54,16 +53,13 @@
 	background-repeat: no-repeat;
 	background-size: contain;
 	margin-right: -2px;
- cursor: pointer;
+  cursor: pointer;
 }
 .errorText {
 	color: var(--system-red);
 	font-style: normal;
 	font-weight: 400;
 	font-size: 14px;
-	/* position: absolute;
-	left: 0; */
-	/* bottom: -20px; */
 }
 
 .input__error {
