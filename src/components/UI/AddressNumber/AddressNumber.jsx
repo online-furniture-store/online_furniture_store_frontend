@@ -1,7 +1,15 @@
 import PropTypes from 'prop-types';
 import styles from './AddressNumber.module.css';
 
-function AddressNumber({ inputId, onChange, onBlur, value, label, helperText, error }) {
+function AddressNumber({
+	inputId,
+	onChange,
+	onBlur,
+	value,
+	label,
+	helperText,
+	error,
+}) {
 	return (
 		<div className={styles.container}>
 			{error && <span className={styles.errorText}>{helperText}</span>}
@@ -32,6 +40,5 @@ AddressNumber.propTypes = {
 	onBlur: PropTypes.func,
 	helperText: PropTypes.string,
 	error: PropTypes.bool,
-
 };
 export default AddressNumber;

@@ -36,7 +36,7 @@
 	outline: none;
 }
 
-.input:focus+.naming {
+.input:focus + .naming {
 	color: var(--main-black);
 }
 
@@ -63,7 +63,7 @@
 	cursor: pointer;
 }
 
-.input__error+.naming {
+.input__error + .naming {
 	color: var(--system-red);
 }
 

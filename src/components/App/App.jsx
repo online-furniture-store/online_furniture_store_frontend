@@ -7,7 +7,7 @@ import ConsentDataProcessing from '../../pages/ConsentDataProcessing/ConsentData
 import DataProcessingPolicy from '../../pages/DataProcessingPolicy/DataProcessingPolicy';
 import PageInDevelopment from '../../pages/PageInDevelopment/PageInDevelopment';
 import TradingRules from '../../pages/TradingRules/TradingRules';
-import OrderingForm from '../Forms/OrderingForm/OrderingForm';
+import OrderingForm from '../../pages/OrderingForm/OrderingForm';
 import { getCart } from '../../store/cart/cart-slice';
 import {
 	fetchCollections,

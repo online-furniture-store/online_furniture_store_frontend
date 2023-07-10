@@ -1,3 +1,15 @@
+.container {
+	width: 100%;
+}
+
+.container__courier {
+	display: block;
+}
+
+.container__nonDelivery {
+	display: none;
+}
+
 .title {
 	font-size: 25px;
 	font-style: normal;
@@ -15,7 +27,11 @@
 	padding-left: 0;
 }
 
-.time {
+.time__noActive {
+	display: none;
+}
+
+.time__active {
 	display: flex;
 	gap: 16px;
 	list-style: none;

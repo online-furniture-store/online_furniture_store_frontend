@@ -1,7 +1,16 @@
 import PropTypes from 'prop-types';
 import styles from './Address.module.css';
 
-function Address({ inputId, onChange, onBlur, value, label, helperText, error, onClick }) {
+function Address({
+	inputId,
+	onChange,
+	onBlur,
+	value,
+	label,
+	helperText,
+	error,
+	onClick,
+}) {
 	return (
 		<div className={styles.container}>
 			<input
@@ -21,9 +30,10 @@ function Address({ inputId, onChange, onBlur, value, label, helperText, error, o
 				{label}
 			</label>
 			{error && <span className={styles.errorText}>{helperText}</span>}
-			{value && <div type="button" onClick={onClick} className={styles.crossBtn} />}
+			{value && (
+				<div type="button" onClick={onClick} className={styles.crossBtn} />
+			)}
 		</div>
-
 	);
 }
 
