@@ -12,7 +12,7 @@ function AddressNumber({ inputId, onChange, onBlur, value, label, helperText, er
 						: `${styles.input} ${styles.input__default}`
 				}
 				id={inputId}
-				value={value}
+				value={value ?? ''}
 				onChange={onChange}
 				placeholder=""
 				required

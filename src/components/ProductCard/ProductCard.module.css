@@ -4,6 +4,7 @@
 	box-sizing: border-box;
 	background: #fff;
 	transition: all ease-in-out 0.5s;
+	pointer-events: auto;
 }
 
 .card:hover {
@@ -121,7 +122,6 @@
 
 .descriptionFastDelivery {
 	flex-direction: column;
-	/* gap: 16px; */
 }
 
 .descriptionDiscountCard {

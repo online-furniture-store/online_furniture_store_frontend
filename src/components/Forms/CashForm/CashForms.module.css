@@ -1,3 +1,7 @@
+.container {
+	width: 100%;
+}
+
 .title {
 	font-size: 25px;
 	font-style: normal;
@@ -9,9 +13,8 @@
 
 .pay {
 	display: flex;
-  flex-direction: column;
+	flex-direction: column;
 	gap: 12px;
 	list-style: none;
 	padding-left: 0;
 }
-
