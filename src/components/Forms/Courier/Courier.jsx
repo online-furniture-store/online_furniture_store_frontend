@@ -44,11 +44,11 @@ function Courier({ control, errors, resetField }) {
 								message: 'Допустимы только цифры',
 							},
 						}}
-						render={({ field: { onBlur, onChange, checked } }) => (
+						render={({ field: { onBlur, onChange, value } }) => (
 							<AddressNumber
 								onBlur={onBlur}
 								onChange={onChange}
-								checked={checked}
+								value={value}
 								inputId="apartament"
 								label="Квартира"
 								helperText={errors.apartament?.message?.toString()}
@@ -65,11 +65,11 @@ function Courier({ control, errors, resetField }) {
 								message: 'Допустимы только цифры',
 							},
 						}}
-						render={({ field: { onBlur, onChange, checked } }) => (
+						render={({ field: { onBlur, onChange, value } }) => (
 							<AddressNumber
 								onBlur={onBlur}
 								onChange={onChange}
-								checked={checked}
+								value={value}
 								inputId="entrance"
 								label="Подъезд"
 								helperText={errors.entrance?.message?.toString()}
@@ -86,11 +86,11 @@ function Courier({ control, errors, resetField }) {
 								message: 'Допустимы только цифры',
 							},
 						}}
-						render={({ field: { onBlur, onChange, checked } }) => (
+						render={({ field: { onBlur, onChange, value } }) => (
 							<AddressNumber
 								onBlur={onBlur}
 								onChange={onChange}
-								checked={checked}
+								value={value}
 								inputId="floor"
 								label="Этаж"
 								helperText={errors.floor?.message?.toString()}

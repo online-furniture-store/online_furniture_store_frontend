@@ -1,15 +1,7 @@
 import PropTypes from 'prop-types';
 import styles from './AddressNumber.module.css';
 
-function AddressNumber({
-	inputId,
-	onChange,
-	onBlur,
-	value,
-	label,
-	helperText,
-	error,
-}) {
+function AddressNumber({ inputId, onChange, onBlur, value, label, helperText, error }) {
 	return (
 		<div className={styles.container}>
 			{error && <span className={styles.errorText}>{helperText}</span>}
@@ -20,7 +12,7 @@ function AddressNumber({
 						: `${styles.input} ${styles.input__default}`
 				}
 				id={inputId}
-				value={value}
+				value={value ?? ''}
 				onChange={onChange}
 				placeholder=""
 				required
@@ -40,5 +32,6 @@ AddressNumber.propTypes = {
 	onBlur: PropTypes.func,
 	helperText: PropTypes.string,
 	error: PropTypes.bool,
+
 };
 export default AddressNumber;
