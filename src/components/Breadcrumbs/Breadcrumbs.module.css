@@ -1,0 +1,34 @@
+.list {
+  list-style: none;
+  display: flex;
+  max-width: 1240px;
+  width: 100%;
+  padding: 0 100px;
+  margin: 7px auto 0 auto;
+  gap: 12px;
+}
+
+.crumb {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.crumb:last-child {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.link {
+  text-decoration: none;
+  color: #999;
+}
+
+.arrow {
+  display: flex;
+  width: 24px;
+  height: 24px;
+  background-image: url('../../assets/img/arrows-icon.svg');
+}

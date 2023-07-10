@@ -3,7 +3,16 @@ import { Link, useLocation } from 'react-router-dom';
 import styles from './TotalPrice.module.css';
 import BlackButton from '../UI/BlackButton/BlackButton';
 
-function TotalPrice({ discount, count, weight, totalPrice, days, lastPrice, buttonText, onClick }) {
+function TotalPrice({
+	discount,
+	count,
+	weight,
+	totalPrice,
+	days,
+	lastPrice,
+	buttonText,
+	onClick,
+}) {
 	const location = useLocation();
 	return (
 		<div className={styles.container}>
@@ -23,10 +32,7 @@ function TotalPrice({ discount, count, weight, totalPrice, days, lastPrice, butt
 				</div>
 			)}
 			<p className={styles.productsCount}>
-				товары (
-          {count}
-          )
-        <span className={styles.dot}>&#8226;</span>
+				товары ({count})<span className={styles.dot}>&#8226;</span>
 				{`${weight} кг`}
 			</p>
 			<div className={styles.totalContainer}>
@@ -36,30 +42,43 @@ function TotalPrice({ discount, count, weight, totalPrice, days, lastPrice, butt
 					<span>&nbsp;&#8381;</span>
 				</p>
 			</div>
-			<BlackButton onClick={onClick} buttonText={buttonText} buttonLarge />
 
 			{location.pathname === '/cart' ? (
 				<>
+					<BlackButton
+						type="button"
+						onClick={onClick}
+						buttonText={buttonText}
+						buttonLarge
+					/>
 					<p className={styles.deliveryTime}>{`Доставим через ${days} дней`}</p>
-					<Link to="/" className={styles.deliveryCost}>
+					<Link to="/under-construction" className={styles.deliveryCost}>
 						Стоимость доставки и сборки
 					</Link>
 				</>
 			) : (
-				<p className={styles.argeement}>
-					Нажимая на кнопку, я даю
-					<Link to="/" className={styles.link}>
-						согласие
-					</Link>
-					на обработку персональных данных в соответствии с
-					<Link to="/" className={styles.link}>
-						Политикой
-					</Link>
-					, соглашаюсь с
-					<Link to="/" className={styles.link}>
-						Правилами
-					</Link>
-				</p>
+				<>
+					<BlackButton
+						type="submit"
+						onClick={onClick}
+						buttonText={buttonText}
+						buttonLarge
+					/>
+					<p className={styles.argeement}>
+						Нажимая на кнопку, я даю
+						<Link to="/rules-consent" className={styles.link}>
+							согласие
+						</Link>
+						на обработку персональных данных в соответствии с
+						<Link to="/rules-data" className={styles.link}>
+							Политикой
+						</Link>
+						, соглашаюсь с
+						<Link to="/rules-sale" className={styles.link}>
+							Правилами
+						</Link>
+					</p>
+				</>
 			)}
 		</div>
 	);
@@ -72,7 +91,7 @@ TotalPrice.propTypes = {
 	totalPrice: PropTypes.number,
 	days: PropTypes.number.isRequired,
 	buttonText: PropTypes.string.isRequired,
-	onClick: PropTypes.func.isRequired,
+	onClick: PropTypes.func,
 };
 
 export default TotalPrice;

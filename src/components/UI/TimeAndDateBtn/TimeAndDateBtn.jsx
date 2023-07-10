@@ -1,24 +1,31 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
 import styles from './TimeAndDateBtn.module.css';
 
-function TimeAndDateBtn({ date, day, time, id, name }) {
-	const [checked, setChecked] = useState(false);
-
-	function changeCheckbox() {
-		setChecked(!checked);
-	}
-
+function TimeAndDateBtn({
+	date,
+	day,
+	time,
+	id,
+	name,
+	checked,
+	onChange,
+	onClick,
+}) {
 	return (
 		<div className={styles.container}>
 			<input
 				id={id}
 				type="radio"
-				value={id}
-				onChange={changeCheckbox}
+				value={time || date}
+				onChange={onChange}
 				checked={checked}
 				name={name}
-				className={styles.radioInput}
+				onClick={onClick}
+				className={
+					time
+						? `${styles.radioInput} ${styles.timeInput}`
+						: `${styles.radioInput} ${styles.dateInput}`
+				}
 			/>
 			<label
 				htmlFor={id}
@@ -41,6 +48,9 @@ TimeAndDateBtn.propTypes = {
 	time: PropTypes.string,
 	id: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
+	onChange: PropTypes.func.isRequired,
+	checked: PropTypes.bool,
+	onClick: PropTypes.func,
 };
 
 export default TimeAndDateBtn;

@@ -1,8 +1,8 @@
-import Intro from '../../components/Sections/Main/Intro/Intro';
-import PopularProducts from '../../components/Sections/PopularProducts/PopularProducts';
 import Categories from '../../components/Sections/Main/Categories/Categories';
-import Services from '../../components/Sections/Main/Services/Services';
+import Intro from '../../components/Sections/Main/Intro/Intro';
 import ProductsWithScroll from '../../components/Sections/Main/ProductsWithScroll/ProductsWithScroll';
+import Services from '../../components/Sections/Main/Services/Services';
+import PopularProducts from '../../components/Sections/PopularProducts/PopularProducts';
 
 function HomePage() {
 	return (
