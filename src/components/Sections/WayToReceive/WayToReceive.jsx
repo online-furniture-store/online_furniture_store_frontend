@@ -9,7 +9,6 @@ import DateBtnForm from '../../Forms/DateBtnForm/DateBtnForm';
 import ContainerForms from '../../Forms/ContainerForms/ContainerForms';
 import RecipientForm from '../../Forms/RecipientForm/RecipientForm';
 
-
 function WayToReceive({ control, errors, resetField }) {
 	const [delivery, setDelivery] = useState('Самовывоз');
 	const handleChangeRadio = (e) => {
