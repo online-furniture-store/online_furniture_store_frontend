@@ -1,6 +1,4 @@
 .container {
-  /* width: 100%;
-  max-width: 925px; */
   background-color: var(--element-background);
   border-radius: 6px;
   box-sizing: border-box;
