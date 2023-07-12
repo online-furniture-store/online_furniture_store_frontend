@@ -43,6 +43,12 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.FRONTEND_IMAGE_TAG }}:${{ github.sha }}
+      - name: Push to Docker Hub tag latest
+        uses: docker/build-push-action@v4
+        with:
+          file: ./Dockerfile
+          push: true
+          tags: ${{ secrets.FRONTEND_IMAGE_TAG }}:latest
 
   sent_sha_to_backend_repo:
     needs: frontend_build_and_push_to_docker_hub
