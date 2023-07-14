@@ -1,0 +1,50 @@
+.inputContainer {
+  display: flex;
+  position: relative;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.input {
+  width: 315px;
+  height: 37px;
+  background: var(--text-black);
+  color: var(--main-white);
+  border: 1px solid var(--element-light);
+  border-radius: 20px;
+  padding: 8px 34px 8px 14px;
+  box-sizing: border-box;
+}
+
+.input:focus {
+  border: 1.5px solid var(--main-white);
+  outline: none;
+}
+
+.item {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 8px;
+  left: 283px;
+  background-image: url(../../../assets//img/rightWhite.svg);
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+  background-position: center;
+  padding: 2px;
+}
+
+::-webkit-input-placeholder {
+  color: var(--main-white);
+}
+::-moz-placeholder {
+  color: var(--main-white);
+}
+:-moz-placeholder {
+  color: var(--main-white);
+}
+:-ms-input-placeholder {
+  color: var(--main-white);
+}

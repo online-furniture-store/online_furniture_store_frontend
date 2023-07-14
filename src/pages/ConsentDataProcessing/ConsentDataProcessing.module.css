@@ -1,0 +1,15 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 925px;
+}
+
+.text {
+  margin: 0;
+}
+
+.list {
+  margin: 0;
+  padding-left: 20px;
+}

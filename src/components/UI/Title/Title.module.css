@@ -1,0 +1,9 @@
+.title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 55px;
+  color: var(--main-black);
+  margin: 0;
+  width: max-content;
+}

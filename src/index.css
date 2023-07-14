@@ -1,13 +1,28 @@
+@import url(./vendor/fonts.css);
+@import url(./vendor/normalize.css);
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0 auto;
+	font-family: 'Open Sans', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+:root {
+	scroll-behavior: smooth;
+	--main-white: #ffffff;
+	--main-black: #000000;
+	--text-black: #202020;
+	--cream: #e3dbd2;
+	--system-red: #e80a0a;
+	--system-green: #4fad50;
+	--element-gray: #999999;
+	--element-dark-gray: #444444;
+	--element-light: #dedede;
+	--element-grey: #777;
+	--element-background: #f9f9f9;
 }

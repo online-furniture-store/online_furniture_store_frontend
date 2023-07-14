@@ -1,0 +1,15 @@
+.content {
+  display: flex;
+  width: 100%;
+  max-width: 925px;
+}
+
+ol {
+  padding-left: 20px;
+}
+
+ul {
+  list-style: disc;
+  padding: 0;
+}
+

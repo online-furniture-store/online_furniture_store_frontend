@@ -1,0 +1,42 @@
+.bottom {
+  display: flex;
+}
+
+.middleText {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0 0 8px;
+}
+
+.smallText {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+}
+
+.adress {
+  display: flex;
+  margin: 0 0 16px;
+}
+
+.adressText {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0 0 0 11px;
+}
+
+.header {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0 0 8px;
+}
+.pickup{
+  margin: 24px 0 0 ;
+}
+.info{
+  margin-right: 12px;
+}
