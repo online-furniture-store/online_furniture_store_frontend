@@ -57,7 +57,6 @@ function Order({ orderNumber, date, status, isCourier, adress, count }) {
     paid: true,
     },
   ];
-console.log(items);
 return (
   <section className={styles.container}>
     <h2 className={styles.order}>Заказ №{orderNumber}</h2>
