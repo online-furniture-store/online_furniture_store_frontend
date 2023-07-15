@@ -21,8 +21,8 @@
   height: 55px;
   font-size: 20px;
   padding: 14px 99px;
-  border: none;
   outline: none;
+  border: none;
 }
 
 .button:hover {
