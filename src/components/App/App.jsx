@@ -2,11 +2,13 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { AboutPage, HomePage } from '../../pages';
+import OrderPage from '../../pages/OrderPage/OrderPage';
 import CartPage from '../../pages/CartPage/CartPage';
 import ConsentDataProcessing from '../../pages/ConsentDataProcessing/ConsentDataProcessing';
 import DataProcessingPolicy from '../../pages/DataProcessingPolicy/DataProcessingPolicy';
 import PageInDevelopment from '../../pages/PageInDevelopment/PageInDevelopment';
 import TradingRules from '../../pages/TradingRules/TradingRules';
+import OrderingForm from '../../pages/OrderingForm/OrderingForm';
 import { getCart } from '../../store/cart/cart-slice';
 import {
 	fetchCollections,
@@ -14,7 +16,6 @@ import {
 	fetchProducts,
 } from '../../store/products/products-slice';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
-import OrderingForm from '../Forms/OrderingForm/OrderingForm';
 import Footer from '../Sections/Footer/Footer';
 import Header from '../Sections/Header/Header';
 import styles from './App.module.css';
@@ -50,6 +51,7 @@ function App() {
 						<Route path="/rules-consent" element={<ConsentDataProcessing />} />
 						<Route path="/rules-data" element={<DataProcessingPolicy />} />
 						<Route path="/order-form" element={<OrderingForm />} />
+						<Route path="/order" element={<OrderPage />} />
 					</Routes>
 				</main>
 				<Footer />

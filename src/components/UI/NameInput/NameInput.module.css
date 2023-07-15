@@ -1,7 +1,7 @@
 .container {
 	max-width: 469px;
 	display: flex;
-	flex-direction: column;
+	flex-direction: column-reverse;
 	position: relative;
 	font-style: normal;
 	font-weight: 400;

@@ -1,7 +1,6 @@
 {
 	"name": "onlinestore",
 	"version": "0.1.0",
-	"homepage": "https://online-furniture-store.github.io/online_furniture_store_frontend",
 	"private": true,
 	"dependencies": {
 		"@reduxjs/toolkit": "^1.9.5",
@@ -19,6 +18,7 @@
 		"redux-thunk": "^2.4.2",
 		"swiper": "^9.4.1",
 		"use-react-router-breadcrumbs": "^4.0.1",
+		"uuid": "^9.0.0",
 		"web-vitals": "^2.1.4"
 	},
 	"scripts": {

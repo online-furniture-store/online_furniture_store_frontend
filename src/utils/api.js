@@ -72,7 +72,7 @@ export class Api {
 }
 
 const api = new Api({
-	baseUrl: 'https://80.87.107.143/',
+	baseUrl: 'https://ofs.proninteam.ru/',
 	headers: {
 		'content-type': 'application/json',
 	},

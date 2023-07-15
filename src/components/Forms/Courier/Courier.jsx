@@ -1,42 +1,16 @@
-import { useState } from 'react';
-import { useForm, Controller } from 'react-hook-form';
+import { Controller } from 'react-hook-form';
+import PropTypes from 'prop-types';
 import styles from './Courier.module.css';
 import AddressNumber from '../../UI/AddressNumber/AddressNumber';
 import TextField from '../../UI/TextField/TextField';
 import Checkbox from '../../UI/Checkbox/Checkbox';
 import Address from '../../UI/AddressInput/AddressInput';
 
-function Courier() {
-	const [comment, setComment] = useState('');
-	const handleCommentInput = (e) => {
-		setComment(e.target.value);
-	};
-
-	const [checked, setChecked] = useState(false);
-
-	const changeCheckbox = () => {
-		setChecked(!checked);
-	};
-	const {
-		control,
-		handleSubmit,
-		reset,
-		formState: { errors },
-	} = useForm({
-		mode: 'onChange',
-		defaultValues: {
-			address: '',
-		},
-	});
-
-	const onSubmit = () => {
-		reset();
-	};
-
+function Courier({ control, errors, resetField }) {
 	return (
 		<section className={styles.address}>
 			<p className={styles.text}>Адрес доставки</p>
-			<form onSubmit={handleSubmit(onSubmit)}>
+			<div>
 				<Controller
 					name="address"
 					control={control}
@@ -46,7 +20,6 @@ function Courier() {
 							value: 11,
 							message: 'Длинна должна быть больше 10 символов',
 						},
-
 					}}
 					render={({ field: { onBlur, onChange, value } }) => (
 						<Address
@@ -57,8 +30,7 @@ function Courier() {
 							label="Населенный пункт, улица, дом"
 							helperText={errors.address?.message?.toString()}
 							error={!!errors.address?.message}
-							onClick={onSubmit}
-
+							onClick={() => resetField('address')}
 						/>
 					)}
 				/>
@@ -66,6 +38,12 @@ function Courier() {
 					<Controller
 						name="apartament"
 						control={control}
+						rules={{
+							pattern: {
+								value: /^(0|[1-9]\d*)(\.\d+)?$/,
+								message: 'Допустимы только цифры',
+							},
+						}}
 						render={({ field: { onBlur, onChange, value } }) => (
 							<AddressNumber
 								onBlur={onBlur}
@@ -84,8 +62,7 @@ function Courier() {
 						rules={{
 							pattern: {
 								value: /^(0|[1-9]\d*)(\.\d+)?$/,
-								message:
-									'Допустимы только цифры',
+								message: 'Допустимы только цифры',
 							},
 						}}
 						render={({ field: { onBlur, onChange, value } }) => (
@@ -106,8 +83,7 @@ function Courier() {
 						rules={{
 							pattern: {
 								value: /^(0|[1-9]\d*)(\.\d+)?$/,
-								message:
-									'Допустимы только цифры',
+								message: 'Допустимы только цифры',
 							},
 						}}
 						render={({ field: { onBlur, onChange, value } }) => (
@@ -124,19 +100,38 @@ function Courier() {
 					/>
 				</div>
 				<div className={styles.comment}>
-					<TextField
-						onChange={handleCommentInput}
-						value={comment}
-						label="Комментарий к доставке"
+					<Controller
+						name="comment"
+						control={control}
+						render={({ field: { onBlur, onChange, value } }) => (
+							<TextField
+								onBlur={onBlur}
+								onChange={onChange}
+								value={value}
+								label="Комментарий к доставке"
+							/>
+						)}
 					/>
 				</div>
-			</form>
-			<Checkbox
-				onChange={changeCheckbox}
-				label="Наличие лифта"
-				checked={checked}
+			</div>
+			<Controller
+				name="lift"
+				control={control}
+				render={({ field: { onChange, checked } }) => (
+					<Checkbox
+						onChange={onChange}
+						label="Наличие лифта"
+						checked={checked}
+					/>
+				)}
 			/>
 		</section>
 	);
 }
+
+Courier.propTypes = {
+	control: PropTypes.oneOfType([PropTypes.object]),
+	errors: PropTypes.oneOfType([PropTypes.object]),
+	resetField: PropTypes.func,
+};
 export default Courier;

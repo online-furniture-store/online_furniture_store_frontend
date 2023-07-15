@@ -2,64 +2,135 @@ import PropTypes from 'prop-types';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './TotalPrice.module.css';
 import BlackButton from '../UI/BlackButton/BlackButton';
+import repeat from '../../assets/img/repeat.svg';
 
-function TotalPrice({ discount, count, weight, totalPrice, days, lastPrice, buttonText, onClick }) {
+function TotalPrice({
+	discount,
+	count,
+	weight,
+	totalPrice,
+	days,
+	lastPrice,
+	buttonText,
+	onClick,
+}) {
 	const location = useLocation();
 	return (
 		<div className={styles.container}>
-			{discount && (
-				<div className={styles.discountSection}>
-					<p className={styles.discountText}>
-						Скидка: &nbsp;
-						<span className={styles.discount}>
-							{discount}
-							<span>&nbsp;&#8381;</span>
-						</span>
-					</p>
-					<p className={styles.lastPrice}>
-						{lastPrice}
-						<span>&nbsp;&#8381;</span>
-					</p>
-				</div>
-			)}
-			<p className={styles.productsCount}>
-				товары (
-          {count}
-          )
-        <span className={styles.dot}>&#8226;</span>
-				{`${weight} кг`}
-			</p>
-			<div className={styles.totalContainer}>
-				<p className={styles.totalPrice}>Итого</p>
-				<p className={styles.totalPrice}>
-					{totalPrice}
-					<span>&nbsp;&#8381;</span>
-				</p>
-			</div>
-			<BlackButton onClick={onClick} buttonText={buttonText} buttonLarge />
-
-			{location.pathname === '/cart' ? (
+			{location.pathname === '/cart' && (
 				<>
+					{discount && (
+						<div className={styles.discountSection}>
+							<p className={styles.discountText}>
+								Скидка: &nbsp;
+								<span className={styles.discount}>
+									{discount}
+									<span>&nbsp;&#8381;</span>
+								</span>
+							</p>
+							<p className={styles.lastPrice}>
+								{lastPrice}
+								<span>&nbsp;&#8381;</span>
+							</p>
+						</div>
+					)}
+					<p className={styles.productsCount}>
+						товары ({count})<span className={styles.dot}>&#8226;</span>
+						{`${weight} кг`}
+					</p>
+					<div className={styles.totalContainer}>
+						<p className={styles.totalPrice}>Итого</p>
+						<p className={styles.totalPrice}>
+							{totalPrice}
+							<span>&nbsp;&#8381;</span>
+						</p>
+					</div>
+					<BlackButton
+						type="button"
+						onClick={onClick}
+						buttonText={buttonText}
+						buttonLarge
+					/>
 					<p className={styles.deliveryTime}>{`Доставим через ${days} дней`}</p>
-					<Link to="/" className={styles.deliveryCost}>
+					<Link to="/under-construction" className={styles.deliveryCost}>
 						Стоимость доставки и сборки
 					</Link>
 				</>
-			) : (
-				<p className={styles.argeement}>
-					Нажимая на кнопку, я даю
-					<Link to="/" className={styles.link}>
-						согласие
-					</Link>
-					на обработку персональных данных в соответствии с
-					<Link to="/" className={styles.link}>
-						Политикой
-					</Link>
-					, соглашаюсь с
-					<Link to="/" className={styles.link}>
-						Правилами
-					</Link>
-				</p>
+			)}
+			{location.pathname === '/order-form' && (
+				<>
+					{discount && (
+						<div className={styles.discountSection}>
+							<p className={styles.discountText}>
+								Скидка: &nbsp;
+								<span className={styles.discount}>
+									{discount}
+									<span>&nbsp;&#8381;</span>
+								</span>
+							</p>
+							<p className={styles.lastPrice}>
+								{lastPrice}
+								<span>&nbsp;&#8381;</span>
+							</p>
+						</div>
+					)}
+					<p className={styles.productsCount}>
+						товары ({count})<span className={styles.dot}>&#8226;</span>
+						{`${weight} кг`}
+					</p>
+					<div className={styles.totalContainer}>
+						<p className={styles.totalPrice}>Итого</p>
+						<p className={styles.totalPrice}>
+							{totalPrice}
+							<span>&nbsp;&#8381;</span>
+						</p>
+					</div>
+					<BlackButton
+						type="submit"
+						onClick={onClick}
+						buttonText={buttonText}
+						buttonLarge
+					/>
+					<p className={styles.argeement}>
+						Нажимая на кнопку, я даю&nbsp;
+						<Link to="/rules-consent" className={styles.link}>
+							согласие &nbsp;
+						</Link>
+						на обработку персональных данных в соответствии с&nbsp;
+						<Link to="/rules-data" className={styles.link}>
+							Политикой
+						</Link>
+						, соглашаюсь с&nbsp;
+						<Link to="/rules-sale" className={styles.link}>
+							Правилами
+						</Link>
+					</p>
+				</>
+			)}
+			{location.pathname === '/order' && (
+				<>
+					<div className={styles.discountSection}>
+						<p className={styles.paymentText}>
+							Оплачено картой онлайн
+						</p>
+
+					</div>
+					<p className={styles.productsCount}>
+						товары ({count})<span className={styles.dot}>&#8226;</span>
+						{`${weight} кг`}
+					</p>
+					<div className={styles.totalContainer}>
+						<p className={styles.totalPrice}>Итого</p>
+						<p className={styles.totalPrice}>
+							{totalPrice}
+							<span>&nbsp;&#8381;</span>
+						</p>
+					</div>
+					<div className={styles.repeatContainer}>
+						<img src={repeat} alt="repeat" className={styles.repeatImg} />
+						<p className={styles.repeatText}>Повторить заказ</p>
+					</div>
+				</>
 			)}
 		</div>
 	);
@@ -71,8 +142,7 @@ TotalPrice.propTypes = {
 	weight: PropTypes.number.isRequired,
 	totalPrice: PropTypes.number,
 	days: PropTypes.number.isRequired,
-	buttonText: PropTypes.string.isRequired,
-	onClick: PropTypes.func.isRequired,
+	buttonText: PropTypes.string,
+	onClick: PropTypes.func,
 };
-
 export default TotalPrice;

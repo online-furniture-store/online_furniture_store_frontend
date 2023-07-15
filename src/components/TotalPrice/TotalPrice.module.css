@@ -1,6 +1,6 @@
 .container {
 	max-width: 295px;
-	max-height: 329px;
+	height: max-content;
 	background-color: #f9f9f9;
 	padding: 32px 20px 28px;
 	border-radius: 6px;
@@ -84,6 +84,26 @@
 	text-decoration: none;
 	color: black;
 }
+
 .link:hover {
 	opacity: 0.6;
+}
+
+.repeatContainer {
+	display: flex;
+	margin-top: 7px;
+}
+
+.repeatText {
+	margin: 0 0 0 8px;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: normal;
+}
+
+.paymentText {
+	font-size: 18px;
+	font-weight: 400;
+	line-height: normal;
+	margin: 0;
 }

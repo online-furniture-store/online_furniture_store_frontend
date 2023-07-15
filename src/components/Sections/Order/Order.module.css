@@ -1,0 +1,47 @@
+.container {
+  max-width: 610px;
+  margin-right: 20px;
+  
+}
+
+.order {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 55px;
+  margin: 0 0 4px;
+}
+
+.orderDate {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0 0 32px;
+}
+
+.heading {
+  font-size: 25px;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0 0 8px;
+}
+
+.caption {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0 0 32px;
+}
+
+.count {
+  font-size: 25px;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0 0 32px;
+}
+.product {
+  margin: 0 0 32px;
+  list-style-type: none;
+}
+.product:last-child{
+  margin: 0;
+}
