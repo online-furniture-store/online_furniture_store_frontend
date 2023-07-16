@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { AboutPage, HomePage } from '../../pages';
+import OrderPage from '../../pages/OrderPage/OrderPage';
 import CartPage from '../../pages/CartPage/CartPage';
 import ConsentDataProcessing from '../../pages/ConsentDataProcessing/ConsentDataProcessing';
 import DataProcessingPolicy from '../../pages/DataProcessingPolicy/DataProcessingPolicy';
@@ -50,6 +51,7 @@ function App() {
 						<Route path="/rules-consent" element={<ConsentDataProcessing />} />
 						<Route path="/rules-data" element={<DataProcessingPolicy />} />
 						<Route path="/order-form" element={<OrderingForm />} />
+						<Route path="/order" element={<OrderPage />} />
 					</Routes>
 				</main>
 				<Footer />
