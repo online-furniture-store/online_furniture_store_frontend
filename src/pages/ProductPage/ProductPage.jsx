@@ -1,4 +1,6 @@
 import LargeCard from '../../components/LargeCard/LargeCard';
+import Characteristic from '../../components/UI/Characteristic/Characteristic';
+import { declensionWordYear } from '../../utils/utils';
 import styles from './ProductPage.module.css';
 
 const images = {
@@ -64,15 +66,6 @@ const images = {
 };
 
 function ProductPage() {
-  function rr(num) {
-    if (num === 1) {
-      return `${num} год`;
-    }
-    if (num > 1 && num < 5) {
-      return `${num} годa`;
-    }
-    return `${num} лет`;
-  }
   return (
     <div className={styles.content}>
       <LargeCard
@@ -95,55 +88,17 @@ function ProductPage() {
         <h3 className={styles.title}>Характеристики</h3>
         <div className={styles.list}>
           <div className={styles.column}>
-            <div className={styles.wrapper}>
-              <span className={styles.property}>Ширина</span>
-              <div className={styles.line} />
-              <span className={styles.value}>{`${images.weight} см`}</span>
-            </div>
-
-            <div className={styles.wrapper}>
-              <span className={styles.property}>Высота</span>
-              <div className={styles.line} />
-              <span className={styles.value}>{`${images.height} см`}</span>
-            </div>
-
-            <div className={styles.wrapper}>
-              <span className={styles.property}>Глубина</span>
-              <div className={styles.line} />
-              <span className={styles.value}>{`${images.length} см`}</span>
-            </div>
-            <div className={styles.wrapper}>
-              <span className={styles.property}>Материал опор</span>
-              <div className={styles.line} />
-              <span className={styles.value}>{images.material[0].name}</span>
-            </div>
-            <div className={styles.wrapper}>
-              <span className={styles.property}>Материал обивки</span>
-              <div className={styles.line} />
-              <span className={styles.value}>{images.material[1].name}</span>
-            </div>
-            <div className={styles.wrapper}>
-              <span className={styles.property}>Цвет</span>
-              <div className={styles.line} />
-              <span className={styles.value}>{(images.color.name).toLowerCase()}</span>
-            </div>
+            <Characteristic property="Ширина" value={`${images.weight} см`} />
+            <Characteristic property="Высота" value={`${images.height} см`} />
+            <Characteristic property="Глубина" value={`${images.length} см`} />
+            <Characteristic property="Материал" value={(images.material[0].name).toLowerCase()} />
+            <Characteristic property="Материал опор" value={(images.material[1].name).toLowerCase()} />
+            <Characteristic property="Цвет" value={(images.color.name).toLowerCase()} />
           </div>
           <div className={styles.column}>
-            <div className={styles.wrapper}>
-              <span className={styles.property}>Максимальная нагрузка</span>
-              <div className={styles.line} />
-              <span className={styles.value}>100 кг</span>
-            </div>
-            <div className={styles.wrapper}>
-              <span className={styles.property}>Гарантия</span>
-              <div className={styles.line} />
-              <span className={styles.value}>{rr(images.warranty)}</span>
-            </div>
-            <div className={styles.wrapper}>
-              <span className={styles.property}>Страна</span>
-              <div className={styles.line} />
-              <span className={styles.value}>{images.country}</span>
-            </div>
+            <Characteristic property="Максимальная нагрузка" value="100 кг" />
+            <Characteristic property="Гарантия" value={declensionWordYear(images.warranty)} />
+            <Characteristic property="Страна" value={images.country} />
           </div>
         </div>
       </div>
