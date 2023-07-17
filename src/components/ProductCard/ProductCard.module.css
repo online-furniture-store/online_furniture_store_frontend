@@ -69,8 +69,8 @@
 
 .sweets {
 	display: flex;
-	width: 76px;
-	justify-content: space-between;
+	width: 130px;
+	justify-content: flex-end;
 	position: absolute;
 	top: 20px;
 	right: 20px;

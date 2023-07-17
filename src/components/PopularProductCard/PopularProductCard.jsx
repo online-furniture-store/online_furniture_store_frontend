@@ -34,6 +34,27 @@ function PopularProductCard({ img, productName, productPrice, productFavorited }
           </div>
         )
       }
+       {
+        location.pathname === '/favourites' && (
+          <div className={styles.productCard}>
+            <img
+              className={styles.img}
+              src={img}
+              alt={`Фото ${productName}`}
+              onError={(e) => {
+                e.currentTarget.src = placeholder;
+              }}
+            />
+            <div className={`${styles.likeLocationCart} ${styles.like}`}>
+              <Like onClick={handleClick} active={isLike} ariaLabel="like" />
+            </div>
+            <div className={`${styles.productInfo} ${styles.productInfoLocationCart}`}>
+              <span className={styles.productName}>{productName}</span>
+              <span className={styles.productPrice}>{`${productPrice} ₽`}</span>
+            </div>
+          </div>
+        )
+      }
       {
         location.pathname === '/' && (
           <div className={styles.productCard}>

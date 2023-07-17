@@ -60,6 +60,16 @@ export class Api {
 		}).then(this.#onResponse);
 	}
 
+	addToFavourites(id) {
+		return fetch(`${this.#baseurl}api/products/${id}/favourite/`, {
+			method: 'POST',
+			credentials: 'include',
+			body: JSON.stringify({
+				id,
+			}),
+		}).then(this.#onResponse);
+	}
+
 	deleteFromCart(id) {
 		return fetch(`${this.#baseurl}api/carts/del_item/${id}/`, {
 			method: 'DELETE',

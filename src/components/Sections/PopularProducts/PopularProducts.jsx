@@ -14,7 +14,7 @@ function PopularProducts() {
       <div className={location.pathname === '/cart' ? `${styles.container} ${styles.containerLocationCart}` : styles.container}>
         <NavLink className={styles.link} to="/under-construction"><Title titleText="Популярные товары" /></NavLink>
         {
-          location.pathname === '/cart' ? (
+          location.pathname === '/cart' || location.pathname === '/favourites' ? (
             <div className={`${styles.grid} ${styles.gridLocationCart}`}>
               {
                 popularProducts.map((item) => (

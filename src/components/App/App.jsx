@@ -9,6 +9,7 @@ import DataProcessingPolicy from '../../pages/DataProcessingPolicy/DataProcessin
 import PageInDevelopment from '../../pages/PageInDevelopment/PageInDevelopment';
 import TradingRules from '../../pages/TradingRules/TradingRules';
 import OrderingForm from '../../pages/OrderingForm/OrderingForm';
+import FavouritesPage from '../../pages/FavouritesPage/FavouritesPage';
 import { getCart } from '../../store/cart/cart-slice';
 import {
 	fetchCollections,
@@ -52,6 +53,7 @@ function App() {
 						<Route path="/rules-data" element={<DataProcessingPolicy />} />
 						<Route path="/order-form" element={<OrderingForm />} />
 						<Route path="/order" element={<OrderPage />} />
+						<Route path="/favourites" element={<FavouritesPage />} />
 					</Routes>
 				</main>
 				<Footer />

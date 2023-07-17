@@ -9,7 +9,7 @@ import styles from './ProductsWithScroll.module.css';
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
 
-function ProductsWithScroll({ fastDelivery }) {
+function ProductsWithScroll({ fastDelivery, isSmall }) {
 	const { discountProducts, fastDeliveryProducts } = useSelector(
 		(state) => state.products,
 	);
@@ -50,8 +50,8 @@ function ProductsWithScroll({ fastDelivery }) {
 								id={item.id}
 								img={item.image}
 								title={item.name}
-								newPrice={item.total_price.toLocaleString()}
-								oldPrice={item.price.toLocaleString()}
+								newPrice={item.total_price}
+								oldPrice={item.price}
 								inStock={item.available_quantity}
 								weight={item.weight}
 								brand={item.brand}
@@ -60,6 +60,7 @@ function ProductsWithScroll({ fastDelivery }) {
 								added={cart.products.some(
 									({ product }) => product.id === item.id,
 								)}
+								isSmall={isSmall}
 							/>
 						</SwiperSlide>
 					),
@@ -71,6 +72,7 @@ function ProductsWithScroll({ fastDelivery }) {
 
 ProductsWithScroll.propTypes = {
 	fastDelivery: PropTypes.bool,
+	isSmall: PropTypes.bool,
 };
 
 export default ProductsWithScroll;

@@ -19,6 +19,7 @@ function ProductCard({
 	country,
 	fastDelivery,
 	added,
+	isSmall,
 }) {
 	const dispatch = useDispatch();
 	const [isLike, setIsLike] = useState(false);
@@ -31,14 +32,14 @@ function ProductCard({
 	return (
 		<article
 			className={
-				fastDelivery
+				isSmall
 					? `${styles.card} ${styles.fastDeliveryCard}`
 					: `${styles.card} ${styles.discountCard}`
 			}
 		>
 			<div
 				className={
-					fastDelivery
+					isSmall
 						? `${styles.image} ${styles.imageFastDelivery}`
 						: `${styles.image} ${styles.imageDiscountCard}`
 				}
@@ -56,10 +57,16 @@ function ProductCard({
 					<div
 						className={
 							fastDelivery
-								? `${styles.percentAndTruck} ${styles.truckDelivery}`
-								: `${styles.percentAndTruck} ${styles.discountPercent}`
+								? `${styles.percentAndTruck} ${styles.truckDelivery}` : `${styles.none}`
 						}
 					/>
+					<div
+						className={
+							newPrice !== oldPrice ?
+								`${styles.percentAndTruck} ${styles.discountPercent}` : `${styles.none}`
+						}
+					/>
+
 					<div className={styles.likes}>
 						<Like onClick={onLikeClick} active={isLike} ariaLabel="like" />
 					</div>
@@ -74,7 +81,7 @@ function ProductCard({
 						: `${styles.description} ${styles.descriptionDiscountCard}`
 				}
 			>
-				{fastDelivery ? (
+				{newPrice === oldPrice ? (
 					<div className={styles.price__FastDelivery}>
 						<p className={styles.price__new_fastDelivery}>
 							{oldPrice}
@@ -117,8 +124,8 @@ function ProductCard({
 ProductCard.propTypes = {
 	title: PropTypes.string.isRequired,
 	id: PropTypes.number,
-	newPrice: PropTypes.string.isRequired,
-	oldPrice: PropTypes.string.isRequired,
+	newPrice: PropTypes.number.isRequired,
+	oldPrice: PropTypes.number.isRequired,
 	img: PropTypes.string,
 	inStock: PropTypes.number.isRequired,
 	weight: PropTypes.number.isRequired,
@@ -126,6 +133,7 @@ ProductCard.propTypes = {
 	country: PropTypes.string.isRequired,
 	fastDelivery: PropTypes.bool,
 	added: PropTypes.bool,
+	isSmall: PropTypes.bool,
 };
 
 export default ProductCard;
