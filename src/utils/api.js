@@ -60,7 +60,7 @@ export class Api {
 		}).then(this.#onResponse);
 	}
 
-	addToFavourites(id) {
+	addToFavorites(id) {
 		return fetch(`${this.#baseurl}api/products/${id}/favourite/`, {
 			method: 'POST',
 			credentials: 'include',

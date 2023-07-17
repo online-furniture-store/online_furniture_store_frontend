@@ -115,7 +115,7 @@ function Header() {
 										alt="иконка кабинет пользователя"
 									/>
 								</NavLink>
-								<NavLink className={styles.nav__item} to="/chosen">
+								<NavLink className={styles.nav__item} to="/favorites">
 									<HeartCounter amount={0} />
 								</NavLink>
 								<NavLink className={styles.nav__item} to="/cart">

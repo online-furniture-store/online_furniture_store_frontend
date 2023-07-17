@@ -57,13 +57,15 @@ function ProductCard({
 					<div
 						className={
 							fastDelivery
-								? `${styles.percentAndTruck} ${styles.truckDelivery}` : `${styles.none}`
+								? `${styles.percentAndTruck} ${styles.truckDelivery}`
+								: `${styles.none}`
 						}
 					/>
 					<div
 						className={
-							newPrice !== oldPrice ?
-								`${styles.percentAndTruck} ${styles.discountPercent}` : `${styles.none}`
+							newPrice !== oldPrice
+								? `${styles.percentAndTruck} ${styles.discountPercent}`
+								: `${styles.none}`
 						}
 					/>
 
@@ -101,7 +103,9 @@ function ProductCard({
 					</div>
 				)}
 
-				<p className={styles.inStock}>{inStock ? `в наличии: ${inStock} шт` : 'нет в наличии'}</p>
+				<p className={styles.inStock}>
+					{inStock ? `в наличии: ${inStock} шт` : 'нет в наличии'}
+				</p>
 			</div>
 
 			<div className={styles.aboutProperty}>
@@ -124,8 +128,8 @@ function ProductCard({
 ProductCard.propTypes = {
 	title: PropTypes.string.isRequired,
 	id: PropTypes.number,
-	newPrice: PropTypes.number.isRequired,
-	oldPrice: PropTypes.number.isRequired,
+	newPrice: PropTypes.string.isRequired,
+	oldPrice: PropTypes.string.isRequired,
 	img: PropTypes.string,
 	inStock: PropTypes.number.isRequired,
 	weight: PropTypes.number.isRequired,

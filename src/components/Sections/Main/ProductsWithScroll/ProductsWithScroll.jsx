@@ -50,8 +50,8 @@ function ProductsWithScroll({ fastDelivery, isSmall }) {
 								id={item.id}
 								img={item.image}
 								title={item.name}
-								newPrice={item.total_price}
-								oldPrice={item.price}
+								newPrice={item.total_price.toLocaleString()}
+								oldPrice={item.price.toLocaleString()}
 								inStock={item.available_quantity}
 								weight={item.weight}
 								brand={item.brand}
