@@ -1,0 +1,42 @@
+.container {
+	box-sizing: border-box;
+	width: 441px;
+}
+
+.title {
+	margin: 0 0 24px 0;
+	font-size: 25px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+
+.form {
+	width: 100%;
+}
+
+.inputs {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	margin-bottom: 32px;
+}
+
+.caption {
+	margin: 12px 0 20px 0;
+	color: #999;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 17px;
+}
+
+.captionLink {
+	all: unset;
+	color: #202020;
+}
+
+.captionLink:hover {
+	cursor: pointer;
+	opacity: 0.8;
+}

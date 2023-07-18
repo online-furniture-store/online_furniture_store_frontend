@@ -1,0 +1,27 @@
+.container {
+  position: relative;
+  padding: 32px;
+  min-width: fit-content;
+  min-height: fit-content;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0px 7px 29px 0px rgba(100, 100, 111, 0.20);
+  border: 1px solid rgba(76, 76, 255, 0.2);
+  box-sizing: border-box;
+}
+
+.crossBtn {
+	width: 34px;
+	height: 34px;
+	position: absolute;
+	top: 32px;
+	right: 32px;
+	background-image: url(../../../assets/img/closeCross.svg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.crossBtn:hover {
+  cursor: pointer;
+}
