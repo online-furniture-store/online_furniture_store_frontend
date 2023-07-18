@@ -6,7 +6,9 @@ function ModalOverlay({ onClose, children }) {
 		if (
 			e.target.localName === 'div' &&
 			e.target.className.includes('overlay')
-		) onClose();
+		) {
+			onClose();
+		}
 	};
 
 	return (
