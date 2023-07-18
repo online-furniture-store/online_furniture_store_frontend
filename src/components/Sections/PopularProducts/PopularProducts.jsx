@@ -1,18 +1,14 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useLocation, NavLink, useNavigate } from 'react-router-dom';
 import styles from './PopularProducts.module.css';
 import Title from '../../UI/Title/Title';
 import PopularProductCard from '../../PopularProductCard/PopularProductCard';
-import { fetchProduct } from '../../../store/furniture/furniture-slice';
 
 function PopularProducts() {
   const { popularProducts } = useSelector((state) => state.products);
   const location = useLocation();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const handleClick = (id) => {
-    dispatch(fetchProduct(id));
-  };
+
   return (
     <section
       className={styles.section}
@@ -31,8 +27,7 @@ function PopularProducts() {
                     productPrice={item.total_price}
                     productFavorited={item.is_favorited}
                     onClick={() => {
-                      handleClick(item.id);
-                      navigate('/product');
+                      navigate(`/product/${item.id}`);
                     }}
                   />
                 ))
@@ -50,8 +45,7 @@ function PopularProducts() {
                         productPrice={item.total_price}
                         productFavorited={item.is_favorited}
                         onClick={() => {
-                          handleClick(item.id);
-                          navigate('/product');
+                          navigate(`/product/${item.id}`);
                         }}
                       />
                     </div>
@@ -68,8 +62,7 @@ function PopularProducts() {
                         productPrice={item.total_price}
                         productFavorited={item.is_favorited}
                         onClick={() => {
-                          handleClick(item.id);
-                          navigate('/product');
+                          navigate(`/product/${item.id}`);
                         }}
                       />
                     </div>

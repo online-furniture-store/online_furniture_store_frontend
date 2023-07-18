@@ -1,15 +1,23 @@
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import LargeCard from '../../components/LargeCard/LargeCard';
 import Characteristic from '../../components/UI/Characteristic/Characteristic';
 import { declensionWordYear } from '../../utils/utils';
 import styles from './ProductPage.module.css';
+import { fetchProduct } from '../../store/furniture/furniture-slice';
 
 function ProductPage() {
-  const { product, loading } = useSelector((state) => state.furniture);
+  const dispatch = useDispatch();
+  const { id } = useParams();
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
+  const { product, loading } = useSelector((state) => state.furniture);
+  useEffect(() => {
+    dispatch(fetchProduct(id));
+  }, [dispatch, id]);
+
   return (
     loading ? (
       null
