@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { AboutPage, HomePage } from '../../pages';
 import OrderPage from '../../pages/OrderPage/OrderPage';
@@ -9,6 +9,7 @@ import DataProcessingPolicy from '../../pages/DataProcessingPolicy/DataProcessin
 import PageInDevelopment from '../../pages/PageInDevelopment/PageInDevelopment';
 import TradingRules from '../../pages/TradingRules/TradingRules';
 import OrderingForm from '../../pages/OrderingForm/OrderingForm';
+import { closeModal } from '../../store/modal/modal-slice';
 import { getCart } from '../../store/cart/cart-slice';
 import {
 	fetchCollections,
@@ -18,6 +19,8 @@ import {
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import Footer from '../Sections/Footer/Footer';
 import Header from '../Sections/Header/Header';
+import Modal from '../Modals/Modal/Modal';
+import { modals } from '../../utils/modals';
 import styles from './App.module.css';
 
 function App() {
@@ -28,6 +31,8 @@ function App() {
 		dispatch(fetchCollections());
 		dispatch(getCart());
 	}, [dispatch]);
+
+	const { modalOpen, currentModal } = useSelector((state) => state.modal);
 
 	return (
 		<div className={styles.app}>
@@ -55,6 +60,9 @@ function App() {
 					</Routes>
 				</main>
 				<Footer />
+				<Modal open={modalOpen} onClose={() => dispatch(closeModal())}>
+					{modals[currentModal]}
+				</Modal>
 			</BrowserRouter>
 		</div>
 	);

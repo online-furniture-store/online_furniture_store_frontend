@@ -1,9 +1,21 @@
 import PropTypes from 'prop-types';
 import styles from './NameInput.module.css';
 
-function NameInput({ inputId, onChange, onBlur, value, label, helperText, error, onClick }) {
+function NameInput({
+	inputId,
+	onChange,
+	onBlur,
+	value,
+	label,
+	helperText,
+	error,
+	onClick,
+}) {
 	return (
 		<div className={styles.container}>
+			<label className={styles.naming} htmlFor={inputId}>
+				{label}
+			</label>
 			<input
 				className={
 					error
@@ -17,11 +29,11 @@ function NameInput({ inputId, onChange, onBlur, value, label, helperText, error,
 				required
 				onBlur={onBlur}
 			/>
-			<label className={styles.naming} htmlFor={inputId}>
-				{label}
-			</label>
+
 			{error && <span className={styles.errorText}>{helperText}</span>}
-			{value && <div type="button" onClick={onClick} className={styles.crossBtn} />}
+			{value && (
+				<div type="button" onClick={onClick} className={styles.crossBtn} />
+			)}
 		</div>
 	);
 }
