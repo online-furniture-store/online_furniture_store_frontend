@@ -1,14 +1,5 @@
-<<<<<<< HEAD
-import { useState } from 'react';
-import { Controller, useForm } from 'react-hook-form';
-=======
-import { Controller } from 'react-hook-form';
 import PropTypes from 'prop-types';
-import styles from './Courier.module.css';
-import AddressNumber from '../../UI/AddressNumber/AddressNumber';
-import TextField from '../../UI/TextField/TextField';
-import Checkbox from '../../UI/Checkbox/Checkbox';
->>>>>>> 0631155fe00ffdc0d3ef1b56b226e8c435762367
+import { Controller } from 'react-hook-form';
 import Address from '../../UI/AddressInput/AddressInput';
 import AddressNumber from '../../UI/AddressNumber/AddressNumber';
 import Checkbox from '../../UI/Checkbox/Checkbox';
@@ -39,11 +30,7 @@ function Courier({ control, errors, resetField }) {
 							label="Населенный пункт, улица, дом"
 							helperText={errors.address?.message?.toString()}
 							error={!!errors.address?.message}
-<<<<<<< HEAD
-							onClick={onSubmit}
-=======
 							onClick={() => resetField('address')}
->>>>>>> 0631155fe00ffdc0d3ef1b56b226e8c435762367
 						/>
 					)}
 				/>

@@ -1,13 +1,8 @@
-<<<<<<< HEAD
-import { Controller, useForm } from 'react-hook-form';
-=======
-import { Controller } from 'react-hook-form';
 import PropTypes from 'prop-types';
-import styles from './RecipientForm.module.css';
->>>>>>> 0631155fe00ffdc0d3ef1b56b226e8c435762367
+import { Controller } from 'react-hook-form';
 import NameInput from '../../UI/NameInput/NameInput';
-import ContainerForms from '../ContainerForms/ContainerForms';
 import styles from './RecipientForm.module.css';
+// import ContainerForms from '../ContainerForms/ContainerForms';
 
 function RecipientForm({ control, errors, resetField }) {
 	return (

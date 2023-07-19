@@ -1,0 +1,133 @@
+.item {
+  border-radius: 6px;
+  background: var(--background, #F9F9F9);
+}
+
+.container {
+  padding: 32px 32px;
+}
+
+.orderInfoContainer {
+  padding-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.orderInfo {
+  display: flex;
+  gap: 16px;
+}
+
+.title {
+  margin: 0;
+  color: #000;
+  font-family: Open Sans;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.status {
+  margin: 0;
+  padding: 5px 16px;
+  border-radius: 16px;
+  border: 0.5px solid #979797;
+  background: #FFF;
+  color: #777;
+  text-align: center;
+  font-family: Open Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.totalPrice {
+  margin: 0;
+  color: var(--text-black, #000);
+  font-family: Open Sans;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.orderId {
+  margin: 0;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #989898;
+  color: var(--text-black, #000);
+  font-family: Open Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.orderDetailsContainer {
+  margin-top: 28px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.deliveryType {
+  margin: 0;
+  padding-bottom: 8px;
+  font-family: Open Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: var(--main-black)
+}
+
+.deliveryDate {
+  margin: 0;
+  font-family: Open Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--element-grey);
+}
+
+.productList {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+}
+
+.product {
+  width: 85px;
+  height: 85px;
+}
+
+.buttonWrapper {
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.link {
+  display: flex;
+  font-family: Open Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
+  color: var(--main-black);
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  display: block;
+  margin: auto 8px auto 0;
+  background-image: url('../../assets/img/repeat.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
