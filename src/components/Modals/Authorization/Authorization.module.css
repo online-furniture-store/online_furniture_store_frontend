@@ -1,0 +1,43 @@
+.container {
+	box-sizing: border-box;
+	width: 441px;
+}
+
+.title {
+	margin: 0 0 24px 0;
+	font-size: 25px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+
+.form {
+	width: 100%;
+}
+
+.inputs {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	margin-bottom: 32px;
+}
+
+.helpLinks {
+    margin-top: 20px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.link {
+	all: unset;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+    color: #6c6c6c;
+}
+
+.link:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
