@@ -4,6 +4,7 @@ import { openModal, closeModal } from '../../../store/modal/modal-slice';
 import styles from './Authorization.module.css';
 import NameInput from '../../UI/NameInput/NameInput';
 import BlackButton from '../../UI/BlackButton/BlackButton';
+import { login } from '../../../store/auth/auth-slice';
 
 function Authorization() {
 	const dispatch = useDispatch();
@@ -25,6 +26,7 @@ function Authorization() {
 	const onSubmit = (data) => {
 		// eslint-disable-next-line no-console
 		console.log('submit', data);
+		dispatch(login(data));
 		dispatch(closeModal());
 		reset();
 	};
@@ -61,9 +63,9 @@ function Authorization() {
 						rules={{
 							required: 'Поле обязательное',
 							pattern: {
-								value: /^(?=.*\d)\w{6,}$/m,
+								value: /^\w{6,}$/m,
 								message:
-									'Пароль должен содержать цифры, латинские буквы верхнего и нижнего регистра, не менее 6 символов',
+									'Пароль латинские буквы верхнего и нижнего регистра, не менее 6 символов',
 							},
 						}}
 						render={({ field: { onChange, onBlur, value } }) => (

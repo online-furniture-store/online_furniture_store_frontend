@@ -9,6 +9,7 @@ import OrderPage from '../../pages/OrderPage/OrderPage';
 import OrderingForm from '../../pages/OrderingForm/OrderingForm';
 import PageInDevelopment from '../../pages/PageInDevelopment/PageInDevelopment';
 import TradingRules from '../../pages/TradingRules/TradingRules';
+import ProtectedRoute from '../Hoc/ProtectedRoute/ProtectedRoute';
 import UserAccount from '../../pages/UserAccount/UserAccount';
 import { getCart } from '../../store/cart/cart-slice';
 import { closeModal } from '../../store/modal/modal-slice';
@@ -17,6 +18,8 @@ import {
 	fetchPopularProducts,
 	fetchProducts,
 } from '../../store/products/products-slice';
+
+import { updateToken } from '../../store/auth/auth-slice';
 import { modals } from '../../utils/modals';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import Modal from '../Modals/Modal/Modal';
@@ -32,6 +35,7 @@ function App() {
 		dispatch(fetchPopularProducts());
 		dispatch(fetchCollections());
 		dispatch(getCart());
+		dispatch(updateToken());
 	}, [dispatch]);
 
 	const { modalOpen, currentModal } = useSelector((state) => state.modal);
@@ -48,9 +52,11 @@ function App() {
 						<Route
 							path="/user"
 							element={
-								<UserAccount>
-									<div />
-								</UserAccount>
+								<ProtectedRoute>
+									<UserAccount>
+										<div />
+									</UserAccount>
+								</ProtectedRoute>
 							}
 						/>
 						<Route path="/chosen" element={<PageInDevelopment />} />
