@@ -16,6 +16,9 @@ const routes = [
 	{ path: '/rules-consent', breadcrumb: 'Условия конфиденциальности' },
 	{ path: '/rules-data', breadcrumb: 'Политика обработки персональных данных' },
 	{ path: '/order-form', breadcrumb: 'Форма заказа' },
+  { path: '/user/my_orders', breadcrumb: 'Мои заказы' },
+  { path: '/user/feedback', breadcrumb: 'Отзывы' },
+  { path: '/user/me', breadcrumb: 'Личные данные' },
 ];
 
 export { routes };

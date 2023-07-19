@@ -1,0 +1,13 @@
+.container {
+  padding-bottom: 108px;
+  max-width: 925px;
+  width: 100%;
+}
+
+.list {
+  margin-top: 32px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
