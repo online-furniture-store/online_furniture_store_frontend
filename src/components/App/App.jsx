@@ -9,6 +9,7 @@ import DataProcessingPolicy from '../../pages/DataProcessingPolicy/DataProcessin
 import PageInDevelopment from '../../pages/PageInDevelopment/PageInDevelopment';
 import TradingRules from '../../pages/TradingRules/TradingRules';
 import OrderingForm from '../../pages/OrderingForm/OrderingForm';
+import ProfileForm from '../../pages/ProfileForm/ProfileForm';
 import { closeModal } from '../../store/modal/modal-slice';
 import { getCart } from '../../store/cart/cart-slice';
 import {
@@ -57,6 +58,7 @@ function App() {
 						<Route path="/rules-data" element={<DataProcessingPolicy />} />
 						<Route path="/order-form" element={<OrderingForm />} />
 						<Route path="/order" element={<OrderPage />} />
+						<Route path="/profile" element={<ProfileForm />} />
 					</Routes>
 				</main>
 				<Footer />
