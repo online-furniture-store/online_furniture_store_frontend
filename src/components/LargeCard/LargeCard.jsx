@@ -122,7 +122,9 @@ function LargeCard(
               <span className={styles.inStock}>{`в наличии ${availableQuantity} шт`}</span>
             ) :
             (
-              <span className={styles.notAvailable}>Товара нет в наличии</span>
+              <span className={styles.notAvailable}>
+                Товара нет в наличии
+              </span>
             )
         }
         <span className={styles.text}>Стоимость доставки и сборки</span>
