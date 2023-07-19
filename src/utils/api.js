@@ -77,8 +77,8 @@ export class Api {
 			},
 		}).then(this.#onResponse);
 	}
-  
-jwtCreate(data) {
+
+	jwtCreate(data) {
 		return fetch(`${this.#baseurl}api/auth/jwt/create/`, {
 			method: 'POST',
 			headers: {
@@ -105,7 +105,8 @@ jwtCreate(data) {
 				...this.#headers,
 			},
 			body: JSON.stringify({ ...data }),
-      }).then(this.#onResponse);
+		}).then(this.#onResponse);
+	}
 }
 
 const api = new Api({
