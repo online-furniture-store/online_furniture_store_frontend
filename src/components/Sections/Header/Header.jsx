@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { NavLink, useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { openModal } from '../../../store/modal/modal-slice';
 
 import user from '../../../assets/img/person.svg';
 import Logo from '../../UI/Logo/Logo';
@@ -12,11 +13,14 @@ import styles from './Header.module.css';
 
 function Header() {
 	const location = useLocation();
+	const dispatch = useDispatch();
 	const [contentShown, setContentShown] = useState(false);
 	const [linkStateActive, setLinkStateActive] = useState(false);
 	const [searchValue, setSearchValue] = useState();
 	const [searchInputShown, setSearchInputShow] = useState(false);
 	const { cart } = useSelector((state) => state.cart);
+	const { isAuth } = useSelector((state) => state.auth);
+	const navigate = useNavigate();
 
 	const handleShowMenu = () => {
 		setContentShown(!contentShown);
@@ -42,9 +46,9 @@ function Header() {
 	};
 
 	return (
-		<div>
+		<header>
 			{location.pathname === '/' ? (
-				<header className={styles.header}>
+				<div className={styles.header}>
 					<div className={styles.main} onClick={handleHideSearchInput}>
 						<div className={styles.main__container}>
 							<Logo />
@@ -77,7 +81,11 @@ function Header() {
 								</li>
 								<li className={styles.menu__element}>
 									<NavLink to="#" className={styles.menu__item}>
-										<button type="button" className={styles.menu__text}>
+										<button
+											type="button"
+											onClick={() => dispatch(openModal('backCallModal'))}
+											className={styles.menu__text}
+										>
 											Обратный звонок
 										</button>
 									</NavLink>
@@ -108,14 +116,27 @@ function Header() {
 									type="button"
 									onClick={handleSearchInputShow}
 								/>
-								<NavLink className={styles.nav__item} to="/user">
+								<button
+									className={styles.nav__item}
+									type="button"
+									onClick={() => {
+										return isAuth
+											? navigate('/user')
+											: dispatch(openModal('authModal'));
+									}}
+								>
 									<img
 										className={styles.userIcon}
 										src={user}
 										alt="иконка кабинет пользователя"
 									/>
+
 								</NavLink>
 								<NavLink className={styles.nav__item} to="/favorites">
+
+								</button>
+								<NavLink className={styles.nav__item} to="/chosen">
+
 									<HeartCounter amount={0} />
 								</NavLink>
 								<NavLink className={styles.nav__item} to="/cart">
@@ -187,7 +208,7 @@ function Header() {
 							</nav>
 						</div>
 					</div>
-				</header>
+				</div>
 			) : (
 				<header className={styles.header}>
 					<div className={styles.main} onClick={handleHideSearchInput}>
@@ -214,7 +235,7 @@ function Header() {
 					</div>
 				</header>
 			)}
-		</div>
+		</header>
 	);
 }
 

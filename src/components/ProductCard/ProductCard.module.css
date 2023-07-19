@@ -5,6 +5,7 @@
 	background: #fff;
 	transition: all ease-in-out 0.5s;
 	pointer-events: auto;
+	cursor: pointer;
 }
 
 .card:hover {

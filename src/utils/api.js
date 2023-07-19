@@ -79,6 +79,44 @@ export class Api {
 			},
 		}).then(this.#onResponse);
 	}
+
+	getProduct(id) {
+		return fetch(`${this.#baseurl}api/products/${id}/`, {
+			headers: {
+				...this.#headers,
+			},
+		}).then(this.#onResponse);
+	}
+
+	jwtCreate(data) {
+		return fetch(`${this.#baseurl}api/auth/jwt/create/`, {
+			method: 'POST',
+			headers: {
+				...this.#headers,
+			},
+			body: JSON.stringify({ ...data }),
+		}).then(this.#onResponse);
+	}
+
+	jwtRefresh(data) {
+		return fetch(`${this.#baseurl}api/auth/jwt/refresh/`, {
+			method: 'POST',
+			headers: {
+				...this.#headers,
+			},
+			body: JSON.stringify({ ...data }),
+		}).then(this.#onResponse);
+	}
+
+	jwtVerify(data) {
+		return fetch(`${this.#baseurl}api/auth/jwt/verify/`, {
+			method: 'POST',
+			headers: {
+				...this.#headers,
+			},
+			body: JSON.stringify({ ...data }),
+		}).then(this.#onResponse);
+	}
 }
 
 const api = new Api({

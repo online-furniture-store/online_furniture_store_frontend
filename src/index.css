@@ -17,12 +17,15 @@ code {
 	--main-white: #ffffff;
 	--main-black: #000000;
 	--text-black: #202020;
+	--light-black: #252525;
 	--cream: #e3dbd2;
 	--system-red: #e80a0a;
 	--system-green: #4fad50;
+	--text-light-gray: #6c6c6c;
 	--element-gray: #999999;
 	--element-dark-gray: #444444;
 	--element-light: #dedede;
 	--element-grey: #777;
 	--element-background: #f9f9f9;
+	--element-radio-button: #f8e895;
 }

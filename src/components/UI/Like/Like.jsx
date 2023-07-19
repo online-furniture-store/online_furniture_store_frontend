@@ -5,7 +5,10 @@ function Like({ onClick, active, ariaLabel }) {
 	return (
 		<button
 			className={active ? `${styles.like} ${styles.active}` : styles.like}
-			onClick={onClick}
+			onClick={(e) => {
+				e.stopPropagation();
+				onClick();
+			}}
 			type="button"
 			aria-label={ariaLabel}
 		/>

@@ -1,10 +1,10 @@
-import { Controller } from 'react-hook-form';
 import PropTypes from 'prop-types';
-import styles from './Courier.module.css';
-import AddressNumber from '../../UI/AddressNumber/AddressNumber';
-import TextField from '../../UI/TextField/TextField';
-import Checkbox from '../../UI/Checkbox/Checkbox';
+import { Controller } from 'react-hook-form';
 import Address from '../../UI/AddressInput/AddressInput';
+import AddressNumber from '../../UI/AddressNumber/AddressNumber';
+import Checkbox from '../../UI/Checkbox/Checkbox';
+import TextField from '../../UI/TextField/TextField';
+import styles from './Courier.module.css';
 
 function Courier({ control, errors, resetField }) {
 	return (
