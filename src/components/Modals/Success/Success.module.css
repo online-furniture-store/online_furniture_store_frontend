@@ -1,0 +1,35 @@
+.container {
+	box-sizing: border-box;
+	width: 441px;
+	display: flex;
+	flex-direction: column;
+	padding: 76px 73px;
+}
+
+.title {
+	align-self: center;
+	margin: 20px 0 -12px 0;
+	color: #000;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+
+.success {
+	width: 50px;
+	height: 50px;
+	align-self: center;
+}
+
+.text {
+	max-width: 295px;
+	margin: 20px 0 0 0;
+	align-self: center;
+	text-align: center;
+	color: #000;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}

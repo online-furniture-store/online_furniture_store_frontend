@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { AboutPage, HomePage } from '../../pages';
+import OrderPage from '../../pages/OrderPage/OrderPage';
 import CartPage from '../../pages/CartPage/CartPage';
 import ConsentDataProcessing from '../../pages/ConsentDataProcessing/ConsentDataProcessing';
 import DataProcessingPolicy from '../../pages/DataProcessingPolicy/DataProcessingPolicy';
@@ -9,6 +10,8 @@ import OrderingForm from '../../pages/OrderingForm/OrderingForm';
 import PageInDevelopment from '../../pages/PageInDevelopment/PageInDevelopment';
 import TradingRules from '../../pages/TradingRules/TradingRules';
 import UserAccount from '../../pages/UserAccount/UserAccount';
+import OrderingForm from '../../pages/OrderingForm/OrderingForm';
+import { closeModal } from '../../store/modal/modal-slice';
 import { getCart } from '../../store/cart/cart-slice';
 import {
   fetchCollections,
@@ -19,6 +22,8 @@ import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import Footer from '../Sections/Footer/Footer';
 import Header from '../Sections/Header/Header';
 import { UserOrders } from '../UserOrders/UserOrders';
+import Modal from '../Modals/Modal/Modal';
+import { modals } from '../../utils/modals';
 import styles from './App.module.css';
 
 function App() {
@@ -30,6 +35,8 @@ function App() {
 		dispatch(getCart());
 	}, [dispatch]);
 
+	const { modalOpen, currentModal } = useSelector((state) => state.modal);
+
 	return (
 		<div className={styles.app}>
 			<BrowserRouter>
@@ -39,7 +46,6 @@ function App() {
 					<Routes>
 						<Route path="/" element={<HomePage />} />
 						<Route path="/about" element={<AboutPage />} />
-						{/* <Route path="/user" element={<PageInDevelopment />} /> */}
             <Route path="/user" element={<UserAccount><div /></UserAccount>} />
 						<Route path="/chosen" element={<PageInDevelopment />} />
 						<Route path="/cart" element={<CartPage />} />
@@ -54,9 +60,13 @@ function App() {
 						<Route path="/rules-data" element={<DataProcessingPolicy />} />
 						<Route path="/order-form" element={<OrderingForm />} />
             <Route path="/user/my_orders" element={<UserAccount><UserOrders /></UserAccount>} />
+						<Route path="/order" element={<OrderPage />} />
 					</Routes>
 				</main>
 				<Footer />
+				<Modal open={modalOpen} onClose={() => dispatch(closeModal())}>
+					{modals[currentModal]}
+				</Modal>
 			</BrowserRouter>
 		</div>
 	);
