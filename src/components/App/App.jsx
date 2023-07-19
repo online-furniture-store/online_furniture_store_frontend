@@ -10,7 +10,6 @@ import OrderingForm from '../../pages/OrderingForm/OrderingForm';
 import PageInDevelopment from '../../pages/PageInDevelopment/PageInDevelopment';
 import TradingRules from '../../pages/TradingRules/TradingRules';
 import UserAccount from '../../pages/UserAccount/UserAccount';
-import OrderingForm from '../../pages/OrderingForm/OrderingForm';
 import { closeModal } from '../../store/modal/modal-slice';
 import { getCart } from '../../store/cart/cart-slice';
 import {
