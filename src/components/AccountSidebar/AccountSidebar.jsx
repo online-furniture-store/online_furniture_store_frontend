@@ -8,8 +8,9 @@ function AccountSidebar() {
 				<li>
 					<NavLink
 						to="/user/my_orders"
-						className={({ isActive }) =>
-							(isActive ? styles.active : styles.link)}
+						className={({ isActive }) => {
+							return isActive ? styles.active : styles.link;
+						}}
 					>
 						Мои заказы
 					</NavLink>
@@ -17,8 +18,9 @@ function AccountSidebar() {
 				<li>
 					<NavLink
 						to="/user/feedback"
-						className={({ isActive }) =>
-							(isActive ? styles.active : styles.link)}
+						className={({ isActive }) => {
+							return isActive ? styles.active : styles.link;
+						}}
 					>
 						Отзывы
 					</NavLink>
@@ -26,8 +28,9 @@ function AccountSidebar() {
 				<li>
 					<NavLink
 						to="/user/me"
-						className={({ isActive }) =>
-							(isActive ? styles.active : styles.link)}
+						className={({ isActive }) => {
+							return isActive ? styles.active : styles.link;
+						}}
 					>
 						Личные данные
 					</NavLink>

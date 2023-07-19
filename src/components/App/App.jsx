@@ -39,7 +39,6 @@ function App() {
 					<Routes>
 						<Route path="/" element={<HomePage />} />
 						<Route path="/about" element={<AboutPage />} />
-						{/* <Route path="/user" element={<PageInDevelopment />} /> */}
             <Route path="/user" element={<UserAccount><div /></UserAccount>} />
 						<Route path="/chosen" element={<PageInDevelopment />} />
 						<Route path="/cart" element={<CartPage />} />
