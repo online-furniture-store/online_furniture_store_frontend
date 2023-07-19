@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { productDiscountSlider } from '../../../../utils/productDiscountSlider';
 import { productDeliverySlider } from '../../../../utils/productDeliverySlider';
@@ -10,6 +11,7 @@ import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
 
 function ProductsWithScroll({ fastDelivery, sameProduct }) {
+	const navigate = useNavigate();
 	const { discountProducts, fastDeliveryProducts } = useSelector(
 		(state) => state.products,
 	);
@@ -75,6 +77,9 @@ function ProductsWithScroll({ fastDelivery, sameProduct }) {
 								added={cart.products.some(
 									(elem) => elem.product.id === item.id,
 								)}
+								onClick={() => {
+									navigate(`/product/${item.id}`);
+								}}
 							/>
 						</SwiperSlide>
 					),
