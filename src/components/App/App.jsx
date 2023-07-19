@@ -9,10 +9,7 @@ import OrderPage from '../../pages/OrderPage/OrderPage';
 import OrderingForm from '../../pages/OrderingForm/OrderingForm';
 import PageInDevelopment from '../../pages/PageInDevelopment/PageInDevelopment';
 import TradingRules from '../../pages/TradingRules/TradingRules';
-
-import OrderingForm from '../../pages/OrderingForm/OrderingForm';
 import ProtectedRoute from '../Hoc/ProtectedRoute/ProtectedRoute';
-import { closeModal } from '../../store/modal/modal-slice';
 import UserAccount from '../../pages/UserAccount/UserAccount';
 import { getCart } from '../../store/cart/cart-slice';
 import { closeModal } from '../../store/modal/modal-slice';
@@ -56,10 +53,10 @@ function App() {
 							path="/user"
 							element={
 								<ProtectedRoute>
-                  <UserAccount>
-                    <div />
-                  </UserAccount>
-                </ProtectedRoute>
+									<UserAccount>
+										<div />
+									</UserAccount>
+								</ProtectedRoute>
 							}
 						/>
 						<Route path="/chosen" element={<PageInDevelopment />} />
