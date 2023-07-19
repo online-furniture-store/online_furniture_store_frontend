@@ -27,6 +27,7 @@ import Footer from '../Sections/Footer/Footer';
 import Header from '../Sections/Header/Header';
 import { UserOrders } from '../UserOrders/UserOrders';
 import styles from './App.module.css';
+import ProductPage from '../../pages/ProductPage/ProductPage';
 
 function App() {
 	const dispatch = useDispatch();
@@ -61,6 +62,7 @@ function App() {
 						/>
 						<Route path="/chosen" element={<PageInDevelopment />} />
 						<Route path="/cart" element={<CartPage />} />
+						<Route path="/product/:id" element={<ProductPage />} />
 						<Route path="/arm-chairs" element={<PageInDevelopment />} />
 						<Route path="/tables" element={<PageInDevelopment />} />
 						<Route path="/wardrobes" element={<PageInDevelopment />} />

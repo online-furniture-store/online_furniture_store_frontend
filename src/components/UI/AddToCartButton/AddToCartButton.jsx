@@ -11,7 +11,10 @@ function AddToCartButton({ onClick, isSuccess }) {
 					: styles.button
 			}
 			type="button"
-			onClick={onClick}
+			onClick={(e) => {
+				e.stopPropagation();
+				onClick();
+			}}
 		>
 			{isSuccess && (
 				<img className={styles.img} src={checkMark} alt="Галочка" />

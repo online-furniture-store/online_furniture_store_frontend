@@ -19,6 +19,7 @@ function ProductCard({
 	country,
 	fastDelivery,
 	added,
+	onClick,
 }) {
 	const dispatch = useDispatch();
 	const [isLike, setIsLike] = useState(false);
@@ -29,12 +30,13 @@ function ProductCard({
 		dispatch(addToCart({ product: id, quantity: 1 }));
 	};
 	return (
-		<article
+		<div
 			className={
 				fastDelivery
 					? `${styles.card} ${styles.fastDeliveryCard}`
 					: `${styles.card} ${styles.discountCard}`
 			}
+			onClick={onClick}
 		>
 			<div
 				className={
@@ -110,7 +112,7 @@ function ProductCard({
 				<p className={styles.property}>{country}</p>
 			</div>
 			<AddToCartButton onClick={onAddClick} isSuccess={added} />
-		</article>
+		</div>
 	);
 }
 
@@ -126,6 +128,7 @@ ProductCard.propTypes = {
 	country: PropTypes.string.isRequired,
 	fastDelivery: PropTypes.bool,
 	added: PropTypes.bool,
+	onClick: PropTypes.func,
 };
 
 export default ProductCard;

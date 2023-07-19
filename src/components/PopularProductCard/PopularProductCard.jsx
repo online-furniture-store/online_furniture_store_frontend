@@ -5,7 +5,7 @@ import styles from './PopularProductCard.module.css';
 import Like from '../UI/Like/Like';
 import placeholder from '../../assets/img/placeholder.png';
 
-function PopularProductCard({ img, productName, productPrice, productFavorited }) {
+function PopularProductCard({ img, productName, productPrice, productFavorited, onClick }) {
   const location = useLocation();
   const [isLike, setIsLike] = useState(productFavorited);
   const handleClick = () => {
@@ -15,7 +15,7 @@ function PopularProductCard({ img, productName, productPrice, productFavorited }
     <>
       {
         location.pathname === '/cart' && (
-          <div className={styles.productCard}>
+          <div className={styles.productCard} onClick={onClick}>
             <img
               className={styles.img}
               src={img}
@@ -36,7 +36,7 @@ function PopularProductCard({ img, productName, productPrice, productFavorited }
       }
       {
         location.pathname === '/' && (
-          <div className={styles.productCard}>
+          <div className={styles.productCard} onClick={onClick}>
             <img
               className={styles.img}
               src={img}
@@ -64,6 +64,7 @@ PopularProductCard.propTypes = {
   productName: PropTypes.string,
   productPrice: PropTypes.number,
   productFavorited: PropTypes.bool,
+  onClick: PropTypes.func,
 };
 
 export default PopularProductCard;

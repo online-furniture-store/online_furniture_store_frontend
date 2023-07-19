@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { useLocation, NavLink } from 'react-router-dom';
+import { useLocation, NavLink, useNavigate } from 'react-router-dom';
 import styles from './PopularProducts.module.css';
 import Title from '../../UI/Title/Title';
 import PopularProductCard from '../../PopularProductCard/PopularProductCard';
@@ -7,6 +7,8 @@ import PopularProductCard from '../../PopularProductCard/PopularProductCard';
 function PopularProducts() {
   const { popularProducts } = useSelector((state) => state.products);
   const location = useLocation();
+  const navigate = useNavigate();
+
   return (
     <section
       className={styles.section}
@@ -24,6 +26,9 @@ function PopularProducts() {
                     productName={item.name}
                     productPrice={item.total_price}
                     productFavorited={item.is_favorited}
+                    onClick={() => {
+                      navigate(`/product/${item.id}`);
+                    }}
                   />
                 ))
               }
@@ -39,6 +44,9 @@ function PopularProducts() {
                         productName={item.name}
                         productPrice={item.total_price}
                         productFavorited={item.is_favorited}
+                        onClick={() => {
+                          navigate(`/product/${item.id}`);
+                        }}
                       />
                     </div>
                   ))
@@ -53,6 +61,9 @@ function PopularProducts() {
                         productName={item.name}
                         productPrice={item.total_price}
                         productFavorited={item.is_favorited}
+                        onClick={() => {
+                          navigate(`/product/${item.id}`);
+                        }}
                       />
                     </div>
                   ))

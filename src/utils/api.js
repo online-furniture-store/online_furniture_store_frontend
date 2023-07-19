@@ -70,6 +70,14 @@ export class Api {
 		}).then(this.#onResponse);
 	}
 
+	getProduct(id) {
+		return fetch(`${this.#baseurl}api/products/${id}/`, {
+			headers: {
+				...this.#headers,
+			},
+		}).then(this.#onResponse);
+	}
+
 	jwtCreate(data) {
 		return fetch(`${this.#baseurl}api/auth/jwt/create/`, {
 			method: 'POST',
