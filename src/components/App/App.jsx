@@ -10,7 +10,6 @@ import OrderingForm from '../../pages/OrderingForm/OrderingForm';
 import PageInDevelopment from '../../pages/PageInDevelopment/PageInDevelopment';
 import ProfileForm from '../../pages/ProfileForm/ProfileForm';
 import TradingRules from '../../pages/TradingRules/TradingRules';
-import OrderingForm from '../../pages/OrderingForm/OrderingForm';
 import FavoritesPage from '../../pages/FavoritesPage/FavoritesPage';
 import ProtectedRoute from '../Hoc/ProtectedRoute/ProtectedRoute';
 import UserAccount from '../../pages/UserAccount/UserAccount';

@@ -131,11 +131,8 @@ function Header() {
 										alt="иконка кабинет пользователя"
 									/>
 
-								</NavLink>
-								<NavLink className={styles.nav__item} to="/favorites">
-
 								</button>
-								<NavLink className={styles.nav__item} to="/chosen">
+								<NavLink className={styles.nav__item} to="/favorites">
 
 									<HeartCounter amount={0} />
 								</NavLink>
@@ -157,8 +154,8 @@ function Header() {
 									to="/arm-chairs"
 									className={
 										location.pathname === '/' ||
-										location.pathname === '/about' ||
-										location.pathname === '/arm-chairs'
+											location.pathname === '/about' ||
+											location.pathname === '/arm-chairs'
 											? styles.categories__item_active
 											: styles.categories__item
 									}
