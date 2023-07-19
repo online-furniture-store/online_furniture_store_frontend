@@ -1,35 +1,27 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import styles from './LargeCard.module.css';
 import placeholder from '../../assets/img/placeholder.png';
 import Like from '../UI/Like/Like';
 import BlackButton from '../UI/BlackButton/BlackButton';
 
-const pictures = [
-  {
-    id: 1,
-    photo: 'https://ofs.proninteam.ru/media/6_M7pxMkD.png',
+function LargeCard(
+  { isFavorited,
+    brand,
+    images,
+    name,
+    article,
+    discount,
+    totalPrice,
+    price,
+    availableQuantity,
   },
-  {
-    photo: 'https://ofs.proninteam.ru/media/3_TPFA1pO.png',
-    id: 2,
-  },
-  {
-    photo: 'https://ofs.proninteam.ru/media/6_M7pxMkD.png',
-    id: 3,
-  },
-  {
-    photo: 'https://ofs.proninteam.ru/media/3_Xo7U2CH.png',
-    id: 4,
-  },
-];
-
-function LargeCard() {
-  const { product } = useSelector((state) => state.furniture);
+) {
   const navigate = useNavigate();
-  const [largeCard, setLargeCard] = useState();
-  const [isLike, setIsLike] = useState(product.is_favorited);
+  const [largeCard, setLargeCard] = useState(images[0]);
+  const [isLike, setIsLike] = useState(isFavorited);
   const handleClick = () => {
     setIsLike(!isLike);
   };
@@ -38,8 +30,8 @@ function LargeCard() {
       <div className={styles.wrapper}>
         <img
           className={styles.image}
-          src={largeCard ? largeCard.photo : product.image}
-          alt={`Фото ${product.brand}`}
+          src={largeCard}
+          alt={`Фото ${brand}`}
           onError={(e) => {
             e.currentTarget.src = placeholder;
           }}
@@ -47,20 +39,20 @@ function LargeCard() {
       </div>
       <div className={styles.imgContainer}>
         {
-          pictures.map((item) => {
+          images.map((item) => {
             return (
               <button
-                className={styles.imgBtn}
+                className={item === largeCard ? `${styles.imgBtn} ${styles.imgBtnSelected}` : styles.imgBtn}
                 type="button"
-                key={item.id}
+                key={uuidv4()}
                 onClick={() => {
                   setLargeCard(item);
                 }}
               >
                 <img
                   className={styles.image}
-                  src={item.photo}
-                  alt={`Фото ${product.brand}`}
+                  src={item}
+                  alt={`Фото ${brand}`}
                   onError={(e) => {
                     e.currentTarget.src = placeholder;
                   }}
@@ -72,17 +64,17 @@ function LargeCard() {
       </div>
       <div className={styles.info}>
         <div className={styles.likeContainer}> <Like onClick={handleClick} active={!isLike} ariaLabel="like" /></div>
-        <span className={styles.name}>{product.name}</span>
-        <span className={styles.brand}>{product.brand}</span>
-        <span className={styles.article}>{`арт. ${product.article}`}</span>
+        <span className={styles.name}>{name}</span>
+        <span className={styles.brand}>{brand}</span>
+        <span className={styles.article}>{`арт. ${article}`}</span>
         <div className={styles.priceContainer}>
-          <span className={product.discount ? `${styles.totalPrice} ${styles.totalPricediscounted}` : styles.totalPrice}>{`${product.total_price} ₽`}</span>
+          <span className={discount ? `${styles.totalPrice} ${styles.totalPricediscounted}` : styles.totalPrice}>{`${totalPrice} ₽`}</span>
           {
-            product.discount !== 0 &&
+            discount !== 0 &&
             (
               <>
-                <span className={styles.price}>{`${product.price} ₽`}</span>
-                <span className={styles.discount}>{`-${product.discount}%`}</span>
+                <span className={styles.price}>{`${price} ₽`}</span>
+                <span className={styles.discount}>{`-${discount}%`}</span>
               </>
             )
           }
@@ -93,7 +85,6 @@ function LargeCard() {
             type="radio"
             name="radio-group"
             id="black-button"
-          // checked="checked"
           />
           <label className={styles.label} htmlFor="black-button">
             <div className={styles.blackButton} />
@@ -109,7 +100,7 @@ function LargeCard() {
           </label>
         </div>
         {
-          product.available_quantity ?
+          availableQuantity ?
             (
               <BlackButton
                 type="button"
@@ -126,9 +117,9 @@ function LargeCard() {
             )
         }
         {
-          product.available_quantity ?
+          availableQuantity ?
             (
-              <span className={styles.inStock}>{`в наличии ${product.available_quantity} шт`}</span>
+              <span className={styles.inStock}>{`в наличии ${availableQuantity} шт`}</span>
             ) :
             (
               <span className={styles.notAvailable}>Товара нет в наличии</span>
@@ -139,5 +130,17 @@ function LargeCard() {
     </div>
   );
 }
+
+LargeCard.propTypes = {
+  isFavorited: PropTypes.bool,
+  brand: PropTypes.string,
+  images: PropTypes.arrayOf(PropTypes.string),
+  name: PropTypes.string,
+  article: PropTypes.number,
+  discount: PropTypes.number,
+  totalPrice: PropTypes.number,
+  price: PropTypes.number,
+  availableQuantity: PropTypes.number,
+};
 
 export default LargeCard;

@@ -7,6 +7,8 @@
   font-weight: 400;
   line-height: normal;
   color: var(--main-black);
+  padding: 0 100px;
+ box-sizing: border-box;
 }
 
 .wrapper {
@@ -43,7 +45,7 @@
   padding: 0;
 }
 
-.imgBtn:focus {
+.imgBtnSelected {
   border: solid 1px var(--main-black);
 }
 

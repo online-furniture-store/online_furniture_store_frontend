@@ -77,14 +77,6 @@ export class Api {
 			},
 		}).then(this.#onResponse);
 	}
-
-	getSameProducts(slug) {
-		return fetch(`${this.#baseurl}api/products/?category=${slug}`, {
-			headers: {
-				...this.#headers,
-			},
-		}).then(this.#onResponse);
-	}
 }
 
 const api = new Api({

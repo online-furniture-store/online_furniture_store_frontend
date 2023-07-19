@@ -9,17 +9,34 @@ import styles from './ProductsWithScroll.module.css';
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
 
-function ProductsWithScroll({ fastDelivery }) {
+function ProductsWithScroll({ fastDelivery, sameProduct }) {
 	const { discountProducts, fastDeliveryProducts } = useSelector(
 		(state) => state.products,
 	);
+	const { furniture } = useSelector((state) => state.furniture);
 
 	const { cart } = useSelector((state) => state.cart);
 
 	const swiperOptions = () => {
 		return fastDelivery ? productDeliverySlider : productDiscountSlider;
 	};
+	const defineTitleText = () => {
+		if (fastDelivery) {
+			return 'Товары с быстрой доставкой';
+		} if (sameProduct) {
+			return '';
+		}
+		return 'Выгодная покупка';
+	};
 
+	const defineArrayProducts = () => {
+		if (fastDelivery) {
+			return fastDeliveryProducts;
+		} if (sameProduct) {
+			return furniture.similar_products;
+		}
+		return discountProducts;
+	};
 	return (
 		<section
 			className={
@@ -30,9 +47,7 @@ function ProductsWithScroll({ fastDelivery }) {
 		>
 			<div className={styles.title}>
 				<Title
-					titleText={
-						fastDelivery ? 'Товары с быстрой доставкой' : 'Выгодная покупка'
-					}
+					titleText={defineTitleText()}
 				/>
 			</div>
 			<Swiper
@@ -43,7 +58,7 @@ function ProductsWithScroll({ fastDelivery }) {
 						: `${styles.container} ${styles.containerDiscount}`
 				}
 			>
-				{(fastDelivery ? fastDeliveryProducts : discountProducts).map(
+				{(defineArrayProducts()).map(
 					(item) => (
 						<SwiperSlide key={item.id} className={styles.description}>
 							<ProductCard
@@ -58,7 +73,7 @@ function ProductsWithScroll({ fastDelivery }) {
 								country={item.country}
 								fastDelivery={fastDelivery}
 								added={cart.products.some(
-									({ product }) => product.id === item.id,
+									(elem) => elem.product.id === item.id,
 								)}
 							/>
 						</SwiperSlide>
@@ -71,6 +86,7 @@ function ProductsWithScroll({ fastDelivery }) {
 
 ProductsWithScroll.propTypes = {
 	fastDelivery: PropTypes.bool,
+	sameProduct: PropTypes.bool,
 };
 
 export default ProductsWithScroll;

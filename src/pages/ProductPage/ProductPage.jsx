@@ -6,6 +6,7 @@ import Characteristic from '../../components/UI/Characteristic/Characteristic';
 import { declensionWordYear } from '../../utils/utils';
 import styles from './ProductPage.module.css';
 import { fetchProduct } from '../../store/furniture/furniture-slice';
+import ProductsWithScroll from '../../components/Sections/Main/ProductsWithScroll/ProductsWithScroll';
 
 function ProductPage() {
   const dispatch = useDispatch();
@@ -13,47 +14,54 @@ function ProductPage() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
-  const { product, loading } = useSelector((state) => state.furniture);
+  const { furniture, loading } = useSelector((state) => state.furniture);
   useEffect(() => {
     dispatch(fetchProduct(id));
   }, [dispatch, id]);
-
   return (
     loading ? (
       null
     ) : (
       <div className={styles.content}>
-        <LargeCard />
+        <LargeCard
+          isFavorited={furniture.product.is_favorited}
+          brand={furniture.product.brand}
+          images={Object.values(furniture.product.images)}
+          name={furniture.product.name}
+          article={furniture.product.article}
+          discount={furniture.product.discount}
+          totalPrice={furniture.product.total_price}
+          price={furniture.product.price}
+          availableQuantity={furniture.product.available_quantity}
+        />
         <div className={styles.description}>
           <h3 className={styles.title}>Описание</h3>
-          <p className={styles.text}>{product.description}
+          <p className={styles.text}>{furniture.product.description || ''}
           </p>
         </div>
         <div className={styles.specifications}>
           <h3 className={styles.title}>Характеристики</h3>
           <div className={styles.list}>
             <div className={styles.column}>
-              <Characteristic property="Ширина" value={`${product.weight} см`} />
-              <Characteristic property="Глубина" value={`${product.length} см`} />
-              <Characteristic property="Высота" value={`${product.height} см`} />
-              <Characteristic property="Материал" value={(product.material[0].name).toLowerCase()} />
-              {
-                product.material.length > 1 && <Characteristic property="Материал опор" value={(product.material[1].name).toLowerCase()} />
-              }
-              <Characteristic
-                property="Цвет"
-                value={(product.color.name).toLowerCase()}
-              />
+                {furniture.product.weight && <Characteristic property="Ширина" value={`${furniture.product.weight} см`} />}
+                {furniture.product.length && <Characteristic property="Глубина" value={`${furniture.product.length} см`} />}
+                {furniture.product.height && <Characteristic property="Высота" value={`${furniture.product.height} см`} />}
+              {furniture.product.material && <Characteristic property="Материал" value={(furniture.product.material.name).toLowerCase()} />}
+              {furniture.product.legs_material && <Characteristic property="Материал опор" value={(furniture.product.legs_material.name).toLowerCase()} />}
+                {furniture.product.color !== null && <Characteristic property="Цвет" value={(furniture.product.color.name).toLowerCase()} />}
             </div>
             <div className={styles.column}>
               <Characteristic property="Максимальная нагрузка" value="100 кг" />
-              <Characteristic property="Гарантия" value={declensionWordYear(product.warranty)} />
-              <Characteristic property="Страна" value={product.country} />
+                {furniture.product.warranty && <Characteristic property="Гарантия" value={declensionWordYear(furniture.product.warranty)} />}
+              {furniture.product.country && <Characteristic property="Страна" value={furniture.product.country} />}
             </div>
           </div>
         </div>
         <div>
-          <h3 className={styles.title}>Похожие товары</h3>
+          <div className={styles.wrapper}>
+            <h3 className={styles.title}>Похожие товары</h3>
+          </div>
+            <ProductsWithScroll sameProduct />
         </div>
       </div>
     )

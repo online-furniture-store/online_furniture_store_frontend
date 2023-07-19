@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import api from '../../utils/api';
 
 const initialState = {
-  product: {},
+  furniture: {},
   loading: true,
   error: null,
 };
@@ -13,9 +13,8 @@ export const fetchProduct = createAsyncThunk(
   `${sliceName}/fetchProduct`,
   async (id, { fulfillWithValue, rejectWithValue }) => {
     try {
-      const product = await api.getProduct(id);
-      const sameProducts = await api.getSameProducts(product.category.slug);
-      return fulfillWithValue({ ...product, sameProducts: [...sameProducts] });
+      const furniture = await api.getProduct(id);
+      return fulfillWithValue({ ...furniture });
     } catch (err) {
       return rejectWithValue(err);
     }
@@ -33,7 +32,7 @@ const furnitureSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchProduct.fulfilled, (state, action) => {
-        state.product = action.payload;
+        state.furniture = action.payload;
         state.loading = false;
       })
       .addCase(fetchProduct.rejected, (state, action) => {
