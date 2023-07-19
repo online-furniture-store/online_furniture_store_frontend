@@ -3,7 +3,7 @@ import api from '../../utils/api';
 
 const initialState = {
 	allProducts: [],
-	loading: false,
+	loading: true,
 	error: null,
 	popularProducts: [],
 	discountProducts: [],

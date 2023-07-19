@@ -9,6 +9,7 @@ import DataProcessingPolicy from '../../pages/DataProcessingPolicy/DataProcessin
 import PageInDevelopment from '../../pages/PageInDevelopment/PageInDevelopment';
 import TradingRules from '../../pages/TradingRules/TradingRules';
 import OrderingForm from '../../pages/OrderingForm/OrderingForm';
+import ProtectedRoute from '../Hoc/ProtectedRoute/ProtectedRoute';
 import { closeModal } from '../../store/modal/modal-slice';
 import { getCart } from '../../store/cart/cart-slice';
 import {
@@ -16,6 +17,7 @@ import {
 	fetchPopularProducts,
 	fetchProducts,
 } from '../../store/products/products-slice';
+import { updateToken } from '../../store/auth/auth-slice';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import Footer from '../Sections/Footer/Footer';
 import Header from '../Sections/Header/Header';
@@ -30,6 +32,7 @@ function App() {
 		dispatch(fetchPopularProducts());
 		dispatch(fetchCollections());
 		dispatch(getCart());
+		dispatch(updateToken());
 	}, [dispatch]);
 
 	const { modalOpen, currentModal } = useSelector((state) => state.modal);
@@ -43,7 +46,12 @@ function App() {
 					<Routes>
 						<Route path="/" element={<HomePage />} />
 						<Route path="/about" element={<AboutPage />} />
-						<Route path="/user" element={<PageInDevelopment />} />
+						<Route
+							path="/user"
+							element={
+								<ProtectedRoute><PageInDevelopment /></ProtectedRoute>
+							}
+						/>
 						<Route path="/chosen" element={<PageInDevelopment />} />
 						<Route path="/cart" element={<CartPage />} />
 						<Route path="/arm-chairs" element={<PageInDevelopment />} />

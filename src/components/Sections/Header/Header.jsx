@@ -19,7 +19,7 @@ function Header() {
 	const [searchValue, setSearchValue] = useState();
 	const [searchInputShown, setSearchInputShow] = useState(false);
 	const { cart } = useSelector((state) => state.cart);
-	const { auth } = useSelector((state) => state.modal);
+	const { isAuth } = useSelector((state) => state.auth);
 	const navigate = useNavigate();
 
 	const handleShowMenu = () => {
@@ -120,7 +120,7 @@ function Header() {
 									className={styles.nav__item}
 									type="button"
 									onClick={() => {
-										return auth
+										return isAuth
 											? navigate('/user')
 											: dispatch(openModal('authModal'));
 									}}
