@@ -43,6 +43,6 @@
         "jsx-a11y/no-static-element-interactions": "off",
         "react/jsx-one-expression-per-line": "off",
         "arrow-body-style": "off",
-        "react/jsx-wrap-multilines": {"arrow": "off"}
+        "react/jsx-wrap-multilines": {"arrow": 0}
     }
 }
