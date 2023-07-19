@@ -4,6 +4,7 @@ import ContainerForms from '../../components/Forms/ContainerForms/ContainerForms
 import NameInput from '../../components/UI/NameInput/NameInput';
 import Checkbox from '../../components/UI/Checkbox/Checkbox';
 import SaveButton from '../../components/UI/SaveButton/SaveButton';
+import AccountSidebar from '../../components/AccountSidebar/AccountSidebar';
 
 function ProfileForm() {
 	const {
@@ -37,7 +38,7 @@ function ProfileForm() {
 
 	return (
 		<section className={styles.container}>
-			<div className={styles.newContainer} />
+			<AccountSidebar />
 			<div className={styles.wrapper}>
 				<h2 className={styles.title}>Профиль</h2>
 				<form onSubmit={handleSubmit(onSubmit)}>
@@ -295,7 +296,7 @@ function ProfileForm() {
 								buttonText="Отменить"
 								type="reset"
 								onClick={(data) => {
-									reset((data));
+									reset(data);
 								}}
 							/>
 						</div>
