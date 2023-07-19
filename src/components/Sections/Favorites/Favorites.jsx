@@ -1,9 +1,14 @@
 import { v4 as uuidv4 } from 'uuid';
+import { useEffect } from 'react';
 import styles from './Favorites.module.css';
 import ProductCard from '../../ProductCard/ProductCard';
 import Title from '../../UI/Title/Title';
 
 function Favorites() {
+	useEffect(() => {
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+	}, []);
+
 	const items = [
 		{
 			article: 2147483647,
