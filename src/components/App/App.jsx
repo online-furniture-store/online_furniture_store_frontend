@@ -9,7 +9,6 @@ import OrderPage from '../../pages/OrderPage/OrderPage';
 import OrderingForm from '../../pages/OrderingForm/OrderingForm';
 import PageInDevelopment from '../../pages/PageInDevelopment/PageInDevelopment';
 import TradingRules from '../../pages/TradingRules/TradingRules';
-import ProtectedRoute from '../Hoc/ProtectedRoute/ProtectedRoute';
 import UserAccount from '../../pages/UserAccount/UserAccount';
 import { getCart } from '../../store/cart/cart-slice';
 import { closeModal } from '../../store/modal/modal-slice';
@@ -18,6 +17,7 @@ import {
 	fetchPopularProducts,
 	fetchProducts,
 } from '../../store/products/products-slice';
+import ProtectedRoute from '../Hoc/ProtectedRoute/ProtectedRoute';
 
 import { updateToken } from '../../store/auth/auth-slice';
 import { modals } from '../../utils/modals';
@@ -79,7 +79,14 @@ function App() {
 								</UserAccount>
 							}
 						/>
-						<Route path="/order" element={<OrderPage />} />
+						<Route
+							path="/order"
+							element={
+								<UserAccount>
+									<OrderPage />
+								</UserAccount>
+							}
+						/>
 					</Routes>
 				</main>
 				<Footer />
