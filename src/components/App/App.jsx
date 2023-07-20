@@ -80,7 +80,7 @@ function App() {
 							}
 						/>
 						<Route
-							path="/order"
+							path="/user/my_orders/:id"
 							element={
 								<UserAccount>
 									<OrderPage />
