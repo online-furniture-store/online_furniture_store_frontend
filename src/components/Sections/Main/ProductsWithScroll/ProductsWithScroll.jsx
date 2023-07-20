@@ -10,8 +10,9 @@ import styles from './ProductsWithScroll.module.css';
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
 
-function ProductsWithScroll({ fastDelivery, sameProduct }) {
+function ProductsWithScroll({ fastDelivery, isSmall, sameProduct }) {
 	const navigate = useNavigate();
+
 	const { discountProducts, fastDeliveryProducts } = useSelector(
 		(state) => state.products,
 	);
@@ -77,9 +78,11 @@ function ProductsWithScroll({ fastDelivery, sameProduct }) {
 								added={cart.products.some(
 									(elem) => elem.product.id === item.id,
 								)}
+								isSmall={isSmall}
 								onClick={() => {
 									navigate(`/product/${item.id}`);
 								}}
+
 							/>
 						</SwiperSlide>
 					),
@@ -91,6 +94,7 @@ function ProductsWithScroll({ fastDelivery, sameProduct }) {
 
 ProductsWithScroll.propTypes = {
 	fastDelivery: PropTypes.bool,
+	isSmall: PropTypes.bool,
 	sameProduct: PropTypes.bool,
 };
 

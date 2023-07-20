@@ -10,6 +10,7 @@ import OrderingForm from '../../pages/OrderingForm/OrderingForm';
 import PageInDevelopment from '../../pages/PageInDevelopment/PageInDevelopment';
 import ProfileForm from '../../pages/ProfileForm/ProfileForm';
 import TradingRules from '../../pages/TradingRules/TradingRules';
+import FavoritesPage from '../../pages/FavoritesPage/FavoritesPage';
 import ProtectedRoute from '../Hoc/ProtectedRoute/ProtectedRoute';
 import UserAccount from '../../pages/UserAccount/UserAccount';
 import { getCart } from '../../store/cart/cart-slice';
@@ -83,7 +84,11 @@ function App() {
 							}
 						/>
 						<Route path="/order" element={<OrderPage />} />
+
+						<Route path="/favorites" element={<FavoritesPage />} />
+
 						<Route path="/user/me" element={<ProfileForm />} />
+
 					</Routes>
 				</main>
 				<Footer />

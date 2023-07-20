@@ -19,7 +19,9 @@ function ProductCard({
 	country,
 	fastDelivery,
 	added,
+	isSmall,
 	onClick,
+
 }) {
 	const dispatch = useDispatch();
 	const [isLike, setIsLike] = useState(false);
@@ -32,7 +34,7 @@ function ProductCard({
 	return (
 		<div
 			className={
-				fastDelivery
+				isSmall
 					? `${styles.card} ${styles.fastDeliveryCard}`
 					: `${styles.card} ${styles.discountCard}`
 			}
@@ -40,7 +42,7 @@ function ProductCard({
 		>
 			<div
 				className={
-					fastDelivery
+					isSmall
 						? `${styles.image} ${styles.imageFastDelivery}`
 						: `${styles.image} ${styles.imageDiscountCard}`
 				}
@@ -59,9 +61,17 @@ function ProductCard({
 						className={
 							fastDelivery
 								? `${styles.percentAndTruck} ${styles.truckDelivery}`
-								: `${styles.percentAndTruck} ${styles.discountPercent}`
+								: `${styles.none}`
 						}
 					/>
+					<div
+						className={
+							newPrice !== oldPrice
+								? `${styles.percentAndTruck} ${styles.discountPercent}`
+								: `${styles.none}`
+						}
+					/>
+
 					<div className={styles.likes}>
 						<Like onClick={onLikeClick} active={isLike} ariaLabel="like" />
 					</div>
@@ -76,7 +86,7 @@ function ProductCard({
 						: `${styles.description} ${styles.descriptionDiscountCard}`
 				}
 			>
-				{fastDelivery ? (
+				{newPrice === oldPrice ? (
 					<div className={styles.price__FastDelivery}>
 						<p className={styles.price__new_fastDelivery}>
 							{oldPrice}
@@ -96,7 +106,9 @@ function ProductCard({
 					</div>
 				)}
 
-				<p className={styles.inStock}>{inStock ? `в наличии: ${inStock} шт` : 'нет в наличии'}</p>
+				<p className={styles.inStock}>
+					{inStock ? `в наличии: ${inStock} шт` : 'нет в наличии'}
+				</p>
 			</div>
 
 			<div className={styles.aboutProperty}>
@@ -128,6 +140,7 @@ ProductCard.propTypes = {
 	country: PropTypes.string.isRequired,
 	fastDelivery: PropTypes.bool,
 	added: PropTypes.bool,
+	isSmall: PropTypes.bool,
 	onClick: PropTypes.func,
 };
 
