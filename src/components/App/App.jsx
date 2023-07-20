@@ -5,9 +5,11 @@ import { AboutPage, HomePage } from '../../pages';
 import CartPage from '../../pages/CartPage/CartPage';
 import ConsentDataProcessing from '../../pages/ConsentDataProcessing/ConsentDataProcessing';
 import DataProcessingPolicy from '../../pages/DataProcessingPolicy/DataProcessingPolicy';
+import FavoritesPage from '../../pages/FavoritesPage/FavoritesPage';
 import OrderPage from '../../pages/OrderPage/OrderPage';
 import OrderingForm from '../../pages/OrderingForm/OrderingForm';
 import PageInDevelopment from '../../pages/PageInDevelopment/PageInDevelopment';
+import ProfileForm from '../../pages/ProfileForm/ProfileForm';
 import TradingRules from '../../pages/TradingRules/TradingRules';
 import UserAccount from '../../pages/UserAccount/UserAccount';
 import { getCart } from '../../store/cart/cart-slice';
@@ -19,6 +21,7 @@ import {
 } from '../../store/products/products-slice';
 import ProtectedRoute from '../Hoc/ProtectedRoute/ProtectedRoute';
 
+import ProductPage from '../../pages/ProductPage/ProductPage';
 import { updateToken } from '../../store/auth/auth-slice';
 import { modals } from '../../utils/modals';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
@@ -61,6 +64,7 @@ function App() {
 						/>
 						<Route path="/chosen" element={<PageInDevelopment />} />
 						<Route path="/cart" element={<CartPage />} />
+						<Route path="/product/:id" element={<ProductPage />} />
 						<Route path="/arm-chairs" element={<PageInDevelopment />} />
 						<Route path="/tables" element={<PageInDevelopment />} />
 						<Route path="/wardrobes" element={<PageInDevelopment />} />
@@ -79,14 +83,11 @@ function App() {
 								</UserAccount>
 							}
 						/>
-						<Route
-							path="/user/my_orders/:id"
-							element={
-								<UserAccount>
-									<OrderPage />
-								</UserAccount>
-							}
-						/>
+						<Route path="/order" element={<OrderPage />} />
+
+						<Route path="/favorites" element={<FavoritesPage />} />
+
+						<Route path="/user/me" element={<ProfileForm />} />
 					</Routes>
 				</main>
 				<Footer />
