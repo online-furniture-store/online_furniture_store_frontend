@@ -12,7 +12,7 @@ function HomePage() {
 			<ProductsWithScroll />
 			<PopularProducts />
 			<Services />
-			<ProductsWithScroll fastDelivery />
+			<ProductsWithScroll fastDelivery isSmall />
 
 		</>
 	);
