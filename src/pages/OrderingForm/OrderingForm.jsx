@@ -43,7 +43,11 @@ function OrderingForm() {
 						},
 					],
 					delivery: {
-						address: data.address ? `${data.address}  ${data.apartament || ''} ${data.entrance || ''}  ${data.floor || ''}` : 'null',
+						address: data.address
+							? `${data.address}  ${data.apartament || ''} 
+							${data.entrance || ''} 
+							${data.floor || ''}`
+							: 'null',
 						type_delivery: 3,
 						comment: data.comment,
 						datetime_from: '2023-07-25T07:18:33.916Z',
