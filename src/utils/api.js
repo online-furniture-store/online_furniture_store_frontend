@@ -101,6 +101,15 @@ export class Api {
 		}).then(this.#onResponse);
 	}
 
+	getUserOrders() {
+		return fetch(`${this.#baseurl}api/users/my_orders/`, {
+			headers: {
+				'content-type': 'application/json',
+				Authorization: `Bearer ${getLocalData('access')}`,
+			},
+		}).then(this.#onResponse);
+	}
+
 	jwtCreate(data) {
 		return fetch(`${this.#baseurl}api/auth/jwt/create/`, {
 			method: 'POST',
