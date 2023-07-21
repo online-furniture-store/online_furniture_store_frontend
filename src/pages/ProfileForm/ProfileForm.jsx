@@ -1,10 +1,9 @@
-import { useForm, Controller } from 'react-hook-form';
-import styles from './ProfileForm.module.css';
+import { Controller, useForm } from 'react-hook-form';
 import ContainerForms from '../../components/Forms/ContainerForms/ContainerForms';
-import NameInput from '../../components/UI/NameInput/NameInput';
 import Checkbox from '../../components/UI/Checkbox/Checkbox';
+import NameInput from '../../components/UI/NameInput/NameInput';
 import SaveButton from '../../components/UI/SaveButton/SaveButton';
-import AccountSidebar from '../../components/AccountSidebar/AccountSidebar';
+import styles from './ProfileForm.module.css';
 
 function ProfileForm() {
 	const {
@@ -38,7 +37,6 @@ function ProfileForm() {
 
 	return (
 		<section className={styles.container}>
-			<AccountSidebar />
 			<div className={styles.wrapper}>
 				<h2 className={styles.title}>Профиль</h2>
 				<form onSubmit={handleSubmit(onSubmit)}>

@@ -78,16 +78,41 @@ function App() {
 						<Route
 							path="/user/my_orders"
 							element={
-								<UserAccount>
-									<UserOrders />
-								</UserAccount>
+								<ProtectedRoute>
+									<UserAccount>
+										<UserOrders />
+									</UserAccount>
+								</ProtectedRoute>
 							}
 						/>
-						<Route path="/order" element={<OrderPage />} />
-
-						<Route path="/favorites" element={<FavoritesPage />} />
-
-						<Route path="/user/me" element={<ProfileForm />} />
+						<Route
+							path="/order"
+							element={
+								<ProtectedRoute>
+									<UserAccount>
+										<OrderPage />
+									</UserAccount>
+								</ProtectedRoute>
+							}
+						/>
+						<Route
+							path="/favorites"
+							element={
+								<ProtectedRoute>
+									<FavoritesPage />
+								</ProtectedRoute>
+							}
+						/>
+						<Route
+							path="/user/me"
+							element={
+								<ProtectedRoute>
+									<UserAccount>
+										<ProfileForm />
+									</UserAccount>
+								</ProtectedRoute>
+							}
+						/>
 					</Routes>
 				</main>
 				<Footer />

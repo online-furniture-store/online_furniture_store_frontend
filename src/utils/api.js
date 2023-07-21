@@ -1,3 +1,5 @@
+import { getLocalData } from './localStorage';
+
 export class Api {
 	#baseurl;
 
@@ -84,6 +86,16 @@ export class Api {
 		return fetch(`${this.#baseurl}api/products/${id}/`, {
 			headers: {
 				...this.#headers,
+			},
+		}).then(this.#onResponse);
+	}
+
+	getUserOrders() {
+		this.token = getLocalData('access');
+		return fetch(`${this.#baseurl}api/users/my_orders/`, {
+			headers: {
+				'content-type': 'application/json',
+				Authorization: `Bearer ${this.token}`,
 			},
 		}).then(this.#onResponse);
 	}
