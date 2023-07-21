@@ -102,11 +102,10 @@ export class Api {
 	}
 
 	getUserOrders() {
-		this.token = getLocalData('access');
 		return fetch(`${this.#baseurl}api/users/my_orders/`, {
 			headers: {
 				'content-type': 'application/json',
-				Authorization: `Bearer ${this.token}`,
+				Authorization: `Bearer ${getLocalData('access')}`,
 			},
 		}).then(this.#onResponse);
 	}

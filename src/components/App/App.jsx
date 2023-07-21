@@ -97,14 +97,7 @@ function App() {
 								</ProtectedRoute>
 							}
 						/>
-						<Route
-							path="/favorites"
-							element={
-								<ProtectedRoute>
-									<FavoritesPage />
-								</ProtectedRoute>
-							}
-						/>
+						<Route path="/favorites" element={<FavoritesPage />} />
 						<Route
 							path="/user/me"
 							element={
