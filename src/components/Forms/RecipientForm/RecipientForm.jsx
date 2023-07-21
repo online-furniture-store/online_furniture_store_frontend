@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import { Controller } from 'react-hook-form';
 import NameInput from '../../UI/NameInput/NameInput';
 import styles from './RecipientForm.module.css';
-// import ContainerForms from '../ContainerForms/ContainerForms';
 
 function RecipientForm({ control, errors, resetField }) {
 	return (
@@ -23,19 +22,20 @@ function RecipientForm({ control, errors, resetField }) {
 								'Допустимы символы: пробел, кириллические, латинские, тире',
 						},
 					}}
-					render={({ field: { onChange, onBlur, value } }) => (
+					render={({ field: { onChange, onBlur, value, type = 'text' } }) => (
 						<NameInput
 							onBlur={onBlur}
 							onChange={onChange}
 							value={value}
-							inputId="firstName"
+							type={type}
+							inputId="first_name"
 							label="Имя"
-							helperText={errors.firstName?.message?.toString()}
-							error={!!errors.firstName?.message}
-							onClick={() => resetField('firstName')}
+							helperText={errors.first_name?.message?.toString()}
+							error={!!errors.first_name?.message}
+							onClick={() => resetField('first_name')}
 						/>
 					)}
-					name="firstName"
+					name="first_name"
 				/>
 				<Controller
 					control={control}
@@ -51,39 +51,41 @@ function RecipientForm({ control, errors, resetField }) {
 								'Допустимы символы: пробел, кириллические, латинские, тире',
 						},
 					}}
-					render={({ field: { onChange, onBlur, value } }) => (
+					render={({ field: { onChange, onBlur, value, type = 'text' } }) => (
 						<NameInput
 							onBlur={onBlur}
 							onChange={onChange}
 							value={value}
-							inputId="surname"
+							type={type}
+							inputId="last_name"
 							label="Фамилия"
-							helperText={errors.surname?.message?.toString()}
-							error={!!errors.surname?.message}
-							onClick={() => resetField('surname')}
+							helperText={errors.last_name?.message?.toString()}
+							error={!!errors.last_name?.message}
+							onClick={() => resetField('last_name')}
 						/>
 					)}
-					name="surname"
+					name="last_name"
 				/>
 				<Controller
 					control={control}
 					rules={{
 						required: 'Поле обязательное',
 						minLength: {
-							value: 6,
+							value: 10,
 							message: 'Номер слишком короткий',
 						},
 						pattern: {
-							value: /^[+]?[0-9]+/g,
+							value: /\+?[78][-(]?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$/g,
 							message: 'Неверный формат телефона',
 						},
 					}}
-					render={({ field: { onChange, onBlur, value } }) => (
+					render={({ field: { onChange, onBlur, value, type = 'text' } }) => (
 						<NameInput
 							onBlur={onBlur}
 							onChange={onChange}
 							value={value}
 							inputId="telephone"
+							type={type}
 							label="Телефон"
 							helperText={errors.telephone?.message?.toString()}
 							error={!!errors.telephone?.message}
@@ -101,12 +103,13 @@ function RecipientForm({ control, errors, resetField }) {
 							message: 'Неверный формат email',
 						},
 					}}
-					render={({ field: { onChange, onBlur, value } }) => (
+					render={({ field: { onChange, onBlur, value, type = 'email' } }) => (
 						<NameInput
 							onBlur={onBlur}
 							onChange={onChange}
 							value={value}
-							inputId="email"
+							type={type}
+							inputId="orderPageEmail"
 							label="Электронная почта"
 							helperText={errors.email?.message?.toString()}
 							error={!!errors.email?.message}

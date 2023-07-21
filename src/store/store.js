@@ -5,6 +5,7 @@ import productReducer from './products/products-slice';
 import cartReducer from './cart/cart-slice';
 import furnitureReducer from './furniture/furniture-slice';
 import authReducer from './auth/auth-slice';
+import ordersReducer from './orders/orders-slice';
 import registrationReducer from './registration/registration-slice';
 
 const store = configureStore({
@@ -14,7 +15,9 @@ const store = configureStore({
     cart: cartReducer,
     furniture: furnitureReducer,
     auth: authReducer,
+    orders: ordersReducer,
     registration: registrationReducer,
+
 },
   middleware: [thunk],
 });

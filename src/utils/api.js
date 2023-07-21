@@ -72,6 +72,17 @@ export class Api {
 		}).then(this.#onResponse);
 	}
 
+	makeNewOrder(data) {
+		return fetch(`${this.#baseurl}api/orders/`, {
+			method: 'POST',
+			headers: {
+				...this.#headers,
+				authorization: `Bearer ${getLocalData('access')}`,
+			},
+			body: JSON.stringify({ ...data }),
+		}).then(this.#onResponse);
+	}
+
 	deleteFromCart(id) {
 		return fetch(`${this.#baseurl}api/carts/del_item/${id}/`, {
 			method: 'DELETE',

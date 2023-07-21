@@ -19,6 +19,9 @@ const routes = [
   { path: '/user/my_orders', breadcrumb: 'Мои заказы' },
   { path: '/user/feedback', breadcrumb: 'Отзывы' },
   { path: '/user/me', breadcrumb: 'Личные данные' },
+	{ path: '/favorites', breadcrumb: 'Избранное' },
+	{ path: '/order', breadcrumb: 'Заказ' },
+	{ path: '/payment', breadcrumb: 'Страница оплаты' },
 ];
 
 export { routes };
