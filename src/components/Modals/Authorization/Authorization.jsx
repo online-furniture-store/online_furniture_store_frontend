@@ -5,6 +5,7 @@ import styles from './Authorization.module.css';
 import NameInput from '../../UI/NameInput/NameInput';
 import BlackButton from '../../UI/BlackButton/BlackButton';
 import { login } from '../../../store/auth/auth-slice';
+import { fetchUser } from '../../../store/registration/registration-slice';
 
 function Authorization() {
 	const dispatch = useDispatch();
@@ -23,10 +24,9 @@ function Authorization() {
 		},
 	});
 
-	const onSubmit = (data) => {
-		// eslint-disable-next-line no-console
-		console.log('submit', data);
-		dispatch(login(data));
+	const onSubmit = async (data) => {
+		await dispatch(login(data));
+		await dispatch(fetchUser(data));
 		dispatch(closeModal());
 		reset();
 	};
@@ -44,12 +44,15 @@ function Authorization() {
 								message: 'Неверный формат email',
 							},
 						}}
-						render={({ field: { onChange, onBlur, value } }) => (
+						render={({
+							field: { onChange, onBlur, value, type = 'email' },
+						}) => (
 							<NameInput
 								onBlur={onBlur}
 								onChange={onChange}
 								value={value}
-								inputId="email"
+								type={type}
+								inputId="authEmail"
 								label="Электронная почта"
 								helperText={errors.email?.message?.toString()}
 								error={!!errors.email?.message}
@@ -68,11 +71,14 @@ function Authorization() {
 									'Пароль латинские буквы верхнего и нижнего регистра, не менее 6 символов',
 							},
 						}}
-						render={({ field: { onChange, onBlur, value } }) => (
+						render={({
+							field: { onChange, onBlur, value, type = 'password' },
+						}) => (
 							<NameInput
 								onBlur={onBlur}
 								onChange={onChange}
 								value={value}
+								type={type}
 								inputId="password"
 								label="Пароль"
 								helperText={errors.password?.message?.toString()}

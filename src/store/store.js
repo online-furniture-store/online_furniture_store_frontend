@@ -4,7 +4,8 @@ import modalReducer from './modal/modal-slice';
 import productReducer from './products/products-slice';
 import cartReducer from './cart/cart-slice';
 import furnitureReducer from './furniture/furniture-slice';
-import authSlice from './auth/auth-slice';
+import authReducer from './auth/auth-slice';
+import registrationReducer from './registration/registration-slice';
 
 const store = configureStore({
   reducer: {
@@ -12,7 +13,8 @@ const store = configureStore({
     products: productReducer,
     cart: cartReducer,
     furniture: furnitureReducer,
-    auth: authSlice,
+    auth: authReducer,
+    registration: registrationReducer,
 },
   middleware: [thunk],
 });
