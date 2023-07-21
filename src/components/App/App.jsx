@@ -8,7 +8,6 @@ import DataProcessingPolicy from '../../pages/DataProcessingPolicy/DataProcessin
 import OrderPage from '../../pages/OrderPage/OrderPage';
 import OrderingForm from '../../pages/OrderingForm/OrderingForm';
 import PageInDevelopment from '../../pages/PageInDevelopment/PageInDevelopment';
-import ProfileForm from '../../pages/ProfileForm/ProfileForm';
 import TradingRules from '../../pages/TradingRules/TradingRules';
 import ProtectedRoute from '../Hoc/ProtectedRoute/ProtectedRoute';
 import UserAccount from '../../pages/UserAccount/UserAccount';
@@ -81,7 +80,6 @@ function App() {
 							}
 						/>
 						<Route path="/order" element={<OrderPage />} />
-						<Route path="/user/me" element={<ProfileForm />} />
 					</Routes>
 				</main>
 				<Footer />
