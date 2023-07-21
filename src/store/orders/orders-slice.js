@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import api from '../../utils/api';
 
 const initialState = {
-	orders: {},
+	orders: [],
 	loading: true,
 	error: null,
 };
@@ -44,7 +44,7 @@ const ordersSlice = createSlice({
 				state.error = null;
 			})
 			.addCase(makeOrder.fulfilled, (state, action) => {
-				state.cart = action.payload;
+				state.order = action.payload;
 				state.loading = false;
 			})
 			.addCase(makeOrder.rejected, (state, action) => {
