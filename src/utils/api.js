@@ -70,6 +70,19 @@ export class Api {
 		}).then(this.#onResponse);
 	}
 
+	makeOrder(user, products, delivery, paid) {
+		return fetch(`${this.#baseurl}api/orders/`, {
+			method: 'POST',
+			credentials: 'include',
+			body: JSON.stringify({
+				user,
+				products,
+				delivery,
+				paid,
+			}),
+		}).then(this.#onResponse);
+	}
+
 	deleteFromCart(id) {
 		return fetch(`${this.#baseurl}api/carts/del_item/${id}/`, {
 			method: 'DELETE',

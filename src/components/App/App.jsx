@@ -40,7 +40,8 @@ function App() {
 		dispatch(getCart());
 		dispatch(updateToken());
 	}, [dispatch]);
-
+	const stat = useSelector((state) => state);
+	console.log(stat);
 	const { modalOpen, currentModal } = useSelector((state) => state.modal);
 
 	return (
