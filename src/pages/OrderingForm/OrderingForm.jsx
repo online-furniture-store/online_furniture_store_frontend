@@ -13,6 +13,8 @@ function OrderingForm() {
 	const { cart } = useSelector((state) => state.cart);
 	const { isAuth } = useSelector((state) => state.auth);
 	const { user } = useSelector((state) => state.registration);
+	const stat = useSelector((state) => state);
+	console.log(stat);
 	const dispath = useDispatch();
 	const navigate = useNavigate();
 	const {
@@ -36,12 +38,7 @@ function OrderingForm() {
 			dispath(
 				makeOrder({
 					user,
-					products: [
-						{
-							product: 10,
-							quantity: 1,
-						},
-					],
+					products: cart.products.map((el) => ({ product: el.product.id, quantity: el.quantity })),
 					delivery: {
 						address: data.address
 							? `${data.address}  ${data.apartament || ''} 
