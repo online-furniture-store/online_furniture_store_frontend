@@ -23,6 +23,7 @@ import ProtectedRoute from '../Hoc/ProtectedRoute/ProtectedRoute';
 
 import ProductPage from '../../pages/ProductPage/ProductPage';
 import { updateToken } from '../../store/auth/auth-slice';
+import { fetchUser } from '../../store/registration/registration-slice';
 import { modals } from '../../utils/modals';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import Modal from '../Modals/Modal/Modal';
@@ -39,8 +40,8 @@ function App() {
 		dispatch(fetchCollections());
 		dispatch(getCart());
 		dispatch(updateToken());
+		dispatch(fetchUser());
 	}, [dispatch]);
-
 	const { modalOpen, currentModal } = useSelector((state) => state.modal);
 
 	return (
@@ -75,6 +76,7 @@ function App() {
 						<Route path="/rules-consent" element={<ConsentDataProcessing />} />
 						<Route path="/rules-data" element={<DataProcessingPolicy />} />
 						<Route path="/order-form" element={<OrderingForm />} />
+						<Route path="/payment" element={<PageInDevelopment />} />
 						<Route
 							path="/user/my_orders"
 							element={

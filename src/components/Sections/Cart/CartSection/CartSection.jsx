@@ -45,7 +45,7 @@ function CartSection() {
 								inStock={product.available_quantity}
 								discountPrice={product.total_price}
 								price={product.price}
-								img={product.image}
+								img={product.images ? product.images.first_image : 'https://ofs.proninteam.ru/media/%D0%B1%D0%B0%D0%BD…%D0%B3%D0%BC%D0%B0_%D0%BC%D0%B0%D0%BB_EMKAvfc.png'}
 								quantity={quantity}
 							/>
 						</li>

@@ -66,7 +66,7 @@ function ProductsWithScroll({ fastDelivery, isSmall, sameProduct }) {
 						<SwiperSlide key={item.id} className={styles.description}>
 							<ProductCard
 								id={item.id}
-								img={item.image}
+								img={item.images ? item.images.first_image : 'https://ofs.proninteam.ru/media/%D0%B1%D0%B0%D0%BD…%D0%B3%D0%BC%D0%B0_%D0%BC%D0%B0%D0%BB_EMKAvfc.png'}
 								title={item.name}
 								newPrice={item.total_price.toLocaleString()}
 								oldPrice={item.price.toLocaleString()}

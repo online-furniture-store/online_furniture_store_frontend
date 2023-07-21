@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
 import { openModal } from '../../../store/modal/modal-slice';
+import { registration } from '../../../store/registration/registration-slice';
 import styles from './Registration.module.css';
 import NameInput from '../../UI/NameInput/NameInput';
 import BlackButton from '../../UI/BlackButton/BlackButton';
@@ -19,8 +20,8 @@ function Registration() {
 	} = useForm({
 		mode: 'onBlur',
 		defaultValues: {
-			firstName: '',
-			surname: '',
+			first_name: '',
+			last_name: '',
 			email: '',
 			password: '',
 			confirmPassword: '',
@@ -28,8 +29,7 @@ function Registration() {
 	});
 
 	const onSubmit = (data) => {
-		// eslint-disable-next-line no-console
-		console.log('submit', data);
+		dispatch(registration(data));
 		dispatch(openModal('registrationSuccessModal'));
 		reset();
 	};
@@ -51,19 +51,20 @@ function Registration() {
 								message: 'Допустимые символы: пробел, кириллические, тире',
 							},
 						}}
-						render={({ field: { onChange, onBlur, value } }) => (
+						render={({ field: { onChange, onBlur, value, type = 'text' } }) => (
 							<NameInput
 								onBlur={onBlur}
 								onChange={onChange}
 								value={value}
-								inputId="firstName"
+								type={type}
+								inputId="first_name"
 								label="Имя"
-								helperText={errors.firstName?.message?.toString()}
-								error={!!errors.firstName?.message}
-								onClick={() => resetField('firstName')}
+								helperText={errors.first_name?.message?.toString()}
+								error={!!errors.first_name?.message}
+								onClick={() => resetField('first_name')}
 							/>
 						)}
-						name="firstName"
+						name="first_name"
 					/>
 					<Controller
 						control={control}
@@ -78,19 +79,20 @@ function Registration() {
 								message: 'Допустимые символы: пробел, кириллические, тире',
 							},
 						}}
-						render={({ field: { onChange, onBlur, value } }) => (
+						render={({ field: { onChange, onBlur, value, type = 'text' } }) => (
 							<NameInput
 								onBlur={onBlur}
 								onChange={onChange}
 								value={value}
-								inputId="surname"
+								type={type}
+								inputId="last_name"
 								label="Фамилия"
-								helperText={errors.surname?.message?.toString()}
-								error={!!errors.surname?.message}
-								onClick={() => resetField('surname')}
+								helperText={errors.last_name?.message?.toString()}
+								error={!!errors.last_name?.message}
+								onClick={() => resetField('last_name')}
 							/>
 						)}
-						name="surname"
+						name="last_name"
 					/>
 					<Controller
 						control={control}
@@ -101,12 +103,13 @@ function Registration() {
 								message: 'Неверный формат email',
 							},
 						}}
-						render={({ field: { onChange, onBlur, value } }) => (
+						render={({ field: { onChange, onBlur, value, type = 'email' } }) => (
 							<NameInput
 								onBlur={onBlur}
 								onChange={onChange}
 								value={value}
-								inputId="email"
+								type={type}
+								inputId="regEmail"
 								label="Электронная почта"
 								helperText={errors.email?.message?.toString()}
 								error={!!errors.email?.message}
@@ -125,11 +128,12 @@ function Registration() {
 									'Пароль должен содержать цифры, латинские буквы верхнего и нижнего регистра, не менее 6 символов',
 							},
 						}}
-						render={({ field: { onChange, onBlur, value } }) => (
+						render={({ field: { onChange, onBlur, value, type = 'password' } }) => (
 							<NameInput
 								onBlur={onBlur}
 								onChange={onChange}
 								value={value}
+								type={type}
 								inputId="password"
 								label="Пароль"
 								helperText={errors.password?.message?.toString()}
@@ -146,11 +150,12 @@ function Registration() {
 							validate: (value) =>
 								value === getValues('password') || 'Пароли не совпадают',
 						}}
-						render={({ field: { onChange, onBlur, value } }) => (
+						render={({ field: { onChange, onBlur, value, type = 'password' } }) => (
 							<NameInput
 								onBlur={onBlur}
 								onChange={onChange}
 								value={value}
+								type={type}
 								inputId="confirmPassword"
 								label="Подтверждение пароля"
 								helperText={errors.confirmPassword?.message?.toString()}

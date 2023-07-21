@@ -72,6 +72,17 @@ export class Api {
 		}).then(this.#onResponse);
 	}
 
+	makeNewOrder(data) {
+		return fetch(`${this.#baseurl}api/orders/`, {
+			method: 'POST',
+			headers: {
+				...this.#headers,
+				authorization: `Bearer ${getLocalData('access')}`,
+			},
+			body: JSON.stringify({ ...data }),
+		}).then(this.#onResponse);
+	}
+
 	deleteFromCart(id) {
 		return fetch(`${this.#baseurl}api/carts/del_item/${id}/`, {
 			method: 'DELETE',
@@ -122,6 +133,35 @@ export class Api {
 
 	jwtVerify(data) {
 		return fetch(`${this.#baseurl}api/auth/jwt/verify/`, {
+			method: 'POST',
+			headers: {
+				...this.#headers,
+			},
+			body: JSON.stringify({ ...data }),
+		}).then(this.#onResponse);
+	}
+
+	getUser() {
+		return fetch(`${this.#baseurl}api/users/me/`, {
+			headers: {
+				...this.#headers,
+				authorization: `Bearer ${getLocalData('access')}`,
+			},
+		}).then(this.#onResponse);
+	}
+
+	createUser(data) {
+		return fetch(`${this.#baseurl}api/users/me/`, {
+			method: 'POST',
+			headers: {
+				...this.#headers,
+			},
+			body: JSON.stringify({ ...data }),
+		}).then(this.#onResponse);
+	}
+
+	resetPassword(data) {
+		return fetch(`${this.#baseurl}api/users/reset_password/`, {
 			method: 'POST',
 			headers: {
 				...this.#headers,

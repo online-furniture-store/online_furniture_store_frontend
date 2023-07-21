@@ -5,9 +5,22 @@ const initialState = {
 	loading: true,
 	error: null,
 	orders: [],
+	order: null,
 };
 
-const sliceName = 'orderSlice';
+export const sliceName = 'orders';
+
+export const makeOrder = createAsyncThunk(
+	`${sliceName}/makeOrder`,
+	async (data, { fulfillWithValue, rejectWithValue }) => {
+		try {
+			const order = await api.makeNewOrder(data);
+			return fulfillWithValue({ ...order });
+		} catch (err) {
+			return rejectWithValue(err);
+		}
+	},
+);
 
 export const getOrders = createAsyncThunk(
 	`${sliceName}/getOrders`,
@@ -21,11 +34,25 @@ export const getOrders = createAsyncThunk(
 	},
 );
 
-const orderSlice = createSlice({
+const ordersSlice = createSlice({
 	name: sliceName,
 	initialState,
+	reducers: {},
 	extraReducers: (builder) => {
 		builder
+			.addCase(makeOrder.pending, (state) => {
+				state.loading = true;
+				state.error = null;
+			})
+			.addCase(makeOrder.fulfilled, (state, action) => {
+				state.order = action.payload;
+				state.loading = false;
+			})
+			.addCase(makeOrder.rejected, (state, action) => {
+				state.error = action.payload;
+				state.loading = false;
+			})
+
 			.addCase(getOrders.pending, (state) => {
 				state.loading = true;
 				state.error = null;
@@ -46,4 +73,4 @@ const orderSlice = createSlice({
 	},
 });
 
-export default orderSlice.reducer;
+export default ordersSlice.reducer;

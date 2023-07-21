@@ -6,6 +6,7 @@ function NameInput({
 	onChange,
 	onBlur,
 	value,
+	type,
 	label,
 	helperText,
 	error,
@@ -26,6 +27,7 @@ function NameInput({
 				value={value}
 				onChange={onChange}
 				placeholder=""
+				type={type}
 				required
 				onBlur={onBlur}
 			/>
@@ -41,6 +43,7 @@ function NameInput({
 NameInput.propTypes = {
 	onChange: PropTypes.func,
 	value: PropTypes.string,
+	type: PropTypes.string,
 	label: PropTypes.string,
 	inputId: PropTypes.string,
 	onBlur: PropTypes.func,
