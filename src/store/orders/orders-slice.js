@@ -9,18 +9,6 @@ const initialState = {
 
 export const sliceName = 'orders';
 
-export const getOrders = createAsyncThunk(
-	`${sliceName}/getOrders`,
-	async (_, { fulfillWithValue, rejectWithValue }) => {
-		try {
-			const order = await api.getOrders();
-			return fulfillWithValue({ ...order });
-		} catch (err) {
-			return rejectWithValue(err);
-		}
-	},
-);
-
 export const makeOrder = createAsyncThunk(
 	`${sliceName}/makeOrder`,
 	async (data, { fulfillWithValue, rejectWithValue }) => {
@@ -44,7 +32,7 @@ const ordersSlice = createSlice({
 				state.error = null;
 			})
 			.addCase(makeOrder.fulfilled, (state, action) => {
-				state.order = action.payload;
+				state.orders = action.payload;
 				state.loading = false;
 			})
 			.addCase(makeOrder.rejected, (state, action) => {
