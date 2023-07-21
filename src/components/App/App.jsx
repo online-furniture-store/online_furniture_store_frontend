@@ -30,6 +30,7 @@ import Header from '../Sections/Header/Header';
 import { UserOrders } from '../UserOrders/UserOrders';
 import styles from './App.module.css';
 import ProductPage from '../../pages/ProductPage/ProductPage';
+import { fetchUser } from '../../store/registration/registration-slice';
 
 function App() {
 	const dispatch = useDispatch();
@@ -39,6 +40,7 @@ function App() {
 		dispatch(fetchCollections());
 		dispatch(getCart());
 		dispatch(updateToken());
+		dispatch(fetchUser());
 	}, [dispatch]);
 
 	const { modalOpen, currentModal } = useSelector((state) => state.modal);
