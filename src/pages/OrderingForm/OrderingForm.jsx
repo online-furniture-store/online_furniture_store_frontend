@@ -13,8 +13,6 @@ function OrderingForm() {
 	const { cart } = useSelector((state) => state.cart);
 	const { isAuth } = useSelector((state) => state.auth);
 	const { user } = useSelector((state) => state.registration);
-	const stat = useSelector((state) => state);
-	console.log(stat);
 	const dispath = useDispatch();
 	const navigate = useNavigate();
 	const {
