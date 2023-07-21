@@ -1,16 +1,20 @@
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import styles from './OrderingForm.module.css';
 import CashForms from '../../components/Forms/CashForm/CashForm';
 import ContainerForms from '../../components/Forms/ContainerForms/ContainerForms';
 import TotalPrice from '../../components/TotalPrice/TotalPrice';
 import WayToReceive from '../../components/Sections/WayToReceive/WayToReceive';
 import { makeOrder } from '../../store/orders/orders-slice';
+import { openModal } from '../../store/modal/modal-slice';
 
 function OrderingForm() {
 	const { cart } = useSelector((state) => state.cart);
 	const { isAuth } = useSelector((state) => state.auth);
+	const { user } = useSelector((state) => state.registration);
 	const dispath = useDispatch();
+	const navigate = useNavigate();
 	const {
 		control,
 		handleSubmit,
@@ -19,18 +23,40 @@ function OrderingForm() {
 	} = useForm({
 		mode: 'onChange',
 		defaultValues: {
-			firstName: '',
-			surname: '',
+			first_name: user.first_name || '',
+			last_name: user.last_name || '',
 			telephone: '',
-			email: '',
+			email: user.email || '',
 			address: '',
 		},
 	});
 
-	const onSubmit = () => {
-		// eslint-disable-next-line no-unused-expressions, max-len
-		isAuth && dispath(makeOrder({ products: cart.products, user: {}, paid: true, delivery: {} }));
-		// reset();
+	const onSubmit = (data) => {
+		if (isAuth) {
+			dispath(
+				makeOrder({
+					user,
+					products: [
+						{
+							product: 10,
+							quantity: 1,
+						},
+					],
+					delivery: {
+						address: data.address ? `${data.address}  ${data.apartament || ''} ${data.entrance || ''}  ${data.floor || ''}` : 'null',
+						type_delivery: 3,
+						comment: data.comment,
+						datetime_from: '2023-07-25T07:18:33.916Z',
+						datetime_to: '2023-07-25T07:18:33.916Z',
+						elevator: data.lift || false,
+					},
+					paid: true,
+				}),
+			);
+			navigate('/payment');
+		} else {
+			dispath(openModal('authModal'));
+		}
 	};
 
 	return (

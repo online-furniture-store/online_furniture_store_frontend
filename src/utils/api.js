@@ -72,16 +72,14 @@ export class Api {
 		}).then(this.#onResponse);
 	}
 
-	makeOrder(user, products, delivery, paid) {
+	makeNewOrder(data) {
 		return fetch(`${this.#baseurl}api/orders/`, {
 			method: 'POST',
-			credentials: 'include',
-			body: JSON.stringify({
-				user,
-				products,
-				delivery,
-				paid,
-			}),
+			headers: {
+				...this.#headers,
+				authorization: `Bearer ${getLocalData('access')}`,
+			},
+			body: JSON.stringify({ ...data }),
 		}).then(this.#onResponse);
 	}
 

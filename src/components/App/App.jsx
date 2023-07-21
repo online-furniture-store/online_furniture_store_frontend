@@ -42,8 +42,6 @@ function App() {
 		dispatch(updateToken());
 		dispatch(fetchUser());
 	}, [dispatch]);
-	const stat = useSelector((state) => state);
-	console.log(stat);
 	const { modalOpen, currentModal } = useSelector((state) => state.modal);
 
 	return (
@@ -78,6 +76,7 @@ function App() {
 						<Route path="/rules-consent" element={<ConsentDataProcessing />} />
 						<Route path="/rules-data" element={<DataProcessingPolicy />} />
 						<Route path="/order-form" element={<OrderingForm />} />
+						<Route path="/payment" element={<PageInDevelopment />} />
 						<Route
 							path="/user/my_orders"
 							element={

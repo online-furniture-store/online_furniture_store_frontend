@@ -13,8 +13,8 @@ export const getOrders = createAsyncThunk(
 	`${sliceName}/getOrders`,
 	async (_, { fulfillWithValue, rejectWithValue }) => {
 		try {
-			const cart = await api.getCart();
-			return fulfillWithValue({ ...cart });
+			const order = await api.getOrders();
+			return fulfillWithValue({ ...order });
 		} catch (err) {
 			return rejectWithValue(err);
 		}
@@ -23,10 +23,10 @@ export const getOrders = createAsyncThunk(
 
 export const makeOrder = createAsyncThunk(
 	`${sliceName}/makeOrder`,
-	async ({ user, products, delivery, paid }, { fulfillWithValue, rejectWithValue }) => {
+	async (data, { fulfillWithValue, rejectWithValue }) => {
 		try {
-			const cart = await api.makeOrder(user, products, delivery, paid);
-			return fulfillWithValue({ ...cart });
+			const order = await api.makeNewOrder(data);
+			return fulfillWithValue({ ...order });
 		} catch (err) {
 			return rejectWithValue(err);
 		}

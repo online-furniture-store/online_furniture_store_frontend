@@ -15,7 +15,6 @@ function AddressNumber({ inputId, onChange, onBlur, value, label, helperText, er
 				value={value ?? ''}
 				onChange={onChange}
 				placeholder=""
-				required
 				onBlur={onBlur}
 			/>
 			<label className={styles.naming} htmlFor={inputId}>
