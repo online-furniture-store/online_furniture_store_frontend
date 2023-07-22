@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import { Link, useLocation } from 'react-router-dom';
-import styles from './TotalPrice.module.css';
-import BlackButton from '../UI/BlackButton/BlackButton';
 import repeat from '../../assets/img/repeat.svg';
+import BlackButton from '../UI/BlackButton/BlackButton';
+import styles from './TotalPrice.module.css';
 
 function TotalPrice({
 	discount,
@@ -110,10 +110,7 @@ function TotalPrice({
 			{location.pathname === '/order' && (
 				<>
 					<div className={styles.discountSection}>
-						<p className={styles.paymentText}>
-							Оплачено картой онлайн
-						</p>
-
+						<p className={styles.paymentText}>Оплачено картой онлайн</p>
 					</div>
 					<p className={styles.productsCount}>
 						товары ({count})<span className={styles.dot}>&#8226;</span>

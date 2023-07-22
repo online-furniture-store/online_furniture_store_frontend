@@ -121,6 +121,10 @@
   color: var(--main-black);
 }
 
+.link:hover {
+  opacity: 0.6;
+}
+
 .icon {
   width: 16px;
   height: 16px;

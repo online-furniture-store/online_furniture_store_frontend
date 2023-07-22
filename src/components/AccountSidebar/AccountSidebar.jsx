@@ -1,7 +1,14 @@
+import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { logout } from '../../store/auth/auth-slice';
 import styles from './AccountSidebar.module.css';
 
 function AccountSidebar() {
+	const dispatch = useDispatch();
+
+	const handleLogoutUser = () => {
+		dispatch(logout());
+	};
 	return (
 		<nav className={styles.container}>
 			<ul className={styles.list}>
@@ -36,7 +43,7 @@ function AccountSidebar() {
 					</NavLink>
 				</li>
 				<li>
-					<NavLink to="/" className={styles.link}>
+					<NavLink to="/" onClick={handleLogoutUser} className={styles.link}>
 						Выход
 					</NavLink>
 				</li>
