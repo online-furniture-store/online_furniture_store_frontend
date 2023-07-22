@@ -7,7 +7,7 @@ const initialState = {
 	error: null,
 };
 
-export const sliceName = 'registration';
+export const sliceName = 'user';
 
 export const fetchUser = createAsyncThunk(
 	`${sliceName}/fetchUser`,
@@ -45,7 +45,7 @@ export const forgotPassword = createAsyncThunk(
 	},
 );
 
-const authSlice = createSlice({
+const userSlice = createSlice({
 	name: sliceName,
 	initialState,
 	reducers: {},
@@ -92,4 +92,4 @@ const authSlice = createSlice({
 	},
 });
 
-export default authSlice.reducer;
+export default userSlice.reducer;

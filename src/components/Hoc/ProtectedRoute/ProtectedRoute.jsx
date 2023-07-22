@@ -1,13 +1,9 @@
-import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { getLocalData } from '../../../utils/localStorage';
 
 function ProtectedRoute({ children }) {
-	const { isAuth } = useSelector((state) => state.auth);
-	if (!isAuth) {
-		return <Navigate to="/" replace />;
-	}
-	return children;
+	return getLocalData('access') ? children : <Navigate to="/" />;
 }
 
 ProtectedRoute.propTypes = {

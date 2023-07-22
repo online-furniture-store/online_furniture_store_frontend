@@ -5,6 +5,7 @@ import {
 	removeLocalData,
 	getLocalData,
 } from '../../utils/localStorage';
+import { fetchUser } from '../user/user-slice';
 
 const initialState = {
 	isAuth: false,
@@ -16,11 +17,12 @@ export const sliceName = 'auth';
 
 export const login = createAsyncThunk(
 	`${sliceName}/login`,
-	async (data, { fulfillWithValue, rejectWithValue }) => {
+	async (data, { fulfillWithValue, rejectWithValue, dispatch }) => {
 		try {
 			const tokens = await api.jwtCreate(data);
 			setLocalData('refresh', tokens.refresh);
 			setLocalData('access', tokens.access);
+			dispatch(fetchUser());
 			return fulfillWithValue();
 		} catch (err) {
 			return rejectWithValue(err);
