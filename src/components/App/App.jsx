@@ -34,6 +34,7 @@ import styles from './App.module.css';
 
 function App() {
 	const dispatch = useDispatch();
+	const { modalOpen, currentModal } = useSelector((state) => state.modal);
 	useEffect(() => {
 		dispatch(fetchProducts());
 		dispatch(fetchPopularProducts());
@@ -42,7 +43,6 @@ function App() {
 		dispatch(updateToken());
 		dispatch(fetchUser());
 	}, [dispatch]);
-	const { modalOpen, currentModal } = useSelector((state) => state.modal);
 
 	return (
 		<div className={styles.app}>
@@ -53,16 +53,6 @@ function App() {
 					<Routes>
 						<Route path="/" element={<HomePage />} />
 						<Route path="/about" element={<AboutPage />} />
-						<Route
-							path="/user"
-							element={
-								<ProtectedRoute>
-									<UserAccount>
-										<div />
-									</UserAccount>
-								</ProtectedRoute>
-							}
-						/>
 						<Route path="/chosen" element={<PageInDevelopment />} />
 						<Route path="/cart" element={<CartPage />} />
 						<Route path="/product/:id" element={<ProductPage />} />
@@ -77,6 +67,7 @@ function App() {
 						<Route path="/rules-data" element={<DataProcessingPolicy />} />
 						<Route path="/order-form" element={<OrderingForm />} />
 						<Route path="/payment" element={<PageInDevelopment />} />
+						<Route path="/user/feedback" element={<PageInDevelopment />} />
 						<Route
 							path="/user/my_orders"
 							element={
@@ -88,7 +79,7 @@ function App() {
 							}
 						/>
 						<Route
-							path="/order"
+							path="/user/my_orders/:id"
 							element={
 								<ProtectedRoute>
 									<UserAccount>

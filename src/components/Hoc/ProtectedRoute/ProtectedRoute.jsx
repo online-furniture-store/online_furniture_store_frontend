@@ -1,6 +1,6 @@
-import { Navigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 
 function ProtectedRoute({ children }) {
 	const { isAuth } = useSelector((state) => state.auth);
