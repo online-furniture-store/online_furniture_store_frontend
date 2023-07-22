@@ -53,16 +53,6 @@ function App() {
 					<Routes>
 						<Route path="/" element={<HomePage />} />
 						<Route path="/about" element={<AboutPage />} />
-						<Route
-							path="/user"
-							element={
-								<ProtectedRoute>
-									<UserAccount>
-										<div />
-									</UserAccount>
-								</ProtectedRoute>
-							}
-						/>
 						<Route path="/chosen" element={<PageInDevelopment />} />
 						<Route path="/cart" element={<CartPage />} />
 						<Route path="/product/:id" element={<ProductPage />} />
@@ -90,11 +80,11 @@ function App() {
 						<Route
 							path="/user/my_orders/:id"
 							element={
-								// <ProtectedRoute>
-								<UserAccount>
-									<OrderPage />
-								</UserAccount>
-								// </ProtectedRoute>
+								<ProtectedRoute>
+									<UserAccount>
+										<OrderPage />
+									</UserAccount>
+								</ProtectedRoute>
 							}
 						/>
 						<Route path="/favorites" element={<FavoritesPage />} />

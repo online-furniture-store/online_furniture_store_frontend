@@ -121,7 +121,7 @@ function Header() {
 									type="button"
 									onClick={() => {
 										return isAuth
-											? navigate('/user')
+											? navigate('/user/my_orders')
 											: dispatch(openModal('authModal'));
 									}}
 								>
@@ -130,10 +130,8 @@ function Header() {
 										src={user}
 										alt="иконка кабинет пользователя"
 									/>
-
 								</button>
 								<NavLink className={styles.nav__item} to="/favorites">
-
 									<HeartCounter amount={0} />
 								</NavLink>
 								<NavLink className={styles.nav__item} to="/cart">
@@ -154,8 +152,8 @@ function Header() {
 									to="/arm-chairs"
 									className={
 										location.pathname === '/' ||
-											location.pathname === '/about' ||
-											location.pathname === '/arm-chairs'
+										location.pathname === '/about' ||
+										location.pathname === '/arm-chairs'
 											? styles.categories__item_active
 											: styles.categories__item
 									}
