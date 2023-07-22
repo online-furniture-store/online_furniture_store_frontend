@@ -61,7 +61,7 @@ function OrderCard({
 					</ul>
 				</div>
 				<div className={styles.buttonWrapper}>
-					<Link to="!#" className={styles.link}>
+					<Link to={`/user/my_orders/${orderId}`} className={styles.link}>
 						Подробнее
 					</Link>
 					<Link to="!#" className={styles.link}>

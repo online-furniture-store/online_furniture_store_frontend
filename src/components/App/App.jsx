@@ -34,6 +34,7 @@ import styles from './App.module.css';
 
 function App() {
 	const dispatch = useDispatch();
+	const { modalOpen, currentModal } = useSelector((state) => state.modal);
 	useEffect(() => {
 		dispatch(fetchProducts());
 		dispatch(fetchPopularProducts());
@@ -42,7 +43,6 @@ function App() {
 		dispatch(updateToken());
 		dispatch(fetchUser());
 	}, [dispatch]);
-	const { modalOpen, currentModal } = useSelector((state) => state.modal);
 
 	return (
 		<div className={styles.app}>
@@ -88,13 +88,13 @@ function App() {
 							}
 						/>
 						<Route
-							path="/order"
+							path="/user/my_orders/:id"
 							element={
-								<ProtectedRoute>
-									<UserAccount>
-										<OrderPage />
-									</UserAccount>
-								</ProtectedRoute>
+								// <ProtectedRoute>
+								<UserAccount>
+									<OrderPage />
+								</UserAccount>
+								// </ProtectedRoute>
 							}
 						/>
 						<Route path="/favorites" element={<FavoritesPage />} />
