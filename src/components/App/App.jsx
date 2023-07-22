@@ -67,6 +67,7 @@ function App() {
 						<Route path="/rules-data" element={<DataProcessingPolicy />} />
 						<Route path="/order-form" element={<OrderingForm />} />
 						<Route path="/payment" element={<PageInDevelopment />} />
+						<Route path="/user/feedback" element={<PageInDevelopment />} />
 						<Route
 							path="/user/my_orders"
 							element={
