@@ -23,7 +23,7 @@ import ProtectedRoute from '../Hoc/ProtectedRoute/ProtectedRoute';
 
 import ProductPage from '../../pages/ProductPage/ProductPage';
 import { updateToken } from '../../store/auth/auth-slice';
-import { fetchUser } from '../../store/registration/registration-slice';
+import { fetchUser } from '../../store/user/user-slice';
 import { modals } from '../../utils/modals';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import Modal from '../Modals/Modal/Modal';

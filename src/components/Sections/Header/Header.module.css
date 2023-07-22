@@ -6,6 +6,7 @@
 
 .wrapper {
   display: flex;
+  align-items: center;
   gap: 36px;
 }
 
@@ -61,7 +62,6 @@
 
 .menu__item {
   cursor: pointer;
-  font-family: 'Helvetica';
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -89,7 +89,6 @@
 
 .menu__item_active {
   cursor: pointer;
-  font-family: 'Helvetica';
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -114,12 +113,11 @@
 .contacts {
   list-style: none;
   display: flex;
-
+  align-items: center;
   margin-block-start: 0;
   margin-block-end: 0;
   padding-inline-start: 0;
   gap: 25px;
-  font-family: 'Helvetica';
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -215,7 +213,6 @@
 .categories__item {
   text-decoration: none;
   color: var(--main-black);
-  font-family: 'Helvetica';
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -226,7 +223,6 @@
 .categories__item_active {
   text-decoration: none;
   color: var(--main-black);
-  font-family: 'Helvetica';
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
@@ -246,7 +242,6 @@
 .categories__item_active_last {
   text-decoration: none;
   color: var(--system-red);
-  font-family: 'Helvetica';
   font-style: normal;
   font-weight: 700;
   font-size: 20px;

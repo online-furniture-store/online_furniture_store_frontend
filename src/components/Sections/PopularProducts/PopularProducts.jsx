@@ -24,7 +24,7 @@ function PopularProducts() {
 						{popularProducts.map((item) => (
 							<PopularProductCard
 								key={item.id}
-								img={item.images ? item.images.first_image : 'https://ofs.proninteam.ru/media/%D0%B1%D0%B0%D0%BD…%D0%B3%D0%BC%D0%B0_%D0%BC%D0%B0%D0%BB_EMKAvfc.png'}
+								img={item.images ? item.images.first_image : ''}
 								productName={item.name}
 								productPrice={item.total_price}
 								productFavorited={item.is_favorited}
@@ -37,7 +37,7 @@ function PopularProducts() {
 							{popularProducts.slice(0, 3).map((item, index) => (
 								<div className={styles[`box${index}`]} key={item.id}>
 									<PopularProductCard
-										img={item.images ? item.images.first_image : 'https://ofs.proninteam.ru/media/%D0%B1%D0%B0%D0%BD…%D0%B3%D0%BC%D0%B0_%D0%BC%D0%B0%D0%BB_EMKAvfc.png'}
+										img={item.images ? item.images.first_image : ''}
 										productName={item.name}
 										productPrice={item.total_price}
 										productFavorited={item.is_favorited}
@@ -49,7 +49,7 @@ function PopularProducts() {
 							{popularProducts.slice(3).map((item, index) => (
 								<div className={styles[`box${index}`]} key={item.id}>
 									<PopularProductCard
-										img={item.images ? item.images.first_image : 'https://ofs.proninteam.ru/media/%D0%B1%D0%B0%D0%BD…%D0%B3%D0%BC%D0%B0_%D0%BC%D0%B0%D0%BB_EMKAvfc.png'}
+										img={item.images ? item.images.first_image : ''}
 										productName={item.name}
 										productPrice={item.total_price}
 										productFavorited={item.is_favorited}

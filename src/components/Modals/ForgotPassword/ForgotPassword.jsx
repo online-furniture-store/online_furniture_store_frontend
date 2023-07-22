@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useForm, Controller } from 'react-hook-form';
 import { openModal } from '../../../store/modal/modal-slice';
-import { forgotPassword } from '../../../store/registration/registration-slice';
+import { forgotPassword } from '../../../store/user/user-slice';
 import styles from './ForgotPassword.module.css';
 import NameInput from '../../UI/NameInput/NameInput';
 import BlackButton from '../../UI/BlackButton/BlackButton';

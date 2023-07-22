@@ -93,15 +93,15 @@ function TotalPrice({
 					/>
 					<p className={styles.argeement}>
 						Нажимая на кнопку, я даю&nbsp;
-						<Link to="/rules-consent" className={styles.link}>
+						<Link to="/rules-consent" target="_blanck" className={styles.link}>
 							согласие &nbsp;
 						</Link>
 						на обработку персональных данных в соответствии с&nbsp;
-						<Link to="/rules-data" className={styles.link}>
+						<Link to="/rules-data" target="_blanck" className={styles.link}>
 							Политикой
 						</Link>
 						, соглашаюсь с&nbsp;
-						<Link to="/rules-sale" className={styles.link}>
+						<Link to="/rules-sale" target="_blanck" className={styles.link}>
 							Правилами
 						</Link>
 					</p>
@@ -139,7 +139,7 @@ TotalPrice.propTypes = {
 	discount: PropTypes.number,
 	count: PropTypes.number.isRequired,
 	lastPrice: PropTypes.number,
-	weight: PropTypes.number.isRequired,
+	weight: PropTypes.number,
 	totalPrice: PropTypes.number,
 	days: PropTypes.number.isRequired,
 	buttonText: PropTypes.string,

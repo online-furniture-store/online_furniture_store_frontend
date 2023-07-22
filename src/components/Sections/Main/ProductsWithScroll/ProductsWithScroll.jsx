@@ -26,7 +26,8 @@ function ProductsWithScroll({ fastDelivery, isSmall, sameProduct }) {
 	const defineTitleText = () => {
 		if (fastDelivery) {
 			return 'Товары с быстрой доставкой';
-		} if (sameProduct) {
+		}
+		if (sameProduct) {
 			return '';
 		}
 		return 'Выгодная покупка';
@@ -35,58 +36,42 @@ function ProductsWithScroll({ fastDelivery, isSmall, sameProduct }) {
 	const defineArrayProducts = () => {
 		if (fastDelivery) {
 			return fastDeliveryProducts;
-		} if (sameProduct) {
+		}
+		if (sameProduct) {
 			return furniture.similar_products;
 		}
 		return discountProducts;
 	};
 	return (
-		<section
-			className={
-				fastDelivery
-					? `${styles.wrapper} ${styles.wrapperFastDelivery}`
-					: `${styles.wrapper} ${styles.wrapperDiscount}`
-			}
-		>
+		<section className={`${styles.wrapper} ${styles.wrapperDiscount}`}>
 			<div className={styles.title}>
-				<Title
-					titleText={defineTitleText()}
-				/>
+				<Title titleText={defineTitleText()} />
 			</div>
 			<Swiper
 				{...swiperOptions()}
-				className={
-					fastDelivery
-						? `${styles.container} ${styles.containerFastDelivery}`
-						: `${styles.container} ${styles.containerDiscount}`
-				}
+				className={`${styles.container} ${styles.containerDiscount}`}
 			>
-				{(defineArrayProducts()).map(
-					(item) => (
-						<SwiperSlide key={item.id} className={styles.description}>
-							<ProductCard
-								id={item.id}
-								img={item.images ? item.images.first_image : 'https://ofs.proninteam.ru/media/%D0%B1%D0%B0%D0%BD…%D0%B3%D0%BC%D0%B0_%D0%BC%D0%B0%D0%BB_EMKAvfc.png'}
-								title={item.name}
-								newPrice={item.total_price.toLocaleString()}
-								oldPrice={item.price.toLocaleString()}
-								inStock={item.available_quantity}
-								weight={item.weight}
-								brand={item.brand}
-								country={item.country}
-								fastDelivery={fastDelivery}
-								added={cart.products.some(
-									(elem) => elem.product.id === item.id,
-								)}
-								isSmall={isSmall}
-								onClick={() => {
-									navigate(`/product/${item.id}`);
-								}}
-
-							/>
-						</SwiperSlide>
-					),
-				)}
+				{defineArrayProducts().map((item) => (
+					<SwiperSlide key={item.id} className={styles.description}>
+						<ProductCard
+							id={item.id}
+							img={item.images ? item.images.first_image : ''}
+							title={item.name}
+							newPrice={item.total_price.toLocaleString()}
+							oldPrice={item.price.toLocaleString()}
+							inStock={item.available_quantity}
+							weight={item.weight}
+							brand={item.brand}
+							country={item.country}
+							fastDelivery={fastDelivery}
+							added={cart.products.some((elem) => elem.product.id === item.id)}
+							isSmall={isSmall}
+							onClick={() => {
+								navigate(`/product/${item.id}`);
+							}}
+						/>
+					</SwiperSlide>
+				))}
 			</Swiper>
 		</section>
 	);

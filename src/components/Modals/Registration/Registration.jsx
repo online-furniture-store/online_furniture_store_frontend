@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
 import { openModal } from '../../../store/modal/modal-slice';
-import { registration } from '../../../store/registration/registration-slice';
+import { registration } from '../../../store/user/user-slice';
 import styles from './Registration.module.css';
 import NameInput from '../../UI/NameInput/NameInput';
 import BlackButton from '../../UI/BlackButton/BlackButton';
