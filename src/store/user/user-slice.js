@@ -45,6 +45,30 @@ export const forgotPassword = createAsyncThunk(
 	},
 );
 
+export const patchUser = createAsyncThunk(
+	`${sliceName}/patchUser`,
+	async (data, { fulfillWithValue, rejectWithValue }) => {
+		try {
+			const user = await api.patchUser(data);
+			return fulfillWithValue({ ...user });
+		} catch (err) {
+			return rejectWithValue(err);
+		}
+	},
+);
+
+export const changePassword = createAsyncThunk(
+	`${sliceName}/changePassword`,
+	async (data, { fulfillWithValue, rejectWithValue }) => {
+		try {
+			await api.changePassword(data);
+			return fulfillWithValue({});
+		} catch (err) {
+			return rejectWithValue(err);
+		}
+	},
+);
+
 const userSlice = createSlice({
 	name: sliceName,
 	initialState,
@@ -52,18 +76,18 @@ const userSlice = createSlice({
 	extraReducers: (builder) => {
 		builder
 
-		.addCase(fetchUser.pending, (state) => {
-			state.loading = true;
-			state.error = null;
-		})
-		.addCase(fetchUser.fulfilled, (state, action) => {
-			state.user = action.payload;
-			state.loading = false;
-		})
-		.addCase(fetchUser.rejected, (state, action) => {
-			state.error = action.payload;
-			state.loading = false;
-		})
+			.addCase(fetchUser.pending, (state) => {
+				state.loading = true;
+				state.error = null;
+			})
+			.addCase(fetchUser.fulfilled, (state, action) => {
+				state.user = action.payload;
+				state.loading = false;
+			})
+			.addCase(fetchUser.rejected, (state, action) => {
+				state.error = action.payload;
+				state.loading = false;
+			})
 
 			.addCase(registration.pending, (state) => {
 				state.loading = true;
@@ -86,6 +110,31 @@ const userSlice = createSlice({
 				state.loading = false;
 			})
 			.addCase(forgotPassword.rejected, (state, action) => {
+				state.error = action.payload;
+				state.loading = false;
+			})
+
+			.addCase(patchUser.pending, (state) => {
+				state.loading = true;
+				state.error = null;
+			})
+			.addCase(patchUser.fulfilled, (state, action) => {
+				state.user = action.payload;
+				state.loading = false;
+			})
+			.addCase(patchUser.rejected, (state, action) => {
+				state.error = action.payload;
+				state.loading = false;
+			})
+
+			.addCase(changePassword.pending, (state) => {
+				state.loading = true;
+				state.error = null;
+			})
+			.addCase(changePassword.fulfilled, (state) => {
+				state.loading = false;
+			})
+			.addCase(changePassword.rejected, (state, action) => {
 				state.error = action.payload;
 				state.loading = false;
 			});

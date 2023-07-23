@@ -11,10 +11,11 @@ function NameInput({
 	helperText,
 	error,
 	onClick,
+	required,
 }) {
 	return (
 		<div className={styles.container}>
-			<label className={styles.naming} htmlFor={inputId}>
+			<label className={required ? styles.naming : styles.naming__nonRequired} htmlFor={inputId}>
 				{label}
 			</label>
 			<input
@@ -28,7 +29,7 @@ function NameInput({
 				onChange={onChange}
 				placeholder=""
 				type={type}
-				required
+				required={required}
 				onBlur={onBlur}
 			/>
 
@@ -50,6 +51,7 @@ NameInput.propTypes = {
 	helperText: PropTypes.string,
 	error: PropTypes.bool,
 	onClick: PropTypes.func,
+	required: PropTypes.bool,
 };
 
 export default NameInput;

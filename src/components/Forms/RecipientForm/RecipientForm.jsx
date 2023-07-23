@@ -24,6 +24,7 @@ function RecipientForm({ control, errors, resetField }) {
 					}}
 					render={({ field: { onChange, onBlur, value, type = 'text' } }) => (
 						<NameInput
+							required
 							onBlur={onBlur}
 							onChange={onChange}
 							value={value}
@@ -53,6 +54,7 @@ function RecipientForm({ control, errors, resetField }) {
 					}}
 					render={({ field: { onChange, onBlur, value, type = 'text' } }) => (
 						<NameInput
+							required
 							onBlur={onBlur}
 							onChange={onChange}
 							value={value}
@@ -81,6 +83,7 @@ function RecipientForm({ control, errors, resetField }) {
 					}}
 					render={({ field: { onChange, onBlur, value, type = 'text' } }) => (
 						<NameInput
+							required
 							onBlur={onBlur}
 							onChange={onChange}
 							value={value}
@@ -105,6 +108,7 @@ function RecipientForm({ control, errors, resetField }) {
 					}}
 					render={({ field: { onChange, onBlur, value, type = 'email' } }) => (
 						<NameInput
+							required
 							onBlur={onBlur}
 							onChange={onChange}
 							value={value}

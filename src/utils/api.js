@@ -159,11 +159,33 @@ export class Api {
 		}).then(this.#onResponse);
 	}
 
+	patchUser(data) {
+		return fetch(`${this.#baseurl}api/users/me/`, {
+			method: 'PATCH',
+			headers: {
+				...this.#headers,
+				authorization: `Bearer ${getLocalData('access')}`,
+			},
+			body: JSON.stringify({ ...data }),
+		}).then(this.#onResponse);
+	}
+
 	resetPassword(data) {
 		return fetch(`${this.#baseurl}api/users/reset_password/`, {
 			method: 'POST',
 			headers: {
 				...this.#headers,
+			},
+			body: JSON.stringify({ ...data }),
+		}).then(this.#onResponse);
+	}
+
+	changePassword(data) {
+		return fetch(`${this.#baseurl}api/users/change_password/`, {
+			method: 'POST',
+			headers: {
+				...this.#headers,
+				authorization: `Bearer ${getLocalData('access')}`,
 			},
 			body: JSON.stringify({ ...data }),
 		}).then(this.#onResponse);

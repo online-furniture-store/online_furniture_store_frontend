@@ -53,6 +53,7 @@ function Registration() {
 						}}
 						render={({ field: { onChange, onBlur, value, type = 'text' } }) => (
 							<NameInput
+								required
 								onBlur={onBlur}
 								onChange={onChange}
 								value={value}
@@ -81,6 +82,7 @@ function Registration() {
 						}}
 						render={({ field: { onChange, onBlur, value, type = 'text' } }) => (
 							<NameInput
+								required
 								onBlur={onBlur}
 								onChange={onChange}
 								value={value}
@@ -103,8 +105,11 @@ function Registration() {
 								message: 'Неверный формат email',
 							},
 						}}
-						render={({ field: { onChange, onBlur, value, type = 'email' } }) => (
+						render={({
+							field: { onChange, onBlur, value, type = 'email' },
+						}) => (
 							<NameInput
+								required
 								onBlur={onBlur}
 								onChange={onChange}
 								value={value}
@@ -128,8 +133,11 @@ function Registration() {
 									'Пароль должен содержать цифры, латинские буквы верхнего и нижнего регистра, не менее 6 символов',
 							},
 						}}
-						render={({ field: { onChange, onBlur, value, type = 'password' } }) => (
+						render={({
+							field: { onChange, onBlur, value, type = 'password' },
+						}) => (
 							<NameInput
+								required
 								onBlur={onBlur}
 								onChange={onChange}
 								value={value}
@@ -150,8 +158,11 @@ function Registration() {
 							validate: (value) =>
 								value === getValues('password') || 'Пароли не совпадают',
 						}}
-						render={({ field: { onChange, onBlur, value, type = 'password' } }) => (
+						render={({
+							field: { onChange, onBlur, value, type = 'password' },
+						}) => (
 							<NameInput
+								required
 								onBlur={onBlur}
 								onChange={onChange}
 								value={value}
@@ -186,13 +197,13 @@ function Registration() {
 					Правилами
 				</Link>
 			</p>
-				<button
-					className={styles.link}
-					onClick={() => dispatch(openModal('authModal'))}
-					type="button"
-				>
-					Авторизация
-				</button>
+			<button
+				className={styles.link}
+				onClick={() => dispatch(openModal('authModal'))}
+				type="button"
+			>
+				Авторизация
+			</button>
 		</div>
 	);
 }

@@ -1,38 +1,73 @@
-import { Controller, useForm } from 'react-hook-form';
+/* eslint-disable camelcase */
+import { useEffect } from 'react';
+import { useForm, Controller } from 'react-hook-form';
+import { useSelector, useDispatch } from 'react-redux';
+import styles from './ProfileForm.module.css';
 import ContainerForms from '../../components/Forms/ContainerForms/ContainerForms';
 import Checkbox from '../../components/UI/Checkbox/Checkbox';
 import NameInput from '../../components/UI/NameInput/NameInput';
 import SaveButton from '../../components/UI/SaveButton/SaveButton';
-import styles from './ProfileForm.module.css';
+import { patchUser, changePassword } from '../../store/user/user-slice';
 
 function ProfileForm() {
+	const { user } = useSelector((state) => state.user);
+	const dispatch = useDispatch();
 	const {
-		watch,
 		control,
+		watch,
 		handleSubmit,
 		reset,
 		resetField,
+		getValues,
+		setValue,
 		formState: { errors },
 	} = useForm({
 		mode: 'onChange',
 		defaultValues: {
-			firstName: '',
-			surname: '',
-			telephone: '',
+			first_name: '',
+			last_name: '',
+			phone: '',
 			email: '',
-			date: '',
-			oldPassword: '',
-			newPassword: '',
-			confirmedPassword: '',
+			birthday: '',
+			current_password: '',
+			new_password: '',
+			confirmPassword: '',
 		},
 	});
 
-	const newPassword = watch('newPassword');
-	const oldPassword = watch('oldPassword');
+	const newPassword = watch('new_password');
 
-	const onSubmit = () => {
-		// console.log(data);
-		reset();
+	useEffect(() => {
+		setValue('first_name', user.first_name || '');
+		setValue('last_name', user.last_name || '');
+		setValue('email', user.email || '');
+		setValue('phone', user.phone || '');
+		setValue('birthday', user.birthday || '');
+	}, [setValue, user]);
+
+	const onSubmit = async ({
+		first_name,
+		last_name,
+		email,
+		phone,
+		birthday,
+		new_password,
+		current_password,
+		confirmPassword,
+	}) => {
+		await dispatch(
+			patchUser({
+				first_name,
+				last_name,
+				email,
+				phone,
+				birthday,
+				confirmPassword,
+			}),
+		);
+		if (current_password && new_password) {
+			await dispatch(changePassword({ new_password, current_password }));
+		}
 	};
 
 	return (
@@ -47,29 +82,31 @@ function ProfileForm() {
 								<Controller
 									control={control}
 									rules={{
-										required: 'Поле обязательное',
 										minLength: {
 											value: 6,
 											message: 'Номер слишком короткий',
 										},
 										pattern: {
-											value: /^[+]?[0-9]+/g,
+											value: /\+?[78][-\\(]?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$/,
 											message: 'Неверный формат телефона',
 										},
 									}}
-									render={({ field: { onChange, onBlur, value } }) => (
+									render={({
+										field: { onBlur, value, onChange, type = 'tel' },
+									}) => (
 										<NameInput
 											onBlur={onBlur}
 											onChange={onChange}
 											value={value}
-											inputId="telephone"
+											type={type}
+											inputId="phone"
 											label="Телефон"
-											helperText={errors.telephone?.message?.toString()}
-											error={!!errors.telephone?.message}
-											onClick={() => resetField('telephone')}
+											helperText={errors.phone?.message?.toString()}
+											error={!!errors.phone?.message}
+											onClick={() => resetField('phone')}
 										/>
 									)}
-									name="telephone"
+									name="phone"
 								/>
 								<Controller
 									control={control}
@@ -80,10 +117,13 @@ function ProfileForm() {
 											message: 'Неверный формат email',
 										},
 									}}
-									render={({ field: { onChange, onBlur, value } }) => (
+									render={({
+										field: { onChange, onBlur, value, type = 'email' },
+									}) => (
 										<NameInput
 											onBlur={onBlur}
 											onChange={onChange}
+											type={type}
 											value={value}
 											inputId="email"
 											label="Электронная почта"
@@ -113,7 +153,6 @@ function ProfileForm() {
 								<Controller
 									control={control}
 									rules={{
-										required: 'Поле обязательное',
 										minLength: {
 											value: 2,
 											message: 'Длина должна быть больше 1 символа',
@@ -124,24 +163,26 @@ function ProfileForm() {
 												'Допустимы символы: пробел, кириллические, латинские, тире',
 										},
 									}}
-									render={({ field: { onChange, onBlur, value } }) => (
+									render={({
+										field: { onChange, onBlur, value, type = 'text' },
+									}) => (
 										<NameInput
 											onBlur={onBlur}
 											onChange={onChange}
 											value={value}
-											inputId="firstName"
+											type={type}
+											inputId="first_name"
 											label="Имя"
-											helperText={errors.firstName?.message?.toString()}
-											error={!!errors.firstName?.message}
-											onClick={() => resetField('firstName')}
+											helperText={errors.first_name?.message?.toString()}
+											error={!!errors.first_name?.message}
+											onClick={() => resetField('first_name')}
 										/>
 									)}
-									name="firstName"
+									name="first_name"
 								/>
 								<Controller
 									control={control}
 									rules={{
-										required: 'Поле обязательное',
 										minLength: {
 											value: 2,
 											message: 'Длина должна быть больше 1 символа',
@@ -152,44 +193,49 @@ function ProfileForm() {
 												'Допустимы символы: пробел, кириллические, латинские, тире',
 										},
 									}}
-									render={({ field: { onChange, onBlur, value } }) => (
+									render={({
+										field: { onChange, onBlur, value, type = 'text' },
+									}) => (
 										<NameInput
 											onBlur={onBlur}
 											onChange={onChange}
 											value={value}
-											inputId="surname"
+											type={type}
+											inputId="last_name"
 											label="Фамилия"
-											helperText={errors.surname?.message?.toString()}
-											error={!!errors.surname?.message}
-											onClick={() => resetField('surname')}
+											helperText={errors.last_name?.message?.toString()}
+											error={!!errors.last_name?.message}
+											onClick={() => resetField('last_name')}
 										/>
 									)}
-									name="surname"
+									name="last_name"
 								/>
 								<Controller
 									control={control}
 									rules={{
-										required: 'Поле обязательное',
 										pattern: {
 											value:
-												/^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19[4-9][0-9]|20[0-1][0-9])$/,
+												/^(19[4-9][0-9]|20[0-1][0-9])[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])$/,
 											message:
-												'Дата дня рождения должна быть в формате ДД.ММ.ГГГГ',
+												'Дата дня рождения должна быть в формате ГГГГ-ММ-ДД',
 										},
 									}}
-									render={({ field: { onChange, onBlur, value } }) => (
+									render={({
+										field: { onChange, onBlur, value, type = 'text' },
+									}) => (
 										<NameInput
 											onBlur={onBlur}
 											onChange={onChange}
 											value={value}
-											inputId="date"
+											type={type}
+											inputId="birthday"
 											label="Дата рождения"
-											helperText={errors.date?.message?.toString()}
-											error={!!errors.date?.message}
-											onClick={() => resetField('date')}
+											helperText={errors.birthday?.message?.toString()}
+											error={!!errors.birthday?.message}
+											onClick={() => resetField('birthday')}
 										/>
 									)}
-									name="date"
+									name="birthday"
 								/>
 							</div>
 						</ContainerForms>
@@ -201,54 +247,37 @@ function ProfileForm() {
 									rules={{
 										required: 'Поле обязательное',
 										pattern: {
-											value:
-												/((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20})/,
+											value: /^(?=.*\d)\w{6,}$/m,
 											message:
-												'Допустимые символы: цифры, заглавные, строчные буквы, (@ # $%)',
-										},
-										minLength: {
-											value: 8,
-											message: 'Длина должна быть больше 8 символов',
-										},
-										maxLength: {
-											value: 20,
-											message: 'Длина должна быть меньше 20 символов',
+												'Пароль должен содержать цифры, латинские буквы верхнего и нижнего регистра, не менее 6 символов',
 										},
 									}}
 									render={({ field: { onChange, onBlur, value } }) => (
 										<NameInput
+											required
 											onBlur={onBlur}
 											onChange={onChange}
 											value={value}
-											inputId="oldPassword"
+											inputId="current_password"
 											label="Старый пароль"
-											helperText={errors.oldPassword?.message?.toString()}
-											error={!!errors.oldPassword?.message}
-											onClick={() => resetField('oldPassword')}
+											helperText={errors.current_password?.message?.toString()}
+											error={!!errors.current_password?.message}
+											onClick={() => resetField('current_password')}
 										/>
 									)}
-									name="oldPassword"
+									name="current_password"
 								/>
 								<Controller
 									control={control}
 									rules={{
-										required: 'Поле обязательное',
 										pattern: {
-											value:
-												/((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20})/,
+											value: /^(?=.*\d)\w{8,}$/m,
 											message:
-												'Допустимые символы: цифры, заглавные, строчные буквы, (@ # $%)',
+												'Пароль должен содержать цифры, латинские буквы верхнего и нижнего регистра, не менее 8 символов',
 										},
-										minLength: {
-											value: 8,
-											message: 'Длина должна быть больше 8 символов',
-										},
-										maxLength: {
-											value: 20,
-											message: 'Длина должна быть меньше 20 символов',
-										},
+
 										validate: (value) =>
-											value !== oldPassword ||
+											value !== getValues('current_password') ||
 											'Пароль совпадает с прошлым паролем',
 									}}
 									render={({ field: { onChange, onBlur, value } }) => (
@@ -256,35 +285,36 @@ function ProfileForm() {
 											onBlur={onBlur}
 											onChange={onChange}
 											value={value}
-											inputId="newPassword"
+											inputId="new_password"
 											label="Новый пароль"
-											helperText={errors.newPassword?.message?.toString()}
-											error={!!errors.newPassword?.message}
-											onClick={() => resetField('newPassword')}
+											helperText={errors.new_password?.message?.toString()}
+											error={!!errors.new_password?.message}
+											onClick={() => resetField('new_password')}
 										/>
 									)}
-									name="newPassword"
+									name="new_password"
 								/>
 								<Controller
 									control={control}
 									rules={{
-										required: 'Поле обязательное',
 										validate: (value) =>
-											value === newPassword || 'Пароли не совпадают',
+											value === getValues('new_password') ||
+											'Пароли не совпадают',
 									}}
 									render={({ field: { onChange, onBlur, value } }) => (
 										<NameInput
+											required={newPassword}
 											onBlur={onBlur}
 											onChange={onChange}
 											value={value}
-											inputId="confirmedPassword"
+											inputId="confirmPassword"
 											label="Подтверждение пароль"
-											helperText={errors.confirmedPassword?.message?.toString()}
-											error={!!errors.confirmedPassword?.message}
-											onClick={() => resetField('confirmedPassword')}
+											helperText={errors.confirmPassword?.message?.toString()}
+											error={!!errors.confirmPassword?.message}
+											onClick={() => resetField('confirmPassword')}
 										/>
 									)}
-									name="confirmedPassword"
+									name="confirmPassword"
 								/>
 							</div>
 						</ContainerForms>

@@ -46,6 +46,7 @@ function Authorization() {
 							field: { onChange, onBlur, value, type = 'email' },
 						}) => (
 							<NameInput
+								required
 								onBlur={onBlur}
 								onChange={onChange}
 								value={value}
@@ -73,6 +74,7 @@ function Authorization() {
 							field: { onChange, onBlur, value, type = 'password' },
 						}) => (
 							<NameInput
+								required
 								onBlur={onBlur}
 								onChange={onChange}
 								value={value}
