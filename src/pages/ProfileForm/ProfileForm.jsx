@@ -45,7 +45,7 @@ function ProfileForm() {
 		setValue('birthday', user.birthday || '');
 	}, [setValue, user]);
 
-	const onSubmit = async ({
+	const onSubmit = ({
 		first_name,
 		last_name,
 		email,
@@ -53,20 +53,19 @@ function ProfileForm() {
 		birthday,
 		new_password,
 		current_password,
-		confirmPassword,
 	}) => {
-		await dispatch(
+		dispatch(
 			patchUser({
 				first_name,
 				last_name,
 				email,
 				phone,
 				birthday,
-				confirmPassword,
+				passowrd: current_password,
 			}),
 		);
 		if (current_password && new_password) {
-			await dispatch(changePassword({ new_password, current_password }));
+			dispatch(changePassword({ new_password, current_password }));
 		}
 	};
 
@@ -252,12 +251,13 @@ function ProfileForm() {
 												'Пароль должен содержать цифры, латинские буквы верхнего и нижнего регистра, не менее 6 символов',
 										},
 									}}
-									render={({ field: { onChange, onBlur, value } }) => (
+									render={({ field: { onChange, onBlur, value, type = 'password' } }) => (
 										<NameInput
 											required
 											onBlur={onBlur}
 											onChange={onChange}
 											value={value}
+											type={type}
 											inputId="current_password"
 											label="Старый пароль"
 											helperText={errors.current_password?.message?.toString()}
@@ -280,11 +280,12 @@ function ProfileForm() {
 											value !== getValues('current_password') ||
 											'Пароль совпадает с прошлым паролем',
 									}}
-									render={({ field: { onChange, onBlur, value } }) => (
+									render={({ field: { onChange, onBlur, value, type = 'password' } }) => (
 										<NameInput
 											onBlur={onBlur}
 											onChange={onChange}
 											value={value}
+											type={type}
 											inputId="new_password"
 											label="Новый пароль"
 											helperText={errors.new_password?.message?.toString()}
@@ -301,14 +302,15 @@ function ProfileForm() {
 											value === getValues('new_password') ||
 											'Пароли не совпадают',
 									}}
-									render={({ field: { onChange, onBlur, value } }) => (
+									render={({ field: { onChange, onBlur, value, type = 'password' } }) => (
 										<NameInput
 											required={newPassword}
 											onBlur={onBlur}
 											onChange={onChange}
 											value={value}
+											type={type}
 											inputId="confirmPassword"
-											label="Подтверждение пароль"
+											label="Подтверждение пароля"
 											helperText={errors.confirmPassword?.message?.toString()}
 											error={!!errors.confirmPassword?.message}
 											onClick={() => resetField('confirmPassword')}
@@ -323,8 +325,8 @@ function ProfileForm() {
 							<SaveButton
 								buttonText="Отменить"
 								type="reset"
-								onClick={(data) => {
-									reset(data);
+								onClick={() => {
+									reset();
 								}}
 							/>
 						</div>
