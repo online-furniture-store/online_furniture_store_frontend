@@ -1,103 +1,55 @@
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
+import { useSelector } from 'react-redux';
 import styles from './Order.module.css';
 import OrderElementCart from '../../OrderElementCart/OrderElementCart';
 
-function Order({ orderNumber, date, status, isCourier, adress, count }) {
-  const items = [
-    {
-      id: 0,
-      user: 0,
-      products:
-        {
-          id: 0,
-          products: 'Диван хороший',
-          quantity: 12,
-          article: 123566,
-          price: 50000,
-          cost: 1e+38,
-          img: 'https://img.freepik.com/free-photo/a-cupcake-with-a-strawberry-on-top-and-a-strawberry-on-the-top_1340-35087.jpg',
-        },
-      delivery: 'yes',
-      total_cost: 1e+38,
-      paid: true,
-    },
-    {
-      id: 0,
-      user: 0,
-      products:
-        {
-          id: 0,
-          products: 'Диван хороший',
-          quantity: 12,
-          article: 123566,
-          price: 50000,
-          cost: 1e+38,
-          img: 'https://img.freepik.com/free-photo/a-cupcake-with-a-strawberry-on-top-and-a-strawberry-on-the-top_1340-35087.jpg',
-        },
-      delivery: 'yes',
-      total_cost: 1e+38,
-      paid: true,
-    },
-    {
-      id: 0,
-      user: 0,
-      products:
-      {
-        id: 0,
-        products: 'Диван хороший',
-        quantity: 12,
-        article: 123566,
-        price: 50000,
-        cost: 1e+38,
-        img: 'https://img.freepik.com/free-photo/a-cupcake-with-a-strawberry-on-top-and-a-strawberry-on-the-top_1340-35087.jpg',
-      },
-    delivery: 'yes',
-    total_cost: 1e+38,
-    paid: true,
-    },
-  ];
-return (
-  <section className={styles.container}>
-    <h2 className={styles.order}>Заказ №{orderNumber}</h2>
-    <p className={styles.orderDate}>от {date}</p>
-    <h3 className={styles.heading}>Статус:</h3>
-    <p className={styles.caption}>{status}</p>
-    {isCourier ? (
-      <>
-        <h3 className={styles.heading}>Доставка курьером:</h3>
-        <p className={styles.caption}>{adress}</p>
-      </>
-    )
-      : (
+function Order({ isCourier }) {
+  const { order } = useSelector((state) => state.orders);
+  const { allProducts } = useSelector((state) => state.products);
+  const productImages = order.products && allProducts.filter((item) => {
+    return order.products.some((f) => {
+      return f.id === item.id;
+    });
+  });
+  return (
+    <section className={styles.container}>
+      <h2 className={styles.order}>Заказ №{order.id}</h2>
+      <p className={styles.orderDate}>{`от ${(order.products && order.delivery.datetime_from)}`}</p>
+      <h3 className={styles.heading}>Статус:</h3>
+      <p className={styles.caption}>Готов</p>
+      {isCourier ? (
         <>
-          <h3 className={styles.heading}>Пункт самовывоза:</h3>
-          <p className={styles.caption}>Москва, Преображенская площадь, 4</p>
+          <h3 className={styles.heading}>Доставка курьером:</h3>
+          <p className={styles.caption}>{order.delivery.address}</p>
         </>
-      )}
-    <h3 className={styles.count}>Товары ({count}):</h3>
-    {items?.map((item) => (
-        <li className={styles.product} key={uuidv4()}>
-          <OrderElementCart
-            id={item.products.id}
-            title={item.products.products}
-            count={item.products.quantity}
-            article={item.products.article}
-            price={item.products.price}
-            img={item.products.img}
-          />
-        </li>
+      )
+        : (
+          <>
+            <h3 className={styles.heading}>Пункт самовывоза:</h3>
+            <p className={styles.caption}>Москва, Преображенская площадь, 4</p>
+          </>
+        )}
+      <h3 className={styles.count}>Товары ({order.products && order.products.length}):</h3>
+      {order.products?.map((item) => (
+        productImages.map((el) => (
+          <li className={styles.product} key={uuidv4()}>
+            <OrderElementCart
+              id={item.id}
+              title={item.name}
+              count={item.quantity}
+              article={2645244}
+              price={item.price}
+              img={el.images.first_image} />
+          </li>
+
+      ))
       ))}
-  </section>
-);
+    </section>
+  );
 }
 
 Order.propTypes = {
-  orderNumber: PropTypes.number.isRequired,
-  date: PropTypes.string.isRequired,
-  status: PropTypes.string.isRequired,
-  isCourier: PropTypes.bool.isRequired,
-  adress: PropTypes.string,
-  count: PropTypes.number.isRequired,
+  isCourier: PropTypes.bool,
 };
 export default Order;

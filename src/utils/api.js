@@ -101,6 +101,14 @@ export class Api {
 		}).then(this.#onResponse);
 	}
 
+	getOrder(id) {
+		return fetch(`${this.#baseurl}api/orders/${id}/`, {
+			headers: {
+				...this.#headers,
+			},
+		}).then(this.#onResponse);
+	}
+
 	getUserOrders() {
 		return fetch(`${this.#baseurl}api/users/my_orders/`, {
 			headers: {

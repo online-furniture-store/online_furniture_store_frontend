@@ -5,7 +5,7 @@ const initialState = {
 	loading: true,
 	error: null,
 	orders: [],
-	order: null,
+	order: {},
 };
 
 export const sliceName = 'orders';
@@ -16,6 +16,18 @@ export const makeOrder = createAsyncThunk(
 		try {
 			const order = await api.makeNewOrder(data);
 			return fulfillWithValue({ ...order });
+		} catch (err) {
+			return rejectWithValue(err);
+		}
+	},
+);
+
+export const fetchOrder = createAsyncThunk(
+	`${sliceName}/fetchOrder`,
+	async (id, { fulfillWithValue, rejectWithValue }) => {
+		try {
+			const orders = await api.getOrder(id);
+			return fulfillWithValue({ ...orders });
 		} catch (err) {
 			return rejectWithValue(err);
 		}
@@ -69,6 +81,21 @@ const ordersSlice = createSlice({
 			.addCase(getOrders.rejected, (state, action) => {
 				state.loading = false;
 				state.error = action.payload;
+			})
+
+			.addCase(fetchOrder.pending, (state) => {
+				state.loading = true;
+				state.error = null;
+			})
+			.addCase(fetchOrder.fulfilled, (state, action) => {
+				state.loading = false;
+				state.order = action.payload;
+				const date = new Date(action.payload.delivery.datetime_from);
+				action.payload.delivery.datetime_from = date.toLocaleDateString();
+			})
+			.addCase(fetchOrder.rejected, (state, action) => {
+				state.error = action.payload;
+				state.loading = false;
 			});
 	},
 });

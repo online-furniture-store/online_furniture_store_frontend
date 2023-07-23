@@ -10,7 +10,7 @@ import styles from './ProductsWithScroll.module.css';
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
 
-function ProductsWithScroll({ fastDelivery, isSmall, sameProduct }) {
+function ProductsWithScroll({ icon, isSmall, sameProduct }) {
 	const navigate = useNavigate();
 
 	const { discountProducts, fastDeliveryProducts } = useSelector(
@@ -21,10 +21,10 @@ function ProductsWithScroll({ fastDelivery, isSmall, sameProduct }) {
 	const { cart } = useSelector((state) => state.cart);
 
 	const swiperOptions = () => {
-		return fastDelivery ? productDeliverySlider : productDiscountSlider;
+		return icon === 'delivery' ? productDeliverySlider : productDiscountSlider;
 	};
 	const defineTitleText = () => {
-		if (fastDelivery) {
+		if (icon === 'delivery') {
 			return 'Товары с быстрой доставкой';
 		}
 		if (sameProduct) {
@@ -34,7 +34,7 @@ function ProductsWithScroll({ fastDelivery, isSmall, sameProduct }) {
 	};
 
 	const defineArrayProducts = () => {
-		if (fastDelivery) {
+		if (icon === 'delivery') {
 			return fastDeliveryProducts;
 		}
 		if (sameProduct) {
@@ -63,7 +63,7 @@ function ProductsWithScroll({ fastDelivery, isSmall, sameProduct }) {
 							weight={item.weight}
 							brand={item.brand}
 							country={item.country}
-							fastDelivery={fastDelivery}
+							icon={icon}
 							added={cart.products.some((elem) => elem.product.id === item.id)}
 							isSmall={isSmall}
 							onClick={() => {
@@ -81,6 +81,7 @@ ProductsWithScroll.propTypes = {
 	fastDelivery: PropTypes.bool,
 	isSmall: PropTypes.bool,
 	sameProduct: PropTypes.bool,
+	icon: PropTypes.string,
 };
 
 export default ProductsWithScroll;

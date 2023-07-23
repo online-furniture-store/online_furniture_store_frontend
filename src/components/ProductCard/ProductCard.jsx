@@ -17,7 +17,7 @@ function ProductCard({
 	weight,
 	brand,
 	country,
-	fastDelivery,
+	icon,
 	added,
 	isSmall,
 	onClick,
@@ -59,14 +59,14 @@ function ProductCard({
 				<div className={styles.sweets}>
 					<div
 						className={
-							fastDelivery
+							icon === 'delivery'
 								? `${styles.percentAndTruck} ${styles.truckDelivery}`
 								: `${styles.none}`
 						}
 					/>
 					<div
 						className={
-							newPrice !== oldPrice
+							icon === 'discount'
 								? `${styles.percentAndTruck} ${styles.discountPercent}`
 								: `${styles.none}`
 						}
@@ -81,12 +81,20 @@ function ProductCard({
 
 			<div
 				className={
-					fastDelivery
-						? `${styles.description} ${styles.descriptionFastDelivery}`
-						: `${styles.description} ${styles.descriptionDiscountCard}`
+					icon === 'delivery' && `${styles.description} ${styles.descriptionFastDelivery}`
 				}
 			>
-				{newPrice === oldPrice ? (
+				<div
+					className={
+						icon === 'discount' && `${styles.description} ${styles.descriptionDiscountCard}`
+					}
+				/>
+				<div
+					className={
+						!icon && `${styles.description}`
+					}
+				/>
+				{icon === 'delivery' ? (
 					<div className={styles.price__FastDelivery}>
 						<p className={styles.price__new_fastDelivery}>
 							{oldPrice}
@@ -138,7 +146,7 @@ ProductCard.propTypes = {
 	weight: PropTypes.number.isRequired,
 	brand: PropTypes.string.isRequired,
 	country: PropTypes.string.isRequired,
-	fastDelivery: PropTypes.bool,
+	icon: PropTypes.string,
 	added: PropTypes.bool,
 	isSmall: PropTypes.bool,
 	onClick: PropTypes.func,
