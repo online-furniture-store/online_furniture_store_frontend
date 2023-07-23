@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import repeat from '../../assets/img/repeat.svg';
 import BlackButton from '../UI/BlackButton/BlackButton';
 import styles from './TotalPrice.module.css';
@@ -14,6 +14,7 @@ function TotalPrice({
 	buttonText,
 	onClick,
 }) {
+	const { id } = useParams();
 	const location = useLocation();
 	return (
 		<div className={styles.container}>
@@ -107,7 +108,7 @@ function TotalPrice({
 					</p>
 				</>
 			)}
-			{location.pathname === '/order' && (
+			{location.pathname === `/user/my_orders/${id}` && (
 				<>
 					<div className={styles.discountSection}>
 						<p className={styles.paymentText}>Оплачено картой онлайн</p>
@@ -138,7 +139,7 @@ TotalPrice.propTypes = {
 	lastPrice: PropTypes.number,
 	weight: PropTypes.number,
 	totalPrice: PropTypes.number,
-	days: PropTypes.number.isRequired,
+	days: PropTypes.number,
 	buttonText: PropTypes.string,
 	onClick: PropTypes.func,
 };
