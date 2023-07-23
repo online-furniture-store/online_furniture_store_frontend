@@ -49,6 +49,7 @@ function BackCall() {
 						}}
 						render={({ field: { onChange, onBlur, value } }) => (
 							<NameInput
+								required
 								onBlur={onBlur}
 								onChange={onChange}
 								value={value}
@@ -76,6 +77,7 @@ function BackCall() {
 						}}
 						render={({ field: { onChange, onBlur, value } }) => (
 							<NameInput
+								required
 								onBlur={onBlur}
 								onChange={onChange}
 								value={value}

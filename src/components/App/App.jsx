@@ -8,7 +8,9 @@ import DataProcessingPolicy from '../../pages/DataProcessingPolicy/DataProcessin
 import OrderPage from '../../pages/OrderPage/OrderPage';
 import OrderingForm from '../../pages/OrderingForm/OrderingForm';
 import PageInDevelopment from '../../pages/PageInDevelopment/PageInDevelopment';
+import ProfileForm from '../../pages/ProfileForm/ProfileForm';
 import TradingRules from '../../pages/TradingRules/TradingRules';
+import FavoritesPage from '../../pages/FavoritesPage/FavoritesPage';
 import ProtectedRoute from '../Hoc/ProtectedRoute/ProtectedRoute';
 import UserAccount from '../../pages/UserAccount/UserAccount';
 import { getCart } from '../../store/cart/cart-slice';
@@ -27,6 +29,8 @@ import Footer from '../Sections/Footer/Footer';
 import Header from '../Sections/Header/Header';
 import { UserOrders } from '../UserOrders/UserOrders';
 import styles from './App.module.css';
+import ProductPage from '../../pages/ProductPage/ProductPage';
+import { fetchUser } from '../../store/user/user-slice';
 
 function App() {
 	const dispatch = useDispatch();
@@ -36,6 +40,7 @@ function App() {
 		dispatch(fetchCollections());
 		dispatch(getCart());
 		dispatch(updateToken());
+		dispatch(fetchUser());
 	}, [dispatch]);
 
 	const { modalOpen, currentModal } = useSelector((state) => state.modal);
@@ -61,6 +66,7 @@ function App() {
 						/>
 						<Route path="/chosen" element={<PageInDevelopment />} />
 						<Route path="/cart" element={<CartPage />} />
+						<Route path="/product/:id" element={<ProductPage />} />
 						<Route path="/arm-chairs" element={<PageInDevelopment />} />
 						<Route path="/tables" element={<PageInDevelopment />} />
 						<Route path="/wardrobes" element={<PageInDevelopment />} />
@@ -80,6 +86,11 @@ function App() {
 							}
 						/>
 						<Route path="/order" element={<OrderPage />} />
+
+						<Route path="/favorites" element={<FavoritesPage />} />
+
+						<Route path="/user/me" element={<ProfileForm />} />
+
 					</Routes>
 				</main>
 				<Footer />

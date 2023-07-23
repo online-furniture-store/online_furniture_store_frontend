@@ -6,14 +6,16 @@ function NameInput({
 	onChange,
 	onBlur,
 	value,
+	type,
 	label,
 	helperText,
 	error,
 	onClick,
+	required,
 }) {
 	return (
 		<div className={styles.container}>
-			<label className={styles.naming} htmlFor={inputId}>
+			<label className={required ? styles.naming : styles.naming__nonRequired} htmlFor={inputId}>
 				{label}
 			</label>
 			<input
@@ -26,7 +28,8 @@ function NameInput({
 				value={value}
 				onChange={onChange}
 				placeholder=""
-				required
+				type={type}
+				required={required}
 				onBlur={onBlur}
 			/>
 
@@ -41,12 +44,14 @@ function NameInput({
 NameInput.propTypes = {
 	onChange: PropTypes.func,
 	value: PropTypes.string,
+	type: PropTypes.string,
 	label: PropTypes.string,
 	inputId: PropTypes.string,
 	onBlur: PropTypes.func,
 	helperText: PropTypes.string,
 	error: PropTypes.bool,
 	onClick: PropTypes.func,
+	required: PropTypes.bool,
 };
 
 export default NameInput;

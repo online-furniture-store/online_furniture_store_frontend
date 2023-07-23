@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useForm, Controller } from 'react-hook-form';
 import { openModal } from '../../../store/modal/modal-slice';
+import { forgotPassword } from '../../../store/user/user-slice';
 import styles from './ForgotPassword.module.css';
 import NameInput from '../../UI/NameInput/NameInput';
 import BlackButton from '../../UI/BlackButton/BlackButton';
@@ -22,8 +23,7 @@ function ForgotPassword() {
 	});
 
 	const onSubmit = (data) => {
-		// eslint-disable-next-line no-console
-		console.log('submit', data);
+		dispatch(forgotPassword(data));
 		dispatch(openModal('resetPassSuccessModal'));
 		reset();
 	};
@@ -41,12 +41,13 @@ function ForgotPassword() {
 								message: 'Неверный формат email',
 							},
 						}}
-						render={({ field: { onChange, onBlur, value } }) => (
+						render={({ field: { onChange, onBlur, value, type = 'email' } }) => (
 							<NameInput
 								onBlur={onBlur}
 								onChange={onChange}
 								value={value}
-								inputId="email"
+								type={type}
+								inputId="forgotEmail"
 								label="Электронная почта"
 								helperText={errors.email?.message?.toString()}
 								error={!!errors.email?.message}
