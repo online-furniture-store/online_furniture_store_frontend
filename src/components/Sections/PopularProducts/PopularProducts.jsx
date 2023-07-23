@@ -24,7 +24,7 @@ function PopularProducts() {
 						{popularProducts.map((item) => (
 							<PopularProductCard
 								key={item.id}
-								img={item.image}
+								img={item.images ? item.images.first_image : ''}
 								productName={item.name}
 								productPrice={item.total_price}
 								productFavorited={item.is_favorited}
@@ -37,7 +37,7 @@ function PopularProducts() {
 							{popularProducts.slice(0, 3).map((item, index) => (
 								<div className={styles[`box${index}`]} key={item.id}>
 									<PopularProductCard
-										img={item.image}
+										img={item.images ? item.images.first_image : ''}
 										productName={item.name}
 										productPrice={item.total_price}
 										productFavorited={item.is_favorited}
@@ -49,7 +49,7 @@ function PopularProducts() {
 							{popularProducts.slice(3).map((item, index) => (
 								<div className={styles[`box${index}`]} key={item.id}>
 									<PopularProductCard
-										img={item.image}
+										img={item.images ? item.images.first_image : ''}
 										productName={item.name}
 										productPrice={item.total_price}
 										productFavorited={item.is_favorited}

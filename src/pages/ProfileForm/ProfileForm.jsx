@@ -4,10 +4,9 @@ import { useForm, Controller } from 'react-hook-form';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './ProfileForm.module.css';
 import ContainerForms from '../../components/Forms/ContainerForms/ContainerForms';
-import NameInput from '../../components/UI/NameInput/NameInput';
 import Checkbox from '../../components/UI/Checkbox/Checkbox';
+import NameInput from '../../components/UI/NameInput/NameInput';
 import SaveButton from '../../components/UI/SaveButton/SaveButton';
-import AccountSidebar from '../../components/AccountSidebar/AccountSidebar';
 import { patchUser, changePassword } from '../../store/user/user-slice';
 
 function ProfileForm() {
@@ -73,7 +72,6 @@ function ProfileForm() {
 
 	return (
 		<section className={styles.container}>
-			<AccountSidebar />
 			<div className={styles.wrapper}>
 				<h2 className={styles.title}>Профиль</h2>
 				<form onSubmit={handleSubmit(onSubmit)}>

@@ -5,13 +5,12 @@ import { AboutPage, HomePage } from '../../pages';
 import CartPage from '../../pages/CartPage/CartPage';
 import ConsentDataProcessing from '../../pages/ConsentDataProcessing/ConsentDataProcessing';
 import DataProcessingPolicy from '../../pages/DataProcessingPolicy/DataProcessingPolicy';
+import FavoritesPage from '../../pages/FavoritesPage/FavoritesPage';
 import OrderPage from '../../pages/OrderPage/OrderPage';
 import OrderingForm from '../../pages/OrderingForm/OrderingForm';
 import PageInDevelopment from '../../pages/PageInDevelopment/PageInDevelopment';
 import ProfileForm from '../../pages/ProfileForm/ProfileForm';
 import TradingRules from '../../pages/TradingRules/TradingRules';
-import FavoritesPage from '../../pages/FavoritesPage/FavoritesPage';
-import ProtectedRoute from '../Hoc/ProtectedRoute/ProtectedRoute';
 import UserAccount from '../../pages/UserAccount/UserAccount';
 import { getCart } from '../../store/cart/cart-slice';
 import { closeModal } from '../../store/modal/modal-slice';
@@ -20,8 +19,11 @@ import {
 	fetchPopularProducts,
 	fetchProducts,
 } from '../../store/products/products-slice';
+import ProtectedRoute from '../Hoc/ProtectedRoute/ProtectedRoute';
 
+import ProductPage from '../../pages/ProductPage/ProductPage';
 import { updateToken } from '../../store/auth/auth-slice';
+import { fetchUser } from '../../store/user/user-slice';
 import { modals } from '../../utils/modals';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import Modal from '../Modals/Modal/Modal';
@@ -29,11 +31,10 @@ import Footer from '../Sections/Footer/Footer';
 import Header from '../Sections/Header/Header';
 import { UserOrders } from '../UserOrders/UserOrders';
 import styles from './App.module.css';
-import ProductPage from '../../pages/ProductPage/ProductPage';
-import { fetchUser } from '../../store/user/user-slice';
 
 function App() {
 	const dispatch = useDispatch();
+	const { modalOpen, currentModal } = useSelector((state) => state.modal);
 	useEffect(() => {
 		dispatch(fetchProducts());
 		dispatch(fetchPopularProducts());
@@ -42,8 +43,6 @@ function App() {
 		dispatch(updateToken());
 		dispatch(fetchUser());
 	}, [dispatch]);
-
-	const { modalOpen, currentModal } = useSelector((state) => state.modal);
 
 	return (
 		<div className={styles.app}>
@@ -54,16 +53,6 @@ function App() {
 					<Routes>
 						<Route path="/" element={<HomePage />} />
 						<Route path="/about" element={<AboutPage />} />
-						<Route
-							path="/user"
-							element={
-								<ProtectedRoute>
-									<UserAccount>
-										<div />
-									</UserAccount>
-								</ProtectedRoute>
-							}
-						/>
 						<Route path="/chosen" element={<PageInDevelopment />} />
 						<Route path="/cart" element={<CartPage />} />
 						<Route path="/product/:id" element={<ProductPage />} />
@@ -77,20 +66,39 @@ function App() {
 						<Route path="/rules-consent" element={<ConsentDataProcessing />} />
 						<Route path="/rules-data" element={<DataProcessingPolicy />} />
 						<Route path="/order-form" element={<OrderingForm />} />
+						<Route path="/payment" element={<PageInDevelopment />} />
+						<Route path="/user/feedback" element={<PageInDevelopment />} />
 						<Route
 							path="/user/my_orders"
 							element={
-								<UserAccount>
-									<UserOrders />
-								</UserAccount>
+								<ProtectedRoute>
+									<UserAccount>
+										<UserOrders />
+									</UserAccount>
+								</ProtectedRoute>
 							}
 						/>
-						<Route path="/order" element={<OrderPage />} />
-
+						<Route
+							path="/user/my_orders/:id"
+							element={
+								<ProtectedRoute>
+									<UserAccount>
+										<OrderPage />
+									</UserAccount>
+								</ProtectedRoute>
+							}
+						/>
 						<Route path="/favorites" element={<FavoritesPage />} />
-
-						<Route path="/user/me" element={<ProfileForm />} />
-
+						<Route
+							path="/user/me"
+							element={
+								<ProtectedRoute>
+									<UserAccount>
+										<ProfileForm />
+									</UserAccount>
+								</ProtectedRoute>
+							}
+						/>
 					</Routes>
 				</main>
 				<Footer />

@@ -72,6 +72,17 @@ export class Api {
 		}).then(this.#onResponse);
 	}
 
+	makeNewOrder(data) {
+		return fetch(`${this.#baseurl}api/orders/`, {
+			method: 'POST',
+			headers: {
+				...this.#headers,
+				authorization: `Bearer ${getLocalData('access')}`,
+			},
+			body: JSON.stringify({ ...data }),
+		}).then(this.#onResponse);
+	}
+
 	deleteFromCart(id) {
 		return fetch(`${this.#baseurl}api/carts/del_item/${id}/`, {
 			method: 'DELETE',
@@ -86,6 +97,15 @@ export class Api {
 		return fetch(`${this.#baseurl}api/products/${id}/`, {
 			headers: {
 				...this.#headers,
+			},
+		}).then(this.#onResponse);
+	}
+
+	getUserOrders() {
+		return fetch(`${this.#baseurl}api/users/my_orders/`, {
+			headers: {
+				'content-type': 'application/json',
+				Authorization: `Bearer ${getLocalData('access')}`,
 			},
 		}).then(this.#onResponse);
 	}

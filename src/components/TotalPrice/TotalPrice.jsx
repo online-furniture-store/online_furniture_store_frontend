@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import { Link, useLocation } from 'react-router-dom';
-import styles from './TotalPrice.module.css';
-import BlackButton from '../UI/BlackButton/BlackButton';
 import repeat from '../../assets/img/repeat.svg';
+import BlackButton from '../UI/BlackButton/BlackButton';
+import styles from './TotalPrice.module.css';
 
 function TotalPrice({
 	discount,
@@ -93,15 +93,15 @@ function TotalPrice({
 					/>
 					<p className={styles.argeement}>
 						Нажимая на кнопку, я даю&nbsp;
-						<Link to="/rules-consent" className={styles.link}>
+						<Link to="/rules-consent" target="_blanck" className={styles.link}>
 							согласие &nbsp;
 						</Link>
 						на обработку персональных данных в соответствии с&nbsp;
-						<Link to="/rules-data" className={styles.link}>
+						<Link to="/rules-data" target="_blanck" className={styles.link}>
 							Политикой
 						</Link>
 						, соглашаюсь с&nbsp;
-						<Link to="/rules-sale" className={styles.link}>
+						<Link to="/rules-sale" target="_blanck" className={styles.link}>
 							Правилами
 						</Link>
 					</p>
@@ -110,10 +110,7 @@ function TotalPrice({
 			{location.pathname === '/order' && (
 				<>
 					<div className={styles.discountSection}>
-						<p className={styles.paymentText}>
-							Оплачено картой онлайн
-						</p>
-
+						<p className={styles.paymentText}>Оплачено картой онлайн</p>
 					</div>
 					<p className={styles.productsCount}>
 						товары ({count})<span className={styles.dot}>&#8226;</span>
@@ -139,7 +136,7 @@ TotalPrice.propTypes = {
 	discount: PropTypes.number,
 	count: PropTypes.number.isRequired,
 	lastPrice: PropTypes.number,
-	weight: PropTypes.number.isRequired,
+	weight: PropTypes.number,
 	totalPrice: PropTypes.number,
 	days: PropTypes.number.isRequired,
 	buttonText: PropTypes.string,

@@ -5,7 +5,6 @@ import styles from './Authorization.module.css';
 import NameInput from '../../UI/NameInput/NameInput';
 import BlackButton from '../../UI/BlackButton/BlackButton';
 import { login } from '../../../store/auth/auth-slice';
-import { fetchUser } from '../../../store/user/user-slice';
 
 function Authorization() {
 	const dispatch = useDispatch();
@@ -24,9 +23,8 @@ function Authorization() {
 		},
 	});
 
-	const onSubmit = async (data) => {
-		await dispatch(login(data));
-		await dispatch(fetchUser(data));
+	const onSubmit = (data) => {
+		dispatch(login(data));
 		dispatch(closeModal());
 		reset();
 	};

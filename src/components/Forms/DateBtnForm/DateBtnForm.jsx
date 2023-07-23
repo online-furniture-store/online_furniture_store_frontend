@@ -12,21 +12,12 @@ function DateBtnForm({ control }) {
 	};
 
 	const dateDay = [
-		{
-			idButton: '123',
-			id: '1',
-			date: '13 июн.',
-			day: 'ВС',
-			name: 'two',
-		},
-		{ idButton: '456', id: '2', date: '14 июн.', day: 'ПН', name: 'two' },
-		{ idButton: '789', id: '3', date: '16 июн.', day: 'ВТ', name: 'two' },
-		{ idButton: '345', id: '4', date: '17 июн.', day: 'СР', name: 'two' },
+		{ idButton: '456', id: '2', date: '24 июл.', day: 'ПН', name: 'two' },
 	];
 
 	const dateTime = [
-		{ idButton: '678', id: '5', time: '15:00 – 18:00', name: 'three' },
-		{ idButton: '235', id: '6', time: '18:00 – 20:00', name: 'three' },
+		{ idButton: '235', id: '5', time: '18:00 – 20:00', name: 'three' },
+		{ idButton: '236', id: '6', time: '20:00 – 22:00', name: 'three' },
 	];
 
 	return (
