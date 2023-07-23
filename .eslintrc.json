@@ -40,6 +40,6 @@
 		"react/jsx-wrap-multilines": "off",
 		"arrow-body-style": "off",
 		"react/jsx-closing-bracket-location": "off",
-		"function-paren-newline": ["error", { "minItems": 3 }]
+		"function-paren-newline": "off"
 	}
 }
