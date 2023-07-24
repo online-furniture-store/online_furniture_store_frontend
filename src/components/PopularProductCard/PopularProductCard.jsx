@@ -10,6 +10,7 @@ function PopularProductCard({
 	productName,
 	productPrice,
 	productFavorited,
+	onClick,
 }) {
 	const location = useLocation();
 	const [isLike, setIsLike] = useState(productFavorited);
@@ -19,7 +20,7 @@ function PopularProductCard({
 	return (
 		<>
 			{location.pathname === '/cart' && (
-				<div className={styles.productCard}>
+				<div onClick={onClick} className={styles.productCard}>
 					<img
 						className={styles.img}
 						src={img}
@@ -40,7 +41,7 @@ function PopularProductCard({
 				</div>
 			)}
 			{location.pathname === '/favorites' && (
-				<div className={styles.productCard}>
+				<div onClick={onClick} className={styles.productCard}>
 					<img
 						className={styles.img}
 						src={img}
@@ -61,7 +62,7 @@ function PopularProductCard({
 				</div>
 			)}
 			{location.pathname === '/' && (
-				<div className={styles.productCard}>
+				<div onClick={onClick} className={styles.productCard}>
 					<img
 						className={styles.img}
 						src={img}
@@ -87,6 +88,7 @@ PopularProductCard.propTypes = {
 	img: PropTypes.string,
 	productName: PropTypes.string,
 	productPrice: PropTypes.number,
+	onClick: PropTypes.func,
 	productFavorited: PropTypes.bool,
 };
 
