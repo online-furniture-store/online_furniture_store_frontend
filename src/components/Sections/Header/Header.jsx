@@ -75,7 +75,7 @@ function Header() {
 									</button>
 								</li>
 								<li className={styles.menu__element}>
-									<NavLink to="/about" className={styles.menu__item}>
+									<NavLink to="/under-construction" className={styles.menu__item}>
 										<p className={styles.menu__text}>O компании</p>
 									</NavLink>
 								</li>
@@ -194,7 +194,7 @@ function Header() {
 									to="/sale"
 									className={
 										location.pathname === '/sale'
-											? styles.categories__item_active_last
+											? styles.categories__item_active
 											: styles.categories__item
 									}
 								>
