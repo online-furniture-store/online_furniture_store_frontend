@@ -1,4 +1,4 @@
-FROM node:18-alpine as build
+FROM node:18-alpine as builder
 
 WORKDIR /app
 
@@ -10,10 +10,12 @@ COPY . ./
 
 RUN npm run build
 
-FROM alpine:latest
+FROM nginx:1.21.3-alpine
 
-WORKDIR /app
+RUN apk update && apk add openssl
 
-COPY --from=build /app/build/ ./
+RUN mkdir -p /home/web/www
 
-CMD ls
+RUN openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
+
+COPY --from=builder /app/build /usr/share/nginx/html/
