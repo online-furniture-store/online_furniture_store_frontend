@@ -1,4 +1,4 @@
-FROM node:18-alpine as build
+FROM node:18-alpine
 
 WORKDIR /app
 
@@ -10,10 +10,4 @@ COPY . ./
 
 RUN npm run build
 
-FROM alpine:latest
-
-WORKDIR /app
-
-COPY --from=build /app/build/ ./
-
-CMD ls
+CMD cp -r build result_build
