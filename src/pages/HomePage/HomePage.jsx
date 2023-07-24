@@ -9,7 +9,7 @@ function HomePage() {
 		<>
 			<Intro />
 			<Categories />
-			<ProductsWithScroll icon="discount" />
+			<ProductsWithScroll icon="discount" sameProduct />
 			<PopularProducts />
 			<Services />
 			<ProductsWithScroll icon="delivery" isSmall />
