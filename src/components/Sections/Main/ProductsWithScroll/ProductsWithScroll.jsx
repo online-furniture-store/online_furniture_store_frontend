@@ -69,6 +69,7 @@ function ProductsWithScroll({ icon, isSmall, sameProduct }) {
 							onClick={() => {
 								navigate(`/product/${item.id}`);
 							}}
+							sameProduct={sameProduct}
 						/>
 					</SwiperSlide>
 				))}

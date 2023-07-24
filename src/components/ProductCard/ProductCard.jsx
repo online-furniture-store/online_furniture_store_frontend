@@ -21,6 +21,7 @@ function ProductCard({
 	added,
 	isSmall,
 	onClick,
+	sameProduct,
 
 }) {
 	const dispatch = useDispatch();
@@ -94,29 +95,32 @@ function ProductCard({
 						!icon && `${styles.description}`
 					}
 				/>
-				{icon === 'delivery' ? (
-					<div className={styles.price__FastDelivery}>
-						<p className={styles.price__new_fastDelivery}>
-							{oldPrice}
-							<span>&nbsp;&#8381;</span>
-						</p>
-					</div>
-				) : (
-					<div className={styles.price}>
-						<p className={styles.price__new_discountCard}>
-							{newPrice}
-							<span>&nbsp;&#8381;</span>
-						</p>
-						<p className={styles.price__old_discountCard}>
-							{oldPrice}
-							<span>&nbsp;&#8381;</span>
-						</p>
-					</div>
-				)}
+				<div className={icon === 'discount' || sameProduct ? styles.countBlock : styles.none}>
+					{icon === 'delivery' ? (
+						<div className={styles.price__FastDelivery}>
+							<p className={styles.price__new_fastDelivery}>
+								{oldPrice}
+								<span>&nbsp;&#8381;</span>
+							</p>
+						</div>
+					) : (
+						<div className={styles.price}>
+							<p className={styles.price__new_discountCard}>
+								{newPrice}
+								<span>&nbsp;&#8381;</span>
+							</p>
+							<p className={styles.price__old_discountCard}>
+								{oldPrice}
+								<span>&nbsp;&#8381;</span>
+							</p>
+						</div>
 
-				<p className={styles.inStock}>
-					{inStock ? `в наличии: ${inStock} шт` : 'нет в наличии'}
-				</p>
+					)}
+
+					<p className={styles.inStock}>
+						{inStock ? `в наличии: ${inStock} шт` : 'нет в наличии'}
+					</p>
+				</div>
 			</div>
 
 			<div className={styles.aboutProperty}>
@@ -150,6 +154,7 @@ ProductCard.propTypes = {
 	added: PropTypes.bool,
 	isSmall: PropTypes.bool,
 	onClick: PropTypes.func,
+	sameProduct: PropTypes.bool,
 };
 
 export default ProductCard;
