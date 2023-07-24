@@ -51,7 +51,7 @@
   margin-block-start: 0;
   margin-block-end: 0;
   padding-inline-start: 0;
-  gap: 20px;
+  gap: 38px;
 }
 
 .menu__element {
@@ -208,6 +208,7 @@
   margin-left: 100px;
   border-radius: 10px;
   box-shadow: 0px 7px 29px 0px rgba(100, 100, 111, 0.20);
+  margin: 25px 0 0;
 }
 
 .categories__item {
@@ -233,20 +234,6 @@
 .categories__item:hover {
   opacity: 0.6;
   outline: none;
-}
-
-.categories__item:last-of-type {
-  color: var(--system-red);
-}
-
-.categories__item_active_last {
-  text-decoration: none;
-  color: var(--system-red);
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 23px;
-  opacity: 1;
 }
 
 .userIcon {
