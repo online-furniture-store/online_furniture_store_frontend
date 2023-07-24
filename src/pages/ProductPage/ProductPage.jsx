@@ -16,12 +16,14 @@ function ProductPage() {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}, []);
 	const { furniture, loading } = useSelector((state) => state.furniture);
+	const { cart } = useSelector((state) => state.cart);
 	useEffect(() => {
 		dispatch(fetchProduct(id));
 	}, [dispatch, id]);
 	return loading ? null : (
 		<div className={styles.content}>
 			<LargeCard
+				id={id}
 				isFavorited={furniture.product.is_favorited}
 				brand={furniture.product.brand}
 				images={Object.values(furniture.product.images)}
@@ -30,6 +32,7 @@ function ProductPage() {
 				discount={furniture.product.discount}
 				totalPrice={furniture.product.total_price}
 				price={furniture.product.price}
+				added={cart.products.some((elem) => elem.product.id === +id)}
 				availableQuantity={furniture.product.available_quantity}
 			/>
 			<div className={styles.description}>

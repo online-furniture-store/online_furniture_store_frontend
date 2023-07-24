@@ -131,7 +131,7 @@ function ProductCard({
 				<p className={styles.property}>Страна</p>
 				<p className={styles.property}>{country}</p>
 			</div>
-			<AddToCartButton onClick={onAddClick} isSuccess={added} />
+			<AddToCartButton text="Добавить&nbsp;в&nbsp;корзину" onClick={onAddClick} isSuccess={added} />
 		</div>
 	);
 }
