@@ -4,13 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from './OrderPage.module.css';
 import Order from '../../components/Sections/Order/Order';
 import TotalPrice from '../../components/TotalPrice/TotalPrice';
-import { fetchOrder } from '../../store/orders/orders-slice';
+import { fetchOrder, selectOrders } from '../../store/orders/orders-slice';
+import { selectProducts } from '../../store/products/products-slice';
 
 function OrderPage() {
 	const { id } = useParams();
 	const dispatch = useDispatch();
-	const { allProducts } = useSelector((state) => state.products);
-	const { order, loading } = useSelector((state) => state.orders);
+	const { allProducts } = useSelector(selectProducts);
+	const { order, loading } = useSelector(selectOrders);
 
 	useEffect(() => {
 		dispatch(fetchOrder(id));

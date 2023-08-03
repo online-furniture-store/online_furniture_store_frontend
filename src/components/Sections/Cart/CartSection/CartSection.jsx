@@ -7,9 +7,10 @@ import Title from '../../../UI/Title/Title';
 import BlackButton from '../../../UI/BlackButton/BlackButton';
 import CartCard from '../../../CartCard/CartCard';
 import emptyCart from '../../../../assets/img/emptyCart.png';
+import { selectCart } from '../../../../store/cart/cart-slice';
 
 function CartSection() {
-	const { cart } = useSelector((state) => state.cart);
+	const { cart } = useSelector(selectCart);
 
 	const navigate = useNavigate();
 	useEffect(() => {
