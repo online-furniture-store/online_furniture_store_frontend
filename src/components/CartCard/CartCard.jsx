@@ -2,10 +2,11 @@ import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addToCart, deleteFromCart } from '../../store/cart/cart-slice';
 import styles from './CartCard.module.css';
-import Counter from '../UI/counter/counter';
+
 import Like from '../UI/Like/Like';
 import Delete from '../UI/Delete/Delete';
 import placeholder from '../../assets/img/placeholder.png';
+import Counter from '../UI/Counter/Counter';
 
 function CartCard({
 	id,
