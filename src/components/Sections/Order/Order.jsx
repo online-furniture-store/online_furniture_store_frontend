@@ -3,10 +3,12 @@ import { v4 as uuidv4 } from 'uuid';
 import { useSelector } from 'react-redux';
 import styles from './Order.module.css';
 import OrderElementCart from '../../OrderElementCart/OrderElementCart';
+import { selectOrders } from '../../../store/orders/orders-slice';
+import { selectProducts } from '../../../store/products/products-slice';
 
 function Order({ isCourier }) {
-  const { order } = useSelector((state) => state.orders);
-  const { allProducts } = useSelector((state) => state.products);
+  const { order } = useSelector(selectOrders);
+  const { allProducts } = useSelector(selectProducts);
   const productImages =
     order.products &&
     allProducts.filter((item) => {

@@ -100,4 +100,5 @@ const ordersSlice = createSlice({
 	},
 });
 
+export const selectOrders = (state) => state[sliceName];
 export default ordersSlice.reducer;
