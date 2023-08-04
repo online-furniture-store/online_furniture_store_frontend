@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import styles from './counter.module.css';
+import styles from './Counter.module.css';
 import minusActive from '../../../assets/img/minus.svg';
 import minusDisabled from '../../../assets/img/minus-disabled.svg';
 import plus from '../../../assets/img/plus.svg';
