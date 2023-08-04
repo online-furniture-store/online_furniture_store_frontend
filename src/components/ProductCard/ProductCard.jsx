@@ -82,20 +82,10 @@ function ProductCard({
 
 			<div
 				className={
-					icon === 'delivery' && `${styles.description} ${styles.descriptionFastDelivery}`
+					icon === 'delivery' ? `${styles.description} ${styles.descriptionFastDelivery}` : styles.descriptionDiscountCard
 				}
 			>
-				<div
-					className={
-						icon === 'discount' && `${styles.description} ${styles.descriptionDiscountCard}`
-					}
-				/>
-				<div
-					className={
-						!icon && `${styles.description}`
-					}
-				/>
-				<div className={icon === 'discount' || sameProduct ? styles.countBlock : styles.none}>
+				<div className={icon === 'discount' || sameProduct ? styles.countBlock : styles.descriptionDiscountCard}>
 					{icon === 'delivery' ? (
 						<div className={styles.price__FastDelivery}>
 							<p className={styles.price__new_fastDelivery}>

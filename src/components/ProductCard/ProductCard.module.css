@@ -114,12 +114,15 @@
 	text-overflow: ellipsis;
 	overflow: hidden;
 }
+
 .countBlock{
 	display: flex;
 	justify-content: space-between
 }
+
 .description {
 	display: flex;
+	flex-direction: row;
 	justify-content: space-between;
 	
 }
@@ -129,7 +132,7 @@
 }
 
 .descriptionDiscountCard {
-	flex-direction: row;
+	display: block;
 }
 
 .price__new_fastDelivery {
