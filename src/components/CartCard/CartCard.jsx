@@ -6,7 +6,7 @@ import styles from './CartCard.module.css';
 import Like from '../UI/Like/Like';
 import Delete from '../UI/Delete/Delete';
 import placeholder from '../../assets/img/placeholder.png';
-import Counter from '../UI/Counter1/Counter';
+import Counter from '../UI/Counter/Counter';
 
 function CartCard({
 	id,
