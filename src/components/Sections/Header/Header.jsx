@@ -7,7 +7,7 @@ import user from '../../../assets/img/person.svg';
 import Logo from '../../UI/Logo/Logo';
 import SearchField from '../../UI/SearchField/SearchField';
 import SelectCity from '../../UI/SelectCity/SelectCity';
-import Grocery from '../../UI/MyGrocery/Grocery';
+import Grocery from '../../UI/Grocery/Grocery';
 import HeartCounter from '../../UI/HeartCounter/HeartCounter';
 import styles from './Header.module.css';
 import { selectCart } from '../../../store/cart/cart-slice';
