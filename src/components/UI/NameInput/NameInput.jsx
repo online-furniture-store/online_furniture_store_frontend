@@ -12,6 +12,7 @@ function NameInput({
 	error,
 	onClick,
 	required,
+	placeholder,
 }) {
 	return (
 		<div className={styles.container}>
@@ -27,7 +28,7 @@ function NameInput({
 				id={inputId}
 				value={value}
 				onChange={onChange}
-				placeholder=""
+				placeholder={placeholder}
 				type={type}
 				required={required}
 				onBlur={onBlur}
@@ -52,6 +53,7 @@ NameInput.propTypes = {
 	error: PropTypes.bool,
 	onClick: PropTypes.func,
 	required: PropTypes.bool,
+	placeholder: PropTypes.string,
 };
 
 export default NameInput;

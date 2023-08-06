@@ -84,3 +84,7 @@
 	background-size: cover;
 	cursor: pointer;
 }
+
+.input::placeholder {
+	color: var(--element-gray);
+}

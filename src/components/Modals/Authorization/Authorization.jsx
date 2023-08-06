@@ -51,6 +51,7 @@ function Authorization() {
 								onChange={onChange}
 								value={value}
 								type={type}
+								placeholder="Электронная почта"
 								inputId="authEmail"
 								label="Электронная почта"
 								helperText={errors.email?.message?.toString()}
@@ -79,6 +80,7 @@ function Authorization() {
 								onChange={onChange}
 								value={value}
 								type={type}
+								placeholder="Введите пароль"
 								inputId="password"
 								label="Пароль"
 								helperText={errors.password?.message?.toString()}
