@@ -27,6 +27,7 @@ function RecipientForm({ control, errors, resetField }) {
 							required
 							onBlur={onBlur}
 							onChange={onChange}
+							placeholder="Имя"
 							value={value}
 							type={type}
 							inputId="first_name"
@@ -57,6 +58,7 @@ function RecipientForm({ control, errors, resetField }) {
 							required
 							onBlur={onBlur}
 							onChange={onChange}
+							placeholder="Фамилия"
 							value={value}
 							type={type}
 							inputId="last_name"
@@ -87,15 +89,16 @@ function RecipientForm({ control, errors, resetField }) {
 							onBlur={onBlur}
 							onChange={onChange}
 							value={value}
-							inputId="telephone"
+							inputId="phone"
+							placeholder="+79999999999"
 							type={type}
 							label="Телефон"
-							helperText={errors.telephone?.message?.toString()}
-							error={!!errors.telephone?.message}
-							onClick={() => resetField('telephone')}
+							helperText={errors.phone?.message?.toString()}
+							error={!!errors.phone?.message}
+							onClick={() => resetField('phone')}
 						/>
 					)}
-					name="telephone"
+					name="phone"
 				/>
 				<Controller
 					control={control}
@@ -111,6 +114,7 @@ function RecipientForm({ control, errors, resetField }) {
 							required
 							onBlur={onBlur}
 							onChange={onChange}
+							placeholder="Электронная почта"
 							value={value}
 							type={type}
 							inputId="orderPageEmail"

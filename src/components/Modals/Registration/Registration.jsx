@@ -58,6 +58,7 @@ function Registration() {
 								onChange={onChange}
 								value={value}
 								type={type}
+								placeholder="Имя"
 								inputId="first_name"
 								label="Имя"
 								helperText={errors.first_name?.message?.toString()}
@@ -87,6 +88,7 @@ function Registration() {
 								onChange={onChange}
 								value={value}
 								type={type}
+								placeholder="Фамилия"
 								inputId="last_name"
 								label="Фамилия"
 								helperText={errors.last_name?.message?.toString()}
@@ -114,6 +116,7 @@ function Registration() {
 								onChange={onChange}
 								value={value}
 								type={type}
+								placeholder="Электронная почта"
 								inputId="regEmail"
 								label="Электронная почта"
 								helperText={errors.email?.message?.toString()}
@@ -142,6 +145,7 @@ function Registration() {
 								onChange={onChange}
 								value={value}
 								type={type}
+								placeholder="Введите пароль"
 								inputId="password"
 								label="Пароль"
 								helperText={errors.password?.message?.toString()}
@@ -167,6 +171,7 @@ function Registration() {
 								onChange={onChange}
 								value={value}
 								type={type}
+								placeholder="Повторите пароль"
 								inputId="confirmPassword"
 								label="Подтверждение пароля"
 								helperText={errors.confirmPassword?.message?.toString()}

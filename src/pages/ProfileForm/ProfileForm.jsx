@@ -96,6 +96,7 @@ function ProfileForm() {
 										<NameInput
 											onBlur={onBlur}
 											onChange={onChange}
+											placeholder="+79999999999"
 											value={value}
 											type={type}
 											inputId="phone"
@@ -122,6 +123,7 @@ function ProfileForm() {
 										<NameInput
 											onBlur={onBlur}
 											onChange={onChange}
+											placeholder="Электронная почта"
 											type={type}
 											value={value}
 											inputId="email"
@@ -168,6 +170,7 @@ function ProfileForm() {
 										<NameInput
 											onBlur={onBlur}
 											onChange={onChange}
+											placeholder="Имя"
 											value={value}
 											type={type}
 											inputId="first_name"
@@ -198,6 +201,7 @@ function ProfileForm() {
 										<NameInput
 											onBlur={onBlur}
 											onChange={onChange}
+											placeholder="Фамилия"
 											value={value}
 											type={type}
 											inputId="last_name"
@@ -225,6 +229,7 @@ function ProfileForm() {
 										<NameInput
 											onBlur={onBlur}
 											onChange={onChange}
+											placeholder="2001-12-12"
 											value={value}
 											type={type}
 											inputId="birthday"
@@ -256,6 +261,7 @@ function ProfileForm() {
 											required
 											onBlur={onBlur}
 											onChange={onChange}
+											placeholder="Старый пароль"
 											value={value}
 											type={type}
 											inputId="current_password"
@@ -284,6 +290,7 @@ function ProfileForm() {
 										<NameInput
 											onBlur={onBlur}
 											onChange={onChange}
+											placeholder="Введите новый пароль"
 											value={value}
 											type={type}
 											inputId="new_password"
@@ -304,9 +311,10 @@ function ProfileForm() {
 									}}
 									render={({ field: { onChange, onBlur, value, type = 'password' } }) => (
 										<NameInput
-											required={newPassword}
+											required={!!newPassword}
 											onBlur={onBlur}
 											onChange={onChange}
+											placeholder="Повторите новый пароль"
 											value={value}
 											type={type}
 											inputId="confirmPassword"
