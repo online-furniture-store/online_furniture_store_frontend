@@ -51,7 +51,7 @@ function Authorization() {
 								onChange={onChange}
 								value={value}
 								type={type}
-								placeholder="Электронная почта"
+								placeholder="username@address.ru"
 								inputId="authEmail"
 								label="Электронная почта"
 								helperText={errors.email?.message?.toString()}

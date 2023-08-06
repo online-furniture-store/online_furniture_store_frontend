@@ -58,7 +58,7 @@ function Registration() {
 								onChange={onChange}
 								value={value}
 								type={type}
-								placeholder="Имя"
+								placeholder="Иван"
 								inputId="first_name"
 								label="Имя"
 								helperText={errors.first_name?.message?.toString()}
@@ -88,7 +88,7 @@ function Registration() {
 								onChange={onChange}
 								value={value}
 								type={type}
-								placeholder="Фамилия"
+								placeholder="Иванов"
 								inputId="last_name"
 								label="Фамилия"
 								helperText={errors.last_name?.message?.toString()}
@@ -116,7 +116,7 @@ function Registration() {
 								onChange={onChange}
 								value={value}
 								type={type}
-								placeholder="Электронная почта"
+								placeholder="username@address.ru"
 								inputId="regEmail"
 								label="Электронная почта"
 								helperText={errors.email?.message?.toString()}
