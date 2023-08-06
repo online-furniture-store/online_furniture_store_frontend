@@ -47,7 +47,7 @@ function ForgotPassword() {
 								onChange={onChange}
 								value={value}
 								type={type}
-								placeholder="Введите электронную почту"
+								placeholder="username@address.ru"
 								inputId="forgotEmail"
 								label="Электронная почта"
 								helperText={errors.email?.message?.toString()}

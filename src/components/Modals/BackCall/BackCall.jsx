@@ -52,6 +52,7 @@ function BackCall() {
 								required
 								onBlur={onBlur}
 								onChange={onChange}
+								placeholder="Иван"
 								value={value}
 								inputId="firstName"
 								label="Имя"
@@ -81,6 +82,7 @@ function BackCall() {
 								onBlur={onBlur}
 								onChange={onChange}
 								value={value}
+								placeholder="+79999999999"
 								inputId="telephone"
 								label="Телефон"
 								helperText={errors.telephone?.message?.toString()}

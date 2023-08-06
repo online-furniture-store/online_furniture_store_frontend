@@ -27,7 +27,7 @@ function RecipientForm({ control, errors, resetField }) {
 							required
 							onBlur={onBlur}
 							onChange={onChange}
-							placeholder="Имя"
+							placeholder="Иван"
 							value={value}
 							type={type}
 							inputId="first_name"
@@ -58,7 +58,7 @@ function RecipientForm({ control, errors, resetField }) {
 							required
 							onBlur={onBlur}
 							onChange={onChange}
-							placeholder="Фамилия"
+							placeholder="Иванов"
 							value={value}
 							type={type}
 							inputId="last_name"
@@ -114,7 +114,7 @@ function RecipientForm({ control, errors, resetField }) {
 							required
 							onBlur={onBlur}
 							onChange={onChange}
-							placeholder="Электронная почта"
+							placeholder="username@address.ru"
 							value={value}
 							type={type}
 							inputId="orderPageEmail"
