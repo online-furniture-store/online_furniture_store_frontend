@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import heart from '../../../assets/img/heart.svg';
-import styles from './heart-counter.module.css';
+import styles from './HeartCounter.module.css';
 
 function HeartCounter({ amount }) {
 	return (

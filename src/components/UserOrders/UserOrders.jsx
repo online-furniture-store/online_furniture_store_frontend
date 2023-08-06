@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getOrders } from '../../store/orders/orders-slice';
+import { getOrders, selectOrders } from '../../store/orders/orders-slice';
 import OrderCard from '../OrderCard/OrderCard';
 import SelectOrderStatus from '../UI/SelectOrderStatus/SelectOrderStatus';
 import Title from '../UI/Title/Title';
@@ -8,7 +8,7 @@ import styles from './UserOrders.module.css';
 
 export function UserOrders() {
 	const dispatch = useDispatch();
-	const { orders, loading } = useSelector((state) => state.orders);
+	const { orders, loading } = useSelector(selectOrders);
 
 	useEffect(() => {
 		dispatch(getOrders());

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import groсery from '../../../assets/img/grocery.svg';
-import styles from './grocery.module.css';
+import styles from './Grocery.module.css';
 
 function Grocery({ amount }) {
 	return (

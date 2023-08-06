@@ -7,10 +7,10 @@ import ContainerForms from '../../components/Forms/ContainerForms/ContainerForms
 import Checkbox from '../../components/UI/Checkbox/Checkbox';
 import NameInput from '../../components/UI/NameInput/NameInput';
 import SaveButton from '../../components/UI/SaveButton/SaveButton';
-import { patchUser, changePassword } from '../../store/user/user-slice';
+import { patchUser, changePassword, selectUser } from '../../store/user/user-slice';
 
 function ProfileForm() {
-	const { user } = useSelector((state) => state.user);
+	const { user } = useSelector(selectUser);
 	const dispatch = useDispatch();
 	const {
 		control,

@@ -1,5 +1,4 @@
 import { configureStore } from '@reduxjs/toolkit';
-import thunk from 'redux-thunk';
 import authReducer from './auth/auth-slice';
 import cartReducer from './cart/cart-slice';
 import furnitureReducer from './furniture/furniture-slice';
@@ -18,7 +17,6 @@ const store = configureStore({
 		user: userReducer,
 		orders: ordersReducer,
 	},
-	middleware: [thunk],
 });
 
 export default store;

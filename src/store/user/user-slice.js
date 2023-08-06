@@ -141,4 +141,5 @@ const userSlice = createSlice({
 	},
 });
 
+export const selectUser = (state) => state[sliceName];
 export default userSlice.reducer;

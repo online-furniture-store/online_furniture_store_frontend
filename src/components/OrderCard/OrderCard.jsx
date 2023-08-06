@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import productImage from '../../assets/img/kandinsky.png';
 import styles from './OrderCard.module.css';
+import { selectProducts } from '../../store/products/products-slice';
 
 function OrderCard({
 	date,
@@ -12,7 +13,7 @@ function OrderCard({
 	deliveryDate,
 	productsInOrder,
 }) {
-	const { allProducts } = useSelector((state) => state.products);
+	const { allProducts } = useSelector(selectProducts);
 
 	const productCard = useCallback(() => {
 		const productImages = allProducts.filter((item) => {
