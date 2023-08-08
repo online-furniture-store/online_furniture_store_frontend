@@ -13,7 +13,7 @@ import ProfileForm from '../../pages/ProfileForm/ProfileForm';
 import TradingRules from '../../pages/TradingRules/TradingRules';
 import UserAccount from '../../pages/UserAccount/UserAccount';
 import { getCart } from '../../store/cart/cart-slice';
-import { closeModal } from '../../store/modal/modal-slice';
+import { closeModal, selectModal } from '../../store/modal/modal-slice';
 import {
 	fetchCollections,
 	fetchPopularProducts,
@@ -34,7 +34,7 @@ import styles from './App.module.css';
 
 function App() {
 	const dispatch = useDispatch();
-	const { modalOpen, currentModal } = useSelector((state) => state.modal);
+	const { modalOpen, currentModal } = useSelector(selectModal);
 	useEffect(() => {
 		dispatch(fetchProducts());
 		dispatch(fetchPopularProducts());

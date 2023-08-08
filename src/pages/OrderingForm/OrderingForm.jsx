@@ -8,11 +8,14 @@ import TotalPrice from '../../components/TotalPrice/TotalPrice';
 import WayToReceive from '../../components/Sections/WayToReceive/WayToReceive';
 import { makeOrder } from '../../store/orders/orders-slice';
 import { openModal } from '../../store/modal/modal-slice';
+import { selectCart } from '../../store/cart/cart-slice';
+import { selectAuth } from '../../store/auth/auth-slice';
+import { selectUser } from '../../store/user/user-slice';
 
 function OrderingForm() {
-	const { cart } = useSelector((state) => state.cart);
-	const { isAuth } = useSelector((state) => state.auth);
-	const { user } = useSelector((state) => state.user);
+	const { cart } = useSelector(selectCart);
+	const { isAuth } = useSelector(selectAuth);
+	const { user } = useSelector(selectUser);
 	const dispath = useDispatch();
 	const navigate = useNavigate();
 	const {
@@ -25,7 +28,7 @@ function OrderingForm() {
 		defaultValues: {
 			first_name: user.first_name || '',
 			last_name: user.last_name || '',
-			telephone: '',
+			phone: '',
 			email: user.email || '',
 			address: '',
 		},

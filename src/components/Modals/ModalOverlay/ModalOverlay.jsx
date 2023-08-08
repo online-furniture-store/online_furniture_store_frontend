@@ -12,7 +12,7 @@ function ModalOverlay({ onClose, children }) {
 	};
 
 	return (
-		<div className={styles.overlay} onClick={closeByOverlay}>
+		<div className={styles.overlay} onMouseDown={closeByOverlay}>
 			{children}
 		</div>
 	);

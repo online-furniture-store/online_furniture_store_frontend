@@ -9,16 +9,19 @@ import { productDiscountSlider } from '../../../../utils/productDiscountSlider';
 import ProductCard from '../../../ProductCard/ProductCard';
 import Title from '../../../UI/Title/Title';
 import styles from './ProductsWithScroll.module.css';
+import 'swiper/swiper-bundle.min.css';
+import 'swiper/swiper.min.css';
+import { selectProducts } from '../../../../store/products/products-slice';
+import { selectFurniture } from '../../../../store/furniture/furniture-slice';
+import { selectCart } from '../../../../store/cart/cart-slice';
 
 function ProductsWithScroll({ icon, isSmall, sameProduct }) {
 	const navigate = useNavigate();
 
-	const { discountProducts, fastDeliveryProducts } = useSelector(
-		(state) => state.products,
-	);
-	const { furniture } = useSelector((state) => state.furniture);
-
-	const { cart } = useSelector((state) => state.cart);
+	const { discountProducts, fastDeliveryProducts } =
+		useSelector(selectProducts);
+	const { furniture } = useSelector(selectFurniture);
+	const { cart } = useSelector(selectCart);
 
 	const swiperOptions = () => {
 		return icon === 'delivery' ? productDeliverySlider : productDiscountSlider;

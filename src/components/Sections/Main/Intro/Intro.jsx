@@ -7,9 +7,10 @@ import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
 import styles from './Intro.module.css';
 import placeholder from '../../../../assets/img/placeholder.png';
+import { selectProducts } from '../../../../store/products/products-slice';
 
 function Intro() {
-	const { collections } = useSelector((state) => state.products);
+	const { collections } = useSelector(selectProducts);
 
 	const swiperRef = useRef();
 

@@ -10,6 +10,7 @@ function Address({
 	helperText,
 	error,
 	onClick,
+	placeholder,
 }) {
 	return (
 		<div className={styles.container}>
@@ -22,7 +23,7 @@ function Address({
 				id={inputId}
 				value={value}
 				onChange={onChange}
-				placeholder=""
+				placeholder={placeholder}
 				required
 				onBlur={onBlur}
 			/>
@@ -46,6 +47,7 @@ Address.propTypes = {
 	helperText: PropTypes.string,
 	error: PropTypes.bool,
 	onClick: PropTypes.func,
+	placeholder: PropTypes.string,
 };
 
 export default Address;

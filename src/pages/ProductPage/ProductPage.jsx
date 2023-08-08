@@ -4,9 +4,10 @@ import { useParams } from 'react-router-dom';
 import LargeCard from '../../components/LargeCard/LargeCard';
 import ProductsWithScroll from '../../components/Sections/Main/ProductsWithScroll/ProductsWithScroll';
 import Characteristic from '../../components/UI/Characteristic/Characteristic';
-import { fetchProduct } from '../../store/furniture/furniture-slice';
+import { fetchProduct, selectFurniture } from '../../store/furniture/furniture-slice';
 import { declensionWordYear } from '../../utils/utils';
 import styles from './ProductPage.module.css';
+import { selectCart } from '../../store/cart/cart-slice';
 
 function ProductPage() {
 	const dispatch = useDispatch();
@@ -15,8 +16,8 @@ function ProductPage() {
 	useEffect(() => {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}, []);
-	const { furniture, loading } = useSelector((state) => state.furniture);
-	const { cart } = useSelector((state) => state.cart);
+	const { furniture, loading } = useSelector(selectFurniture);
+	const { cart } = useSelector(selectCart);
 	useEffect(() => {
 		dispatch(fetchProduct(id));
 	}, [dispatch, id]);

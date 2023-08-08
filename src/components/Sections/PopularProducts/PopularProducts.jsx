@@ -3,10 +3,11 @@ import { useLocation, NavLink, useNavigate } from 'react-router-dom';
 import styles from './PopularProducts.module.css';
 import Title from '../../UI/Title/Title';
 import PopularProductCard from '../../PopularProductCard/PopularProductCard';
+import { selectProducts } from '../../../store/products/products-slice';
 
 function PopularProducts() {
 	const navigate = useNavigate();
-	const { popularProducts } = useSelector((state) => state.products);
+	const { popularProducts } = useSelector(selectProducts);
 	const location = useLocation();
 	return (
 		<section className={styles.section}>

@@ -7,9 +7,11 @@ import user from '../../../assets/img/person.svg';
 import Logo from '../../UI/Logo/Logo';
 import SearchField from '../../UI/SearchField/SearchField';
 import SelectCity from '../../UI/SelectCity/SelectCity';
-import Grocery from '../../UI/grocery/grocery';
-import HeartCounter from '../../UI/heart-counter/heart-counter';
+import Grocery from '../../UI/Grocery/Grocery';
+import HeartCounter from '../../UI/HeartCounter/HeartCounter';
 import styles from './Header.module.css';
+import { selectCart } from '../../../store/cart/cart-slice';
+import { selectAuth } from '../../../store/auth/auth-slice';
 
 function Header() {
 	const location = useLocation();
@@ -18,8 +20,8 @@ function Header() {
 	const [linkStateActive, setLinkStateActive] = useState(false);
 	const [searchValue, setSearchValue] = useState();
 	const [searchInputShown, setSearchInputShow] = useState(false);
-	const { cart } = useSelector((state) => state.cart);
-	const { isAuth } = useSelector((state) => state.auth);
+	const { cart } = useSelector(selectCart);
+	const { isAuth } = useSelector(selectAuth);
 	const navigate = useNavigate();
 
 	const handleShowMenu = () => {

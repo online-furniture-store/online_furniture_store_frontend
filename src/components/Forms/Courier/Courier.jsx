@@ -25,6 +25,7 @@ function Courier({ control, errors, resetField }) {
 						<Address
 							onBlur={onBlur}
 							onChange={onChange}
+							placeholder="г.Москва, ул. Мельникова 5"
 							value={value}
 							inputId="address"
 							label="Населенный пункт, улица, дом"

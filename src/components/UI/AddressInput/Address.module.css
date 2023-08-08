@@ -43,6 +43,11 @@
 .input:hover {
 	border: 1.8px solid var(--element-gray);
 }
+
+.input::placeholder {
+	color: var(--element-gray);
+}
+
 .naming::after {
 	content: ' *';
 	color: var(--system-red);
