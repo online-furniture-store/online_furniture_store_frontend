@@ -1,11 +1,11 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
-import styles from './ProductCard.module.css';
 import placeholder from '../../assets/img/placeholder.png';
-import Like from '../UI/Like/Like';
-import AddToCartButton from '../UI/AddToCartButton/AddToCartButton';
 import { addToCart } from '../../store/cart/cart-slice';
+import AddToCartButton from '../UI/AddToCartButton/AddToCartButton';
+import Like from '../UI/Like/Like';
+import styles from './ProductCard.module.css';
 
 function ProductCard({
 	id,
@@ -22,7 +22,6 @@ function ProductCard({
 	isSmall,
 	onClick,
 	sameProduct,
-
 }) {
 	const dispatch = useDispatch();
 	const [isLike, setIsLike] = useState(false);
@@ -82,20 +81,22 @@ function ProductCard({
 
 			<div
 				className={
-					icon === 'delivery' && `${styles.description} ${styles.descriptionFastDelivery}`
+					icon === 'delivery' &&
+					`${styles.description} ${styles.descriptionFastDelivery}`
 				}
 			>
 				<div
 					className={
-						icon === 'discount' && `${styles.description} ${styles.descriptionDiscountCard}`
+						icon === 'discount' &&
+						`${styles.description} ${styles.descriptionDiscountCard}`
 					}
 				/>
+				<div className={!icon && `${styles.description}`} />
 				<div
 					className={
-						!icon && `${styles.description}`
+						icon === 'discount' || sameProduct ? styles.countBlock : styles.none
 					}
-				/>
-				<div className={icon === 'discount' || sameProduct ? styles.countBlock : styles.none}>
+				>
 					{icon === 'delivery' ? (
 						<div className={styles.price__FastDelivery}>
 							<p className={styles.price__new_fastDelivery}>
@@ -114,7 +115,6 @@ function ProductCard({
 								<span>&nbsp;&#8381;</span>
 							</p>
 						</div>
-
 					)}
 
 					<p className={styles.inStock}>
@@ -135,7 +135,11 @@ function ProductCard({
 				<p className={styles.property}>Страна</p>
 				<p className={styles.property}>{country}</p>
 			</div>
-			<AddToCartButton text="Добавить&nbsp;в&nbsp;корзину" onClick={onAddClick} isSuccess={added} />
+			<AddToCartButton
+				text="Добавить&nbsp;в&nbsp;корзину"
+				onClick={onAddClick}
+				isSuccess={added}
+			/>
 		</div>
 	);
 }

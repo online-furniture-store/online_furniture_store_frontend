@@ -9,11 +9,10 @@ function HomePage() {
 		<>
 			<Intro />
 			<Categories />
-			<ProductsWithScroll icon="discount" sameProduct />
+			<ProductsWithScroll />
 			<PopularProducts />
 			<Services />
 			<ProductsWithScroll icon="delivery" isSmall />
-
 		</>
 	);
 }

@@ -1,11 +1,41 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import useBreadcrumbs from 'use-react-router-breadcrumbs';
-import { routes } from '../../utils/breadcrumbsRoutes';
+import { DynamicBreadcrumb } from '../DynamicBreadcrumb/DynamicBreadcrumb';
 import styles from './Breadcrumbs.module.css';
 
+const routes = [
+	{ path: '/', breadcrumb: 'Главная' },
+	{ path: '/about', breadcrumb: 'О компании' },
+	{ path: '/user', breadcrumb: 'Личный кабинет' },
+	{ path: '/cart', breadcrumb: 'Корзина' },
+	{ path: '/chosen', breadcrumb: 'Избранное' },
+	{ path: '/arm-chairs', breadcrumb: 'Кресла и стулья' },
+	{ path: '/tables', breadcrumb: 'Столы' },
+	{ path: '/wardrobes', breadcrumb: 'Шкафы и системы хранения' },
+	{ path: '/sofas', breadcrumb: 'Диваны' },
+	{ path: '/sale', breadcrumb: 'Распродажа' },
+	{ path: '/rules-sale', breadcrumb: 'Условия заказа' },
+	{ path: '/under-construction', breadcrumb: '/under-construction' },
+	{ path: '/rules-consent', breadcrumb: 'Условия конфиденциальности' },
+	{ path: '/rules-data', breadcrumb: 'Политика обработки персональных данных' },
+	{ path: '/order-form', breadcrumb: 'Форма заказа' },
+	{ path: '/user/my_orders', breadcrumb: 'Мои заказы' },
+	{ path: '/user/feedback', breadcrumb: 'Отзывы' },
+	{ path: '/user/me', breadcrumb: 'Личные данные' },
+	{ path: '/favorites', breadcrumb: 'Избранное' },
+	{ path: '/order', breadcrumb: 'Заказ' },
+	{ path: '/payment', breadcrumb: 'Страница оплаты' },
+	{ path: '/product', breadcrumb: 'Карточка товара' },
+	{ path: '/product/:pageId', breadcrumb: DynamicBreadcrumb },
+	{
+		path: '/user/my_orders/:pageId',
+		breadcrumb: DynamicBreadcrumb,
+	},
+];
+
 function Breadcrumbs() {
-	const breadcrumbs = useBreadcrumbs(routes);
 	const location = useLocation();
+	const breadcrumbs = useBreadcrumbs(routes);
 
 	if (location.pathname === '/') {
 		return null;

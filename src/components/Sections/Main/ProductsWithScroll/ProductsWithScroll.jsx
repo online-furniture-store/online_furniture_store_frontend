@@ -2,13 +2,13 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { productDiscountSlider } from '../../../../utils/productDiscountSlider';
+import 'swiper/swiper-bundle.min.css';
+import 'swiper/swiper.min.css';
 import { productDeliverySlider } from '../../../../utils/productDeliverySlider';
+import { productDiscountSlider } from '../../../../utils/productDiscountSlider';
 import ProductCard from '../../../ProductCard/ProductCard';
 import Title from '../../../UI/Title/Title';
 import styles from './ProductsWithScroll.module.css';
-import 'swiper/swiper-bundle.min.css';
-import 'swiper/swiper.min.css';
 
 function ProductsWithScroll({ icon, isSmall, sameProduct }) {
 	const navigate = useNavigate();
