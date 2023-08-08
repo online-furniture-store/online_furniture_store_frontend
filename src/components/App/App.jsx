@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import { AboutPage, HomePage } from '../../pages';
 import CartPage from '../../pages/CartPage/CartPage';
 import ConsentDataProcessing from '../../pages/ConsentDataProcessing/ConsentDataProcessing';
@@ -99,6 +99,9 @@ function App() {
 								</ProtectedRoute>
 							}
 						/>
+						<Route path="/product" element={<Navigate to="/" replace />} />
+						<Route path="/user" element={<Navigate to="/user/my_orders" replace />} />
+						<Route path="*" element={<Navigate to="/" replace />} />
 					</Routes>
 				</main>
 				<Footer />
