@@ -1,0 +1,25 @@
+.list {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+  list-style: none;
+  width: 188px;
+}
+
+.item {
+  width: 100%;
+}
+
+.link {
+  padding: 8px 12px;
+  text-decoration: none;
+  color: var(--main-black);
+}
+
+.active {
+  padding: 8px 12px;
+  text-decoration: none;
+  color: var(--main-black);
+  background-color: #EBEBEB;
+  border-radius: 6px;
+}

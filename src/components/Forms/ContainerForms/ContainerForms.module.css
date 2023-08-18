@@ -1,0 +1,7 @@
+.container {
+  background-color: var(--element-background);
+  border-radius: 6px;
+  box-sizing: border-box;
+  padding: 32px;
+  min-width: 925px;
+}

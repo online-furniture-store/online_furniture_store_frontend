@@ -1,0 +1,19 @@
+.button {
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 23px;
+	width: 190px;
+	height: 45px;
+	color: var(--main-black);
+	background: transparent;
+	border-radius: 6px;
+	border: 0.8px solid var(--element-gray);
+	padding: 9px 37px 11px 37px;
+	cursor: pointer;
+}
+
+.button:hover {
+	color: var(--main-white);
+	background: var(--text-black);
+}

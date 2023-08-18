@@ -1,0 +1,52 @@
+.container {
+	margin-top: -20px;
+	padding-top: 20px;
+	margin-left: -20px;
+  padding-left: 20px;
+}
+
+.containerFastDelivery {
+	margin-bottom: 0;
+}
+
+.containerDiscount {
+	min-height: 737px;
+	margin-bottom: -165px;
+	pointer-events: none;
+}
+
+.wrapper {
+	max-width: 1440px;
+	background-color: transparent;
+	padding: 0 0 108px 100px;
+	box-sizing: border-box;
+}
+
+.wrapperFastDelivery {
+	margin: 0 auto;
+}
+
+.wrapperDiscount {
+	margin: 0 auto -165px;
+}
+
+.container::-webkit-scrollbar {
+	display: none;
+}
+
+.title {
+	margin-bottom: 56px;
+	position: sticky;
+	left: 0;
+}
+
+.description {
+	box-sizing: border-box;
+	position: relative;
+	max-width: 400px;
+	max-height: 402px;
+}
+
+.description:hover {
+	max-height: 737px;
+}

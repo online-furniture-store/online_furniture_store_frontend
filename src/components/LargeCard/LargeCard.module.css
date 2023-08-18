@@ -1,0 +1,163 @@
+.card {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--main-black);
+  padding: 0 100px;
+ box-sizing: border-box;
+}
+
+.wrapper {
+  width: 715px;
+  height: 550px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imgContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 124px;
+  max-height: 488px;
+  margin: 0 106px 0 20px;
+}
+
+.imgBtn {
+  display: flex;
+  width: 85px;
+  height: 107px;
+  border: none;
+  object-fit: cover;
+  border-radius: 5px;
+  overflow: hidden;
+  padding: 0;
+}
+
+.imgBtnSelected {
+  border: solid 1px var(--main-black);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 295px;
+  position: relative;
+  padding-top: 32px;
+}
+
+.likeContainer {
+  position: absolute;
+  top: 30px;
+  right: 0;
+}
+
+.name {
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0;
+}
+
+.brand {
+  margin-bottom: 7px;
+}
+
+.article {
+  margin-bottom: 32px;
+}
+
+.priceContainer {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.totalPrice {
+  font-size: 25px;
+}
+
+.totalPricediscounted,
+.notAvailable {
+  color: var(--system-red);
+}
+
+.price {
+  align-self: flex-end;
+  font-size: 20px;
+  text-decoration: line-through;
+  color: var(--text-light-gray);
+}
+
+.discount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 63px;
+  height: 33px;
+  font-size: 20px;
+  color: var(--text-light-gray);
+  border-radius: 10px;
+  border: 1px solid var(--text-light-gray);
+  box-sizing: border-box;
+}
+
+.radioButtons {
+  display: flex;
+  justify-content: space-between;
+  width: 70px;
+  margin-bottom: 32px;
+}
+
+.radioButton {
+  display: none;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  border: none;
+  box-sizing: border-box;
+}
+
+.blackButton,
+.yellowButton {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background: var(--light-black);
+  border-radius: 50%;
+  box-sizing: border-box;
+  padding: 3px;
+}
+
+.yellowButton {
+  background: var(--element-radio-button);
+}
+
+.radioButton:checked + .label {
+  border: solid 1px var(--element-gray);
+}
+
+.inStock,
+.notAvailable {
+  margin-top: 12px;
+  margin-bottom: 56px;
+}

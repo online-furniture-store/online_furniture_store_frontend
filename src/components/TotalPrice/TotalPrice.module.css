@@ -1,0 +1,109 @@
+.container {
+	max-width: 295px;
+	height: max-content;
+	background-color: #f9f9f9;
+	padding: 32px 20px 28px;
+	border-radius: 6px;
+	box-sizing: border-box;
+	position: sticky;
+	top: 97px;
+	left: 73%;
+}
+
+.lastPrice {
+	color: #999;
+	font-size: 16px;
+	text-decoration-line: line-through;
+	margin: 0;
+}
+
+.discountSection {
+	display: flex;
+	border-bottom: 0.5px solid #989898;
+	padding: 0 0 4px;
+	justify-content: space-between;
+	margin: 0 0 20px;
+}
+
+.discountText {
+	font-size: 16px;
+	margin: 0;
+}
+
+.discount {
+	font-weight: 700;
+	margin: 0;
+}
+
+.productsCount {
+	font-size: 16px;
+	color: #999999;
+	margin: 0 0 12px;
+}
+
+.dot {
+	margin: 0 3px;
+}
+
+.totalPrice {
+	font-size: 30px;
+	font-weight: 700;
+	margin: 0;
+}
+
+.totalContainer {
+	display: flex;
+	justify-content: space-between;
+	margin: 0 0 13px;
+}
+
+.deliveryTime {
+	color: #999999;
+	font-size: 16px;
+	text-align: center;
+	margin: 14px 0 28px;
+}
+
+.deliveryCost {
+	display: flex;
+	font-size: 16px;
+	justify-content: center;
+	margin: 0;
+	text-decoration: none;
+	color: black;
+}
+
+.argeement {
+	color: #999;
+	font-size: 12px;
+	line-height: 17px;
+	margin: 18px 0 0;
+}
+
+.link {
+	text-decoration: none;
+	color: black;
+}
+
+.link:hover {
+	opacity: 0.6;
+}
+
+.repeatContainer {
+	display: flex;
+	margin-top: 7px;
+}
+
+.repeatText {
+	margin: 0 0 0 8px;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: normal;
+}
+
+.paymentText {
+	font-size: 18px;
+	font-weight: 400;
+	line-height: normal;
+	margin: 0;
+}

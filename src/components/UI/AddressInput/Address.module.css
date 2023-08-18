@@ -1,0 +1,96 @@
+.container {
+	max-width: 607px;
+	display: flex;
+	flex-direction: column-reverse;
+	position: relative;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 21px;
+}
+
+.naming {
+	color: var(--element-grey);
+	font-size: 16px;
+	margin: 0 0 4px;
+}
+
+.input {
+	max-width: 100%;
+	height: 56px;
+	background: transparent;
+	color: var(--main-black);
+	border-radius: 10px;
+	padding: 16px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between;
+}
+
+.input__default {
+	border: 1px solid var(--element-gray);
+}
+
+.input:focus {
+	border: 1.5px solid var(--text-black);
+	outline: none;
+}
+
+.input:focus + .naming {
+	color: var(--main-black);
+}
+
+.input:hover {
+	border: 1.8px solid var(--element-gray);
+}
+
+.input::placeholder {
+	color: var(--element-gray);
+}
+
+.naming::after {
+	content: ' *';
+	color: var(--system-red);
+}
+
+.input__error {
+	border: 1px solid var(--system-red);
+}
+
+.input[type='search']:focus::-webkit-search-cancel-button {
+	-webkit-appearance: none;
+	width: 16px;
+	height: 16px;
+	background-image: url(../../../assets/img/closeCross.svg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	margin-right: -2px;
+	cursor: pointer;
+}
+
+.input__error + .naming {
+	color: var(--system-red);
+}
+
+.errorText {
+	color: var(--system-red);
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	position: absolute;
+	left: 0;
+	bottom: -20px;
+}
+
+.crossBtn {
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	top: 46px;
+	right: 16px;
+	background-image: url(../../../assets/img/closeCross.svg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	cursor: pointer;
+}

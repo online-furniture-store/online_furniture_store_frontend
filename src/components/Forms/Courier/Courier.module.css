@@ -1,0 +1,19 @@
+.addressNumbers {
+  display: flex;
+  max-width: 500px;
+  justify-content: space-between;
+  margin: 24px 0 20px;
+}
+
+.text {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0 0 20px;
+}
+.address{
+  margin: 24px 0 0 ;
+}
+.comment{
+  margin: 0 0 24px;
+}

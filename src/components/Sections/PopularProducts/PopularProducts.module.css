@@ -1,0 +1,87 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-bottom: 108px;
+  margin: 0 auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1440px;
+  width: 100%;
+  height: max-content;
+  margin: 0 auto;
+  gap: 56px;
+  padding: 0 100px;
+  box-sizing: border-box;
+}
+
+.containerLocationCart {
+  gap: 47px;
+  height: 344px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  gap: 20px;
+}
+
+.gridLocationCart {
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 242px;
+  width: 100%;
+}
+
+.link {
+  all: unset;
+}
+
+.link:hover {
+  cursor: pointer;
+}
+
+
+.leftColumn {
+  display: grid;
+  grid-template-areas:
+    'A A'
+    'B C';
+  grid-template-rows: 294px 164px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 20px;
+}
+
+.rightColumn {
+  display: grid;
+  grid-template-areas:
+    'B C'
+    'A A';
+  grid-template-rows: 164px 294px;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 20px;
+}
+
+.box0 {
+  grid-area: A;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.box1 {
+  grid-area: B;
+  width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.box2 {
+  grid-area: C;
+  width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+}

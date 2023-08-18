@@ -1,0 +1,29 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	max-width: 607px;
+	gap: 4px;
+}
+
+.label {
+	color: #777;
+	font-size: 16px;
+}
+
+.textarea {
+	all: unset;
+	min-height: 125px;
+	padding: 15px 20px 89px 12px;
+	border-radius: 10px;
+	border: 1.8px solid #999;
+	color: #000;
+	font-size: 18px;
+}
+
+.textarea:hover {
+  border: 2px solid #999;
+}
+
+.textarea:focus {
+	border: 2px solid #202020;
+}
