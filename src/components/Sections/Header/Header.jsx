@@ -49,7 +49,10 @@ function Header() {
 
 	return (
 		<header>
-			{location.pathname === '/' ? (
+			{location.pathname === '/' ||
+			location.pathname === '/favorites' ||
+			location.pathname.includes('/product/') ||
+			location.pathname.includes('/user/') ? (
 				<div className={styles.header}>
 					<div className={styles.main} onClick={handleHideSearchInput}>
 						<div className={styles.main__container}>
@@ -77,7 +80,10 @@ function Header() {
 									</button>
 								</li>
 								<li className={styles.menu__element}>
-									<NavLink to="/under-construction" className={styles.menu__item}>
+									<NavLink
+										to="/under-construction"
+										className={styles.menu__item}
+									>
 										<p className={styles.menu__text}>O компании</p>
 									</NavLink>
 								</li>
