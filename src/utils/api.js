@@ -201,7 +201,7 @@ export class Api {
 }
 
 const api = new Api({
-	baseUrl: 'https://ofs.proninteam.ru/',
+	baseUrl: 'https://online-furniture-store.site/',
 	headers: {
 		'content-type': 'application/json',
 	},
