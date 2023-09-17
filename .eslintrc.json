@@ -40,6 +40,7 @@
 		"react/jsx-wrap-multilines": "off",
 		"arrow-body-style": "off",
 		"react/jsx-closing-bracket-location": "off",
+		"no-confusing-arrow": "off",
 		"function-paren-newline": "off"
 	}
 }

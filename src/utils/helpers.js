@@ -10,6 +10,6 @@ export function declensionWordYear(num) {
 
 export function checkAvailability(products, id) {
 	return products?.some((elem) =>
-		(elem.product ? elem.product.id === +id : elem.id === +id),
+		elem.product ? elem.product.id === +id : elem.id === +id,
 	);
 }
