@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import placeholder from '../../assets/img/placeholder.png';
 import { addToCart } from '../../store/cart/cart-slice';
+import { addToFavorites, deleteFromFavorites } from '../../store/favorites/favorites-slice';
 import AddToCartButton from '../UI/AddToCartButton/AddToCartButton';
 import Like from '../UI/Like/Like';
 import styles from './ProductCard.module.css';
@@ -18,15 +18,17 @@ function ProductCard({
 	brand,
 	country,
 	icon,
-	added,
+	inCart,
+	inFavorites,
 	isSmall,
 	onClick,
 	sameProduct,
 }) {
 	const dispatch = useDispatch();
-	const [isLike, setIsLike] = useState(false);
 	const onLikeClick = () => {
-		setIsLike(!isLike);
+		if (inFavorites) {
+			dispatch(deleteFromFavorites(id));
+		} else dispatch(addToFavorites({ product: id }));
 	};
 	const onAddClick = () => {
 		dispatch(addToCart({ product: id, quantity: 1 }));
@@ -73,7 +75,7 @@ function ProductCard({
 					/>
 
 					<div className={styles.likes}>
-						<Like onClick={onLikeClick} active={isLike} ariaLabel="like" />
+						<Like onClick={onLikeClick} active={inFavorites} ariaLabel="like" />
 					</div>
 				</div>
 			</div>
@@ -126,7 +128,7 @@ function ProductCard({
 			<AddToCartButton
 				text="Добавить&nbsp;в&nbsp;корзину"
 				onClick={onAddClick}
-				isSuccess={added}
+				isSuccess={inCart}
 			/>
 		</div>
 	);
@@ -143,7 +145,8 @@ ProductCard.propTypes = {
 	brand: PropTypes.string.isRequired,
 	country: PropTypes.string.isRequired,
 	icon: PropTypes.string,
-	added: PropTypes.bool,
+	inCart: PropTypes.bool,
+	inFavorites: PropTypes.bool,
 	isSmall: PropTypes.bool,
 	onClick: PropTypes.func,
 	sameProduct: PropTypes.bool,

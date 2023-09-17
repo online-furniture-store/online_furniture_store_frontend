@@ -18,6 +18,10 @@
 	box-sizing: border-box;
 }
 
+.card:hover {
+	cursor: pointer;
+}
+
 .cardContent {
 	display: flex;
 	gap: 32px;

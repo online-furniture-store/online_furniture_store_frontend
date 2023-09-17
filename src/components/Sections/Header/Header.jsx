@@ -12,6 +12,7 @@ import HeartCounter from '../../UI/HeartCounter/HeartCounter';
 import styles from './Header.module.css';
 import { selectCart } from '../../../store/cart/cart-slice';
 import { selectAuth } from '../../../store/auth/auth-slice';
+import { selectFavorites } from '../../../store/favorites/favorites-slice';
 
 function Header() {
 	const location = useLocation();
@@ -21,6 +22,7 @@ function Header() {
 	const [searchValue, setSearchValue] = useState();
 	const [searchInputShown, setSearchInputShow] = useState(false);
 	const { cart } = useSelector(selectCart);
+	const { favorites } = useSelector(selectFavorites);
 	const { isAuth } = useSelector(selectAuth);
 	const navigate = useNavigate();
 
@@ -140,7 +142,7 @@ function Header() {
 									/>
 								</button>
 								<NavLink className={styles.nav__item} to="/favorites">
-									<HeartCounter amount={0} />
+									<HeartCounter amount={favorites.products?.length || 0} />
 								</NavLink>
 								<NavLink className={styles.nav__item} to="/cart">
 									<Grocery amount={cart.total_quantity || 0} />

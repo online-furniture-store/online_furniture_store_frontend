@@ -8,9 +8,11 @@ import BlackButton from '../../../UI/BlackButton/BlackButton';
 import CartCard from '../../../CartCard/CartCard';
 import emptyCart from '../../../../assets/img/emptyCart.png';
 import { selectCart } from '../../../../store/cart/cart-slice';
+import { selectFavorites } from '../../../../store/favorites/favorites-slice';
 
 function CartSection() {
 	const { cart } = useSelector(selectCart);
+	const { favorites } = useSelector(selectFavorites);
 
 	const navigate = useNavigate();
 	useEffect(() => {
@@ -47,7 +49,13 @@ function CartSection() {
 								discountPrice={product.total_price}
 								price={product.price}
 								img={product.images ? product.images.first_image : ''}
+								inFavorites={favorites.products?.some(
+									(elem) => elem.id === product.id,
+								)}
 								quantity={quantity}
+								onClick={() => {
+									navigate(`/product/${product.id}`);
+								}}
 							/>
 						</li>
 					))}
@@ -60,7 +68,9 @@ function CartSection() {
 					days={7}
 					lastPrice={cart.total_price}
 					buttonText="Оформить&nbsp;заказ"
-					onClick={() => { navigate('/order-form'); }}
+					onClick={() => {
+						navigate('/order-form');
+					}}
 				/>
 			</div>
 		</section>

@@ -1,4 +1,4 @@
-/* eslint-disable */
+// /* eslint-disable */
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -10,9 +10,9 @@ import placeholder from '../../assets/img/placeholder.png';
 import Like from '../UI/Like/Like';
 import BlackButton from '../UI/BlackButton/BlackButton';
 import AddToCartButton from '../UI/AddToCartButton/AddToCartButton';
+import { addToFavorites, deleteFromFavorites } from '../../store/favorites/favorites-slice';
 
 function LargeCard({
-	isFavorited,
 	brand,
 	id,
 	images,
@@ -20,16 +20,18 @@ function LargeCard({
 	article,
 	discount,
 	totalPrice,
-	added,
+	inCart,
+	inFavorites,
 	price,
 	availableQuantity,
 }) {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const [largeCard, setLargeCard] = useState(images[0]);
-	const [isLike, setIsLike] = useState(isFavorited);
-	const handleClick = () => {
-		setIsLike(!isLike);
+	const handleLikeClick = () => {
+		if (inFavorites) {
+			dispatch(deleteFromFavorites(id));
+		} else dispatch(addToFavorites({ product: id }));
 	};
 	return (
 		<div className={styles.card}>
@@ -73,7 +75,7 @@ function LargeCard({
 			<div className={styles.info}>
 				<div className={styles.likeContainer}>
 					{' '}
-					<Like onClick={handleClick} active={!isLike} ariaLabel="like" />
+					<Like onClick={handleLikeClick} active={inFavorites} ariaLabel="like" />
 				</div>
 				<span className={styles.name}>{name}</span>
 				<span className={styles.brand}>{brand}</span>
@@ -119,7 +121,7 @@ function LargeCard({
 					<AddToCartButton
 						text="В корзину"
 						onClick={() => dispatch(addToCart({ product: id, quantity: 1 }))}
-						isSuccess={added}
+						isSuccess={inCart}
 					/>
 				) : (
 					<BlackButton
@@ -142,7 +144,6 @@ function LargeCard({
 }
 
 LargeCard.propTypes = {
-	isFavorited: PropTypes.bool,
 	brand: PropTypes.string,
 	images: PropTypes.arrayOf(PropTypes.string),
 	name: PropTypes.string,
@@ -151,7 +152,8 @@ LargeCard.propTypes = {
 	discount: PropTypes.number,
 	totalPrice: PropTypes.number,
 	price: PropTypes.number,
-	added: PropTypes.bool,
+	inCart: PropTypes.bool,
+	inFavorites: PropTypes.bool,
 	availableQuantity: PropTypes.number,
 };
 

@@ -13,6 +13,7 @@ import ProfileForm from '../../pages/ProfileForm/ProfileForm';
 import TradingRules from '../../pages/TradingRules/TradingRules';
 import UserAccount from '../../pages/UserAccount/UserAccount';
 import { getCart } from '../../store/cart/cart-slice';
+import { getFavorites } from '../../store/favorites/favorites-slice';
 import { closeModal, selectModal } from '../../store/modal/modal-slice';
 import {
 	fetchCollections,
@@ -40,6 +41,7 @@ function App() {
 		dispatch(fetchPopularProducts());
 		dispatch(fetchCollections());
 		dispatch(getCart());
+		dispatch(getFavorites());
 		dispatch(updateToken());
 		dispatch(fetchUser());
 	}, [dispatch]);

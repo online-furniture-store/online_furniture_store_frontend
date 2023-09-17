@@ -12,6 +12,7 @@ import styles from './ProductsWithScroll.module.css';
 import { selectProducts } from '../../../../store/products/products-slice';
 import { selectFurniture } from '../../../../store/furniture/furniture-slice';
 import { selectCart } from '../../../../store/cart/cart-slice';
+import { selectFavorites } from '../../../../store/favorites/favorites-slice';
 
 function ProductsWithScroll({ icon, isSmall, sameProduct }) {
 	const navigate = useNavigate();
@@ -20,6 +21,7 @@ function ProductsWithScroll({ icon, isSmall, sameProduct }) {
 		useSelector(selectProducts);
 	const { furniture } = useSelector(selectFurniture);
 	const { cart } = useSelector(selectCart);
+	const { favorites } = useSelector(selectFavorites);
 
 	const swiperOptions = () => {
 		return icon === 'delivery' ? productDeliverySlider : productDiscountSlider;
@@ -65,7 +67,8 @@ function ProductsWithScroll({ icon, isSmall, sameProduct }) {
 							brand={item.brand}
 							country={item.country}
 							icon={icon}
-							added={cart.products.some((elem) => elem.product.id === item.id)}
+							inCart={cart.products?.some((elem) => elem.product.id === item.id)}
+							inFavorites={favorites.products?.some((elem) => elem.id === item.id)}
 							isSmall={isSmall}
 							onClick={() => {
 								navigate(`/product/${item.id}`);

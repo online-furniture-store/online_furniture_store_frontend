@@ -4,10 +4,12 @@ import styles from './PopularProducts.module.css';
 import Title from '../../UI/Title/Title';
 import PopularProductCard from '../../PopularProductCard/PopularProductCard';
 import { selectProducts } from '../../../store/products/products-slice';
+import { selectFavorites } from '../../../store/favorites/favorites-slice';
 
 function PopularProducts() {
 	const navigate = useNavigate();
 	const { popularProducts } = useSelector(selectProducts);
+	const { favorites } = useSelector(selectFavorites);
 	const location = useLocation();
 	return (
 		<section className={styles.section}>
@@ -26,10 +28,13 @@ function PopularProducts() {
 						{popularProducts.map((item) => (
 							<PopularProductCard
 								key={item.id}
+								id={item.id}
 								img={item.images ? item.images.first_image : ''}
 								productName={item.name}
 								productPrice={item.total_price}
-								productFavorited={item.is_favorited}
+								inFavorites={favorites.products?.some(
+									(elem) => elem.id === item.id,
+								)}
 								onClick={() => {
 									navigate(`/product/${item.id}`);
 								}}
@@ -42,10 +47,13 @@ function PopularProducts() {
 							{popularProducts.slice(0, 3).map((item, index) => (
 								<div className={styles[`box${index}`]} key={item.id}>
 									<PopularProductCard
+										id={item.id}
 										img={item.images ? item.images.first_image : ''}
 										productName={item.name}
 										productPrice={item.total_price}
-										productFavorited={item.is_favorited}
+										inFavorites={favorites.products?.some(
+											(elem) => elem.id === item.id,
+										)}
 										onClick={() => {
 											navigate(`/product/${item.id}`);
 										}}
@@ -57,10 +65,13 @@ function PopularProducts() {
 							{popularProducts.slice(3).map((item, index) => (
 								<div className={styles[`box${index}`]} key={item.id}>
 									<PopularProductCard
+										id={item.id}
 										img={item.images ? item.images.first_image : ''}
 										productName={item.name}
 										productPrice={item.total_price}
-										productFavorited={item.is_favorited}
+										inFavorites={favorites.products?.some(
+											(elem) => elem.id === item.id,
+										)}
 										onClick={() => {
 											navigate(`/product/${item.id}`);
 										}}

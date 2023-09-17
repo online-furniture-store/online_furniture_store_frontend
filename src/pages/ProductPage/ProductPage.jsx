@@ -4,10 +4,14 @@ import { useParams } from 'react-router-dom';
 import LargeCard from '../../components/LargeCard/LargeCard';
 import ProductsWithScroll from '../../components/Sections/Main/ProductsWithScroll/ProductsWithScroll';
 import Characteristic from '../../components/UI/Characteristic/Characteristic';
-import { fetchProduct, selectFurniture } from '../../store/furniture/furniture-slice';
+import {
+	fetchProduct,
+	selectFurniture,
+} from '../../store/furniture/furniture-slice';
 import { declensionWordYear } from '../../utils/utils';
 import styles from './ProductPage.module.css';
 import { selectCart } from '../../store/cart/cart-slice';
+import { selectFavorites } from '../../store/favorites/favorites-slice';
 
 function ProductPage() {
 	const dispatch = useDispatch();
@@ -18,6 +22,7 @@ function ProductPage() {
 	}, []);
 	const { furniture, loading } = useSelector(selectFurniture);
 	const { cart } = useSelector(selectCart);
+	const { favorites } = useSelector(selectFavorites);
 	useEffect(() => {
 		dispatch(fetchProduct(id));
 	}, [dispatch, id]);
@@ -25,7 +30,6 @@ function ProductPage() {
 		<div className={styles.content}>
 			<LargeCard
 				id={id}
-				isFavorited={furniture.product.is_favorited}
 				brand={furniture.product.brand}
 				images={Object.values(furniture.product.images)}
 				name={furniture.product.name}
@@ -33,7 +37,8 @@ function ProductPage() {
 				discount={furniture.product.discount}
 				totalPrice={furniture.product.total_price}
 				price={furniture.product.price}
-				added={cart.products.some((elem) => elem.product.id === +id)}
+				inCart={cart.products?.some((elem) => elem.product.id === +id)}
+				inFavorites={favorites.products?.some((elem) => elem.id === +id)}
 				availableQuantity={furniture.product.available_quantity}
 			/>
 			<div className={styles.description}>

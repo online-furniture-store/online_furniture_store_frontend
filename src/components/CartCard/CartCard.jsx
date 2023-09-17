@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addToCart, deleteFromCart } from '../../store/cart/cart-slice';
+import { addToFavorites, deleteFromFavorites } from '../../store/favorites/favorites-slice';
 import styles from './CartCard.module.css';
 
 import Like from '../UI/Like/Like';
@@ -17,22 +18,34 @@ function CartCard({
 	discountPrice,
 	price,
 	quantity,
+	inFavorites,
+	onClick,
 }) {
 	const dispatch = useDispatch();
-	const onLikeClick = () => {};
+	const onLikeClick = () => {
+		if (inFavorites) {
+			dispatch(deleteFromFavorites(id));
+		} else dispatch(addToFavorites({ product: id }));
+	};
 
-	const increaseCounter = () => {
+	const increaseCounter = (e) => {
+		e.stopPropagation();
 		dispatch(addToCart({ product: id, quantity: quantity + 1 }));
 	};
-	const decreaseCounter = () => {
+	const decreaseCounter = (e) => {
+		e.stopPropagation();
 		dispatch(addToCart({ product: id, quantity: quantity - 1 }));
 	};
-	const onDeleteClick = () => {
+	const onDeleteClick = (e) => {
+		e.stopPropagation();
 		dispatch(deleteFromCart(id));
 	};
 
 	return (
-		<div className={inStock ? styles.cardContainer : styles.cardContainerDisabled}>
+		<div
+			className={inStock ? styles.cardContainer : styles.cardContainerDisabled}
+			onClick={onClick}
+		>
 			<article className={styles.card}>
 				<div className={styles.cardContent}>
 					<img
@@ -83,7 +96,7 @@ function CartCard({
 					</div>
 				</div>
 				<div className={styles.buttons}>
-					<Like onClick={onLikeClick} active={false} ariaLabel="like" />
+					<Like onClick={onLikeClick} active={inFavorites} ariaLabel="like" />
 					<Delete onClick={onDeleteClick} ariaLabel="delete" />
 				</div>
 			</article>
@@ -100,6 +113,8 @@ CartCard.propTypes = {
 	price: PropTypes.number.isRequired,
 	quantity: PropTypes.number.isRequired,
 	img: PropTypes.string,
+	inFavorites: PropTypes.bool,
+	onClick: PropTypes.func,
 };
 
 export default CartCard;

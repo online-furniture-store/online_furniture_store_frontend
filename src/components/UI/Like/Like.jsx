@@ -16,7 +16,7 @@ function Like({ onClick, active, ariaLabel }) {
 }
 
 Like.propTypes = {
-	active: PropTypes.bool.isRequired,
+	active: PropTypes.bool,
 	onClick: PropTypes.func.isRequired,
 	ariaLabel: PropTypes.string.isRequired,
 };
