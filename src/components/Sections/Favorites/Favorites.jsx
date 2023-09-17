@@ -9,9 +9,10 @@ import emptyCart from '../../../assets/img/emptyCart.png';
 import Title from '../../UI/Title/Title';
 import { selectFavorites } from '../../../store/favorites/favorites-slice';
 import { selectCart } from '../../../store/cart/cart-slice';
+import { checkAvailability } from '../../../utils/helpers';
 
 function Favorites() {
-	const { favorites } = useSelector(selectFavorites);
+	const { favorites, loading } = useSelector(selectFavorites);
 	const { cart } = useSelector(selectCart);
 
 	const navigate = useNavigate();
@@ -29,13 +30,14 @@ function Favorites() {
 							title={item.name}
 							oldPrice={item.price.toLocaleString()}
 							newPrice={item.price.toLocaleString()}
+							discount={item.discount}
 							weight={item.weight || 1}
 							brand={item.brand || 'не известно'}
 							country={item.country || 'не известно'}
 							img={item.images ? item.images.first_image : ''}
 							inStock={item.available_quantity}
-							inCart={cart.products?.some((elem) => elem.product.id === item.id)}
-							inFavorites={favorites.products?.some((elem) => elem.id === item.id)}
+							inCart={checkAvailability(cart.products, item.id)}
+							inFavorites={checkAvailability(favorites.products, item.id)}
 							id={item.id}
 							isSmall
 							onClick={() => {
@@ -46,7 +48,7 @@ function Favorites() {
 				))}
 			</ul>
 		</section>
-	) : (
+	) : (!loading &&
 		<section className={`${styles.section} ${styles.emptyCartContainer}`}>
 			<div className={styles.emptyCartDescription}>
 				<Title titleText="Избранное" />

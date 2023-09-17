@@ -11,7 +11,7 @@ import { selectCart } from '../../../../store/cart/cart-slice';
 import { selectFavorites } from '../../../../store/favorites/favorites-slice';
 
 function CartSection() {
-	const { cart } = useSelector(selectCart);
+	const { cart, loading } = useSelector(selectCart);
 	const { favorites } = useSelector(selectFavorites);
 
 	const navigate = useNavigate();
@@ -74,7 +74,7 @@ function CartSection() {
 				/>
 			</div>
 		</section>
-	) : (
+	) : (!loading &&
 		<section className={`${styles.container} ${styles.emptyCartContainer}`}>
 			<div className={styles.emptyCartDescription}>
 				<Title titleText="Корзина" />

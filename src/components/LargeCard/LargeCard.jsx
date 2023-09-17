@@ -1,4 +1,3 @@
-// /* eslint-disable */
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -10,7 +9,10 @@ import placeholder from '../../assets/img/placeholder.png';
 import Like from '../UI/Like/Like';
 import BlackButton from '../UI/BlackButton/BlackButton';
 import AddToCartButton from '../UI/AddToCartButton/AddToCartButton';
-import { addToFavorites, deleteFromFavorites } from '../../store/favorites/favorites-slice';
+import {
+	addToFavorites,
+	deleteFromFavorites,
+} from '../../store/favorites/favorites-slice';
 
 function LargeCard({
 	brand,
@@ -75,7 +77,11 @@ function LargeCard({
 			<div className={styles.info}>
 				<div className={styles.likeContainer}>
 					{' '}
-					<Like onClick={handleLikeClick} active={inFavorites} ariaLabel="like" />
+					<Like
+						onClick={handleLikeClick}
+						active={inFavorites}
+						ariaLabel="like"
+					/>
 				</div>
 				<span className={styles.name}>{name}</span>
 				<span className={styles.brand}>{brand}</span>

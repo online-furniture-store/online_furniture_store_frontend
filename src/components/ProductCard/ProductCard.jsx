@@ -12,6 +12,7 @@ function ProductCard({
 	title,
 	newPrice,
 	oldPrice,
+	discount,
 	img,
 	inStock,
 	weight,
@@ -87,7 +88,7 @@ function ProductCard({
 				}
 			>
 				<div className={icon === 'discount' || sameProduct ? styles.countBlock : styles.descriptionDiscountCard}>
-					{icon === 'delivery' ? (
+					{icon === 'delivery' || !discount ? (
 						<div className={styles.price__FastDelivery}>
 							<p className={styles.price__new_fastDelivery}>
 								{oldPrice}
@@ -139,6 +140,7 @@ ProductCard.propTypes = {
 	id: PropTypes.number,
 	newPrice: PropTypes.string.isRequired,
 	oldPrice: PropTypes.string.isRequired,
+	discount: PropTypes.number,
 	img: PropTypes.string,
 	inStock: PropTypes.number.isRequired,
 	weight: PropTypes.number.isRequired,

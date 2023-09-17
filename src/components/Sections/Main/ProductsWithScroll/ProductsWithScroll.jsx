@@ -13,6 +13,7 @@ import { selectProducts } from '../../../../store/products/products-slice';
 import { selectFurniture } from '../../../../store/furniture/furniture-slice';
 import { selectCart } from '../../../../store/cart/cart-slice';
 import { selectFavorites } from '../../../../store/favorites/favorites-slice';
+import { checkAvailability } from '../../../../utils/helpers';
 
 function ProductsWithScroll({ icon, isSmall, sameProduct }) {
 	const navigate = useNavigate();
@@ -62,13 +63,14 @@ function ProductsWithScroll({ icon, isSmall, sameProduct }) {
 							title={item.name}
 							newPrice={item.total_price.toLocaleString()}
 							oldPrice={item.price.toLocaleString()}
+							discount={item.discount}
 							inStock={item.available_quantity}
 							weight={item.weight}
 							brand={item.brand}
 							country={item.country}
 							icon={icon}
-							inCart={cart.products?.some((elem) => elem.product.id === item.id)}
-							inFavorites={favorites.products?.some((elem) => elem.id === item.id)}
+							inCart={checkAvailability(cart.products, item.id)}
+							inFavorites={checkAvailability(favorites.products, item.id)}
 							isSmall={isSmall}
 							onClick={() => {
 								navigate(`/product/${item.id}`);

@@ -5,13 +5,14 @@ import Title from '../../UI/Title/Title';
 import PopularProductCard from '../../PopularProductCard/PopularProductCard';
 import { selectProducts } from '../../../store/products/products-slice';
 import { selectFavorites } from '../../../store/favorites/favorites-slice';
+import { checkAvailability } from '../../../utils/helpers';
 
 function PopularProducts() {
 	const navigate = useNavigate();
-	const { popularProducts } = useSelector(selectProducts);
+	const { popularProducts, loading } = useSelector(selectProducts);
 	const { favorites } = useSelector(selectFavorites);
 	const location = useLocation();
-	return (
+	return !loading && (
 		<section className={styles.section}>
 			<div
 				className={
@@ -32,9 +33,7 @@ function PopularProducts() {
 								img={item.images ? item.images.first_image : ''}
 								productName={item.name}
 								productPrice={item.total_price}
-								inFavorites={favorites.products?.some(
-									(elem) => elem.id === item.id,
-								)}
+								inFavorites={checkAvailability(favorites.products, item.id)}
 								onClick={() => {
 									navigate(`/product/${item.id}`);
 								}}
@@ -51,9 +50,7 @@ function PopularProducts() {
 										img={item.images ? item.images.first_image : ''}
 										productName={item.name}
 										productPrice={item.total_price}
-										inFavorites={favorites.products?.some(
-											(elem) => elem.id === item.id,
-										)}
+										inFavorites={checkAvailability(favorites.products, item.id)}
 										onClick={() => {
 											navigate(`/product/${item.id}`);
 										}}
@@ -69,9 +66,7 @@ function PopularProducts() {
 										img={item.images ? item.images.first_image : ''}
 										productName={item.name}
 										productPrice={item.total_price}
-										inFavorites={favorites.products?.some(
-											(elem) => elem.id === item.id,
-										)}
+										inFavorites={checkAvailability(favorites.products, item.id)}
 										onClick={() => {
 											navigate(`/product/${item.id}`);
 										}}

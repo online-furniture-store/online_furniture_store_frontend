@@ -8,7 +8,7 @@ import {
 	fetchProduct,
 	selectFurniture,
 } from '../../store/furniture/furniture-slice';
-import { declensionWordYear } from '../../utils/utils';
+import { checkAvailability, declensionWordYear } from '../../utils/helpers';
 import styles from './ProductPage.module.css';
 import { selectCart } from '../../store/cart/cart-slice';
 import { selectFavorites } from '../../store/favorites/favorites-slice';
@@ -37,8 +37,8 @@ function ProductPage() {
 				discount={furniture.product.discount}
 				totalPrice={furniture.product.total_price}
 				price={furniture.product.price}
-				inCart={cart.products?.some((elem) => elem.product.id === +id)}
-				inFavorites={favorites.products?.some((elem) => elem.id === +id)}
+				inCart={checkAvailability(cart.products, id)}
+				inFavorites={checkAvailability(favorites.products, id)}
 				availableQuantity={furniture.product.available_quantity}
 			/>
 			<div className={styles.description}>
